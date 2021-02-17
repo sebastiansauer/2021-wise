@@ -1,0 +1,1 @@
+tidyverse, mosaic, arm, openintro, skimr, broom, cowplot, yardstick, ggfortify, ggstatsplot, nycflights13, gapminder, moderndive
