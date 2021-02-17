@@ -1,0 +1,34 @@
+---
+title: "Code-Book zur Lernerfolg-Analyse"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+In diesem Datensatz wird der Lernerfolg in weiterführenden Schulen untersucht, genauer gesagt aus dem Mathematikunterricht. Gehen Sie davon aus, dass die Daten im Jahr 2020 erhoben wurden.
+
+
+# ID-Variablen
+
+- *id*: Fortlaufende Nummer
+
+# Abhängige Variable
+
+- *Punkte*: Schulnote (höher ist besser)
+
+
+# Unabhängige Variablen
+
+- *Alter*: Alter der/des Schülers/in (Übertragungsfehler sind möglich; viele fehlende Werte; ggf. besser diese Variable ignorieren)
+- *Geburtsjahr*: Geburtstjahr der/des Schüler/in (viele fehlende Werte; ggf. besser diese Variable ignorieren)
+- *Geschlecht*: w/m
+- *Bildungsgrad der Eltern*: gering, mittel, hoch
+- *Alkohol*: Höhe des Alkoholgebrauchs (höhere Werte bedeuten mehr Alkoholkonsum)
+- *Gesundheit*: Aktueller subjektiver Gesundheitszustand (1: sehr schlecht, 5: sehr gut)
+- *Sozial*: (Subjektive) soziale Unterstützung durch Familie und Freundeskreis (1: sehr schlecht, 5: sehr gut)
+- *Unterstützung*: Nachhilfeunterricht (ja/nein)
+- *Wiederholungen*: Anzahl der Klassenwiederholungen
+- *Lernzeit*: Lernzeit in Stunden pro Woche
+- *Fehltage*: Anzahl der Fehltage von der Schule (pro Schuljahr)
+- *Haarfarbe*: Die Haarfarbe der Person (1: braun, 2: blond, 3: schwarz, 4: rot, 5: sonstiges)
