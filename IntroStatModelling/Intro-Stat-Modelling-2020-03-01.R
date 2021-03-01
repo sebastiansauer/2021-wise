@@ -96,3 +96,56 @@ table1 %>%
 
 
 write_csv(x = table1, file = "table1.csv")
+
+
+
+
+# Simple regression modelling
+# 
+# 
+# 
+
+# lm(y ~ x, data = my_data)
+# 
+
+lm1 <-
+  lm(dep_delay ~ hour, data = flights)
+
+flights %>% 
+  ggplot() +
+  aes(x = hour, y = dep_delay) +
+  geom_smooth(method = "lm") +
+  #geom_bin2d() +
+  coord_cartesian(ylim = c(-10, 23),
+                  xlim = c(0, 23)) +
+  labs(y = "delay in minutes",
+       x = "departure hour")
+
+
+
+delay_20h = -9.8 + 1.7*20
+delay_20h
+
+library(broom)
+
+tidy(lm1)
+
+glance(lm1)
+
+
+lm2 <-
+  lm(dep_delay ~ origin, data = flights)
+
+tidy(lm2)
+
+
+flights %>% 
+  drop_na(origin, dep_delay) %>% 
+  group_by(origin) %>% 
+  summarise(dep_delay_avg = mean(dep_delay)) %>% 
+  ggplot() +
+  aes(x = origin,
+      y = dep_delay_avg) +
+  geom_point(size = 5, color = "red")
+
+
