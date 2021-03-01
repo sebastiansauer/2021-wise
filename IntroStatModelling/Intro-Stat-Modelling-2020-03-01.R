@@ -270,5 +270,28 @@ lm7 <-
 glance(lm7)
 
 
+library(lubridate)
 
-  
+flights3 <- 
+  flights2 %>% 
+  mutate(day_of_week = wday(time_hour))
+
+View(flights3) 
+
+
+flights4 <- 
+  flights3 %>% 
+  mutate(is_weekend = case_when(
+    day_of_week %in% c(6, 7) ~ TRUE,
+    TRUE ~ FALSE))
+
+
+flights4 <- 
+flights4 %>% 
+  drop_na(dep_delay)
+
+flights4 %>% 
+  drop_na(is_weekend) %>% 
+  group_by(is_weekend) %>% 
+  summarise(delay_md = median(dep_delay))
+
