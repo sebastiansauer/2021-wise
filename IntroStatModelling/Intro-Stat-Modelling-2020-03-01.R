@@ -148,4 +148,127 @@ flights %>%
       y = dep_delay_avg) +
   geom_point(size = 5, color = "red")
 
+# delay is a function of origin as well as time of departure
+lm3 <-
+  lm(dep_delay ~ origin + hour, 
+     data = flights)
 
+tidy(lm3)
+
+flights %>% 
+  filter(month == 1) %>% 
+  ggplot() +
+  aes(x = hour, y = dep_delay, 
+      color = origin) +
+  #geom_jitter(alpha = .1) +
+  geom_smooth(method = "lm")
+
+
+
+lm4 <-
+  lm(dep_delay ~ origin + hour + origin:hour, 
+     data = flights)
+
+tidy(lm4)
+glance(lm4)
+
+
+# 95% CI
+# Intercept: 0.33*2 = .7 -> [-10.7; 9.3]
+# 
+confint(lm4)
+
+flights_sum1 <- 
+  flights %>% 
+  drop_na(origin, hour, dep_delay) %>% 
+  select(origin, hour, dep_delay) %>% 
+  group_by(origin, hour) %>% 
+  summarise(delay_avg = mean(dep_delay),
+            delay_q5 = quantile(dep_delay, prob = .05),
+            delay_q95 = quantile(dep_delay, prob = .95),
+            delay_q25 = quantile(dep_delay, prob = .25),
+            delay_q75 = quantile(dep_delay, prob = .75)) 
+
+View(flights_sum1)
+
+flights_sum1 %>% 
+  ggplot() +
+  aes(x = hour, y = delay_avg, color = origin) +
+  geom_point() +
+  geom_line() +
+  geom_errorbar(aes(ymin = delay_q25,
+                  ymax = delay_q75),
+                color = "grey60",
+                size = .5) +
+  facet_wrap( ~ origin)
+
+
+
+flights %>% 
+  summarise(n_distinct(dest))
+
+
+lm5 <-
+  lm(dep_delay ~ origin + hour + origin:hour + dest, 
+     data = flights)
+
+tidy(lm5)
+
+
+flights_count <- 
+  flights %>% 
+  count(dest, sort = T)
+
+
+View(flights_count)
+
+flights2 <-
+  flights %>% 
+  mutate(dest_lumped = fct_lump(dest, n = 10)) %>% 
+  select(dest_lumped, everything())
+
+
+View(flights2)
+
+
+flights2 %>% 
+  summarise(n_distinct(dest_lumped))
+
+
+
+lm6 <-
+  lm(dep_delay ~ origin + hour + origin:hour + dest_lumped, 
+     data = flights2)
+
+glance(lm6)
+
+
+flights2 %>% 
+  drop_na(month, dep_delay) %>% 
+  filter(dep_delay < 30) %>% 
+  group_by(month) %>% 
+  summarise(delay_md = median(dep_delay),
+            delay_avg = mean(dep_delay),
+            delay_sd = sd(dep_delay)) %>% 
+  ggplot() +
+  aes(x = month, y = delay_md) +
+  geom_point() +
+  geom_errorbar(aes(ymin = delay_avg - delay_sd,
+                   ymax = delay_avg + delay_sd),
+                color = "grey60") +
+  geom_line() +
+  scale_x_continuous(breaks = 1:12)
+  
+  
+  
+
+lm7 <-
+  lm(dep_delay ~ origin + 
+       hour + origin:hour + dest_lumped + month, 
+     data = flights2)
+
+glance(lm7)
+
+
+
+  
