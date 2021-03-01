@@ -81,3 +81,18 @@ flights %>%
   labs(title = "Scatterplot for dep. delay as a function of distance",
        subtitle = "Correlation r=-0.02") +
   facet_wrap( ~ origin)
+
+
+
+# exporting
+
+library(writexl)
+write_xlsx(x = table1, path = "table1.xlsx")
+
+library(janitor)
+
+table1 %>% 
+  clean_names()
+
+
+write_csv(x = table1, file = "table1.csv")
