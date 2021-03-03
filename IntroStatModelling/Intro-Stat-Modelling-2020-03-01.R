@@ -1,6 +1,10 @@
+# 2020-03-01
+# Workshop on intro stats modelling
+# find out more at: https://data-se.netlify.app/2020/06/19/introduction-to-statistics-a-modeling-based-approach-course-syllabus
+# 
 
 
-library(tidyverse)  # Contrl-Enter
+library(tidyverse)  # hit "Contrl-Enter" to execute a command
 library(nycflights13)  # data
 
 
@@ -84,7 +88,7 @@ flights %>%
 
 
 
-# exporting
+# exporting data:
 
 library(writexl)
 write_xlsx(x = table1, path = "table1.xlsx")
@@ -101,10 +105,8 @@ write_csv(x = table1, file = "table1.csv")
 
 
 # Simple regression modelling
-# 
-# 
-# 
 
+# prototype command for regression:
 # lm(y ~ x, data = my_data)
 # 
 
@@ -184,6 +186,7 @@ flights_sum1 <-
   select(origin, hour, dep_delay) %>% 
   group_by(origin, hour) %>% 
   summarise(delay_avg = mean(dep_delay),
+            delay_md = median(dep_delay),
             delay_q5 = quantile(dep_delay, prob = .05),
             delay_q95 = quantile(dep_delay, prob = .95),
             delay_q25 = quantile(dep_delay, prob = .25),
@@ -191,16 +194,20 @@ flights_sum1 <-
 
 View(flights_sum1)
 
+# note the the mean value is outside the error bars.
 flights_sum1 %>% 
   ggplot() +
-  aes(x = hour, y = delay_avg, color = origin) +
-  geom_point() +
-  geom_line() +
-  geom_errorbar(aes(ymin = delay_q25,
+  aes(x = hour, y = delay_md, color = origin) +
+   geom_errorbar(aes(ymin = delay_q25,
                   ymax = delay_q75),
                 color = "grey60",
-                size = .5) +
-  facet_wrap( ~ origin)
+                size = .25) +
+  geom_point() +
+  geom_line() +
+  facet_wrap( ~ origin) +
+  labs(y = "Median delay",
+       caption = "Error bars indicate 90% intervals")
+
 
 
 
@@ -294,4 +301,6 @@ flights4 %>%
   drop_na(is_weekend) %>% 
   group_by(is_weekend) %>% 
   summarise(delay_md = median(dep_delay))
+
+
 
