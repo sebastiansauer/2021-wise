@@ -1,0 +1,20 @@
+
+
+# Übung 1
+
+Legen Sie eine neue RMarkdown-Datei an und fügen Sie folgende Elemente ein:
+
+- Fettdruck
+- Überschrift Ebene 1 und 2
+- Aufzählung (Liste) unnummeriert
+- R-Chunk
+
+(ohne YAML-Header)
+
+# Übung 2
+
+Fügen Sie einen Kopfbereich hinzu, um Metadten anzugeben:
+
+- Titel (beliebig)
+- Autor (Ihr Name)
+- Datum (heute)
