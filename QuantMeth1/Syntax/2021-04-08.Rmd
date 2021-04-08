@@ -45,8 +45,86 @@ Siehe oben
 ## Aufgabe 5: Weisen Sie der Variable Alter "Ihren" Wert zu.
 
 
+```{r}
+alter <- 42
+```
+
+Zum Ausführen von Befehlen "Strg-Enter" drücken.
+
+## Aufgabe 6: Definieren Sie einen Text-Vektor mit drei Elementen Ihrer Wahl!
 
 
+```{r}
+mein_text <- "hallo R, wie läuft's?"  # 1 Element
+
+mein_text_vektor <- c("Hallo ", "R ", "na ", "...")  #4 Elemente
+```
+
+
+Kommentare macht man mit Hashtag.
+
+Der Befehl `c()` ist hier richtig.
+
+Backtick erzeugt Schreibmaschinenschrift.
+
+
+## Aufgabe 7: Finde den Fehler
+
+
+```{r error = TRUE}
+fehler1 <- c("Ich" "liebe" "Pizza")
+```
+
+Lösung: Es fehlen Kommata! Und zwar zwischen den Elementen.
+
+Richtig sähe es so aus:
+
+
+```{rE}
+kein_fehler1 <- c("Ich", "liebe", "Pizza")
+```
+
+Chunk Options sind nur beim Knittern relevant.
+
+Die folgende Zeile ist syntaktisch richtig:
+
+```{r}
+mein_text_vektor <- c("Hallo", "liebe", "Kekse")
+```
+
+
+```{r}
+mein_text <- c("Hallo","du da")
+```
+
+
+## Aufgabe 8: Prüfen Sie, ob `alter` den Wert 42 hat!
+
+
+```{r}
+alter == 42
+```
+
+Obacht! Doppeltes Istgleichzeichen ist nötig bei *Prüfung*!
+
+(Sternchen machen Kursivdruck im Ausgabedokument)
+
+
+## Aufgabe 9: Wo finde ich einen Überblick an Shortcuts?
+
+Help > Keyboard Shortcuts 
+
+Shortcut Zuweisungspfeil: Alt--
+
+
+## Vektor-Rechnen
+
+Gegeben seien zwei Vektoren:
+
+x : (1,2,3)
+y : (10, 20, 30)
+
+Was liefert der R-Befehl `x+y` und `x*y`? 
 
 
 
