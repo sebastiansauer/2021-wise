@@ -117,7 +117,7 @@ Help > Keyboard Shortcuts
 Shortcut Zuweisungspfeil: Alt--
 
 
-## Vektor-Rechnen
+## Aufgabe 10: Vektor-Rechnen
 
 Gegeben seien zwei Vektoren:
 
@@ -126,6 +126,13 @@ y : (10, 20, 30)
 
 Was liefert der R-Befehl `x+y` und `x*y`? 
 
+
+```{r}
+x <- c(1, 2, 3)
+y <- c(10, 20, 30)
+
+x + y
+```
 
 
 
