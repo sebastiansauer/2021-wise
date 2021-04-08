@@ -6,9 +6,6 @@ output:
   html_document:
     toc: true
     number_sections: true
-  word_document: default
-editor_options: 
-  chunk_output_type: console
 ---
 
 

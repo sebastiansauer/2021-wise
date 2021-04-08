@@ -23,6 +23,9 @@ library(tidyverse)
 ```
 
 
+
+
+
 # Daten laden
 
 Den Train-Datensatz haben Sie vorliegen; dort sind X- und Y-Variablen bekannt. Den Test-Datensatz nutzen Sie, um die Zielvariable (Y) vorherzusagen. Die "Lösung" -- die vorherzusagenden Y-Werte -- sind nur der Lehrperson bekannt.
