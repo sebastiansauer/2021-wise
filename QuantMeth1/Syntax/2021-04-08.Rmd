@@ -1,0 +1,33 @@
+---
+title: "Übung zu Markdown"
+author: "Sebastian Sauer"
+date: "2021-04-08"
+---
+
+# Aufgaben
+
+## Aufgabe 1: Schreiben Sie einen passender Header (Kopfbereich) für diese Markdown-Datei!
+
+
+Siehe oben
+
+
+## Aufgabe 2: Wie erstellt Überschriften der Ebenen 1,2 und 3?
+
+
+"#" -- Erste Ebene
+"##" -- Zweite Ebene
+"###" --- Dritte Ebene
+
+
+
+## Aufgabe 3: Zeilenumbruch erzwingen
+
+
+
+
+
+
+
+
+
