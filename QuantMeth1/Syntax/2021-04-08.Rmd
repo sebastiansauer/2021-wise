@@ -15,13 +15,34 @@ Siehe oben
 ## Aufgabe 2: Wie erstellt Überschriften der Ebenen 1,2 und 3?
 
 
-"#" -- Erste Ebene
-"##" -- Zweite Ebene
-"###" --- Dritte Ebene
+"#" -- Erste Ebene  
+
+"##" -- Zweite Ebene  
+
+"###" --- Dritte Ebene  
 
 
 
 ## Aufgabe 3: Zeilenumbruch erzwingen
+
+- Zwei Leerzeichen am Ende
+- Leerzeile dazwischen
+
+
+## Aufgabe 4: Fügen Sie einen "R-Käfig" ein und ergänzen Sie eine einfache R-Code-Zeile!
+
+- Icon mit "Plus-C" (Code hinzufügen) klicken und R auswählen
+- Shortcut: Strg-Alt-i / Command-Alt-I
+
+
+
+```{r}
+1+1
+```
+
+
+
+## Aufgabe 5: Weisen Sie der Variable Alter "Ihren" Wert zu.
 
 
 
