@@ -1,0 +1,16 @@
+---
+title: "Übung 3.2.7"
+author: "ses"
+date: "4/9/2021"
+output: 
+  html_document:
+    number_sections: TRUE
+    toc: TRUE
+---
+
+
+# Hintergrund
+
+Hier besprechen wir [diese Aufgabe](https://openintro-ims.netlify.app/intro-linear-models.html#least-squares-regression-exercises).
+
+
