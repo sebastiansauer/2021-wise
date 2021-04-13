@@ -129,3 +129,14 @@ UNTERschätzt den wahren Wert (positives Residuum).
 
 
 Macht keinen Sinn bzw. ist mit viel Unsicherheit behaftet.
+
+
+
+# Aufgabe "Tourism spending."
+
+## d)
+
+>  Do the data meet the conditions required for fitting a least squares line? In addition to the scatterplot, use the residual plot and histogram to answer this question.
+
+
+
