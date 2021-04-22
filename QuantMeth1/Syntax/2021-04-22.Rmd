@@ -3,6 +3,8 @@ title: "Syntax 2021-04-22"
 author: "ses"
 date: "4/22/2021"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -58,6 +60,93 @@ ggplot(data=mpg) +
               alpha = .5,
               width = .1)
 ```
+
+
+
+```{r}
+library(tidyverse)
+```
+
+
+
+```{r}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, 
+                           y = hwy, 
+                           color = class))
+```
+
+
+
+## Aufgabe 3
+
+Erstellen Sie ein Streudiagramm mit `displ` auf der X-Achse und `hwy` auf der Y-Achse. Die Farbe und Form der Punkte soll der Klasse des Fahrzeugs zugeordnet sein. Verringern Sie Overplotting. Facettieren Sie nach der Antriebsart des Fahrzeugs.
+
+
+
+## Aufgabe 4
+
+
+>   Kreiere ein Diagramm, welches 3 Scatterplot Diagramme beinhaltet und welche alle 3 durch eine blaue Linie durchkreuzt werden.
+
+
+```{r}
+data(mpg)
+```
+
+```{r}
+ggplot(data = mpg) +
+  aes(x = displ, y = hwy) +
+  geom_point() +
+  facet_wrap(~ drv) +  # Mac: Alt-n, Windows: Altgr-+
+  geom_smooth()
+```
+
+
+## Aufgabe 5
+
+>   Kreiere ein Diagramm, bei welchem alle Autos mit Frontanrieb mit gelben Punkten dargestellt werden und alle anderen Autos mit blauen Punkten.     
+
+
+```{r}
+mpg %>% 
+  mutate(is_front = case_when(
+    drv == "f" ~ TRUE,
+    TRUE ~ FALSE
+  )) %>% 
+  ggplot() +
+  aes(x = displ, y = hwy, color = is_front) +
+  geom_point(size = 2) +
+  scale_color_manual(values = c("blue", "yellow")) +
+  theme_minimal()
+```
+
+
+## Aufgabe 6
+
+>    Stelle das Streudiagramm von der letzten Aufgabe als Flächendiagramm dar. 
+
+
+```{r}
+ggplot(data = mpg) +
+  aes(x = displ, y = hwy) +
+  geom_area()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
