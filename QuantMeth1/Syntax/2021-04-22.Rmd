@@ -1,0 +1,69 @@
+---
+title: "Syntax 2021-04-22"
+author: "ses"
+date: "4/22/2021"
+output: html_document
+---
+
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+data(mpg)
+```
+
+
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap( ~ class, ncol = 4)
+```
+
+
+
+# Aufgaben 
+
+## Aufgabe 1
+
+Erstellen Sie ein Streudiagramm mit Variablen `cyl` und `hwy` in Verbindung setzt. Nutzen Sie das Geom "Linie" und entfernen Sie den Standardfehler!
+
+
+```{r}
+ggplot(data = mpg) + 
+  aes(x=cyl, y=hwy) +
+  geom_point() +
+  #  geom_line()  nicht hilfreich
+  geom_smooth(method = "lm", se=FALSE)  # Gerade!
+  #   geom_smooth(, se=FALSE)  # oder so
+
+```
+
+  
+## Aufgabe 2
+
+Zum letzten Plot: Reduzieren Sie das Overplotting! Reduzieren Sie die "Lücke" bei `cyl=7`!
+
+
+
+```{r}
+ggplot(data=mpg) +
+  aes(x=factor(cyl), y=hwy) +
+  geom_smooth(aes(group = 1),
+              se=FALSE)+
+  geom_jitter(
+              alpha = .5,
+              width = .1)
+```
+
+
+
+
+
+
+
+
+

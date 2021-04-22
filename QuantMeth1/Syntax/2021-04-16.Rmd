@@ -1,0 +1,149 @@
+---
+title: "Syntax 2021-04-16"
+author: "ses"
+---
+
+
+
+
+<https://openintro-ims.netlify.app/multi-logistic-models.html#multiple-regression-exercises>
+
+# IMS, Kap. 4.1.4, A2
+
+
+
+
+## a)
+
+>   Write the equation of the regression model that includes all of the variables.
+
+
+Regressiongleichung in allgemeiner Form:
+
+$$y = b_0 + b_1x_1 + ... + e$$
+
+
+Estimate: Schätzwert für die Population
+
+$\hat{\beta_1}$
+
+"Dach" oder "Hütchen" heißt "ist ein Schätzwert".
+
+
+$y = -80.41 + 0.44gest -3.33par - 0.01age + 1.15height + 0.05weight - 8.40smoke + e$
+
+## b)
+
+>   Interpret the slopes of gestation and age in this context.
+
+
+
+## c)
+
+
+>   The coefficient for parity is different than in the linear model shown in Exercise ... . Why might there be a difference?
+
+
+## d) 
+
+>   Calculate the residual for the first observation in the data set.
+
+
+
+```{r}
+y1_geschaetzt <- -80.41 + 0.44*284 -3.33*0 - 0.01*27 + 1.15*62 + 0.05*100 - 8.40*0 
+
+y1_geschaetzt
+```
+
+
+```{r}
+y1 <- 120
+e1 <- y1 - y1_geschaetzt
+e1
+```
+
+
+# e)
+
+>   The variance of the residuals is 249.28, and the variance of the birth weights of all babies in the data set is 332.57. Calculate the R2  and the adjusted R2. Note that there are 1,236 observations in the data set.
+
+
+
+```{r}
+r2 <- 1 - (249.28/332.57)
+r2
+```
+
+```{r}
+r2_adj <- 1 - (249.28/332.57) * ((1236 - 1)/(1236 - 6 - 1))
+r2_adj
+```
+
+
+
+
+# Beispiel für eine Regression mit R
+
+
+## Daten laden
+
+```{r}
+data(mtcars)
+```
+
+
+```{r}
+help(mtcars)
+```
+
+
+## Forschungsfrage
+
+*Kann man mit der PS-Zahl den Verbrauch gut vorhersagen?*
+
+- PS: `hp` (UV, Prädiktor)
+- Verbrauch: `mpg` (AV, Kriterium)
+
+
+
+## Regressionsformel in R-Schreibweise
+
+**mpg ~ hp**
+
+"~" Mac: Alt-n, "ist eine Funktion von", "wird erklärt durch"
+
+
+*Spritverbrauch wird erklärt durch die PS-Zahl*
+
+*AV ~ UV*
+
+
+## R-Befehl
+
+
+```{r}
+lm(mpg ~ hp, data = mtcars)
+```
+
+
+
+```{r}
+lm1 <- lm(mpg ~ hp, data = mtcars)
+summary(lm1)
+```
+
+
+## Multiple Regression mit $p=2$ Prädiktoren
+
+```{r}
+lm2 <- lm(mpg ~ hp + wt, data = mtcars)
+summary(lm2)
+```
+
+
+
+
+
+
+

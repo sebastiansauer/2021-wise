@@ -24,6 +24,9 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
+temp*.*
+*test.*
+test*.*
 # R Environment Variables
 .Renviron
 *.Rproj
