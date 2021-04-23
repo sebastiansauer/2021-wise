@@ -80,7 +80,29 @@ ggplot(data = mpg) +
 
 ## Aufgabe 3
 
+Datensatz `mpg`
+
 Erstellen Sie ein Streudiagramm mit `displ` auf der X-Achse und `hwy` auf der Y-Achse. Die Farbe und Form der Punkte soll der Klasse des Fahrzeugs zugeordnet sein. Verringern Sie Overplotting. Facettieren Sie nach der Antriebsart des Fahrzeugs.
+
+```{r}
+ggplot(mpg) +
+  aes(y = hwy, x = displ) +
+  geom_point(alpha = .8,
+             position = "jitter",
+              aes(
+                  color = class)) +
+  facet_grid(. ~ drv)
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -128,20 +150,76 @@ mpg %>%
 
 
 ```{r}
-ggplot(data = mpg) +
-  aes(x = displ, y = hwy) +
-  geom_area()
+ggplot(mpg) +
+  aes(x = displ) +
+  geom_area(stat = "bin")
+```
+
+
+```{r}
+mpg %>% 
+  group_by(cyl, drv) %>% 
+  summarise(mean_grouped = mean(hwy)) %>% 
+  ggplot() +
+  aes(x = cyl, y = mean_grouped) +
+  geom_area(position = "stack",
+            aes(fill = drv))
+```
+
+
+```{r}
+  ggplot(mpg) +
+  aes(x = displ) +
+  geom_area(stat = "bin", aes(fill = drv))
+```
+
+
+```{r}
+  ggplot(mpg) +
+  aes(x = displ) +
+  geom_density(aes(fill = drv), alpha = .5)
 ```
 
 
 
 
 
+```{r}
+  ggplot(mpg) +
+  aes(x = displ) +
+  geom_histogram(aes(fill = drv), alpha = .5)
+```
 
 
 
 
 
+```{r}
+  ggplot(mpg) +
+  aes(x = displ) +
+  geom_histogram(aes(fill = drv), bins = 10) +
+  facet_wrap(~ drv)
+```
+
+
+
+# "group=1"
+
+
+```{r}
+ggplot(data = diamonds) + 
+  geom_bar(aes(x = cut, 
+               y = stat(prop),
+               group = 1))
+```
+
+Oder so:
+
+```{r}
+ggplot(data = diamonds) + 
+  geom_bar(aes(x = cut),
+           position = "dodge")
+```
 
 
 

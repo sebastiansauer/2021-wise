@@ -1,0 +1,169 @@
+---
+title: "Syntax 2021-04-23"
+author: "ses"
+date: "4/23/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+library(tidyverse)   # dplyr, ggplot2
+```
+
+
+disambiguiert
+
+```{r}
+dplyr::filter(...)
+```
+
+
+```{r}
+ggplot()  # Funktion
+```
+
+
+
+
+```{r}
+noten <- c(1, 2, 3, NA)
+
+mean(x = noten, na.rm = TRUE) # mittelwert
+```
+
+
+
+
+# Globale Mappings und lokale Mappings bei ggplot
+
+
+```{r}
+data(mpg)
+```
+
+
+```{r}
+ggplot(data = mpg) +
+  aes(x = displ,
+      
+      y = hwy) +  # global definiert
+  geom_point(mapping = aes(color = drv)) + # lokales Mapping
+  geom_smooth() +
+  scale_color_manual(values = c("pink", "lightblue", "purple")) +
+  theme_minimal()
+```
+
+
+
+
+
+```{r}
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy),
+           alpha = 1,
+           position = "jitter",
+           color = "blue")
+```
+
+
+
+```{r}
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy, 
+                         color = class,
+                         shape = class)) 
+```
+
+
+
+```{r}
+mpg %>%  # UND-DAnn-Befehl "Pipe", Str-Shift-M
+  filter(class == "suv")  %>%  # doppeltes Istgleichzeichen!!! 
+  ggplot() +
+  aes(x = displ, y = hwy) +
+  geom_point() +
+  geom_smooth() +
+  labs(x = "Motorgröße",
+       title = "Zusammenhang von Motorgröße und Spritverbrauch",
+       subtitle ="NUR SUVs!")
+```
+
+
+
+
+# `facet_wrap` vs. `facet_grid`?
+
+
+```{r}
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy, 
+                         color = class)) +
+  facet_wrap(~ class, nrow = 1)
+```
+
+
+
+
+
+```{r}
+demo <- tribble(
+  ~cut,         ~freq,
+  "Fair",       1610,
+  "Good",       4906,
+  "Very Good",  12082,
+  "Premium",    13791,
+  "Ideal",      21551
+)
+
+ggplot(data = demo) +
+  geom_bar(mapping = aes(x = cut, y = freq), 
+           stat = "identity")
+
+# synonym:
+ggplot(data = demo) +
+  geom_col(mapping = aes(x = cut, y = freq))
+
+
+ggplot(data = diamonds) +
+  geom_bar(aes(x = cut)) +
+  coord_flip()
+
+```
+
+
+
+
+# Aufgaben
+
+Datensatz `mpg`!
+
+## Aufgabe 1
+
+
+Erstellen Sie ein Streudiagramm mit Motorgröße `displ` und Spritverbrauch `hwy`; Farbe soll der Antriebsart `drv` entsprechen. Reduzieren Sie Overplotting.
+
+```{r}
+ggplot(mpg) +
+  aes(x = displ, 
+      y = hwy,
+      color = drv) +
+  geom_point(alpha = .5,
+             position = "jitter")
+```
+
+
+
+
+## Aufgabe 2
+
+Gliedern Sie das Diagramm der letzten Aufgabe in mehrere Facetten und zwar anhand der Werte der Variablen "Antriebsart".
+
+
+## Aufgabe 3 
+
+Ergänzen Sie eine Regressionsgerade in rosa, ohne Standardfehler.
+
+
+
