@@ -161,9 +161,37 @@ ggplot(mpg) +
 Gliedern Sie das Diagramm der letzten Aufgabe in mehrere Facetten und zwar anhand der Werte der Variablen "Antriebsart".
 
 
+```{r}
+ggplot(data = mpg) +
+  geom_jitter(aes(x = displ, 
+                  y = hwy, 
+                  color = drv), 
+              alpha = .5) +
+  facet_wrap(~drv)
+  
+```
+
+
+
 ## Aufgabe 3 
 
 Ergänzen Sie eine Regressionsgerade in rosa, ohne Standardfehler.
 
+## Aufgabe 4
 
+Visualisieren Sie die Verteilung des Spritverbrauchs; gruppieren Sie (mit Farben) nach Antriebsart und facettieren nach Klasse des Fahrzeugs.
+
+
+## Aufgabe 5
+
+Fügen Sie einen Titel hinzu und verändern Sie das Farbschema.
+
+
+## Aufgabe 6
+
+Erstellen Sie ein Balkendiagramm, das zeigt, wie viele Autos es für jede Antriebsart gibt.
+
+## Aufgabe 7
+
+Unterteilen Sie die Balken, um die Häufigkeit der Zylinderzahl anzuzeigen. Welche anderes Argument für "position" ist hier möglich (bzw. sinnvoll)?
 
