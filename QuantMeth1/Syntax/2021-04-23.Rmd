@@ -177,21 +177,84 @@ ggplot(data = mpg) +
 
 Ergänzen Sie eine Regressionsgerade in rosa, ohne Standardfehler.
 
+
+```{r}
+ggplot(data = mpg) +
+  aes(x = displ, 
+      y = hwy) +
+  geom_jitter(aes(color = drv),
+              alpha = .5) +
+  facet_wrap(~drv) +
+  geom_smooth(method = "lm",
+              se = FALSE,
+              color = "pink")
+```
+
+
 ## Aufgabe 4
 
 Visualisieren Sie die Verteilung des Spritverbrauchs; gruppieren Sie (mit Farben) nach Antriebsart und facettieren nach Klasse des Fahrzeugs.
+
+
+```{r}
+ggplot(mpg) +
+  aes(x = hwy, fill = drv)+
+  geom_density() +
+  facet_wrap(~ class)
+```
+
 
 
 ## Aufgabe 5
 
 Fügen Sie einen Titel hinzu und verändern Sie das Farbschema.
 
+```{r}
+ggplot(mpg) +
+  aes(x = hwy, fill = drv)+
+  geom_density() +
+  facet_wrap(~ class) +
+  labs(title = "Verteilung des Spritverbrauchs (Highway)",
+       fill = "Antriebsart") +
+  scale_fill_brewer(type = "qual", palette = 2)
+```
+
 
 ## Aufgabe 6
 
 Erstellen Sie ein Balkendiagramm, das zeigt, wie viele Autos es für jede Antriebsart gibt.
 
+```{r}
+ggplot(mpg) +
+  geom_bar(aes(x = drv))
+```
+
+
 ## Aufgabe 7
 
 Unterteilen Sie die Balken, um die Häufigkeit der Zylinderzahl anzuzeigen. Welche anderes Argument für "position" ist hier möglich (bzw. sinnvoll)?
+
+
+
+```{r}
+ggplot(mpg) +
+  geom_bar(aes(x = drv, fill = factor(cyl)))
+```
+
+
+```{r}
+ggplot(mpg) +
+  geom_bar(aes(x = drv, fill = factor(cyl)), 
+           position = "dodge") +
+  scale_fill_viridis_d()
+```
+
+
+```{r}
+ggplot(mpg) +
+  geom_bar(aes(x = drv, fill = factor(cyl)), 
+           position = "fill") +
+  scale_fill_brewer(type = "qual", palette = 1)
+```
+
 
