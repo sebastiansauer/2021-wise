@@ -1,0 +1,271 @@
+---
+title: "Syntax 2021-04-27"
+
+output: 
+  hrbrthemes::ipsum:
+    toc: true
+---
+
+```{r warning=FALSE, message=FALSE, echo = FALSE}
+library(tidyverse)
+```
+
+
+
+
+```{r}
+data(mpg)
+```
+
+
+```{r}
+mpg_audi <- filter(mpg, manufacturer == "audi")
+```
+
+
+
+```{r}
+library(nycflights13)
+data(flights)
+```
+
+
+```{r}
+filter(flights, is.na(dep_delay))  # na: not available
+```
+
+
+```{r}
+filter(flights, origin == "JFK" | TRUE)
+```
+
+# Kap. 5.5.1
+
+<https://r4ds.had.co.nz/transform.html#mutate-funs>
+
+
+
+```{r}
+flights2 <- mutate(flights, 
+                   airtime_hours = air_time / 60,
+                   depdelay_log = log(dep_delay))
+```
+
+Spalten löschen:
+
+
+
+```{r}
+select(flights2, -c(air_time, year))
+```
+
+
+
+
+```{r}
+mutate(flights,
+  dep_time,
+  hour = dep_time %/% 100,
+  minute = dep_time %% 100
+)
+```
+
+
+# `select()` und `everything()`
+
+```{r}
+flights3 <- select(flights2, 
+                   airtime_hours, 
+                   depdelay_log,
+                   starts_with("dep"), 
+                   everything(),
+                   -year)
+```
+
+
+# Pfeife "pipe" %>% 
+
+%>%: Shortcut: Strg-Shift-M
+
+
+Hey R,
+nimm die Tabelle "flights" und dann
+wähle die Spalten, die mit "dep" beginnen sowie "origin" und dann
+(schmeiß die Spalte "year" raus und dann)
+filtere nur die Flüge, die in JFK starten und dann
+lösche alle Zeilen mit fehlenden Werten und dann
+berechne die mittlere Verspätung
+
+```{r}
+flights %>%  # "Pfeife": UND-DANN-Befehl
+  select(dep_delay, dep_time, origin) %>% 
+  filter(origin == "JFK") %>% 
+  drop_na() %>% 
+  summarise(delay_avg = mean(dep_delay))  
+```
+
+
+```{r}
+library(tidyverse)
+```
+
+
+
+# "Spickzettel" oder Formelsammlung
+
+Die Sammlung der Hilfe-Seiten in R als Art "Formel- oder Funktionsammlung".
+
+```{r}
+?filter
+```
+
+
+# `names()` 
+
+
+```{r}
+names_mpg <- names(mpg)
+
+names2 <- names_mpg[c(1,3)]
+
+select(mpg, one_of(names2))
+
+
+
+```
+
+
+
+
+
+
+
+
+
+# glimpse
+
+```{r}
+data(mpg)
+glimpse(mpg)
+```
+
+
+
+# Pfeife
+
+
+
+Nimm `mpg` *und dann* (Pfeife!)
+wähle die Spalten cty, displ, class, drv und dann
+filter uns nur die mit wenig displ und dann
+gruppiere nach Antriebsart und dann
+berechne den mittleren Spritverbrauch
+
+```{r}
+data(mpg)
+mpg2 <- select(mpg, cty, displ, class, drv)
+mpg3 <- filter(mpg2, displ < median(displ))
+mpg4 <- group_by(mpg3, drv)
+mpg5 <- summarise(mpg4, consumption_avg = round(mean(cty)))
+mpg5
+```
+
+
+```{r}
+select(mpg, filter(group_by(summarise(mpg4, consumption_avg = mean(cty)))))
+```
+
+
+
+
+## Introducing the "Pfeife"
+
+
+Shortcut: Strg-Shift-M
+
+```{r}
+mpg %>%
+  select(cty, displ, class, drv) %>% 
+  filter(displ < median(displ)) %>%
+  group_by(drv) %>% 
+  summarise(consumption_avg = round(mean(cty)))
+  
+```
+
+
+
+# Funktion `n()`
+
+
+Nimm mpg und dann 
+gruppiere nach Antriebsart und dann 
+zähle wie viele Karren es gibt pro Gruppe
+
+
+```{r}
+mpg %>% 
+  group_by(drv) %>% 
+  summarise(n_per_group = n())
+```
+
+
+# `%in%`
+
+Wir wollen alle Autos der Hersteller
+
+- audi
+- chevrolet
+- dodge
+
+
+```{r}
+mpg %>% 
+  filter(manufacturer == "audi" |
+           manufacturer == "chevrolet" |
+           manufacturer == "dodge")
+```
+
+
+```{r}
+cars_i_like <- c("audi", "chevrolet", "dodge")
+
+mpg %>% 
+  filter(manufacturer %in% cars_i_like)
+```
+
+
+# Beispiel für `mutate`
+
+
+Berechne den mittleren Spritverbrauch über Stadtverkehr und Landstraße!
+
+```{r}
+mpg %>% 
+  mutate(mpg_avg = mean(c(cty, hwy)))
+```
+
+
+# Aufgaben
+
+## Aufgabe 1
+
+>   Nehmen Sie nur die Flugverspätungen aus dem Monat Oktober und ordnen sie arr_time und scheduled_arr_time am Anfang der Tabelle an.
+
+**Vorraussetzung: library(tidyverse), library(nycflights13)**
+
+```{r}
+library(nycflights13)
+data(flights)
+```
+
+
+```{r}
+flights2 <- 
+  flights %>% 
+  filter(month == 10) %>% 
+  select(arr_time, 
+         sched_arr_time, 
+         everything())
+```
+
+
