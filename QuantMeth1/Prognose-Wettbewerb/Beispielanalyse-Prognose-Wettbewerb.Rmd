@@ -13,13 +13,18 @@ output:
 
 Im Datensatz `tips` soll die Zielvariable `tip` im *Test*-Datensatz vorhergesagt werden. Dazu können alle übrigen Variablen im Trainings-Datensatz als Prädiktoren herangezogen werden.
 
-In Ihrer Prüfungsleistung wird ein anderer Datensatz verwendet; das Beispiel mit `tips` zeigt einige wesentliche Aspekte der Analyse.
+Die Forschungsfrage lautet also: "Wie gut kann man die Variable `tip` in diesem Datensatz vorhersagen? Welche Prädiktoren helfen dazu?"
+
+In Ihrer Prüfungsleistung wird ein anderer Datensatz verwendet; das Beispiel mit dem Datensatz `tips` illustriert einige wesentliche Aspekte der Analyse.
+
+Informationen ("Codebook") zum Datensatz `tips` finden Sie [hier](https://vincentarelbundock.github.io/Rdatasets/doc/reshape2/tips.html).
 
 
 # Pakete laden
 
 ```{r message = FALSE}
 library(tidyverse)
+library(corrr)  # Korrelationen
 ```
 
 
@@ -68,13 +73,10 @@ Keine Sorge: Dieser Schritt wird von der Lehrperson erledigt. Sie bekommen schon
 
 
 
-# Datenvorverarbeitung
-
-Z.B. Analyse nach Extremwerten, Datentransformation; hier nicht ausgeführt. 
-
-
 
 # Ein Blick in die Daten
+
+Es bietet sich an, zu Beginn zu prüfen, ob die Daten korrekt importiert wurden.
 
 ```{r}
 head(tips_train)
@@ -84,6 +86,65 @@ head(tips_train)
 ```{r}
 head(tips_test)
 ```
+
+
+
+# Datenvorverarbeitung
+
+Z.B. Analyse nach Extremwerten, Datentransformation etc.
+
+
+## Verteilung der Zielvariablwen
+
+
+```{r}
+ggplot(tips_train, aes(x = tip)) +
+  geom_density()
+```
+
+
+Die Verteilung ist rechtsschief. Kann man durch eine Log-Transformation eine "normalere" Form erreichen?
+
+```{r}
+ggplot(tips_train, aes(x = log(tip))) +
+  geom_density()
+```
+
+
+Ja, sieht besser. Mit der log-transformierten Variablen könnten bessere Vorhersagen möglich sein.
+
+Boxplots erlauben ebenfalls eine Visualisierung einer Verteilung einer Variablen:
+
+```{r}
+ggplot(tips_train, aes(y = tip, x = 1)) +
+  geom_boxplot()
+```
+
+
+Der Boxplot zeigt zwei Ausreißer mit gut 6 Dollar Trinkgeld. Sollte man diese entfernen? Schwer zu sagen; vertagen wir die Frage an dieser Stelle.
+
+## Korrelationen der Prädiktoren mit der Zielvariablen
+
+Das kann man so machen:
+
+```{r}
+tips_train %>% 
+  summarise(korr_tip_total_bill = cor(tip, total_bill))
+```
+
+... Ist aber auf Dauer umständlich, wenn man das für jede Variable machen möchte.
+
+So geht es komfortabler:
+
+```{r}
+tips_train %>% 
+  select(where(is.numeric)) %>% 
+  correlate() %>% 
+  focus(tip)
+```
+
+
+Die Variable `id` ist natürlich keine nützliche Variable, aber `total_bill` und `size` sind offenbar (oder möglicherweise) nützlich, um `tip` vorherzusagen, was wir aus der Korrelation erschließen.
 
 
 # Modellierung im Trainings-Datensatz (Phase 1)
@@ -106,6 +167,8 @@ summary(modell2)
 ```
 
 Schon viel besser!
+
+
 
 
 ## Modell 3

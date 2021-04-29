@@ -5,3 +5,26 @@ date: "4/29/2021"
 output: html_document
 ---
 
+
+
+
+
+# Eckige Klammern in R
+
+(Nicht so wichtig für uns.)
+
+```{r}
+noten <- c(1, 2, 2, 3, 4, 1)
+```
+
+
+```{r}
+noten[-c(5,6)]
+```
+
+
+```{r}
+noten[c(TRUE, TRUE, FALSE, FALSE, FALSE, TRUE)]
+```
+
+
