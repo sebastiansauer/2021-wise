@@ -31,7 +31,7 @@ library(tidyverse)
 Den Train-Datensatz haben Sie vorliegen; dort sind X- und Y-Variablen bekannt. Den Test-Datensatz nutzen Sie, um die Zielvariable (Y) vorherzusagen. Die "Lösung" -- die vorherzusagenden Y-Werte -- sind nur der Lehrperson bekannt.
 
 
-```{r}
+```{r message = FALSE}
 tips_train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_train.csv")
 tips_test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_test.csv")
 ```
