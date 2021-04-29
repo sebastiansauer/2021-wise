@@ -36,13 +36,21 @@ library(tidyverse)
 Daten einlesen:
 
 
+---
+
+**ACHTUNG: Das sind noch NICHT die richtigen Daten. Die richtigen Daten werden Ihnen zu Beginn des Prüfungszeitraums zur Verfügung gestellt!**
+
+---
 
 
-```{r}
-train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/Statistiklehre/main/2021-SoSe/Prognose-Wettbewerb/Daten/Trainingsdaten.csv")
 
-test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/Statistiklehre/main/2021-SoSe/Prognose-Wettbewerb/Daten/Anwendungsdaten.csv")
+```{r message = FALSE}
+train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_train.csv")
+
+test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_test.csv")
 ```
+
+
 
 
 
@@ -62,7 +70,7 @@ Bei Einzelarbeiten sollte der reine Text dieses Abschnitts einen Umfang von ca. 
 
 ```{r}
 train %>% 
-  ggplot(aes(x = punkte)) + 
+  ggplot(aes(x = tip)) + 
   geom_histogram()
 ```
 
@@ -78,7 +86,7 @@ Wenden Sie hier Ihr Modell an und interpretieren Sie Ihr Ergebnis. Bei Einzelarb
 Mein Lieblingsmodell bla bla bla:
 
 ```{r}
-lm.model <- lm(punkte ~ lernzeit, data = train)
+lm.model <- lm(tip ~ total_bill, data = train)
 summary(lm.model)
 ```
 
@@ -107,12 +115,13 @@ glimpse(test_mit_vorhersage)
 
 Prognosedaten als CSV-Datei schreiben:
 
-```{r}
+```{r eval=FALSE}
 test_mit_vorhersage %>% 
   select(id, pred) %>% 
   write_csv("Raetsel_Rudi_0123456_Prognose.csv")
 ```
 
+*Achtung*: Der obigen Chunk wird nicht evaluiert (ausgeführt), da `eval=FALSE` gesetzt ist.
 
 
 # Zusammenfassung
