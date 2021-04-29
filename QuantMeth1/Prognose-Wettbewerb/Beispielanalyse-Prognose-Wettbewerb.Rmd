@@ -32,20 +32,13 @@ Den Train-Datensatz haben Sie vorliegen; dort sind X- und Y-Variablen bekannt. D
 
 
 ```{r}
-tips_train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/Statistiklehre/main/data/tips/tips_train.csv")
-tips_test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/Statistiklehre/main/data/tips/tips_test.csv")
+tips_train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_train.csv")
+tips_test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_test.csv")
 ```
 
 
 *Ihr* Skript sollte zu Beginn den Datensatz *Ihrer* Prüfungsleistung importieren. Dieser Datensatz soll von der vom Dozenten ausgewiesenen Webseite bezogen werden. Lokal gespeicherte Datensätze dürfen (aus Gründen der Nachprüfgbarkeit der Ergebnisse) nicht verwendet werden.
 
-
-
-```{r}
-train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/Statistiklehre/main/2021-SoSe/Prognose-Wettbewerb/Daten/Trainingsdaten.csv")
-
-test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/Statistiklehre/main/2021-SoSe/Prognose-Wettbewerb/Daten/Anwendungsdaten.csv")
-```
 
 
 

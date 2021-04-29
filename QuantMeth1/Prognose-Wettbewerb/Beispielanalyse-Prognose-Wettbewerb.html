@@ -208,7 +208,7 @@ pre code {
 <div id="daten-laden" class="section level1" number="3">
 <h1 number="3"><span class="header-section-number">3</span> Daten laden</h1>
 <p>Den Train-Datensatz haben Sie vorliegen; dort sind X- und Y-Variablen bekannt. Den Test-Datensatz nutzen Sie, um die Zielvariable (Y) vorherzusagen. Die “Lösung” – die vorherzusagenden Y-Werte – sind nur der Lehrperson bekannt.</p>
-<pre class="r"><code>tips_train &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/Statistiklehre/main/data/tips/tips_train.csv&quot;)</code></pre>
+<pre class="r"><code>tips_train &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_train.csv&quot;)</code></pre>
 <pre><code>## 
 ## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
@@ -221,7 +221,7 @@ pre code {
 ##   time = col_character(),
 ##   size = col_double()
 ## )</code></pre>
-<pre class="r"><code>tips_test &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/Statistiklehre/main/data/tips/tips_test.csv&quot;)</code></pre>
+<pre class="r"><code>tips_test &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/tips/tips_test.csv&quot;)</code></pre>
 <pre><code>## 
 ## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
@@ -235,44 +235,6 @@ pre code {
 ##   size = col_double()
 ## )</code></pre>
 <p><em>Ihr</em> Skript sollte zu Beginn den Datensatz <em>Ihrer</em> Prüfungsleistung importieren. Dieser Datensatz soll von der vom Dozenten ausgewiesenen Webseite bezogen werden. Lokal gespeicherte Datensätze dürfen (aus Gründen der Nachprüfgbarkeit der Ergebnisse) nicht verwendet werden.</p>
-<pre class="r"><code>train &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/Statistiklehre/main/2021-SoSe/Prognose-Wettbewerb/Daten/Trainingsdaten.csv&quot;)</code></pre>
-<pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────
-## cols(
-##   id = col_double(),
-##   punkte = col_double(),
-##   alter = col_double(),
-##   geburtsjahr = col_double(),
-##   geschlecht = col_character(),
-##   bildung_eltern = col_character(),
-##   alkohol = col_double(),
-##   gesundheit = col_double(),
-##   sozial = col_double(),
-##   unterstuetzung = col_character(),
-##   wiederholungen = col_double(),
-##   lernzeit = col_double(),
-##   fehltage = col_double(),
-##   haarfarbe = col_double()
-## )</code></pre>
-<pre class="r"><code>test &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/Statistiklehre/main/2021-SoSe/Prognose-Wettbewerb/Daten/Anwendungsdaten.csv&quot;)</code></pre>
-<pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────
-## cols(
-##   id = col_double(),
-##   punkte = col_logical(),
-##   alter = col_double(),
-##   geburtsjahr = col_double(),
-##   geschlecht = col_character(),
-##   bildung_eltern = col_character(),
-##   alkohol = col_double(),
-##   gesundheit = col_double(),
-##   sozial = col_double(),
-##   unterstuetzung = col_character(),
-##   wiederholungen = col_double(),
-##   lernzeit = col_double(),
-##   fehltage = col_double(),
-##   haarfarbe = col_double()
-## )</code></pre>
 </div>
 <div id="unbekannte-variable-auf-na-setzen" class="section level1" number="4">
 <h1 number="4"><span class="header-section-number">4</span> Unbekannte Variable auf NA setzen</h1>
