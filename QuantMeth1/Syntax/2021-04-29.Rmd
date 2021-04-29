@@ -273,13 +273,113 @@ flights %>%
 ```
 
 
+## Visualisieren Sie den Zusammenhang von Verspätung und Flugstrecke (`distance`) – aufgeteilt nach Abflugsort und nach Monat!
+
+a) Mit einem Diagramm, das Werte gruppiert
+
+b) Mit einem Diagramm, das nur den Zusammenhang aber keine einzelnen Werte zeigt
+
+### a)
+
+```{r}
+ggplot(flights) +
+  aes(x = distance, y = dep_delay) +
+  facet_grid(origin ~ month) +
+  geom_bin2d() +
+  scale_fill_viridis_c()
+```
+
+### b)
 
 
-Visualisieren Sie den Zusammenhang von Verspätung und Flugstrecke (distance) – aufgeteilt nach Abflugsort und nach Monat!
+```{r}
+ggplot(flights, 
+       mapping = aes(y = dep_delay, 
+                     x = distance, 
+                     color = origin)) +
+  geom_smooth() +
+  facet_wrap(~month, nrow = 3)
+```
 
-Visualisieren Sie den Zusammenhang von Verspätung und Tageszeit – für die drei Airlines mit der höchsten Durchschnittsverspätung. Reduzieren Sie dabei Overplotting.
 
-Visualisieren Sie den Anteil der verspäteten Flüge nach Abflugsort.
+
+## Visualisieren Sie den Zusammenhang von Verspätung und Tageszeit – für die drei Airlines mit der höchsten Durchschnittsverspätung. Reduzieren Sie dabei Overplotting.
+
+
+```{r}
+flights_delay_avg <- 
+  flights %>% 
+  drop_na(dep_delay, carrier) %>% 
+  group_by(carrier) %>% 
+  summarise(dep_delay_carrier = mean(dep_delay)) %>% 
+  arrange(desc(dep_delay_carrier))
+
+flights_delay_avg
+```
+
+F9, EV, YV sind die Airlines mit den größten Verspätungen.
+
+
+
+```{r}
+flights %>% 
+  #filter(carrier == "F9" | carrier == "EV" | carrier == "YV") %>%
+  filter(carrier %in% c("F9", "EV", "YV")) %>% 
+  ggplot() +
+  aes(x = hour, y = dep_delay) +
+  geom_point() +
+  geom_smooth()
+```
+
+
+```{r}
+flights %>% 
+  #filter(carrier == "F9" | carrier == "EV" | carrier == "YV") %>%
+  filter(carrier %in% c("F9", "EV", "YV")) %>% 
+  filter(dep_delay < 90) %>% 
+  ggplot() +
+  aes(x = factor(hour), y = dep_delay) +
+  geom_boxplot() +
+  geom_smooth(aes(group = 1)) +
+  geom_smooth(aes(group = 1), 
+              method = "lm", 
+              se = FALSE,
+              color = "red")
+```
+
+
+
+## Visualisieren Sie den Anteil der verspäteten Flüge nach Abflugsort.
+
+
+```{r}
+flights2 <- 
+  flights %>% 
+  mutate(is_delayed = dep_delay > 0) 
+```
+
+```{r}
+flights2 %>% 
+  group_by(origin) %>% 
+  summarise(flights_per_origin = n())
+```
+
+Kurzform:
+
+```{r}
+flights2 %>% 
+  count(origin) %>% 
+  ggplot(aes(x = origin, y = n)) +
+  geom_col() +
+  labs(title = "Anzahl der verspäteten Flüge nach Flughafen",
+       caption = "NYC, 2013") +
+  theme_minimal()
+```
+
+## Weitere Aufgaben
+
+
+S. Lösungen [hier](https://data-se.netlify.app/2020/11/12/fallstudie-zur-datenvisualisierung-datensatz-flights/#aufgaben-zur-datenvisualisierung)
 
 Visualisieren Sie den Anteil der verspäteten Flüge nach Uhrzeit.
 
