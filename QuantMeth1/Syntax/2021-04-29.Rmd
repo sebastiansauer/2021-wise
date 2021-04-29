@@ -28,3 +28,25 @@ noten[c(TRUE, TRUE, FALSE, FALSE, FALSE, TRUE)]
 ```
 
 
+
+# Aufgaben zur Datenvisualisierung
+
+
+1. Visualisieren Sie die Verteilung der Verspätungen der Flüge.
+
+Visualisieren Sie die Verteilung der Verspätung der Flüge pro Abflugsort.
+
+Visualisieren Sie den Zusammenhang von Verspätung und Tageszeit. Reduzieren Sie dabei Overplotting. Tipp: Anstelle von geom_point() mal geom_bin2d() ausprobieren.
+
+Visualisieren Sie den Zusammenhang von Verspätung und Flugstrecke (distance) – aufgeteilt nach Abflugsort und nach Monat!
+
+Visualisieren Sie den Zusammenhang von Verspätung und Tageszeit – für die drei Airlines mit der höchsten Durchschnittsverspätung. Reduzieren Sie dabei Overplotting.
+
+Visualisieren Sie den Anteil der verspäteten Flüge nach Abflugsort.
+
+Visualisieren Sie den Anteil der verspäteten Flüge nach Uhrzeit.
+
+Visualisieren Sie den Anteil der verspäteten Flüge nach Wochentag
+
+
+
