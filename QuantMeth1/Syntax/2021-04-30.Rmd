@@ -17,8 +17,74 @@ library(tidyverse)
 
 
 
+# Doppelte Istgleich-Zeichen in R
 
-# Exponenzielles Wachstum
+
+- `==`
+- `=`
+- `<-`
+
+
+## `==` - Prüfungen auf Gleichheit
+
+
+```{r}
+zahl1 <- 42
+zahl2 <- 42
+
+zahl1 == zahl2
+```
+
+
+```{r}
+filter(mtcars, am == 1)  # wichtigste Beispiel für `==`
+```
+
+
+
+
+# Anführungszeichen in R
+
+
+Um Text auszuzeichnen
+
+
+```{r}
+name <- "Alois"
+Alois <- 42
+
+name <- Alois
+name <- "Alois"
+
+freunde <- c('Alois', "Schorsch", "Anna")
+```
+
+
+
+# `summary()` mit `na.rm = TRUE`
+
+
+```{r}
+mtcars$mpg[1] <- NA
+
+mtcars %>% 
+  drop_na() %>% 
+  summarise(mean(mpg))  # sum, sd, median
+```
+
+# Erster Blick in Tabelle
+
+```{r}
+glimpse(mtcars)
+```
+
+
+
+
+
+
+
+
 
 
 
@@ -32,6 +98,15 @@ data(mtcars)
 
 ```{r}
 help(mtcars)
+```
+
+
+
+1. Filtern Sie die Tabelle `mtcars` so, dass nur Autos mit 4 oder 6 Zylinder übrig bleiben (d.h. in der Tabelle verbleiben; die anderen fliegen raus).
+
+```{r}
+mtcars %>%  # strg-shift-m ergibt den "Und-Dann-Befehl", die Pfeife
+  filter(cyl == 6 | cyl == 8)
 ```
 
 
