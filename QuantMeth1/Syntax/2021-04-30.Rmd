@@ -1,0 +1,54 @@
+---
+title: '2021-04-30'
+author: "ses"
+date: "4/30/2021"
+output: html_document
+---
+
+
+
+
+# Vorbereitung
+
+
+```{r}
+library(tidyverse)
+```
+
+
+
+
+# Exponenzielles Wachstum
+
+
+
+# Einfache Aufgaben zu `dplyr`
+
+Alle Aufgaben beziehen sich auf den Datensatz `mtcars` soweit nicht anders angegeben.
+
+```{r}
+data(mtcars)
+```
+
+```{r}
+help(mtcars)
+```
+
+
+
+
+
+1. Berechnen Sie den mittleren Spritverbrauch pro Zylindergröße!
+2. Ergänzen Sie die SD zur letzten Aufgabe. Es soll ein Dataframe zurückgegeben werden.
+3. Gruppieren Sie nach Zylindergröße und Antriebsart. Berechnen Sie den Median und den IQR pro Gruppe.
+4. Berechnen Sie die Korrelation von PS-Zahl und Spritverbrauch.
+5. Finden Sie die Variable, die am stärksten mit Spritverbrauch korreliert.
+6. Ergänzen Sie eine Spalte, die das Gewicht in `kg` angibt.
+7. Liefern Sie die drei größten Spritfresser zurück.
+8. Liefern Sie die drei größten Spritfresser pro Antriebsart zurück.
+9. Wie die vorherige Aufgabe, aber nur für Autos mit mehr als 100 PS.
+
+
+
+
+
