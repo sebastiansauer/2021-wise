@@ -289,3 +289,21 @@ mtcars %>%
   arrange(mpg) %>% 
   slice(1:3)
 ```
+
+
+
+
+
+# Unterschied von Pfeife und Plus-Zeichen
+
+
+```{r}
+mtcars  %>%  
+  filter(hp > 100) %>%   # Strg-Shift-M
+  ggplot() +
+  aes(x = hp, y = mpg) +
+  geom_point() 
+```
+
+
+
