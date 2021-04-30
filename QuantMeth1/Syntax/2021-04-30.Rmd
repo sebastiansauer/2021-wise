@@ -11,7 +11,7 @@ output: html_document
 # Vorbereitung
 
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 ```
 
@@ -80,8 +80,42 @@ glimpse(mtcars)
 
 
 
+# Häufigkeitstabelle
+
+Wie viele Autos gibt es pro Zylinder, nochmal unterteilt in Antriebsart (`am`)?
 
 
+```{r}
+mtcars %>% 
+  group_by(cyl, am) %>% 
+  summarise(n_cyl_am = n())
+```
+
+
+
+```{r}
+mtcars %>% 
+  count(cyl, am)
+```
+
+
+
+# filter - Spezialfälle
+
+
+Filter die Autos mit einer PS-Zahl zwischen 100 und 150 (einschl.)!
+
+```{r}
+mtcars %>% 
+  filter(between(hp, 100, 150))
+```
+
+Einfache Variante bei vielen nominal skalierten Elementen:
+
+```{r}
+mtcars %>% 
+  filter(carb %in% c(1, 2, 4))
+```
 
 
 
@@ -102,20 +136,11 @@ help(mtcars)
 
 
 
-1. Filtern Sie die Tabelle `mtcars` so, dass nur Autos mit 4 oder 6 Zylinder übrig bleiben (d.h. in der Tabelle verbleiben; die anderen fliegen raus).
-
-```{r}
-mtcars %>%  # strg-shift-m ergibt den "Und-Dann-Befehl", die Pfeife
-  filter(cyl == 6 | cyl == 8)
-```
-
-
-
-
+0. Filtern Sie die Tabelle `mtcars` so, dass nur Autos mit 4 oder 6 Zylinder übrig bleiben (d.h. in der Tabelle verbleiben; die anderen fliegen raus).
 
 1. Berechnen Sie den mittleren Spritverbrauch pro Zylindergröße!
 2. Ergänzen Sie die SD zur letzten Aufgabe. Es soll ein Dataframe zurückgegeben werden.
-3. Gruppieren Sie nach Zylindergröße und Antriebsart. Berechnen Sie den Median und den IQR pro Gruppe.
+3. Gruppieren Sie nach Zylindergröße und Antriebsart. Berechnen Sie den Median des Spritverrauchs und den IQR pro Gruppe.
 4. Berechnen Sie die Korrelation von PS-Zahl und Spritverbrauch.
 5. Finden Sie die Variable, die am stärksten mit Spritverbrauch korreliert.
 6. Ergänzen Sie eine Spalte, die das Gewicht in `kg` angibt.
@@ -125,5 +150,142 @@ mtcars %>%  # strg-shift-m ergibt den "Und-Dann-Befehl", die Pfeife
 
 
 
+# Lösungen
+
+## 0
 
 
+0. Filtern Sie die Tabelle `mtcars` so, dass nur Autos mit 4 oder 6 Zylinder übrig bleiben (d.h. in der Tabelle verbleiben; die anderen fliegen raus).
+
+```{r}
+mtcars %>%  # strg-shift-m ergibt den "Und-Dann-Befehl", die Pfeife
+  filter(cyl == 6 | cyl == 8)
+```
+
+
+
+## 1
+
+
+1. Berechnen Sie den mittleren Spritverbrauch pro Zylindergröße!
+
+```{r}
+data(mtcars)
+```
+
+
+```{r}
+mtcars %>% 
+  group_by(cyl) %>% 
+  summarise(mean(mpg))
+```
+
+## 2
+
+2. Ergänzen Sie die SD zur letzten Aufgabe. Es soll ein Dataframe zurückgegeben werden.
+
+
+```{r}
+mtcars %>% 
+  summarise(mean_mgp = mean(mpg),
+            sd_mpg = sd(mpg))
+```
+
+
+## 3
+
+
+3. Gruppieren Sie nach Zylindergröße und Antriebsart (`am`) . Berechnen Sie den Median des Spritverbrauchs und den IQR (Spritverbrauch) pro Gruppe.
+
+
+
+```{r}
+mtcars %>% 
+  group_by(cyl, am) %>% 
+  summarise(median(mpg),
+            IQR(mpg))
+```
+
+
+## 4
+
+
+
+4. Berechnen Sie die Korrelation von PS-Zahl und Spritverbrauch.
+
+
+```{r}
+mtcars %>% 
+  summarise(cor(hp, mpg))
+```
+
+
+## 5
+
+
+
+5. Finden Sie die Variable, die am stärksten mit Spritverbrauch korreliert.
+
+
+
+```{r}
+mtcars %>% 
+  summarise(cor_hp_mpg = cor(hp, mpg),
+            cor_disp_mpg = cor(disp, mpg))
+```
+
+```{r}
+mtcars %>% 
+  cor()
+```
+
+
+`wt`
+
+## 6
+
+
+6. Ergänzen Sie eine Spalte (zur Tabelle `mtcars`), die das Gewicht in `kg` angibt.
+
+
+```{r}
+mtcars %>% 
+  mutate(wt_kg = wt / 2) %>% 
+  select(wt_kg, wt, everything())
+```
+
+## 7
+
+
+7. Liefern Sie die drei größten Spritfresser zurück.
+
+
+```{r}
+mtcars %>% 
+  arrange(mpg) %>% 
+  slice(1:3)
+```
+
+## 8
+
+8. Liefern Sie die drei größten Spritfresser pro Antriebsart (`am`) zurück.
+
+```{r}
+mtcars %>% 
+  group_by(am) %>% 
+  arrange(mpg) %>% 
+  slice(1:3)
+```
+
+## 9
+
+9. Wie die vorherige Aufgabe, aber nur für Autos mit mehr als 100 PS.
+
+
+```{r}
+mtcars %>% 
+  filter(hp > 100) %>% 
+  group_by(am) %>% 
+  arrange(mpg) %>% 
+  slice(1:3)
+```
