@@ -28,3 +28,44 @@ d3 %>%
   summarise(willingness = mean(willingness, na.rm = TRUE))
 ```
 
+
+# Test
+
+
+```{r}
+d3 %>%
+  drop_na(age, willingness, health) %>% 
+  summarise(
+    cor_willingness_age = cor(age, willingness),
+    cor_willingness_health = cor(health, willingness))
+```
+
+
+
+```{r}
+library(hrbrthemes)
+d3 %>% 
+  mutate(willingness = willingness * 10) %>% 
+  rename(Impfbereitschaft = willingness,
+         `Anz. bekannter Fälle` = cases) %>% 
+  ggplot(aes(x = `Anz. bekannter Fälle`, 
+             y = Impfbereitschaft)) +
+  geom_jitter(alpha = .7, aes(color = sex)) +
+  labs(title = "Impfbereitschaft in Abhängigkeit",
+       subtitle = "der persönlich bekannten Covid19-Fälle",
+       color = "Geschlecht",
+       caption = "Umfrage unter n=160 Studierenden, Datum: April 2021") +
+  scale_color_viridis_d() +
+  theme_ipsum_() +
+  theme(legend.position = "bottom")
+```
+
+
+```{r}
+d3 %>% 
+  ggplot(aes(x = sex, y = willingness)) +
+  geom_boxplot() 
+```
+
+
+
