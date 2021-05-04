@@ -16,6 +16,15 @@ library(tidyverse)
 # Daten laden
 
 ```{r}
-d3 <- read_csv("https://raw.githubusercontent.com/sebastiansauer/willingness-vaccination-covid19/main/data/d3.csv")
+data_url <- "https://raw.githubusercontent.com/sebastiansauer/willingness-vaccination-covid19/main/data/d3.csv"
+
+d3 <- read_csv(data_url)  # wohnt im tidyverse
+```
+
+
+
+```{r}
+d3 %>% 
+  summarise(willingness = mean(willingness, na.rm = TRUE))
 ```
 
