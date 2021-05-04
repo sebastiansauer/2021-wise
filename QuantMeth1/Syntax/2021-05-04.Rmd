@@ -1,0 +1,21 @@
+---
+title: '2021-05-04'
+author: "ses"
+date: "5/4/2021"
+output: html_document
+---
+
+# Vorbereitung
+
+```{r}
+library(tidyverse)
+```
+
+
+
+# Daten laden
+
+```{r}
+d3 <- read_csv("https://raw.githubusercontent.com/sebastiansauer/willingness-vaccination-covid19/main/data/d3.csv")
+```
+
