@@ -76,7 +76,8 @@ p2
 flights %>% 
   mutate(is_cancelled = is.na(dep_time)) %>% 
   ggplot() +
-  aes(x = is_cancelled) +
+  aes(
+      x = is_cancelled) +
   geom_violin(aes(y = sched_dep_time)) + 
   geom_errorbar(data = flights_summary,
                 aes(
@@ -108,6 +109,31 @@ d3 <- read_csv(data_url)  # wohnt im tidyverse
 
 
 # Schnörkel
+
+```{r}
+library(scales)
+d3 %>% 
+  mutate(willingness = willingness * 10) %>% 
+  ggplot(
+       aes(x = fear, y = willingness)) +
+  geom_point(position = "jitter",
+             alpha = .7,
+             aes(color = sex)) +
+  geom_smooth() +
+  labs(title = "Impfbereitschaft",
+       subtitle = "abhängig von der Angst vor Corona",
+       caption = "Umfrage unter n=160 Studierenden; Datum: April 2021",
+       y = "Impfbereitschaft",
+       x = "Angst vor Corona") +
+  theme_minimal() +
+  scale_y_continuous(labels = scales::percent)
+```
+
+
+
+
+
+
 
 ```{r}
 wip_data <- read_csv("../../data/WiP/WB-WiP.csv")
