@@ -5,9 +5,40 @@ date: "5/6/2021"
 output: html_document
 ---
 
+
+# Setup 
+
 ```{r}
 library(tidyverse)
 ```
+
+
+
+# Datensatz `flights`
+
+```{r}
+library(nycflights13)
+data(flights)
+```
+
+Use what you’ve learned to improve the visualisation of the *scheduled departure times* of *cancelled vs. non-cancelled flights*.
+
+
+
+```{r}
+flights %>% 
+  mutate(is_cancelled = is.na(dep_time)) %>% 
+  ggplot() +
+  aes(y = sched_dep_time, x = is_cancelled) +
+  geom_violin()
+```
+
+
+
+
+
+
+
 
 
 
@@ -21,8 +52,12 @@ d3 <- read_csv(data_url)  # wohnt im tidyverse
 
 
 
+
 # Schnörkel
 
+```{r}
+wip_data <- read_csv("../../data/WiP/WB-WiP.csv")
+```
 
 
 
