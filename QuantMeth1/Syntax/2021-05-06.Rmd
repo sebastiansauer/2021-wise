@@ -73,16 +73,24 @@ p2
 
 
 ```{r}
-p2 +
+flights %>% 
+  mutate(is_cancelled = is.na(dep_time)) %>% 
+  ggplot() +
+  aes(x = is_cancelled) +
+  geom_violin(aes(y = sched_dep_time)) + 
   geom_errorbar(data = flights_summary,
-                aes(y = sched_dep_time,
+                aes(
                   ymax = sched_dep_time_median + 
                       sched_dep_time_iqr/2,
                     ymin = sched_dep_time_median - 
                       sched_dep_time_iqr/2 ),
                 width = .1,
                 color = "grey60"
-                )
+                ) +
+  geom_point(data = flights_summary,
+             aes(y = sched_dep_time_median),
+             size = 5,
+             color = "red") 
 ```
 
 
