@@ -1,0 +1,29 @@
+---
+title: '2021-05-06'
+author: "ses"
+date: "5/6/2021"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+
+# Daten laden
+
+```{r}
+data_url <- "https://raw.githubusercontent.com/sebastiansauer/willingness-vaccination-covid19/main/data/d3.csv"
+
+d3 <- read_csv(data_url)  # wohnt im tidyverse
+```
+
+
+
+# Schnörkel
+
+
+
+
+

@@ -42,22 +42,33 @@ d3 %>%
 
 
 
+# Schnörkel
+
+
 ```{r}
 library(hrbrthemes)
+
+d3_sum <-
+  d3 %>% 
+  summarise(willingness_avg = mean(willingness, na.rm = T),
+            cases_avg = mean(cases, na.rm = T))
+
 d3 %>% 
   mutate(willingness = willingness * 10) %>% 
-  rename(Impfbereitschaft = willingness,
-         `Anz. bekannter Fälle` = cases) %>% 
-  ggplot(aes(x = `Anz. bekannter Fälle`, 
-             y = Impfbereitschaft)) +
+  mutate(sex_na = is.na(sex)) %>% 
+  ggplot(aes(x = cases, 
+             y = willingness)) +
   geom_jitter(alpha = .7, aes(color = sex)) +
   labs(title = "Impfbereitschaft in Abhängigkeit",
        subtitle = "der persönlich bekannten Covid19-Fälle",
        color = "Geschlecht",
        caption = "Umfrage unter n=160 Studierenden, Datum: April 2021") +
   scale_color_viridis_d() +
-  theme_ipsum_() +
-  theme(legend.position = "bottom")
+  theme_ipsum_tw() +
+  theme(legend.position = "bottom") +
+  geom_hline(yintercept= 8.1*10, linetype = "dashed") +
+  geom_label(x = 50, y = 81, label =  "MW",
+            hjust = 1)
 ```
 
 
