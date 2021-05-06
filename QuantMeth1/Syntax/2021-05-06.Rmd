@@ -25,19 +25,65 @@ Use what you’ve learned to improve the visualisation of the *scheduled departu
 
 
 
+# Aufgabe
+
+Ergänzen Sie eine Visualisierung des Medians!
+
 ```{r}
-flights %>% 
+p1 <- flights %>% 
   mutate(is_cancelled = is.na(dep_time)) %>% 
   ggplot() +
   aes(y = sched_dep_time, x = is_cancelled) +
   geom_violin()
+
+p1
+```
+
+
+Zusammenfassungen berechnen:
+
+```{r}
+flights_summary <- 
+  flights %>% 
+  mutate(is_cancelled = is.na(dep_time)) %>% 
+  group_by(is_cancelled) %>% 
+  summarise(sched_dep_time_median = median(sched_dep_time),
+            sched_dep_time_iqr = IQR(sched_dep_time))
+```
+
+
+```{r}
+ggplot(flights_summary) +
+  aes(x = is_cancelled, y = sched_dep_time_median) +
+  geom_point(size = 4, color = "red")
 ```
 
 
 
+```{r}
+p2 <- p1 +
+  geom_point(data = flights_summary,
+             aes(y = sched_dep_time_median),
+             size = 5,
+             color = "red") 
+
+p2
+```
 
 
 
+```{r}
+p2 +
+  geom_errorbar(data = flights_summary,
+                aes(y = sched_dep_time,
+                  ymax = sched_dep_time_median + 
+                      sched_dep_time_iqr/2,
+                    ymin = sched_dep_time_median - 
+                      sched_dep_time_iqr/2 ),
+                width = .1,
+                color = "grey60"
+                )
+```
 
 
 
