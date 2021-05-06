@@ -111,22 +111,24 @@ d3 <- read_csv(data_url)  # wohnt im tidyverse
 # Schnörkel
 
 ```{r}
-library(scales)
-d3 %>% 
-  mutate(willingness = willingness * 10) %>% 
-  ggplot(
-       aes(x = fear, y = willingness)) +
+library(hrbrthemes)
+
+ggplot(d3) +
+  aes(y = willingness, x = fear) +
   geom_point(position = "jitter",
              alpha = .7,
              aes(color = sex)) +
-  geom_smooth() +
+  geom_smooth(method = "lm") +
   labs(title = "Impfbereitschaft",
        subtitle = "abhängig von der Angst vor Corona",
-       caption = "Umfrage unter n=160 Studierenden; Datum: April 2021",
-       y = "Impfbereitschaft",
-       x = "Angst vor Corona") +
-  theme_minimal() +
-  scale_y_continuous(labels = scales::percent)
+       caption = "Umfrage unter n=165 Studierenden im April 2021",
+       color = "Geschlecht"
+       ) +
+  scale_y_continuous(breaks = c(1, 2.5, 5, 7.5, 10)) +
+  theme_ipsum_rc() +
+  theme(legend.position = "bottom")
+
+ggsave(filename = "plot1.pdf")
 ```
 
 
