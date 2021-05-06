@@ -110,6 +110,8 @@ d3 <- read_csv(data_url)  # wohnt im tidyverse
 
 # Schnörkel
 
+Wie verschönert man ein Diagramm mit ggplot2 (Titel ergänzen, Farbschema ändern, ...)?
+
 ```{r}
 library(hrbrthemes)
 
@@ -121,12 +123,16 @@ ggplot(d3) +
   geom_smooth(method = "lm") +
   labs(title = "Impfbereitschaft",
        subtitle = "abhängig von der Angst vor Corona",
+       x = "Angst vor Corona",
+       y = "Impfbereitschaft",
        caption = "Umfrage unter n=165 Studierenden im April 2021",
        color = "Geschlecht"
        ) +
   scale_y_continuous(breaks = c(1, 2.5, 5, 7.5, 10)) +
-  theme_ipsum_rc() +
-  theme(legend.position = "bottom")
+  #theme_ipsum_rc() +
+  theme(legend.position = "bottom",
+        plot.title.position = "plot", 
+        plot.title = element_text(hjust = 0.5))
 
 ggsave(filename = "plot1.pdf")
 ```
@@ -135,12 +141,75 @@ ggsave(filename = "plot1.pdf")
 
 
 
+# Residuen, Vorhergesagte Werte in der Regression
+
+```{r}
+data(mtcars)
+```
+
+Einfuss des Gewichts auf den Spritverbrauch?
 
 
 ```{r}
-wip_data <- read_csv("../../data/WiP/WB-WiP.csv")
+mtcars %>% 
+  ggplot() +
+  aes(x = wt, y = mpg) +
+  geom_point() +
+  geom_smooth(method = "lm")
 ```
 
+
+
+```{r}
+lm1 <- lm(mpg ~ wt, data = mtcars)
+lm1
+```
+
+
+
+
+
+```{r}
+mtcars %>% 
+  ggplot() +
+  aes(x = wt, y = mpg) +
+  geom_point() +
+  geom_abline(slope = -5, intercept = 37) +
+  xlim(0, 7) +
+  ylim(0, 50)
+```
+
+
+```{r}
+library(modelr)
+```
+
+
+```{r}
+mtcars2 <-
+  mtcars %>% 
+  add_residuals(lm1) %>% 
+  add_predictions(lm1)
+```
+
+
+
+
+```{r}
+mtcars2 %>% 
+  ggplot() +
+  aes(x = wt, y = mpg) +
+  geom_point() +
+  geom_abline(slope = -5.3, intercept = 37.3) +
+  xlim(0, 7) +
+  ylim(0, 50) +
+  geom_segment(aes(x = wt, xend = wt,
+                   y = mpg, yend = pred),
+               color = "red") +
+  geom_point(aes(y = pred),
+             color = "blue",
+             alpha = .5)
+```
 
 
 
