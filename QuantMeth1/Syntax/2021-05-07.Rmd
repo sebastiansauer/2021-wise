@@ -75,7 +75,7 @@ diamonds %>%
 diamond2 <-
   diamonds %>% 
   mutate(grosser_diamand = ifelse(carat >= 0.7, 
-                                  "gross", "klein")) %>% 
+                                  "gross", NA)) %>% 
   select(grosser_diamand, carat)
 ```
 
@@ -168,7 +168,7 @@ runif(n = 1)
 
 
 
-## 7.3.4.2
+# 7.3.4.2
 
 
 >    What does `na.rm = TRUE` do in mean() and sum()?
@@ -182,6 +182,58 @@ sum(noten)
 ```
 
 
+
+# 7.5.1.
+
+## 1
+
+>   Use what you’ve learned to improve the visualisation of the *departure times* of *cancelled vs. non-cancelled* flights.
+
+```{r}
+nycflights13::flights %>% 
+  mutate(
+    cancelled = is.na(dep_time),
+    sched_hour = sched_dep_time %/% 100,
+    sched_min = sched_dep_time %% 100,
+    sched_dep_time = sched_hour + sched_min / 60
+  ) %>% 
+  ggplot(mapping = aes(sched_dep_time)) + 
+    geom_freqpoly(mapping = aes(colour = cancelled), binwidth = 1/4)
+```
+
+
+```{r}
+flights2 <- nycflights13::flights %>% 
+  mutate(
+    cancelled = is.na(dep_time),
+    sched_hour = sched_dep_time %/% 100,
+    sched_min = sched_dep_time %% 100,
+    sched_dep_time = sched_hour + sched_min / 60
+  )
+
+flights_summary <-
+  flights2 %>% 
+  group_by(cancelled) %>% 
+  summarise(sched_dep_time_md = median(sched_dep_time, na.rm = TRUE),
+            sched_dep_time_iqr= IQR(sched_dep_time, na.rm = TRUE))
+
+flights2 %>% 
+  ggplot() +
+  aes(x = cancelled) +
+  geom_violin(aes(y = sched_dep_time)) +
+  geom_point(data = flights_summary,
+             aes(y = sched_dep_time_md),
+             color = "red",
+             size = 4) +
+  geom_errorbar(data = flights_summary,
+                aes(ymax = sched_dep_time_md + sched_dep_time_iqr/2,
+                    ymin = sched_dep_time_md - sched_dep_time_iqr/2),
+                color = "grey40",
+                alpha = .7,
+                width = .1) +
+  labs(caption = "Die roten Punkte stellen den Median dar.")
+
+```
 
 
 
