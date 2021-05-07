@@ -10,16 +10,16 @@ editor_options:
 
 # Vorbereitung
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 ```
 
 
-```{r}
+```{r echo = FALSE}
 data("diamonds")
 ```
 
-
+`data()` lädt Datensätze aber nur aus Paketen, die gestartet sind (d.h. mit `library()`)!
 
 # Aufgaben
 
@@ -30,7 +30,7 @@ Explore the *distribution* of *each* of the x, y, and z variables in diamonds. W
 - Univariate Betrachtung: Jede Variable einzeln
 - Verteilung (metr. Variable: Histogramm!)
 
-```{r}
+```{r eval = FALSE}
 ggplot(diamonds) +
   aes(x = carat) +
   geom_histogram() +
@@ -43,7 +43,7 @@ ggplot(diamonds) +
 
 
 
-```{r}
+```{r fig.align='center', out.width="70%", fig.height=3}
 ggplot(diamonds) +
   aes(x = carat) +
   geom_histogram() 
@@ -52,7 +52,139 @@ ggplot(diamonds) +
 
 Wie kann man die Ausreißer besser sehen?
 
-Boxplot!
+Boxplot! 
+
+Erstellen Sie eine Variante mit Boxplot!
+
+
+```{r}
+ggplot(diamonds) +
+  aes(x = carat) +
+  geom_boxplot() 
+```
+
+
+
+# ifelse
+
+
+```{r}
+diamonds %>% 
+  summarise(median(carat))
+
+diamond2 <-
+  diamonds %>% 
+  mutate(grosser_diamand = ifelse(carat >= 0.7, 
+                                  "gross", "klein")) %>% 
+  select(grosser_diamand, carat)
+```
+
+
+# filter und group_by
+
+Mittlere Preis pro Schlliffart, aber nur für große Diamanten (>0.7 carat)!
+
+
+```{r}
+diamonds %>% 
+  filter(carat > 0.7) %>% 
+  group_by(cut) %>% 
+  summarise(price_per_cut_mean = mean(price))
+```
+
+
+
+# Modulo-Rechnen
+
+
+```{r}
+2021 %/% 100 # ganzzahliger Teil des Ergebnisses
+
+715 %/% 100
+
+7/2  
+
+7 %% 2  # Rest (Modulo)
+```
+
+
+
+
+# Fehlende Werte
+
+```{r}
+diamonds %>% 
+  drop_na()  %>% # wirft alle Zeilen raus mit mind. 1 fehlendem Wert
+  nrow()
+```
+
+
+```{r}
+library(nycflights13)
+data(flights)
+```
+
+
+```{r}
+flights %>% 
+  drop_na() %>% 
+  nrow()
+```
+
+
+```{r}
+nrow(flights)
+```
+
+
+
+```{r}
+327346/336776
+```
+
+
+
+```{r}
+flights %>% 
+  filter(is.na(dep_delay))
+```
+
+
+
+
+# set.seed
+
+
+```{r}
+runif(n = 1)
+rnorm(n = 1)
+```
+
+
+```{r}
+#set.seed(42)
+runif(n = 1)
+```
+
+
+
+## 7.3.4.2
+
+
+>    What does `na.rm = TRUE` do in mean() and sum()?
+
+
+```{r}
+noten <- c(1, 2, 1, 2, NA)
+mean(noten, na.rm = TRUE)
+sd(noten, na.rm = TRUE)
+sum(noten)
+```
+
+
+
+
+
 
 
 
