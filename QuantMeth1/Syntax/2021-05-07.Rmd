@@ -183,7 +183,7 @@ sum(noten)
 
 
 
-# 7.5.1.
+# 7.5.1.1
 
 ## 1
 
@@ -236,7 +236,201 @@ flights2 %>%
 ```
 
 
+## 2
+
+<https://r4ds.had.co.nz/exploratory-data-analysis.html#exercises-17> 
+
+
+>   What *variable* in the diamonds dataset is most important for *predicting* the *price* of a diamond? How is that variable "correlated" with *cut*? Why does the combination of those two relationships lead to lower quality diamonds being more expensive?
+
+
+```{r}
+diamonds %>% 
+  select(price, carat, depth, table, price, x, y, z) %>% 
+  cor()
+```
+
+
+```{r}
+p0 <- diamonds %>% 
+  ggplot()
+
+p0 +   
+  aes(x = cut, y = price) +
+  geom_boxplot()
+```
+
+
+```{r}
+diamonds %>% 
+  ggplot() +
+  aes(x = cut, y = carat) +
+  geom_boxplot() +
+  coord_flip()
+```
+
+
+```{r}
+lm1 <- lm(price ~ carat, data = diamonds)
+
+library(modelr)
+
+diamonds2 <- 
+  diamonds %>% 
+  add_residuals(lm1) %>% 
+  add_predictions(lm1)
+```
+
+
+```{r}
+p0 +
+  aes(x = carat, y = price) +
+  geom_point(alpha = .3) +  
+  geom_smooth(method = "lm") 
+
+```
+
+
+```{r}
+diamonds2 %>% 
+  ggplot() +
+  aes(y = resid, x = cut) +
+  geom_boxplot() +
+  labs(y = "Preis relativ zur Größe des Diamanten")
+```
+
+
+
+## 6
+
+
+>   If you have a small dataset, it’s sometimes useful to use *geom_jitter()* to see the relationship between a continuous and categorical variable. The *ggbeeswarm* package provides a number of *methods* similar to geom_jitter(). List them and briefly describe what each one does.
+
+
+```{r}
+library(ggbeeswarm)
+```
+
+
+```{r}
+data(mtcars)
+```
+
+
+```{r}
+mtcars %>% 
+  ggplot() +
+  aes(y = mpg, x = hp) +
+  geom_jitter(alpha = .5)
+```
+
+
+
+```{r}
+mtcars %>% 
+  ggplot() +
+  aes(y = mpg, x = hp) +
+  geom_beeswarm()
+```
+
+```{r}
+mtcars %>% 
+  ggplot() +
+  aes(y = mpg, x = hp) +
+  geom_point()
+```
+
+
+
+```{r}
+ggplot(mpg, aes(x = displ, y = cty, color = drv))+
+  geom_point(alpha = .5)
+
+ggplot(mpg, aes(x = 1, y = cty, color = drv))+
+  geom_beeswarm()
+
+ggplot(mpg, aes(x = 1, y = cty, color = drv))+
+  geom_quasirandom()
+```
 
 
 
 
+
+
+
+
+
+
+
+# Tilde, Welle, Kringel
+
+```{r}
+ ~  # Alt-N
+```
+
+
+```{r}
+y ~ x  # Formelschreibweise
+AV ~ UV  # lies: AV ist eine Funktion von UV
+```
+
+
+
+```{r}
+lm(mpg ~ hp, data = mtcars)
+```
+
+
+# Bienenschwarm-Diagramm
+
+```{r}
+library(ggbeeswarm)
+```
+
+
+```{r}
+ggplot(mpg, aes(x = displ, y = cty, color = drv)) +
+  geom_point()
+```
+
+
+```{r}
+ggplot(mpg, aes(x = displ, y = cty, color = drv)) +
+  geom_point(alpha =.5)
+```
+
+
+
+```{r}
+ggplot(mpg, aes(x = displ, y = cty, color = drv)) +
+  geom_jitter()
+```
+
+
+```{r}
+ggplot(mpg, aes(x = displ, y = cty, color = drv)) +
+  geom_jitter(alpha = .5)
+```
+
+
+```{r}
+ggplot(mpg, 
+       aes(x = displ, y = cty, color = drv))+
+  geom_beeswarm(alpha = .5)
+```
+
+```{r}
+ggplot(mpg, 
+       aes(x = displ, y = cty, color = drv))+
+  geom_beeswarm(groupOnX = TRUE)
+```
+
+
+
+```{r}
+ggplot(mpg, 
+       aes(x = displ, y = cty, color = drv))+
+  geom_beeswarm(groupOnX = FALSE,
+                alpha = .5)
+```
