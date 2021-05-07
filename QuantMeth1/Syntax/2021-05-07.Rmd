@@ -1,0 +1,58 @@
+---
+title: '2021-05-07'
+author: "ses"
+date: "5/7/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Vorbereitung
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+data("diamonds")
+```
+
+
+
+# Aufgaben
+
+## 7.3.4.1
+
+Explore the *distribution* of *each* of the x, y, and z variables in diamonds. What do you learn? Think about a diamond and how you might decide which dimension is the length, width, and depth.
+
+- Univariate Betrachtung: Jede Variable einzeln
+- Verteilung (metr. Variable: Histogramm!)
+
+```{r}
+ggplot(diamonds) +
+  aes(x = carat) +
+  geom_histogram() +
+  xlim(3,9) +
+  ylim(0, 10)
+```
+
+
+## Ausreißer: ungewöhnliche Werte
+
+
+
+```{r}
+ggplot(diamonds) +
+  aes(x = carat) +
+  geom_histogram() 
+```
+
+
+Wie kann man die Ausreißer besser sehen?
+
+Boxplot!
+
+
+
