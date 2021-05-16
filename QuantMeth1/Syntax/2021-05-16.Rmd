@@ -1,0 +1,404 @@
+---
+title: "Logarithmus und Exponenten"
+subtitle: "<br/>Was haben die in einer Regression verloren?"
+author: "Sebastian Sauer"
+institute: "Hochschule Ansbach"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+```{r global-knitr-options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H',
+  fig.asp = 0.618,
+  fig.width = 5,
+  fig.cap = "", 
+  fig.path = "",
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  cache = FALSE,
+  fig.show = "hold")
+```
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(DT)
+```
+
+
+
+
+class: center, middle, inverse
+
+# Logarithmus und Potenzen in Regressionen
+
+
+
+---
+
+# Regression in Standardform
+
+## Additiver Zusammenhang
+
+$$y= b0 + b_1x$$
+
+bzw.
+
+$$y = b0 + b_1x_1 + b_2 x_2 + \ldots + b_k x_k + \epsilon$$
+
+
+---
+
+
+# Wir definieren einen einfachen Datensatz
+
+
+
+```{r}
+d <- 
+  tibble(
+    x = rep(0:10, 10),
+    y_hat = x,
+    e = rnorm(n = (10+1)*10) %>% round(2),
+    y = y_hat + e 
+  )
+
+```
+
+
+- $x$: Prädiktor
+- $\hat{y}$: vorhergesagter Y-Wert
+- $e$: Fehler
+- $y$: beobachteter Y-Wert
+
+---
+
+# Ein Datensatz für additives Wachstum
+
+```{r echo = FALSE}
+datatable(d,
+          options = list(pageLength = 7))
+```
+
+
+
+---
+
+# So sieht additives Wachstum aus
+
+
+.pull-left[
+```{r plot-additiv, fig.show = "hide"}
+ggplot(d) +
+  aes(x = x, y = y) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+]
+
+.pull-right[
+![](`r knitr::fig_chunk("plot-additiv", "png")`)
+]
+
+
+Bei einem Unterschied in X von 1, beträgt der vorhergesagte Unterschied in Y 1.
+
+\\
+
+Für jede Einheit, die X steigt, steigt Y um einen festen Wert: additives Wachstum.
+
+---
+
+# Log-Y-Regression
+
+## Exponentieller Zusammenhang
+
+$$log(y) = x$$
+
+Beide Seiten delogarithmieren:
+
+$$y = e^x$$
+
+$e$ ist die Eulersche Zahl: 2.71...
+
+---
+
+# Daten für exponentiellen Zusammenhang
+
+```{r}
+euler_e <- 2.71
+
+d2 <- 
+  tibble(
+    x = rep(0:100, 10),
+    y_hat = euler_e^(0.1*x) %>% round(2),
+    e = rnorm(n = (101)*10) %>% round(2),
+    y = y_hat + e
+  )
+
+```
+
+
+
+---
+
+# So sieht der Datensatz `d2` aus
+
+
+```{r echo = FALSE}
+datatable(d2,
+          options = list(pageLength = 7))
+```
+
+
+---
+
+# Exponentiellen Zusammenhang visualisieren
+
+
+
+.pull-left[
+```{r plot-exp, fig.show = "hide"}
+ggplot(d2) +
+  aes(x = x, y = y) +
+  geom_point() +
+  geom_smooth()
+```
+]
+
+.pull-right[
+![](`r knitr::fig_chunk("plot-exp", "png")`)
+]
+
+
+Steigt X um 1 Einheit, so steigt Y um einen konstanten Faktor: exponentielles Wachstum.
+
+
+---
+
+# Log-Y-Regression in R
+
+
+```{r}
+lm_logy <- lm(log(y) ~ x, data = d2)
+lm_logy
+```
+
+
+*Achtung*: Für negative Zahlen ist der Logarithmus nicht definiert.
+
+---
+
+# Interpretation einer Log-Y-Regression
+
+Log-Y-Regression modelliert exponentiellen Zusammenhang
+
+Kleine Koeffizienten ($[-0.3;0.3]$) lassen sich ohne delogarithmieren als Wachstumsfaktoren interpretieren
+
+
+
+```{r}
+coef(lm_logy)
+```
+
+
+```{r}
+exp(0.1)
+```
+
+
+
+"Zwei Beobachtungen die sich um eine Einheit in X unterscheiden, unterscheiden sich etwa um 10% in Y".
+
+---
+
+
+# Wann soll ich eine Log-Y-Regression verwenden?
+
+## Verwenden Sie die Log-Y-Regression, wenn Sie von einem exponentiellen Zusammenhang ausgehen, also von multiplikativen Zusammenhängen
+
+Beispiele:
+
+- Wachstumsprozesse (z.B. Bevölkerung, Corona, Bakterien, radiokativer Zerfall)
+- Verzinsung
+
+
+Wenn sich Y um einen konstanten *Faktor* verändert, wenn sich X um einen konstanten *Wert* verändert, ist eine Log-Y-Regression sinnvoll. 
+
+
+---
+
+
+# Log-Log-Regression
+
+
+$$y = x^2$$
+
+Beide Seiten logarithmieren:
+
+$$log(y) = 2 log(x)$$
+
+
+Sowohl Y als auch X sind logarithmiert.
+
+---
+
+
+
+
+
+# Daten für Potenzfaktor-Zusammenhang
+
+```{r}
+d3 <- 
+  tibble(
+    x = rep(0:100, 100),
+    y_hat = x^2,
+    e = rnorm(n = (101)*100),
+    y = y_hat + e
+  )
+
+```
+
+
+---
+
+
+# So sieht der Datensatz `d3` aus
+
+
+```{r echo = FALSE}
+datatable(d3,
+          options = list(pageLength = 7))
+```
+
+---
+
+
+
+
+# Log-Log-Regression in R
+
+```{r}
+lm_loglog <- lm(log(y) ~ log(x), data = filter(d3, y > 0 & x > 0))
+lm_loglog
+```
+
+*Achtung*: Für negative Zahlen ist der Logarithmus nicht definiert.
+
+
+---
+
+
+# Visualisierung eines Log-Log-Zusammenhangs
+
+
+
+.pull-left[
+```{r plot-potenz, fig.show = "hide"}
+ggplot(d3) + 
+  aes(x = x, y = y) +
+  geom_point() +
+  geom_smooth()
+```
+]
+
+.pull-right[
+![](`r knitr::fig_chunk("plot-potenz", "png")`)
+]
+
+## Lineares Modell passt nicht; es liegt quadratisches Wachstum vor.
+
+
+---
+
+
+# Einfaches Zahlenbeispiel
+
+
+```{r}
+d4 <-
+  tibble(
+    x = 0:10,
+    y = x^2,
+    x_log = log(x, base = 2) %>% round(2),
+    y_log = log(y, base = 2) %>% round(2)
+  )
+```
+
+
+---
+
+# So sieht `d4` aus
+
+
+```{r echo = FALSE}
+datatable(d4,
+          options = list(pageLength = 7))
+```
+
+
+---
+
+
+
+# `d4`: Verdoppelt sich X, vervierfacht sich Y
+
+
+```{r echo = FALSE}
+datatable(d4)
+```
+
+
+---
+
+
+
+# Wie interpretiert man eine Log-Log-Regression?
+
+"Für je 100 % Unterschied in X, beträgt der vorhergesagte Unterschied in Y 200 % (allgemein: $k %$).
+
+
+
+
+
+
+
+---
+
+
+# Wann soll ich eine Log-Log-Regression verwenden?
+
+## Verwenden Sie die Log-Log-Regression, wenn Sie von einem Potenzgesetz im Zusammenhang ausgehen, z.b. einem quadratischen Zusammenhang
+
+Beispiele:
+
+- Zusammenhang von Oberfläche und Volumen
+
+
+Wenn sich Y um einen konstanten *Faktor* verändert, wenn sich X um einen konstanten *Faktor* verändert, ist eine Log-Log-Regression sinnvoll. 
+
+---
+
+
+
+# Literatur
+
+
+[https://avehtari.github.io/ROS-Examples/](Regression and Other Stories: Andrew Gelman, Jennifer Hill, Aki Vehtari)
+
+
+
