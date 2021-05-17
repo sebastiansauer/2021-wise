@@ -114,11 +114,10 @@ ggplot(d) +
 ]
 
 
-Bei einem Unterschied in X von 1, beträgt der vorhergesagte Unterschied in Y 1.
+Bei einem Unterschied in X von 1, beträgt der vorhergesagte Unterschied in Y 1 (bzw. $k$ im allgemeinen Fall).
 
-\\
 
-Für jede Einheit, die X steigt, steigt Y um einen festen Wert: additives Wachstum.
+Für jede Einheit, die X steigt, steigt Y um einen festen Wert $k$: additives Wachstum.
 
 ---
 
@@ -128,13 +127,42 @@ Für jede Einheit, die X steigt, steigt Y um einen festen Wert: additives Wachst
 
 $$log(y) = x$$
 
-Beide Seiten delogarithmieren:
+Exponentiert man beide Seite, so erhält man:
 
 $$y = e^x$$
 
 $e$ ist die Eulersche Zahl: 2.71...
 
 ---
+
+# Einfache Beispiele für exponentielle Zusammenhänge
+
+- Eine Bakterienmenge verdoppelt sich jeden Tag
+- Pro Jahr erzielt eine Kapitalanlage 10% Zinsen
+- Während einer bestimmten Periode verdoppelten sich die Coronafälle alle 10 Tage
+- Die Menge der Vitamine in einem Lebensmittel verringert sich pro Zeiteinheit um den Faktor $k$
+
+
+Generell bieten sich Wachstumsprozesse für exponentielle Zusammenhänge an.
+
+---
+
+# Exponentielles Wachstum
+
+
+Beim exponentiellen Wachstum wächst eine Größe pro Zeitabschnitt immer um denselben Faktor.
+
+Die Änderung einer Größe $A$ pro Zeitabschnitt $t$ ist proportional^1^ zum Bestand von $A$:
+
+$$\frac{dA}{dt} \sim A$$
+
+Exponentielles Wachstum wächst (ab einem bestimmten Zeitpunkt) sehr stark und wird daher leicht unterschätzt.
+
+.footnote[Proportional bedeutet, Verdopplung (Verdreifachung, Vervierfachung...) einer Größe ist stets mit der Verdopplung (Verdreifachung, Vervierfachung, ...) der anderen Größe verbunden. So ist der Kreisumfang proportional zum Kreisdurchmesser mit dem Proportionalitätsfaktor 3.14.]
+
+---
+
+
 
 # Daten für exponentiellen Zusammenhang
 
@@ -206,7 +234,7 @@ lm_logy
 
 Log-Y-Regression modelliert exponentiellen Zusammenhang
 
-Kleine Koeffizienten ($[-0.3;0.3]$) lassen sich ohne delogarithmieren als Wachstumsfaktoren interpretieren
+Kleine Koeffizienten $[-0.3;0.3]$ lassen sich ohne delogarithmieren als Wachstumsfaktoren interpretieren:
 
 
 
@@ -228,7 +256,7 @@ exp(0.1)
 
 # Wann soll ich eine Log-Y-Regression verwenden?
 
-## Verwenden Sie die Log-Y-Regression, wenn Sie von einem exponentiellen Zusammenhang ausgehen, also von multiplikativen Zusammenhängen
+## Verwenden Sie die Log-Y-Regression, wenn Sie von einem exponentiellen Zusammenhang ausgehen.
 
 Beispiele:
 
@@ -242,17 +270,36 @@ Wenn sich Y um einen konstanten *Faktor* verändert, wenn sich X um einen konsta
 ---
 
 
+# Multiple Log-Regression 
+
+Ein lineare Modell in der Log-Skalierung entspricht einem multiplikativen Modell in der ursprünglichen Skalierung:
+
+$$log (y) = b_0 + b_1x_1 + b_2x_2 + \ldots + \epsilon$$
+
+Exponenziert man beide Seiten, so erhält man
+
+$$y= e^{b_0 + b_1x_1 + b_2x_2 + \ldots + \epsilon}$$
+
+$$y = e^{b_0} \cdot e^{b_1x_1} \cdot e^{b_2x_2} \cdot \ldots \cdot e^{\epsilon} $$
+
+Y wird hier also multiplikative Funktion der Prädiktoren modelliert.
+
+
+---
+
 # Log-Log-Regression
 
 
 $$y = x^2$$
 
-Beide Seiten logarithmieren:
+Logarithmiert man beide Seiten, erhält man:
 
 $$log(y) = 2 log(x)$$
 
 
 Sowohl Y als auch X sind logarithmiert.
+
+Eine Log-Log-Regression stellt also eine Potenzfunktion dar.
 
 ---
 
@@ -260,19 +307,21 @@ Sowohl Y als auch X sind logarithmiert.
 
 
 
-# Daten für Potenzfaktor-Zusammenhang
+# Daten für Zusammenhänge nach einer Potenzfunktion
 
 ```{r}
 d3 <- 
   tibble(
     x = rep(0:100, 100),
     y_hat = x^2,
-    e = rnorm(n = (101)*100),
+    e = rnorm(n = (101)*100) %>% round(2),
     y = y_hat + e
   )
 
 ```
 
+
+Hier am Beispiel einer Quadratfunktion.
 
 ---
 
@@ -320,7 +369,7 @@ ggplot(d3) +
 ![](`r knitr::fig_chunk("plot-potenz", "png")`)
 ]
 
-## Lineares Modell passt nicht; es liegt quadratisches Wachstum vor.
+Lineares Modell passt nicht; es liegt quadratisches Wachstum vor.
 
 
 ---
@@ -373,7 +422,7 @@ datatable(d4)
 
 
 
-
+(Herleitung einer multiplen Log-Log-Regression)[https://www.wolframalpha.com/input/?i=log%28x%5E2+*+y%5E2%29]
 
 
 
