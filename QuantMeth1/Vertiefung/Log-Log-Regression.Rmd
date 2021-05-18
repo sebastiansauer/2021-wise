@@ -15,6 +15,19 @@ output:
 ---
 
 
+<style>
+
+.center2 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+</style>
+
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
@@ -58,14 +71,27 @@ use_xaringan_extra(c("tile_view", "tachyons"))
 [https://sebastiansauer.github.io/2021-sose/QuantMeth1/Vertiefung/Log-Log-Regression.html#1](https://sebastiansauer.github.io/2021-sose/QuantMeth1/Vertiefung/Log-Log-Regression.html#1)
 
 
-![](qr-log-log.png)
+.center[![](qr-log-log.png)]
 
 ---
 
+# Gliederung
 
+
+.center2[.large[
+1. [Standard-Regression](#standard-regression)
+2. [Log-Regression](#log-regression)
+3. [Log-Log-Regression](#log-log-regression)
+4. [Fazit](#fazit)
+]]
+
+
+---
+
+name: standard-regression
 class: center, middle, inverse
 
-# Zur Erinnerung: "Standard-Regression"
+# Standard-Regression
 
 ---
 
@@ -156,12 +182,14 @@ Für jede Einheit, die X steigt, steigt Y um einen festen Wert $k$: additives Wa
 
 class: center, middle, inverse
 
-# Log-Y-Regression
+# Log-Regression 
+
+## (synonym: Log-Y-Regression)
 
 ---
 
 
-
+name:log-regression
 
 # Log-Y-Regression
 
@@ -336,7 +364,7 @@ $$y = e^{b_0} \cdot e^{b_1x_1} \cdot e^{b_2x_2} \cdot \ldots \cdot e^{\epsilon} 
 
 ---
 
-
+name: log-log-regression
 class: center, middle, inverse
 
 # Log-Log-Regression
@@ -502,7 +530,7 @@ Wenn sich Y um einen konstanten *Faktor* verändert, wenn sich X um einen konsta
 ---
 
 
-
+name: fazit
 class: center, middle, inverse
 
 # Fazit
@@ -510,7 +538,7 @@ class: center, middle, inverse
 ---
 
 
-# Fazit
+# tl;dr (Zusammenfassung)
 
 
 - *Normale Regression*: Wenn sich die Effekte der Prädiktoren  zu einem Effekt (auf Y) *summieren*
