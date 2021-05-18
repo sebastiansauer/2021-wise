@@ -1,11 +1,12 @@
 ---
 title: "Logarithmus und Exponenten"
-subtitle: "<br/>Was haben die in einer Regression verloren?"
+subtitle: "<br/>🤔 Was haben die in einer Regression verloren?"
 author: "Sebastian Sauer"
 institute: "Hochschule Ansbach"
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
+    css: ["default", "default-fonts", "hygge"]
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -36,9 +37,14 @@ knitr::opts_chunk$set(fig.pos = 'H',
 ```{r include=FALSE}
 library(tidyverse)
 library(DT)
+library(xaringanExtra)
 ```
 
 
+```{r xaringan-extra, echo=FALSE}
+use_xaringan_extra(c("tile_view", "tachyons"))
+#xaringanExtra::use_animate_all("slide_left")
+```
 
 
 class: center, middle, inverse
@@ -49,7 +55,7 @@ class: center, middle, inverse
 
 ---
 
-# Regression in Standardform
+# Regression in Standardform 🥱
 
 ## Additiver Zusammenhang
 
@@ -58,6 +64,11 @@ $$y= b0 + b_1x$$
 bzw.
 
 $$y = b0 + b_1x_1 + b_2 x_2 + \ldots + b_k x_k + \epsilon$$
+
+.content-box-blue[Additiv!]
+
+Der gemeinsame Effekt der Prädiktoren auf Y ist die Summe der einzelnen Effekte
+
 
 
 ---
@@ -119,6 +130,8 @@ Bei einem Unterschied in X von 1, beträgt der vorhergesagte Unterschied in Y 1 
 
 Für jede Einheit, die X steigt, steigt Y um einen festen Wert $k$: additives Wachstum.
 
+✔️ *Beispiel:* Für jede Stunde Lernen für die Klausur, "wächst" der vorhergesagte Klausurerfolg um 0,42 Punkte.   
+
 ---
 
 # Log-Y-Regression
@@ -145,6 +158,8 @@ $e$ ist die Eulersche Zahl: 2.71...
 
 Generell bieten sich Wachstumsprozesse für exponentielle Zusammenhänge an.
 
+Man kann auch "datengetrieben" eine Log-Regression verwenden, wenn man sieht, dass sich so die Vorhersageleistung verbessert.
+
 ---
 
 # Exponentielles Wachstum
@@ -152,13 +167,13 @@ Generell bieten sich Wachstumsprozesse für exponentielle Zusammenhänge an.
 
 Beim exponentiellen Wachstum wächst eine Größe pro Zeitabschnitt immer um denselben Faktor.
 
-Die Änderung einer Größe $A$ pro Zeitabschnitt $t$ ist proportional^1^ zum Bestand von $A$:
+Die Änderung einer Größe $A$ pro Zeitabschnitt $t$ ist proportional<sup>*</sup> zum Bestand von $A$:
 
 $$\frac{dA}{dt} \sim A$$
 
 Exponentielles Wachstum wächst (ab einem bestimmten Zeitpunkt) sehr stark und wird daher leicht unterschätzt.
 
-.footnote[Proportional bedeutet, Verdopplung (Verdreifachung, Vervierfachung...) einer Größe ist stets mit der Verdopplung (Verdreifachung, Vervierfachung, ...) der anderen Größe verbunden. So ist der Kreisumfang proportional zum Kreisdurchmesser mit dem Proportionalitätsfaktor 3.14.]
+.footnote[<sup>*</sup> Proportional bedeutet, Verdopplung (Verdreifachung, Vervierfachung...) einer Größe ist stets mit der Verdopplung (Verdreifachung, Vervierfachung, ...) der anderen Größe verbunden. So ist der Kreisumfang proportional zum Kreisdurchmesser mit dem Proportionalitätsfaktor 3.14.]
 
 ---
 
@@ -221,7 +236,7 @@ Steigt X um 1 Einheit, so steigt Y um einen konstanten Faktor: exponentielles Wa
 
 
 ```{r}
-lm_logy <- lm(log(y) ~ x, data = d2)
+lm_logy <- lm(log(y) ~ x, data = filter(d2, y > 0))
 lm_logy
 ```
 
@@ -232,7 +247,12 @@ lm_logy
 
 # Interpretation einer Log-Y-Regression
 
-Log-Y-Regression modelliert exponentiellen Zusammenhang
+
+
+
+.bg-light-blue.b--dark-blue.bw2.br3.shadow-5.ph4.mt5[
+.center[Log-Y-Regression modelliert exponentiellen Zusammenhang]]
+
 
 Kleine Koeffizienten $[-0.3;0.3]$ lassen sich ohne delogarithmieren als Wachstumsfaktoren interpretieren:
 
@@ -264,7 +284,7 @@ Beispiele:
 - Verzinsung
 
 
-Wenn sich Y um einen konstanten *Faktor* verändert, wenn sich X um einen konstanten *Wert* verändert, ist eine Log-Y-Regression sinnvoll. 
+<i class="fas fa-exclamation-triangle"></i> Wenn sich Y um einen konstanten *Faktor* verändert, wenn sich X um einen konstanten *Wert* verändert, ist eine Log-Y-Regression sinnvoll. 
 
 
 ---
@@ -282,7 +302,7 @@ $$y= e^{b_0 + b_1x_1 + b_2x_2 + \ldots + \epsilon}$$
 
 $$y = e^{b_0} \cdot e^{b_1x_1} \cdot e^{b_2x_2} \cdot \ldots \cdot e^{\epsilon} $$
 
-Y wird hier also multiplikative Funktion der Prädiktoren modelliert.
+💡 Y wird hier als multiplikative Funktion der Prädiktoren modelliert.
 
 
 ---
@@ -408,9 +428,9 @@ datatable(d4,
 
 
 ```{r echo = FALSE}
-datatable(d4)
+datatable(d4,
+          options = list(pageLength = 7))
 ```
-
 
 ---
 
@@ -418,11 +438,11 @@ datatable(d4)
 
 # Wie interpretiert man eine Log-Log-Regression?
 
-"Für je 100 % Unterschied in X, beträgt der vorhergesagte Unterschied in Y 200 % (allgemein: $k %$).
+💡 "Für je 100 % Unterschied in X, beträgt der vorhergesagte Unterschied in Y 200 %W (allgemein: $k %$).
 
 
 
-(Herleitung einer multiplen Log-Log-Regression)[https://www.wolframalpha.com/input/?i=log%28x%5E2+*+y%5E2%29]
+[Herleitung einer multiplen Log-Log-Regression](https://www.wolframalpha.com/input/?i=log%28x%5E2+*+y%5E2%29)
 
 
 
@@ -447,7 +467,7 @@ Wenn sich Y um einen konstanten *Faktor* verändert, wenn sich X um einen konsta
 # Literatur
 
 
-[https://avehtari.github.io/ROS-Examples/](Regression and Other Stories: Andrew Gelman, Jennifer Hill, Aki Vehtari)
+[Regression and Other Stories: Andrew Gelman, Jennifer Hill, Aki Vehtari](https://avehtari.github.io/ROS-Examples/)
 
 
 
