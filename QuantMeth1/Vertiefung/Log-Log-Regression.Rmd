@@ -47,11 +47,31 @@ use_xaringan_extra(c("tile_view", "tachyons"))
 ```
 
 
+
+
+
+
+
+# URL zum Quellcode
+
+
+[https://sebastiansauer.github.io/2021-sose/QuantMeth1/Vertiefung/Log-Log-Regression.html#1](https://sebastiansauer.github.io/2021-sose/QuantMeth1/Vertiefung/Log-Log-Regression.html#1)
+
+
+![](qr-log-log.png)
+
+---
+
+
 class: center, middle, inverse
 
 # Zur Erinnerung: "Standard-Regression"
 
 ---
+
+
+
+
 
 # Regression in Standardform 🥱
 
