@@ -1,0 +1,31 @@
+---
+title: "Impfprojekt -- Worum geht's"
+author: "ses"
+date: "5/28/2021"
+output: html_document
+---
+
+
+# Pakete laden
+
+```{r}
+library(tidyverse)
+```
+
+
+
+# Daten laden
+
+
+```{r}
+d <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/Impfbereitschaft/d3.csv")
+```
+
+
+
+# Worum geht's?
+
+
+
+
+
