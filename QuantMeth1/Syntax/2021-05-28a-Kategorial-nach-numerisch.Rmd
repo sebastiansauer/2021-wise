@@ -1,0 +1,85 @@
+---
+title: "Nominalskalierte Werte in numerische Werte umwandeln"
+author: "ses"
+date: "5/28/2021"
+output: html_document
+---
+
+
+# Pakete laden
+
+```{r}
+library(tidyverse)
+```
+
+
+# Daten laden
+
+```{r}
+d <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/Impfbereitschaft/d3.csv")
+```
+
+
+# Spalte `sex`
+
+
+```{r}
+d %>% 
+  count(sex)
+```
+
+
+
+# `divers` in NA umwandeln
+
+
+```{r}
+d2 <-
+  d %>% 
+  mutate(sex = case_when(
+    sex == "Divers" ~ NA_character_,
+    TRUE ~ sex
+  ))
+```
+
+```{r}
+d2 <-
+  d %>% 
+  mutate(sex = na_if(sex, "Divers"))
+```
+
+
+
+# NAs checken für `sex`
+
+```{r}
+d2 %>% 
+  count(sex)
+```
+
+
+# Nominalskaliert in numerisch
+
+
+```{r}
+d2 <-
+  d2 %>% 
+  mutate(female = case_when(
+    sex == "Frau" ~ 1,
+    sex == "Mann" ~ 0,
+    TRUE ~ NA_real_
+  )) %>% 
+  select(sex, female, everything())
+```
+
+
+# ID-Spalte hinzufügen
+
+
+```{r}
+d2 <-
+  d2 %>% 
+  mutate(id = row_number()) %>% 
+  select(id, everything())
+```
+
