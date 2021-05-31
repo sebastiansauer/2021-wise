@@ -71,8 +71,10 @@ use_xaringan_extra(c("tile_view", "tachyons"))
 [https://sebastiansauer.github.io/2021-sose/QuantMeth1/Vertiefung/Log-Log-Regression.html#1](https://sebastiansauer.github.io/2021-sose/QuantMeth1/Vertiefung/Log-Log-Regression.html#1)
 
 
-.center[![](qr-log-log.png)]
+.center[![qr-log-log-regression](qr-log-log.png)]
 
+
+.footnote[Lizenz: [CC-BY](https://creativecommons.org/licenses/by/4.0/)]
 ---
 
 # Gliederung
@@ -384,7 +386,7 @@ $$log(y) = 2 log(x)$$
 
 Sowohl Y als auch X sind logarithmiert.
 
-Eine Log-Log-Regression stellt also eine Potenzfunktion dar.
+Eine Log-Log-Regression stellt also eine *Potenzfunktion* dar.
 
 💡 Verwenden Sie die Log-Log-Regression, um quadratische (oder kubische...) Zusammenhänge zu modellieren.
 
@@ -505,7 +507,7 @@ datatable(d4,
 
 # Wie interpretiert man eine Log-Log-Regression?
 
-💡 "Für je 100 % Unterschied in X, beträgt der vorhergesagte Unterschied in Y 200 %W (allgemein: $k %$).
+💡 "Für je 100 % Unterschied in X, beträgt der vorhergesagte Unterschied in Y 200 % (allgemein: $k %$).
 
 
 
@@ -523,11 +525,56 @@ datatable(d4,
 Beispiele:
 
 - Zusammenhang von Oberfläche und Volumen
+- Zusammenhang von Anziehungskraft und Nähe von (Himmels-)körpern
+- Preise von Kunstgegenständen
+- Umsatz nach Follower-Zahl
 
 
-Wenn sich Y um einen konstanten *Faktor* verändert, wenn sich X um einen konstanten *Faktor* verändert, ist eine Log-Log-Regression sinnvoll. 
+Ändert sich Y um einen konstanten *Faktor*, wenn sich X um einen konstanten *Faktor* rändert, ist eine Log-Log-Regression sinnvoll. 
 
 ---
+
+# Aber stimmt das alles wirklich? (1/2)
+
+Wie ist der Zusammenhang von X und Y in einer Log-Log-Regression zu verstehen?
+
+$$\log_b y = a_0 + a_1 \log x$$
+
+Hier sind zwei Punkte $(x,y)$ spezifiziert:
+
+$$\log_b y_0 = a_0 + \log_b x_0 \\
+\log_b y_1 = a_0 + \log_b y_1$$
+
+Was ist der Wert von $log(y_1) - log(y_0)$?
+
+$$\begin{aligned}[t]
+\log_b(y_1) - \log_b(y_0) &= (a_0 + a_1 \log_b x_1) - (a_0 + a_1 \log x_0) ,\\
+&= a_1 (\log_b x_1 - \log x_0) , \\
+\log_b \left(\frac{y_1}{y_0} \right) &= \log_b \left(\frac{x_1}{x_0} \right)^{a_1} , \\
+\frac{y_1}{y_0} &=  \left( \frac{x_1}{x_0} \right)^{a_1} .
+\end{aligned}$$
+
+
+---
+
+# Aber stimmt das alles wirklich? (2/2)
+
+Also:
+
+$$\frac{y_1}{y_0} =  \left( \frac{x_1}{x_0} \right)^{a_1}$$
+
+Sei $s=y_1/y_0$ und $r=x_1/x0$, dann
+
+$$s=r^{a_1}$$
+
+Steigt also $x$ umd den Faktor $r$, so steigt $y$ um den Faktor $r^{a_1}$.
+
+.footnote[[Quelle](https://jrnold.github.io/r4ds-exercise-solutions/model-building.html#exercise-24.2.2)]
+
+---
+
+
+
 
 
 name: fazit
