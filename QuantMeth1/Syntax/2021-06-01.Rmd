@@ -1,0 +1,82 @@
+---
+title: "2021-06-01-Syntax"
+author: "ses"
+date: "6/1/2021"
+output: html_document
+---
+
+# Werte einer Variablen umbenennen
+
+# Pakete laden
+
+```{r}
+library(tidyverse)
+```
+
+# Daten laden
+
+
+
+```{r}
+d <- read_csv("https://raw.githubusercontent.com/sebastiansauer/willingness-vaccination-covid19/main/data/d3.csv")
+```
+
+
+
+```{r}
+glimpse(d)
+```
+
+
+```{r}
+d2 <-
+  d %>% 
+  rename(Geschlecht = sex) %>% 
+  select(Geschlecht, everything())
+```
+
+
+```{r}
+d2 %>% 
+  count(Geschlecht)
+```
+
+
+```{r}
+d3 <- 
+  d2 %>% 
+  mutate(sex = case_when(
+    Geschlecht == "Frau" ~ "female",
+    Geschlecht == "Mann" ~ "male",
+    TRUE ~ NA_character_
+  ))
+```
+
+
+In eine *Indikatorvariable* umwandeln: 0,1
+
+```{r}
+d3 <- 
+  d2 %>% 
+  mutate(female = case_when(
+    Geschlecht == "Frau" ~ 1,
+    Geschlecht == "Mann" ~ 0,
+    TRUE ~ NA_real_
+  ))
+```
+
+
+```{r}
+d3 %>% 
+  count(female)
+```
+
+
+
+
+```{r}
+d3 %>% 
+  count(sex)
+```
+
+
