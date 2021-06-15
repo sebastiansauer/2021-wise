@@ -18,6 +18,7 @@ output:
 
 ```{r}
 library(tidyverse)
+library(modelr)
 ```
 
 # Daten laden
@@ -78,7 +79,62 @@ d3 %>%
   count(female)
 ```
 
+# Buchkapitel R4DS 24
+
+<https://r4ds.had.co.nz/model-building.html#diamond-prices> 
 
 
+
+
+
+```{r}
+data(diamonds)
+```
+
+
+```{r}
+diamonds2 <- diamonds %>% 
+  filter(carat <= 2.5) %>% 
+  mutate(lprice = log2(price), lcarat = log2(carat))
+```
+
+
+# Verschiedene Werte einer Variablen bestimmen
+
+Wie kann man die verschiedenen ("uniquen", "distinkten") Wert einer Variablen bestimmen?
+
+
+```{r}
+diamonds2 %>% 
+  distinct(carat)
+```
+
+
+
+```{r}
+diamonds2 %>% 
+  summarise(n_distinct(carat))
+```
+
+
+# `data_grid()`
+
+
+```{r}
+diamonds2 %>% 
+  data_grid(carat = seq_range(carat, 20))
+```
+
+
+
+```{r}
+diamonds$price
+```
+
+
+```{r}
+diamonds %>% 
+  pull(price)
+```
 
 
