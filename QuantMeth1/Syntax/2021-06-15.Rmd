@@ -24,13 +24,13 @@ library(arm)  # nicht wirklich wichtig, nur für Funktion "display"
 ```
 
 
-# Lineare Transformationen 1: Linearen Einfluss auf Regressionsgewichte
+# Lineare Transformationen 1: Linearen Einfluss auf Regressionsgewichte, kein Einfluss auf $R^2$
 
 
 
 ## Daten laden: `earn`
 
-Vgl. S. 53 in ARm:
+Vgl. S. 53 in ARM:
 
 ```{r}
 earn <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/ARM/heights.csv")
@@ -193,14 +193,17 @@ kidsiq %>%
 ```
 
 
+### Ohne Transformation von `mom_hs`
+
 ```{r}
-lm3 <- lm(kid_score ~ mom_hs + mom_iq_z + mom_hs:mom_iq_c, 
+lm3 <- lm(kid_score ~ mom_hs + mom_iq_z + mom_hs:mom_iq_z, 
           data = kidsiq)
 
 display(lm3)
 ```
 
 
+### Mit z-Transformation von `mom_hs`
 
 
 ```{r}
@@ -209,6 +212,41 @@ lm3a <- lm(kid_score ~ mom_hs_z + mom_iq_z + mom_hs_z:mom_iq_z,
 
 display(lm3a)
 ```
+
+### z2-Transformation
+
+```{r}
+kidsiq <-
+  kidsiq %>% 
+  mutate(mom_iq_z2 = (mom_iq - mean(mom_iq)) / (2*sd(mom_iq)),
+         mom_hs_z2 = (mom_hs - mean(mom_hs)) / (2*sd(mom_hs)))
+```
+
+
+
+```{r}
+kidsiq %>% 
+  count(mom_hs_z)
+```
+
+
+```{r}
+kidsiq %>% 
+  count(mom_hs_z2)
+```
+
+
+
+
+```{r}
+lm3b <- lm(kid_score ~ mom_hs_z2 + mom_iq_z2 + mom_hs_z2:mom_iq_z2, 
+          data = kidsiq)
+
+display(lm3b)
+```
+
+
+
 
 
 

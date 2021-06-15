@@ -174,7 +174,7 @@ pre code {
 <ul>
 <li><a href="#quelle"><span class="toc-section-number">1</span> Quelle</a></li>
 <li><a href="#pakete-laden"><span class="toc-section-number">2</span> Pakete laden</a></li>
-<li><a href="#lineare-transformationen-1-linearen-einfluss-auf-regressionsgewichte"><span class="toc-section-number">3</span> Lineare Transformationen 1: Linearen Einfluss auf Regressionsgewichte</a>
+<li><a href="#lineare-transformationen-1-linearen-einfluss-auf-regressionsgewichte-kein-einfluss-auf-r2"><span class="toc-section-number">3</span> Lineare Transformationen 1: Linearen Einfluss auf Regressionsgewichte, kein Einfluss auf <span class="math inline">\(R^2\)</span></a>
 <ul>
 <li><a href="#daten-laden-earn"><span class="toc-section-number">3.1</span> Daten laden: <code>earn</code></a></li>
 <li><a href="#lm0"><span class="toc-section-number">3.2</span> lm0</a></li>
@@ -185,7 +185,12 @@ pre code {
 <li><a href="#lm1-interaktionseffekt"><span class="toc-section-number">4.2</span> lm1: Interaktionseffekt</a></li>
 <li><a href="#lm2-zentrieren"><span class="toc-section-number">4.3</span> lm2: Zentrieren</a></li>
 <li><a href="#interaktionseffekt-visualisieren"><span class="toc-section-number">4.4</span> Interaktionseffekt visualisieren</a></li>
-<li><a href="#lm3-z-transformation"><span class="toc-section-number">4.5</span> lm3: z-Transformation</a></li>
+<li><a href="#lm3-z-transformation"><span class="toc-section-number">4.5</span> lm3: z-Transformation</a>
+<ul>
+<li><a href="#ohne-transformation-von-mom_hs"><span class="toc-section-number">4.5.1</span> Ohne Transformation von <code>mom_hs</code></a></li>
+<li><a href="#mit-z-transformation-von-mom_hs"><span class="toc-section-number">4.5.2</span> Mit z-Transformation von <code>mom_hs</code></a></li>
+<li><a href="#z2-transformation"><span class="toc-section-number">4.5.3</span> z2-Transformation</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#modelle-mit-logy"><span class="toc-section-number">5</span> Modelle mit <code>log(y)</code></a>
 <ul>
@@ -216,11 +221,11 @@ pre code {
 <pre class="r"><code>library(tidyverse)
 library(arm)  # nicht wirklich wichtig, nur für Funktion &quot;display&quot;</code></pre>
 </div>
-<div id="lineare-transformationen-1-linearen-einfluss-auf-regressionsgewichte" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> Lineare Transformationen 1: Linearen Einfluss auf Regressionsgewichte</h1>
+<div id="lineare-transformationen-1-linearen-einfluss-auf-regressionsgewichte-kein-einfluss-auf-r2" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Lineare Transformationen 1: Linearen Einfluss auf Regressionsgewichte, kein Einfluss auf <span class="math inline">\(R^2\)</span></h1>
 <div id="daten-laden-earn" class="section level2" number="3.1">
 <h2 number="3.1"><span class="header-section-number">3.1</span> Daten laden: <code>earn</code></h2>
-<p>Vgl. S. 53 in ARm:</p>
+<p>Vgl. S. 53 in ARM:</p>
 <pre class="r"><code>earn &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/ARM/heights.csv&quot;)</code></pre>
 <pre><code>## 
 ## ── Column specification ────────────────────────────────────────────────────────
@@ -417,20 +422,25 @@ display(lm2a)</code></pre>
 ##      &lt;dbl&gt; &lt;int&gt;
 ## 1   -1.91     93
 ## 2    0.522   341</code></pre>
-<pre class="r"><code>lm3 &lt;- lm(kid_score ~ mom_hs + mom_iq_z + mom_hs:mom_iq_c, 
+<div id="ohne-transformation-von-mom_hs" class="section level3" number="4.5.1">
+<h3 number="4.5.1"><span class="header-section-number">4.5.1</span> Ohne Transformation von <code>mom_hs</code></h3>
+<pre class="r"><code>lm3 &lt;- lm(kid_score ~ mom_hs + mom_iq_z + mom_hs:mom_iq_z, 
           data = kidsiq)
 
 display(lm3)</code></pre>
-<pre><code>## lm(formula = kid_score ~ mom_hs + mom_iq_z + mom_hs:mom_iq_c, 
+<pre><code>## lm(formula = kid_score ~ mom_hs + mom_iq_z + mom_hs:mom_iq_z, 
 ##     data = kidsiq)
 ##                 coef.est coef.se
 ## (Intercept)     85.41     2.22  
 ## mom_hs           2.84     2.43  
 ## mom_iq_z        14.53     2.23  
-## mom_hs:mom_iq_c -0.48     0.16  
+## mom_hs:mom_iq_z -7.26     2.43  
 ## ---
 ## n = 434, k = 4
 ## residual sd = 17.97, R-Squared = 0.23</code></pre>
+</div>
+<div id="mit-z-transformation-von-mom_hs" class="section level3" number="4.5.2">
+<h3 number="4.5.2"><span class="header-section-number">4.5.2</span> Mit z-Transformation von <code>mom_hs</code></h3>
 <pre class="r"><code>lm3a &lt;- lm(kid_score ~ mom_hs_z + mom_iq_z + mom_hs_z:mom_iq_z, 
           data = kidsiq)
 
@@ -445,6 +455,42 @@ display(lm3a)</code></pre>
 ## ---
 ## n = 434, k = 4
 ## residual sd = 17.97, R-Squared = 0.23</code></pre>
+</div>
+<div id="z2-transformation" class="section level3" number="4.5.3">
+<h3 number="4.5.3"><span class="header-section-number">4.5.3</span> z2-Transformation</h3>
+<pre class="r"><code>kidsiq &lt;-
+  kidsiq %&gt;% 
+  mutate(mom_iq_z2 = (mom_iq - mean(mom_iq)) / (2*sd(mom_iq)),
+         mom_hs_z2 = (mom_hs - mean(mom_hs)) / (2*sd(mom_hs)))</code></pre>
+<pre class="r"><code>kidsiq %&gt;% 
+  count(mom_hs_z)</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   mom_hs_z     n
+##      &lt;dbl&gt; &lt;int&gt;
+## 1   -1.91     93
+## 2    0.522   341</code></pre>
+<pre class="r"><code>kidsiq %&gt;% 
+  count(mom_hs_z2)</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   mom_hs_z2     n
+##       &lt;dbl&gt; &lt;int&gt;
+## 1    -0.956    93
+## 2     0.261   341</code></pre>
+<pre class="r"><code>lm3b &lt;- lm(kid_score ~ mom_hs_z2 + mom_iq_z2 + mom_hs_z2:mom_iq_z2, 
+          data = kidsiq)
+
+display(lm3b)</code></pre>
+<pre><code>## lm(formula = kid_score ~ mom_hs_z2 + mom_iq_z2 + mom_hs_z2:mom_iq_z2, 
+##     data = kidsiq)
+##                     coef.est coef.se
+## (Intercept)          87.64     0.91 
+## mom_hs_z2             2.33     1.99 
+## mom_iq_z2            17.65     1.82 
+## mom_hs_z2:mom_iq_z2 -11.94     4.00 
+## ---
+## n = 434, k = 4
+## residual sd = 17.97, R-Squared = 0.23</code></pre>
+</div>
 </div>
 </div>
 <div id="modelle-mit-logy" class="section level1" number="5">
