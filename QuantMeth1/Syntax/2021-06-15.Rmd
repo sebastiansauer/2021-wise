@@ -1,5 +1,5 @@
 ---
-title: "2021-06-15 Syntax"
+title: "Kapitel 4, ARM"
 author: "ses"
 date: "6/15/2021"
 output: 
@@ -18,20 +18,22 @@ output:
 
 ```{r message = FALSE}
 library(tidyverse)
-library(arm)  # nicht wirklich wichtig, nur für Funktion "disply"
+library(arm)  # nicht wirklich wichtig, nur für Funktion "display"
 ```
 
 
-# Lineare Transformationen 1: Keinen Einfluss auf Regressionsgewichte
+# Lineare Transformationen 1: Linearen Einfluss auf Regressionsgewichte
 
 
 
 ## Daten laden: `earn`
 
+Vgl. S. 53 in ARm:
 
 ```{r}
 earn <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/ARM/heights.csv")
 ```
+
 
 ```{r}
 glimpse(earn)
@@ -50,7 +52,7 @@ display(lm0)
 ```{r}
 earn <-
   earn %>% 
-  mutate(height_cm = height * 2.54,
+  mutate(height_cm = height / 2.54,
          height_mm = height_cm / 10,
          height_m = height_cm * 100)
 ```
@@ -81,6 +83,7 @@ display(lm0c)
 
 ## Daten laden: `kidsiq`
 
+S. 55., 4.2 ARM:
 
 ```{r}
 kidsiq <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/ARM/kidsiq.csv")
@@ -94,6 +97,8 @@ lm1 <- lm(kid_score ~ mom_hs + mom_iq + mom_hs:mom_iq,
 display(lm1)
 ```
 
+Interpretation!
+
 
 
 ## lm2: Zentrieren 
@@ -102,7 +107,7 @@ display(lm1)
 kidsiq <-
   kidsiq %>% 
   mutate(mom_hs_c = mom_hs - mean(mom_hs),
-         mom_iq_c = mom_iq - mean(mom_iq))
+         mom_iq_c = mom_iq - mean(mom_iq))  # centered
 ```
 
 
@@ -122,6 +127,25 @@ display(lm2a)
 
 
 
+## Interaktionseffekt visualisieren
+
+```{r}
+kidsiq %>% 
+  ggplot(aes(x = mom_iq, y = kid_score, color = as.factor(mom_hs))) +
+  geom_smooth(method = "lm") +
+  geom_point()
+```
+
+
+```{r}
+kidsiq %>% 
+  ggplot(aes(x = mom_iq, y = kid_score, color = as.factor(mom_hs))) +
+  facet_wrap(~ mom_hs) +
+  geom_smooth(method = "lm") +
+  geom_point()
+```
+
+
 ## lm3: z-Transformation
 
 
@@ -138,6 +162,8 @@ lm3 <- lm(kid_score ~ mom_hs + mom_iq_z + mom_hs:mom_iq_c,
 
 display(lm3)
 ```
+
+
 
 
 # Modelle mit `log(y)`
