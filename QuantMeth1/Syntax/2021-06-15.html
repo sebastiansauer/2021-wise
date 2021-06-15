@@ -335,6 +335,32 @@ display(lm1)</code></pre>
   kidsiq %&gt;% 
   mutate(mom_hs_c = mom_hs - mean(mom_hs),
          mom_iq_c = mom_iq - mean(mom_iq))  # centered</code></pre>
+<p>Effekte des Zentrierens:</p>
+<pre class="r"><code>kidsiq %&gt;% 
+  summarise(mom_iq_avg = mean(mom_iq),
+            mom_iq_c_avg = mean(mom_iq_c),
+            mom_iq_sd = sd(mom_iq),
+            mom_iq_c_sd = sd(mom_iq_c))</code></pre>
+<pre><code>## # A tibble: 1 x 4
+##   mom_iq_avg mom_iq_c_avg mom_iq_sd mom_iq_c_sd
+##        &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+## 1        100     6.95e-16        15          15</code></pre>
+<pre class="r"><code>kidsiq %&gt;% 
+  summarise(mom_hs_avg = mean(mom_hs),
+            mom_hs_c_avg = mean(mom_hs_c),
+            mom_hs_sd = sd(mom_hs),
+            mom_hs_c_sd = sd(mom_hs_c))</code></pre>
+<pre><code>## # A tibble: 1 x 4
+##   mom_hs_avg mom_hs_c_avg mom_hs_sd mom_hs_c_sd
+##        &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+## 1      0.786     1.59e-17     0.411       0.411</code></pre>
+<pre class="r"><code>kidsiq %&gt;% 
+  count(mom_hs_c)</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   mom_hs_c     n
+##      &lt;dbl&gt; &lt;int&gt;
+## 1   -0.786    93
+## 2    0.214   341</code></pre>
 <pre class="r"><code>lm2 &lt;- lm(kid_score ~ mom_hs_c + mom_iq_c + mom_hs_c:mom_iq_c,
           data = kidsiq)
 display(lm2)</code></pre>
@@ -382,7 +408,15 @@ display(lm2a)</code></pre>
 <h2 number="4.5"><span class="header-section-number">4.5</span> lm3: z-Transformation</h2>
 <pre class="r"><code>kidsiq &lt;-
   kidsiq %&gt;% 
-  mutate(mom_iq_z = (mom_iq - mean(mom_iq)) / sd(mom_iq))</code></pre>
+  mutate(mom_iq_z = (mom_iq - mean(mom_iq)) / sd(mom_iq),
+         mom_hs_z = (mom_hs - mean(mom_hs)) / sd(mom_hs))</code></pre>
+<pre class="r"><code>kidsiq %&gt;% 
+  count(mom_hs_z)</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   mom_hs_z     n
+##      &lt;dbl&gt; &lt;int&gt;
+## 1   -1.91     93
+## 2    0.522   341</code></pre>
 <pre class="r"><code>lm3 &lt;- lm(kid_score ~ mom_hs + mom_iq_z + mom_hs:mom_iq_c, 
           data = kidsiq)
 
@@ -397,15 +431,38 @@ display(lm3)</code></pre>
 ## ---
 ## n = 434, k = 4
 ## residual sd = 17.97, R-Squared = 0.23</code></pre>
+<pre class="r"><code>lm3a &lt;- lm(kid_score ~ mom_hs_z + mom_iq_z + mom_hs_z:mom_iq_z, 
+          data = kidsiq)
+
+display(lm3a)</code></pre>
+<pre><code>## lm(formula = kid_score ~ mom_hs_z + mom_iq_z + mom_hs_z:mom_iq_z, 
+##     data = kidsiq)
+##                   coef.est coef.se
+## (Intercept)       87.64     0.91  
+## mom_hs_z           1.17     1.00  
+## mom_iq_z           8.83     0.91  
+## mom_hs_z:mom_iq_z -2.98     1.00  
+## ---
+## n = 434, k = 4
+## residual sd = 17.97, R-Squared = 0.23</code></pre>
 </div>
 </div>
 <div id="modelle-mit-logy" class="section level1" number="5">
 <h1 number="5"><span class="header-section-number">5</span> Modelle mit <code>log(y)</code></h1>
+<p>4.4 in ARM</p>
+<p><span class="math inline">\(y=ab\)</span>, <span class="math inline">\(y ~ x*y\)</span> –&gt; log(Y)</p>
+<p><em>Multiplikative Zusammenhänge!</em></p>
+<p>S. 59</p>
+<p>log(y) = b0 + b1*x1 + … | eponenziere</p>
+<p>y = e^(b0 + b1*x1 + … )</p>
+<p>y = e^b0 * e^b1x1 * …</p>
 <div id="lm4-earn_log" class="section level2" number="5.1">
 <h2 number="5.1"><span class="header-section-number">5.1</span> lm4: earn_log</h2>
 <pre class="r"><code>earn &lt;-
   earn %&gt;% 
   mutate(earn_log = log(earn))</code></pre>
+<p>Zur Basis e.</p>
+<p><em>Achtung: log nur für x &gt; 0!</em></p>
 <pre class="r"><code>lm4 &lt;- lm(earn_log ~ height, 
           data = earn %&gt;% filter(earn &gt; 0))
 display(lm4)</code></pre>
@@ -417,6 +474,20 @@ display(lm4)</code></pre>
 ## ---
 ## n = 1192, k = 2
 ## residual sd = 0.89, R-Squared = 0.06</code></pre>
+<p>Was bedeutet der Wert 0.06?</p>
+<p>–&gt; Steigt X (height) um 1, so steigt im Modell Y um 0.06 log-Punkte: <code>earn</code> steigt um <em>6%</em>!</p>
+<p>Zum Vergleich: additives Modell:</p>
+<pre class="r"><code>lm4a &lt;- lm(earn ~ height, 
+          data = earn %&gt;% filter(earn &gt; 0))
+display(lm4a)</code></pre>
+<pre><code>## lm(formula = earn ~ height, data = earn %&gt;% filter(earn &gt; 0))
+##             coef.est  coef.se  
+## (Intercept) -61316.28   9525.18
+## height        1262.33    142.11
+## ---
+## n = 1192, k = 2
+## residual sd = 18865.08, R-Squared = 0.06</code></pre>
+<p>Hier leider R^2 beim multiplikativen Modell (log-Modell) nicht besser, entgegen der Erwartung.</p>
 </div>
 <div id="lm5-earn_log-mit-zwei-prädiktoren" class="section level2" number="5.2">
 <h2 number="5.2"><span class="header-section-number">5.2</span> lm5: earn_log mit zwei Prädiktoren</h2>
@@ -431,8 +502,8 @@ display(lm4)</code></pre>
 <pre class="r"><code>earn &lt;-
   earn %&gt;% 
   mutate(male = case_when(
-    sex == 2 ~ 0,
-    sex == 1 ~ 1))</code></pre>
+    sex == 2 ~ 0,  # Frau
+    sex == 1 ~ 1))  # Mann</code></pre>
 <pre class="r"><code>lm5 &lt;- lm(earn_log ~ height + male,
           data = earn %&gt;% filter(earn &gt; 0))
 display(lm5)</code></pre>
@@ -464,6 +535,13 @@ display(lm6)</code></pre>
 ## ---
 ## n = 1192, k = 4
 ## residual sd = 0.88, R-Squared = 0.09</code></pre>
+<p>Delogarithimieren zur Interpretation der Koeffizienten</p>
+<pre class="r"><code>exp(9.52)</code></pre>
+<pre><code>## [1] 13629.61</code></pre>
+<pre class="r"><code>exp(0.06)</code></pre>
+<pre><code>## [1] 1.061837</code></pre>
+<pre class="r"><code>exp(0.42)</code></pre>
+<pre><code>## [1] 1.521962</code></pre>
 <p>Die Reihenfolge der Prädiktoren spielt <em>keine</em> Rolle:</p>
 <pre class="r"><code>lm6a &lt;- lm(earn_log ~ height_z:male + male + height_z ,
           data = earn %&gt;% filter(earn &gt; 0))

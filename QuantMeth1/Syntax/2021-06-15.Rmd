@@ -6,6 +6,8 @@ output:
   html_document:
     toc: TRUE
     number_sections: TRUE
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Quelle
@@ -111,6 +113,34 @@ kidsiq <-
 ```
 
 
+Effekte des Zentrierens:
+
+```{r}
+kidsiq %>% 
+  summarise(mom_iq_avg = mean(mom_iq),
+            mom_iq_c_avg = mean(mom_iq_c),
+            mom_iq_sd = sd(mom_iq),
+            mom_iq_c_sd = sd(mom_iq_c))
+```
+
+
+
+```{r}
+kidsiq %>% 
+  summarise(mom_hs_avg = mean(mom_hs),
+            mom_hs_c_avg = mean(mom_hs_c),
+            mom_hs_sd = sd(mom_hs),
+            mom_hs_c_sd = sd(mom_hs_c))
+```
+
+
+```{r}
+kidsiq %>% 
+  count(mom_hs_c)
+```
+
+
+
 
 ```{r}
 lm2 <- lm(kid_score ~ mom_hs_c + mom_iq_c + mom_hs_c:mom_iq_c,
@@ -152,7 +182,14 @@ kidsiq %>%
 ```{r}
 kidsiq <-
   kidsiq %>% 
-  mutate(mom_iq_z = (mom_iq - mean(mom_iq)) / sd(mom_iq))
+  mutate(mom_iq_z = (mom_iq - mean(mom_iq)) / sd(mom_iq),
+         mom_hs_z = (mom_hs - mean(mom_hs)) / sd(mom_hs))
+```
+
+
+```{r}
+kidsiq %>% 
+  count(mom_hs_z)
 ```
 
 
@@ -166,9 +203,32 @@ display(lm3)
 
 
 
+```{r}
+lm3a <- lm(kid_score ~ mom_hs_z + mom_iq_z + mom_hs_z:mom_iq_z, 
+          data = kidsiq)
+
+display(lm3a)
+```
+
+
+
+
 # Modelle mit `log(y)`
 
+4.4 in ARM
 
+$y=ab$, $y ~ x*y$ --> log(Y)
+
+
+*Multiplikative Zusammenhänge!*
+
+S. 59
+
+log(y) = b0 + b1*x1 + ...  | eponenziere
+
+y = e^(b0 + b1*x1 + ... )
+
+y = e^b0 * e^b1x1 * ...
 
 
 ## lm4: earn_log
@@ -180,12 +240,32 @@ earn <-
   mutate(earn_log = log(earn))
 ```
 
+Zur Basis e.
+
+*Achtung: log nur für x > 0!*
+
 
 ```{r}
 lm4 <- lm(earn_log ~ height, 
           data = earn %>% filter(earn > 0))
 display(lm4)
 ```
+
+Was bedeutet der Wert 0.06?
+
+--> Steigt X (height) um 1, so steigt im Modell Y um 0.06 log-Punkte: `earn` steigt um *6%*!
+
+
+
+Zum Vergleich: additives Modell:
+
+```{r}
+lm4a <- lm(earn ~ height, 
+          data = earn %>% filter(earn > 0))
+display(lm4a)
+```
+
+Hier leider R^2 beim multiplikativen Modell (log-Modell) nicht besser, entgegen der Erwartung.
 
 
 ## lm5: earn_log mit zwei Prädiktoren
@@ -201,8 +281,8 @@ Leider wissen wir nicht, ob Frauen mit 1 oder mit 2 codiert sind. Gehen wir davo
 earn <-
   earn %>% 
   mutate(male = case_when(
-    sex == 2 ~ 0,
-    sex == 1 ~ 1))
+    sex == 2 ~ 0,  # Frau
+    sex == 1 ~ 1))  # Mann
 ```
 
 
@@ -228,6 +308,24 @@ lm6 <- lm(earn_log ~ height_z + male + height_z:male,
           data = earn %>% filter(earn > 0))
 display(lm6)
 ```
+
+
+Delogarithimieren zur Interpretation der Koeffizienten
+
+```{r}
+exp(9.52)
+```
+
+
+```{r}
+exp(0.06)
+```
+
+```{r}
+exp(0.42)
+```
+
+
 
 Die Reihenfolge der Prädiktoren spielt *keine* Rolle:
 
