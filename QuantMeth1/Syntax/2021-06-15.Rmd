@@ -30,7 +30,7 @@ library(arm)  # nicht wirklich wichtig, nur für Funktion "display"
 
 ## Daten laden: `earn`
 
-Vgl. S. 53 in ARM:
+Vgl. S. 53 in ARM, Kap. 4:
 
 ```{r}
 earn <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/ARM/heights.csv")
@@ -41,6 +41,7 @@ earn <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/mas
 glimpse(earn)
 ```
 
+Wir ändern die Skalierung des Prädiktors (Varianz, sd). Was hat das für die Regr.gewichte und für $R^2$?
 
 ## lm0
 
@@ -80,7 +81,7 @@ display(lm0c)
 ```
 
 
-# Lineare Transformationen 2: z-Transformationen
+# Lineare Transformationen 2: Zentrieren und z-Transformationen
 
 
 ## Daten laden: `kidsiq`
@@ -140,7 +141,7 @@ kidsiq %>%
 ```
 
 
-
+### Mit Zentrieren des binären Prädiktors
 
 ```{r}
 lm2 <- lm(kid_score ~ mom_hs_c + mom_iq_c + mom_hs_c:mom_iq_c,
@@ -148,6 +149,7 @@ lm2 <- lm(kid_score ~ mom_hs_c + mom_iq_c + mom_hs_c:mom_iq_c,
 display(lm2)
 ```
 
+### Ohne Zentrieren des binären Prädiktors
 
 ```{r}
 lm2a <- lm(kid_score ~ mom_hs + mom_iq_c + mom_hs:mom_iq_c,
@@ -155,6 +157,29 @@ lm2a <- lm(kid_score ~ mom_hs + mom_iq_c + mom_hs:mom_iq_c,
 display(lm2a)
 ```
 
+Interpretation:
+
+- Achsenabschnitt: Ohne Highschool-Abschluss und mit mitlerer Intelligenz ist laut Modell ein Testwert (Y-Wert) von im Schnitt ca. 85 Punkten zu erwarten.
+
+- `mom_hs`: Der Unterschied im Testwert, wenn man Mütter mit bzw. ohne HS-Abschluss und mittlerer Intelligenz vergleicht, liegt bei knapp 3 Punkte.
+- `mom_iq_c`: Der Unterschied im Testwert, wenn man Mütter mit einem Punkt Unterschied im IQ-Wert vergleicht (und bei Müttern *ohne* HS-Abschluss), liegt bei 0.97 Punkten.
+- `mom_hs:mom_iq_c`: Der Unterschied im Testwert im Vergleich zu `mom_iq_c`, wenn man Mütter mit einem Punkt Unterschied im IQ-Wert vergleich (und bei Müttern *mit* HS-Abschluss), liegt bei 0.97 - 0.48 = 0.49 Punkten.
+
+### Zentriert vs. nicht-zentrierte Modelle mit einem Prädiktor
+
+Hat man nur einen Prädiktor, so ändert das Zentrieren das Regressionsgewicht ($\beta$) nicht:
+
+```{r}
+lm2b <- lm(kid_score ~ mom_iq, data = kidsiq)
+display(lm2b)
+```
+
+```{r}
+lm2c <- lm(kid_score ~ mom_iq_c, data = kidsiq)
+display(lm2c)
+```
+
+Im Beispiel oben hat sich durch das Zentrieren der Wert der Regressionsgewichte der Prädiktoren `mom_iq_c` und `mom_hs_c` geändert. Das liegt daran, dass mehr als ein Prädiktor (inkl. Interaktionseffekt) im Modell vorhanden ist.
 
 
 ## Interaktionseffekt visualisieren
@@ -163,7 +188,8 @@ display(lm2a)
 kidsiq %>% 
   ggplot(aes(x = mom_iq, y = kid_score, color = as.factor(mom_hs))) +
   geom_smooth(method = "lm") +
-  geom_point()
+  geom_point() +
+   scale_color_viridis_d()
 ```
 
 
@@ -193,7 +219,7 @@ kidsiq %>%
 ```
 
 
-### Ohne Transformation von `mom_hs`
+### Ohne Transformation von `mom_hs`, sondern nur `mom_iq`
 
 ```{r}
 lm3 <- lm(kid_score ~ mom_hs + mom_iq_z + mom_hs:mom_iq_z, 
@@ -203,7 +229,25 @@ display(lm3)
 ```
 
 
+
+Interpretation:
+
+- Achsenabschnitt: *Ohne* Highschool-Abschluss und mit mitlerer Intelligenz ist laut Modell ein Testwert (Y-Wert) von im Schnitt ca. 85 Punkten zu erwarten.
+- `mom_hs`: Der Unterschied im Testwert, wenn man Mütter mit bzw. ohne HS-Abschluss und mittlerer Intelligenz vergleicht, liegt bei knapp 3 Punkte.
+- `mom_iq_z`: Der Unterschied im Testwert, wenn man Mütter pro zusätzlicher Stufe von `mom_iq_z` (d.h. eine SD-Einheit höher) vergleicht (und bei Müttern *ohne* HS-Abschluss), liegt bei ca. 15 Punkten.
+- `mom_hs:mom_iq_c`: Der Unterschied im Testwert im Vergleich zu `mom_iq_c`, wenn man Mütter pro zusätzlicher Stufe von `mom_iq_c` (d.h. eine SD-Einheit höher) vergleicht (und bei Müttern *mit* HS-Abschluss), liegt bei ca. 15 - 7 ) 8 Punkten.
+
+
+
 ### Mit z-Transformation von `mom_hs`
+
+
+```{r}
+kidsiq %>% 
+  summarise(mom_hs_sd = sd(mom_hs),
+            mom_hs_avg = mean(mom_hs))
+```
+
 
 
 ```{r}
@@ -212,6 +256,20 @@ lm3a <- lm(kid_score ~ mom_hs_z + mom_iq_z + mom_hs_z:mom_iq_z,
 
 display(lm3a)
 ```
+
+
+Interpretation:
+
+- Achsenabschnitt: *Ohne* Highschool-Abschluss und mit mitlerer Intelligenz ist laut Modell ein Testwert (Y-Wert) von im Schnitt ca. 87 Punkten zu erwarten.
+- `mom_hs_z`: Der Unterschied im Testwert, wenn man der Bildungswert um eine SD-Einheit steigt. Dieser Wert ist hier kaum zu interpretieren. 
+- `mom_iq_z`: Der Unterschied im Testwert, wenn man Mütter pro zusätzlicher Stufe von `mom_iq_z` (d.h. eine SD-Einheit höher) vergleicht (und bei Müttern mit *mittlerem* HS-Abschluss), liegt bei ca. 9 Punkten.
+- `mom_hs_z:mom_iq_z`: Der Unterschied im Testwert im Vergleich zu `mom_iq_z`, wenn man Mütter pro zusätzlicher Stufe von `mom_iq_z` (d.h. eine SD-Einheit höher) vergleicht und wenn man Frauen mit einem Wert in `mom_hs_z` von 1 betrachtet. Da ein Wert von 1in `mom_hs_z` keine Entsprechung in den Daten hat, ist dieser Koeffizient kaum zu interpretieren.
+
+
+### Binäre Prädiktoren nicht zentrieren/z-transformieren
+
+Insgesamt scheint eine Standardisierung der binären Prädiktoren nur eingeschränkt nützlich zu sein. Ich empfehle, binäre Prädiktoren nicht zu zentieren oder z-transfomieren, sondern sie zu belassen, wie sie sind oder eine z2-Transformation anzuwenden.
+
 
 ### z2-Transformation
 
@@ -245,6 +303,20 @@ lm3b <- lm(kid_score ~ mom_hs_z2 + mom_iq_z2 + mom_hs_z2:mom_iq_z2,
 display(lm3b)
 ```
 
+
+Interpretation:
+
+- Achsenabschnitt: Ein Kind mit mittlerer Ausprägung in den Prädiktorwerten hat laut Modell im Schnitt einen Testwert von ca. 88 Punkten.
+- `mom_hs_z2`: Vergleicht man HS-Abschluss ja vs. nein und betrachtet nur Mütter mit mittlerer Intelligenz, so beträgt der erwartete Unterschied im Testwert ca. 2 Punkte.
+- `mom_iq_z2`: Vergleicht man Mütter, deren IQ-Werte sich um 2 SD-Einheiten unterscheiden und die über einen mittleren Wert in HS-Abschluss verfügen, so findet man einen Unterschied von ca. 18 Punkten in den Testwerten.
+- `mom_hs_z2:mom_iq_z2`: Der Unterschied im Effekt des IQ auf den Testwert zwischen Frauen ohne bzw. mit HS-Abschluss auf die Testwerte liegt bei ca. -12 Punkte, d.h. bei Frauen mit Abschluss ist der Effekt des IQ auf die Testwerte geringer.
+
+
+Der Vorteil der z2-Transformation ist, dass die Koeffizienten der binären Variablen den Unterschied zwischen 0 und 1 widerspiegeln. Bei der z-Transformation spiegeln Sie den *halben* Unterschied zwischen dem 0-Wert bzw. 1-Wert wider.
+
+## Binäre Prädiktoren besser nicht standardisieren
+
+Insgesamt ist die ganze Angelegenheit der Interpretation von standardisierten Prädiktoren nicht einfach. Ich empfehle daher, binäre Prädiktoren nicht zu standardisieren.
 
 
 
@@ -432,5 +504,44 @@ lm8 <- lm(log(LeafWt) ~ log(Diam1) + log(Diam2) + log(TotHt) + log (CanHt) + log
 
 display(lm8)
 ```
+
+
+# Zusammenfassung
+
+Zahlenbeispiel zu IQ
+
+- MW = 100
+- sd = 15
+- Messwert (X) = 115
+
+## Zentrieren (c-Transformation)
+
+Wir verschieben wir den Nullpunkt auf den MW.
+
+
+Nutzen: Achsenabschnitt (und Interaktionseffekte) werden  damit interpretierbar(er).
+
+Interpreation von Achsenabscnitt: Y-Wert, wenn X beim MW (also mittlerer X-Wert)
+
+Rechnen: x_c = X - mean(X)
+
+Z.B. X=115, mw_X = 100 -> X_c = 115 - 100 = 15
+
+Der zentrierte Wert X_c zeigt also den *Abstand zum Mittelwert.*
+
+
+
+
+# Z-Transformieren
+
+Z-transformierte Werte sind immer auch zentriert.
+
+Nutzen: Regressiongewichte werden vergleichbar, da gleiche Skalierung.
+
+Rechnen: x_z = z_c / sd(X)
+
+z.B. X=115, mw_X = 100, sd_X = 15
+
+x_z = x_z / 15 = 15 / 15 = 1
 
 
