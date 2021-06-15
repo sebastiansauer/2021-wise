@@ -2,12 +2,15 @@
 title: "2021-06-15 Syntax"
 author: "ses"
 date: "6/15/2021"
-output: html_document
+output: 
+  html_document:
+    toc: TRUE
+    number_sections: TRUE
 ---
 
 # Pakete laden
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 library(arm)  # nicht wirklich wichtig, nur für Funktion "disply"
 library(foreign)
