@@ -13,12 +13,65 @@ output:
 ```{r message = FALSE}
 library(tidyverse)
 library(arm)  # nicht wirklich wichtig, nur für Funktion "disply"
-library(foreign)
-library(rio)
 ```
 
 
-# Lineare Transformationen
+# Lineare Transformationen 1: Keinen Einfluss auf Regressionsgewichte
+
+
+
+## Daten laden: `earn`
+
+
+```{r}
+earn <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/ARM/heights.csv")
+```
+
+```{r}
+glimpse(earn)
+```
+
+
+## lm0
+
+```{r}
+lm0 <- lm(earn ~ height, 
+          data = earn)
+display(lm0)
+```
+
+
+```{r}
+earn <-
+  earn %>% 
+  mutate(height_cm = height * 2.54,
+         height_mm = height_cm / 10,
+         height_m = height_cm * 100)
+```
+
+```{r}
+lm0a <- lm(earn ~ height_cm, 
+          data = earn)
+display(lm0a)
+```
+
+
+```{r}
+lm0b <- lm(earn ~ height_mm, 
+          data = earn)
+display(lm0b)
+```
+
+
+```{r}
+lm0c <- lm(earn ~ height_m, 
+          data = earn)
+display(lm0c)
+```
+
+
+# Lineare Transformationen 2: z-Transformationen
+
 
 ## Daten laden: `kidsiq`
 
@@ -84,11 +137,6 @@ display(lm3)
 # Modelle mit `log(y)`
 
 
-## Daten laden
-
-```{r}
-earn <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/ARM/heights.csv")
-```
 
 
 ## lm4: earn_log
@@ -188,7 +236,7 @@ display(lm7)
 
 # "Buschbeispiel" - `mesquite`
 
-## Daten laden
+## Daten laden: `mesquite`
 
 ```{r}
 mesquite <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/ARM/mesquite.csv")
