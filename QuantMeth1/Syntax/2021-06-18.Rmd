@@ -5,13 +5,44 @@ date: "6/17/2021"
 output: html_document
 ---
 
+# Vorbereitung
+
+```{r}
+library(tidyverse)
+library(corrr)
+```
+
+
+
+
+# Korrelationen sortieren nach Absolutwert
+
+```{r}
+data(mtcars)
+```
+
+
+```{r}
+mtcars %>% 
+  select(cyl, disp, hp, mpg) %>% 
+  correlate() %>% 
+  select(term, mpg) %>% 
+  mutate(cor_mpg_abs = abs(mpg)) %>% 
+  arrange(-cor_mpg_abs)
+```
+
+
+
+
+
+
+
 
 # Fallstudie `house_prices`
 
 ## Vorbereitung
 
 ```{r}
-library(tidyverse)
 library(moderndive)
 data("house_prices")
 ```
