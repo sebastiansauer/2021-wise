@@ -51,6 +51,7 @@ knitr::opts_chunk$set(fig.pos = 'H',
 library(tidyverse)
 library(DT)
 library(xaringanExtra)
+library(mosaic)
 ```
 
 
@@ -82,8 +83,8 @@ use_xaringan_extra(c("tile_view", "tachyons"))
 
 .center2[.large[
 1. [Standard-Regression](#standard-regression)
-2. [Log-Regression](#log-regression)
-3. [Log-Log-Regression](#log-log-regression)
+2. [LogY-Regression](#log-regression)
+3. [LogY-LogX-Regression](#log-log-regression)
 4. [Fazit](#fazit)
 ]]
 
@@ -143,7 +144,7 @@ d <-
 
 ---
 
-# Ein Datensatz für additives Wachstum
+# `d`: Ein Datensatz für additives Wachstum
 
 ```{r echo = FALSE}
 datatable(d,
@@ -184,16 +185,16 @@ Für jede Einheit, die X steigt, steigt Y um einen festen Wert $k$: additives Wa
 
 class: center, middle, inverse
 
-# Log-Regression 
+# Log-Linear-Regression 
 
-## (synonym: Log-Y-Regression)
+
 
 ---
 
 
 name:log-regression
 
-# Log-Y-Regression
+# Log-Linear-Regression
 
 ## Exponentieller Zusammenhang
 
@@ -238,7 +239,7 @@ Exponentielles Wachstum wächst (ab einem bestimmten Zeitpunkt) sehr stark und w
 
 
 
-# Daten für exponentiellen Zusammenhang
+# `d2`: Daten für exponentiellen Zusammenhang
 
 ```{r}
 euler_e <- 2.71
@@ -291,7 +292,7 @@ Steigt X um 1 Einheit, so steigt Y um einen konstanten Faktor: exponentielles Wa
 
 ---
 
-# Log-Y-Regression in R
+# Log-Linear-Regression in R
 
 
 ```{r}
@@ -349,7 +350,7 @@ Beispiele:
 ---
 
 
-# Multiple Log-Regression 
+# Multiple LogY-Regression 
 
 Ein lineare Modell in der Log-Skalierung entspricht einem multiplikativen Modell in der ursprünglichen Skalierung:
 
@@ -364,7 +365,15 @@ $$y = e^{b_0} \cdot e^{b_1x_1} \cdot e^{b_2x_2} \cdot \ldots \cdot e^{\epsilon} 
 💡 Y wird hier als multiplikative Funktion der Prädiktoren modelliert.
 
 
+
+
+
 ---
+
+
+
+
+
 
 name: log-log-regression
 class: center, middle, inverse
@@ -396,7 +405,7 @@ Eine Log-Log-Regression stellt also eine *Potenzfunktion* dar.
 
 
 
-# Daten für Zusammenhänge nach einer Potenzfunktion
+# `d3`: Daten für Zusammenhänge nach einer Potenzfunktion
 
 ```{r}
 d3 <- 
@@ -441,7 +450,7 @@ lm_loglog
 ---
 
 
-# Visualisierung eines Log-Log-Zusammenhangs
+# Visualisierung eines LogY-LogX-Zusammenhangs
 
 
 
@@ -464,7 +473,7 @@ Lineares Modell passt nicht; es liegt quadratisches Wachstum vor. Das entspricht
 ---
 
 
-# Einfaches Zahlenbeispiel
+# `d4`: Einfaches Zahlenbeispiel für ein Potenzgesetz
 
 
 ```{r}
@@ -493,7 +502,7 @@ datatable(d4,
 
 
 
-# `d4`: Verdoppelt sich X, vervierfacht sich Y
+# Verdoppelt sich X, vervierfacht sich Y
 
 
 ```{r echo = FALSE}
@@ -511,7 +520,7 @@ datatable(d4,
 
 
 
-[Herleitung einer multiplen Log-Log-Regression](https://www.wolframalpha.com/input/?i=log%28x%5E2+*+y%5E2%29)
+[Herleitung einer multiplen LogY-LogX-Regression](https://www.wolframalpha.com/input/?i=log%28x%5E2+*+y%5E2%29)
 
 
 
@@ -536,7 +545,7 @@ Beispiele:
 
 # Aber stimmt das alles wirklich? (1/2)
 
-Wie ist der Zusammenhang von X und Y in einer Log-Log-Regression zu verstehen?
+Wie ist der Zusammenhang von X und Y in einer LogY-LogX-Regression zu verstehen?
 
 $$\log_b y = a_0 + a_1 \log x$$
 
@@ -557,6 +566,26 @@ $$\begin{aligned}[t]
 
 ---
 
+# Log-Log-Modell mit mehreren Prädiktoren
+
+Eine Log-Log-Regression macht auch Sinn, um multiplikative Verknüpfungen dieser Art zu modellieren:
+
+
+$$y=ab \qquad \leftrightarrow \qquad log(y) = log(a) + log(b)$$
+
+
+Zahlenbeispiel:
+
+$$100 = 10\cdot10 \qquad \leftrightarrow \qquad lg(100) = lg(10) + lg(10)$$
+
+wobei `lg` für den Logarithmus zur Basis 10 steht.
+
+Natürlich ist auch $y=abc, y = abcd$ etc. möglich. 
+
+---
+
+
+
 # Aber stimmt das alles wirklich? (2/2)
 
 Also:
@@ -575,6 +604,62 @@ Steigt also $x$ umd den Faktor $r$, so steigt $y$ um den Faktor $r^{a_1}$.
 
 
 
+# Beispiel für ein Log-Log-Log-Modell mit mehreren Log-Prädiktoren
+
+
+- Der Preis eines Diamanten als Produkt von Gewicht und Schliff
+- Der Lernerfolg als Produkt von Motivation, Konzentration und Lernzeit
+- Das Wachstum einer Bakterienkolonie als Produkt von Nährstoffmenge und Zeit
+- Der Spritverbrauch als Produkt von Gewicht und Motorgröße
+
+Es gibt viele Situationen, in denen ein LogY-LogX1-LogX2-Modell helfen kann.
+
+---
+
+
+# `d5`: Einfaches Zahlenbeispiel für eine Potenzfunktion
+
+Anstelle von $y=x\cdot x$ haben wir jetzt $y=a \cdot b$.
+
+
+```{r}
+d5 <-
+  tibble(
+    a = 0:10,
+    b = 0:10,
+    y = a*b,
+    log_y = log(y) %>% round(2),
+    loga_plus_logb = (log(a) + log(b)) %>% round(2)
+  )
+```
+
+
+
+---
+
+
+
+# So sieht `d5` aus
+
+
+```{r echo = FALSE}
+datatable(d5,
+          options = list(pageLength = 7))
+```
+
+
+ Y ist Produkt von a und b
+
+---
+
+
+
+
+
+
+
+
+
 
 
 name: fazit
@@ -590,9 +675,9 @@ class: center, middle, inverse
 
 - *Normale Regression*: Wenn sich die Effekte der Prädiktoren  zu einem Effekt (auf Y) *summieren*
 
-- *Log-Y-Regression*: Wenn sich die Effekte der Prädiktoren zu einem Effekt (auf Y) *multiplizieren* 
+- *LogY-Regression*: Wenn sich die Effekte der Prädiktoren zu einem Effekt (auf Y) *multiplizieren* 
 
-- *Log-Log-Regression*: Wenn sich die *multiplikativen* Effekte der Prädiktoren zu einem Effekt (auf Y) *multiplizieren* 
+- *LogY-LogX-Regression*: Wenn sich die *multiplikativen* Effekte der Prädiktoren zu einem Effekt (auf Y) *multiplizieren* 
 
 
 ---

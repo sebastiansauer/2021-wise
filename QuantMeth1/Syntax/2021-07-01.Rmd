@@ -257,18 +257,109 @@ diamonds %>%
 
 ## Mutieren
 
-a) Erstellen Sie eine Variable, die die Größenordnung des Preises angibt: 
-  - dreistelliger Preis (100-999) -> Wert ist 2
-  - vierstelliger Preis (1000-9999) -> Wert ist 3
+### Problem
+
+a) Erstellen Sie eine Variable, die die *Größenordnung* des Preises angibt: 
+  - dreistelliger Preis (100-999) -> Wert ist *2*  -> log10(100) = 2
+  - vierstelliger Preis (1000-9999) -> Wert ist *3*
   - etc.
-b) Berechnen Sie eine Art "Volumen" des Diamanten, in dem Sie `x`, `y` und `z` multiplizieren
+b) Berechnen Sie eine Art "Volumen" des Diamanten, in dem Sie `x`, `y` und `z` multiplizieren.
 c) Erstellen Sie eine Variable, die angibt, ob der Preis des Diamanten größer als der Mittelwert ist.
 d) Berechnen Sie die Korrelation von Volumen und Gewicht (`carat`).
+
+
+### Lösung
+
+
+a)
+
+```{r}
+log10(100) == 2
+log10(1000) == 3
+log10(1e4) == 4  # 10000 = 10^4 
+```
+
+
+:-)
+
+```{r}
+diamonds <-
+  diamonds %>% 
+  mutate(preis_log10 = log10(price))
+```
+
+In diesem Fall wäre es nicht so gut mit `case_when` zu arbeiten:
+
+```{r}
+diamonds %>% 
+  mutate(price_oom = case_when(
+    price > 100 & price < 1000 ~ 2,
+    price < 10000 ~ 3,
+    TRUE ~ NA_real_
+  ))
+```
+
+
+
+
+
+b)
+
+```{r}
+diamonds <-
+  diamonds %>% 
+  mutate(volume = x * y * z)
+```
+
+
+
+c)
+
+```{r}
+diamonds <- 
+  diamonds %>% 
+  mutate(price_high = case_when(  # ifelse würde auch gehen
+    price > mean(price) ~ TRUE,
+    TRUE ~ FALSE
+  ))
+```
+
+
+```{r}
+diamonds %>% 
+  count(price_high)
+```
+
+
+
+
+d)
+
+```{r}
+diamonds %>% 
+  select(carat, volume) %>% 
+  cor()  #Input: Eine Tabelle mit nur numerischen Spalten
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 ## Log-Transformation
 
+
+### Problem
 
 a) Betrachten Sie den Zusammenhang von Preis und Gewicht und prüfen Sie, 
 ob Sie den Zusammenhang durch eine Log-Transformation *linearisieren* können. 
@@ -276,12 +367,122 @@ ob Sie den Zusammenhang durch eine Log-Transformation *linearisieren* können.
 b) Vielleicht hilft auch eine andere Art von Transformation? Probieren Sie es aus!
 
 
+### Lösung
+
+Ohne Transformation:
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>%  # bleiben >50000 übrig
+  ggplot() +
+  aes(x = carat, y = price) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
 
 
-## Deskriptive Statistiken zu Preis
+
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>% 
+  ggplot() +
+  aes(x = carat, y = log(price)) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+
+
+
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>% 
+  ggplot() +
+  aes(x = log(carat), y = log(price)) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+
+
+
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>% 
+  ggplot() +
+  aes(x = carat, y = sqrt(price)) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+
+
+## Regressionsgüte nach Transformationen
+
+a) Welche Hypothese finden Sie am plausibelsten?
+b) Vergleichen Sie die Vorhersagegüte von Modellen, die den Preis anhand des Gewichts vorhersagen.
+
+### Lösung
+
+
+```{r}
+lm1 <- lm(price ~ carat, data = diamonds %>% filter(carat < 2.5))
+```
+
+```{r}
+plot(lm1)
+```
+
+
+```{r}
+summary(lm1)$r.squared
+```
+
+
+```{r}
+lm2 <- lm(log(price) ~ carat, data = diamonds %>% filter(carat != 0))
+```
+
+```{r}
+plot(lm2)
+```
+
+
+
+
+```{r}
+summary(lm2)$r.squared
+```
+
+```{r}
+lm3 <- lm(log(price) ~ log(carat), data = diamonds)
+```
+
+```{r}
+plot(lm3)
+```
+
+
+
+
+```{r}
+summary(lm3)$r.squared
+```
 
 
 ## Fehlende Werte zählen
+
+
+a) Wie viele fehlenden Werte gibt es in der Tabelle?
+b) ... in der Spalte `price`?
+c) ... in jeder einzelnen Spalte? 
 
 
 ## Korrelationen mit Preis visualisieren
