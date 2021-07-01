@@ -192,6 +192,7 @@ pre code {
 <li><a href="#zusammenfassen"><span class="toc-section-number">2.3</span> Zusammenfassen</a>
 <ul>
 <li><a href="#problem-2"><span class="toc-section-number">2.3.1</span> Problem</a></li>
+<li><a href="#lösung-2"><span class="toc-section-number">2.3.2</span> Lösung</a></li>
 </ul></li>
 <li><a href="#sortieren"><span class="toc-section-number">2.4</span> Sortieren</a></li>
 <li><a href="#mutieren"><span class="toc-section-number">2.5</span> Mutieren</a></li>
@@ -199,7 +200,6 @@ pre code {
 <li><a href="#deskriptive-statistiken-zu-preis"><span class="toc-section-number">2.7</span> Deskriptive Statistiken zu Preis</a></li>
 <li><a href="#fehlende-werte-zählen"><span class="toc-section-number">2.8</span> Fehlende Werte zählen</a></li>
 <li><a href="#korrelationen-mit-preis-visualisieren"><span class="toc-section-number">2.9</span> Korrelationen mit Preis visualisieren</a></li>
-<li><a href="#section"><span class="toc-section-number">2.10</span> </a></li>
 </ul></li>
 </ul>
 </div>
@@ -326,12 +326,11 @@ schorsch &lt;- &quot;42&quot;  # c</code></pre>
 ## 10  0.64 Ideal D     VS1      61.5    56  2787  5.54  5.55  3.41
 ## # … with 2,824 more rows</code></pre>
 <ol start="4" style="list-style-type: lower-alpha">
-<li>die 10% teuersten Diamanten.</li>
+<li>die 10% teuersten Diamanten</li>
 </ol>
 <pre class="r"><code>diamonds %&gt;% 
-  arrange(-price) %&gt;% 
-  slice(1:5400)</code></pre>
-<pre><code>## # A tibble: 5,400 x 10
+  slice_max(order_by = price, prop = .1)</code></pre>
+<pre><code>## # A tibble: 5,396 x 10
 ##    carat cut       color clarity depth table price     x     y     z
 ##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1  2.29 Premium   I     VS2      60.8    60 18823  8.5   8.47  5.16
@@ -344,10 +343,12 @@ schorsch &lt;- &quot;42&quot;  # c</code></pre>
 ##  8  2    Premium   I     VS1      60.8    59 18795  8.13  8.02  4.91
 ##  9  1.71 Premium   F     VS2      62.3    59 18791  7.57  7.53  4.7 
 ## 10  2.15 Ideal     G     SI2      62.6    54 18791  8.29  8.35  5.21
-## # … with 5,390 more rows</code></pre>
-<pre class="r"><code>diamonds %&gt;% 
+## # … with 5,386 more rows</code></pre>
+<pre class="r"><code>d2 &lt;- diamonds %&gt;% 
   mutate(price_percent = percent_rank(price)) %&gt;% 
-  filter(price_percent &gt; .9)</code></pre>
+  filter(price_percent &gt; .9)
+
+d2</code></pre>
 <pre><code>## # A tibble: 5,393 x 11
 ##    carat cut     color clarity depth table price     x     y     z price_percent
 ##    &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;
@@ -378,12 +379,273 @@ schorsch &lt;- &quot;42&quot;  # c</code></pre>
 <li>Was ist der mittlere Preis pro Stufe von <code>cut</code>?</li>
 </ol>
 </div>
+<div id="lösung-2" class="section level3" number="2.3.2">
+<h3 number="2.3.2"><span class="header-section-number">2.3.2</span> Lösung</h3>
+<ol style="list-style-type: lower-alpha">
+<li>Was ist der mittlere Preis der Diamanten?</li>
+</ol>
+<pre class="r"><code>diamonds %&gt;% 
+  drop_na(price) %&gt;% 
+  summarise(price_m = mean(price))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   price_m
+##     &lt;dbl&gt;
+## 1   3933.</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Der mediane?</li>
+</ol>
+<pre class="r"><code>diamonds %&gt;% 
+  drop_na(price) %&gt;% 
+  summarise(price_md = median(price))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   price_md
+##      &lt;dbl&gt;
+## 1     2401</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>und d)</li>
+</ol>
+<pre class="r"><code>diamonds %&gt;% 
+  drop_na(price) %&gt;% 
+  summarise(price_sd = sd(price),
+            price_iqr = IQR(price))</code></pre>
+<pre><code>## # A tibble: 1 x 2
+##   price_sd price_iqr
+##      &lt;dbl&gt;     &lt;dbl&gt;
+## 1    3989.     4374.</code></pre>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Was lernen wir daraus, wenn es zwischen Median und MW einen Unterschied gibt?</li>
+</ol>
+<p>MW - Md ist prop. zur Schiefe (es gibt Extremwerte)</p>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>Kennen Sie einen Weg, viele Statistiken auf einmal zu bekommen? Welchen?</li>
+</ol>
+<pre class="r"><code>library(skimr)
+
+skim(diamonds)</code></pre>
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">diamonds</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">53940</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">10</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">factor</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">7</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="left">ordered</th>
+<th align="right">n_unique</th>
+<th align="left">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">cut</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">TRUE</td>
+<td align="right">5</td>
+<td align="left">Ide: 21551, Pre: 13791, Ver: 12082, Goo: 4906</td>
+</tr>
+<tr class="even">
+<td align="left">color</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">TRUE</td>
+<td align="right">7</td>
+<td align="left">G: 11292, E: 9797, F: 9542, H: 8304</td>
+</tr>
+<tr class="odd">
+<td align="left">clarity</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="left">TRUE</td>
+<td align="right">8</td>
+<td align="left">SI1: 13065, VS2: 12258, SI2: 9194, VS1: 8171</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">carat</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.80</td>
+<td align="right">0.47</td>
+<td align="right">0.2</td>
+<td align="right">0.40</td>
+<td align="right">0.70</td>
+<td align="right">1.04</td>
+<td align="right">5.01</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">depth</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">61.75</td>
+<td align="right">1.43</td>
+<td align="right">43.0</td>
+<td align="right">61.00</td>
+<td align="right">61.80</td>
+<td align="right">62.50</td>
+<td align="right">79.00</td>
+<td align="left">▁▁▇▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">table</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">57.46</td>
+<td align="right">2.23</td>
+<td align="right">43.0</td>
+<td align="right">56.00</td>
+<td align="right">57.00</td>
+<td align="right">59.00</td>
+<td align="right">95.00</td>
+<td align="left">▁▇▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">price</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3932.80</td>
+<td align="right">3989.44</td>
+<td align="right">326.0</td>
+<td align="right">950.00</td>
+<td align="right">2401.00</td>
+<td align="right">5324.25</td>
+<td align="right">18823.00</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">x</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.73</td>
+<td align="right">1.12</td>
+<td align="right">0.0</td>
+<td align="right">4.71</td>
+<td align="right">5.70</td>
+<td align="right">6.54</td>
+<td align="right">10.74</td>
+<td align="left">▁▁▇▃▁</td>
+</tr>
+<tr class="even">
+<td align="left">y</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.73</td>
+<td align="right">1.14</td>
+<td align="right">0.0</td>
+<td align="right">4.72</td>
+<td align="right">5.71</td>
+<td align="right">6.54</td>
+<td align="right">58.90</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">z</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3.54</td>
+<td align="right">0.71</td>
+<td align="right">0.0</td>
+<td align="right">2.91</td>
+<td align="right">3.53</td>
+<td align="right">4.04</td>
+<td align="right">31.80</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+<ol start="7" style="list-style-type: lower-alpha">
+<li>Was ist der mittlere Preis pro Stufe von <code>cut</code>?</li>
+</ol>
+<pre class="r"><code>diamonds %&gt;% 
+  group_by(cut) %&gt;% 
+  summarise(price_avg = mean(price))</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   cut       price_avg
+##   &lt;ord&gt;         &lt;dbl&gt;
+## 1 Fair          4359.
+## 2 Good          3929.
+## 3 Very Good     3982.
+## 4 Premium       4584.
+## 5 Ideal         3458.</code></pre>
+</div>
 </div>
 <div id="sortieren" class="section level2" number="2.4">
 <h2 number="2.4"><span class="header-section-number">2.4</span> Sortieren</h2>
+<p>Sortieren Sie den Datensatz nach Preis und zeigen Sie die Top-3-Diamanten (hinsichtlich der Höhe des Preises)!</p>
 </div>
 <div id="mutieren" class="section level2" number="2.5">
 <h2 number="2.5"><span class="header-section-number">2.5</span> Mutieren</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Erstellen Sie eine Variable, die die Größenordnung des Preises angibt:</li>
+</ol>
+<ul>
+<li>dreistelliger Preis (100-999) -&gt; Wert ist 3</li>
+<li>vierstelliger Preis (1000-9999) -&gt; Wert ist 4</li>
+<li>etc.</li>
+</ul>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Berechnen Sie eine Art “Volumen” des Diamanten, in dem Sie <code>x</code>, <code>y</code> und <code>z</code> multiplizieren</li>
+</ol>
 </div>
 <div id="log-transformation" class="section level2" number="2.6">
 <h2 number="2.6"><span class="header-section-number">2.6</span> Log-Transformation</h2>
@@ -396,9 +658,6 @@ schorsch &lt;- &quot;42&quot;  # c</code></pre>
 </div>
 <div id="korrelationen-mit-preis-visualisieren" class="section level2" number="2.9">
 <h2 number="2.9"><span class="header-section-number">2.9</span> Korrelationen mit Preis visualisieren</h2>
-</div>
-<div id="section" class="section level2" number="2.10">
-<h2 number="2.10"><span class="header-section-number">2.10</span> </h2>
 </div>
 </div>
 

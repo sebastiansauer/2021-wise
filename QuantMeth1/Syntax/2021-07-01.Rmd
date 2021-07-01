@@ -119,18 +119,19 @@ diamonds %>%
 
 
 
-d) die 10% teuersten Diamanten.
+d) die 10% teuersten Diamanten
 
 ```{r}
 diamonds %>% 
-  arrange(-price) %>% 
-  slice(1:5400)
+  slice_max(order_by = price, prop = .1)
 ```
 
 ```{r}
-diamonds %>% 
+d2 <- diamonds %>% 
   mutate(price_percent = percent_rank(price)) %>% 
   filter(price_percent > .9)
+
+d2
 ```
 
 
@@ -150,11 +151,88 @@ f) Kennen Sie einen Weg, viele Statistiken auf einmal zu bekommen? Welchen?
 g) Was ist der mittlere Preis pro Stufe von `cut`?
 
 
+
+### Lösung
+
+a) Was ist der mittlere Preis der Diamanten?
+
+
+```{r}
+diamonds %>% 
+  drop_na(price) %>% 
+  summarise(price_m = mean(price))
+```
+
+b) Der mediane?
+
+
+
+
+```{r}
+diamonds %>% 
+  drop_na(price) %>% 
+  summarise(price_md = median(price))
+```
+
+
+c) und d)
+
+
+
+
+```{r}
+diamonds %>% 
+  drop_na(price) %>% 
+  summarise(price_sd = sd(price),
+            price_iqr = IQR(price))
+```
+
+
+e) Was lernen wir daraus, wenn es zwischen Median und MW einen Unterschied gibt?
+
+MW - Md ist prop. zur Schiefe (es gibt Extremwerte)
+
+
+
+f) Kennen Sie einen Weg, viele Statistiken auf einmal zu bekommen? Welchen?
+
+
+```{r}
+library(skimr)
+
+skim(diamonds)
+```
+
+
+
+g) Was ist der mittlere Preis pro Stufe von `cut`?
+
+
+
+```{r}
+diamonds %>% 
+  group_by(cut) %>% 
+  summarise(price_avg = mean(price))
+```
+
+
+
+
+
+
 ## Sortieren
+
+
+Sortieren Sie den Datensatz nach Preis und zeigen Sie die Top-3-Diamanten (hinsichtlich der Höhe des Preises)!
 
 
 ## Mutieren
 
+a) Erstellen Sie eine Variable, die die Größenordnung des Preises angibt: 
+  - dreistelliger Preis (100-999) -> Wert ist 3
+  - vierstelliger Preis (1000-9999) -> Wert ist 4 
+  - etc.
+b) Berechnen Sie eine Art "Volumen" des Diamanten, in dem Sie `x`, `y` und `z` multiplizieren
 
 
 ## Log-Transformation
@@ -169,7 +247,7 @@ g) Was ist der mittlere Preis pro Stufe von `cut`?
 ## Korrelationen mit Preis visualisieren
 
 
-## 
+
 
 
 
