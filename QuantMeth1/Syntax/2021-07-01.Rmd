@@ -2,7 +2,10 @@
 title: "Wiederholung"
 author: "ses"
 date: "7/1/2021"
-output: html_document
+output: 
+  html_document:
+    toc: TRUE
+    number_sections: TRUE
 ---
 
 
@@ -13,7 +16,7 @@ output: html_document
 
 ## Pakete laden
 
-```{r}
+```{r message=FALSE}
 library(tidyverse)
 ```
 
@@ -31,6 +34,13 @@ data("diamonds")
 
 
 ## Werte zuweisen
+
+
+a) Definieren Sie eine Variable "alter" mit dem Wert 42
+b) Definieren Sie eine Variable "name" mit dem Wert "Schorsch"
+c) Definieren Sie eine Variable "schorsch" mit dem Wert "42"
+
+
 
 
 ## Filtern
