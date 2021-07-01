@@ -184,8 +184,15 @@ pre code {
 <li><a href="#problem"><span class="toc-section-number">2.1.1</span> Problem</a></li>
 <li><a href="#lösung"><span class="toc-section-number">2.1.2</span> Lösung</a></li>
 </ul></li>
-<li><a href="#filtern"><span class="toc-section-number">2.2</span> Filtern</a></li>
-<li><a href="#zusammenfassen"><span class="toc-section-number">2.3</span> Zusammenfassen</a></li>
+<li><a href="#filtern"><span class="toc-section-number">2.2</span> Filtern</a>
+<ul>
+<li><a href="#problem-1"><span class="toc-section-number">2.2.1</span> Problem</a></li>
+<li><a href="#lösung-1"><span class="toc-section-number">2.2.2</span> Lösung</a></li>
+</ul></li>
+<li><a href="#zusammenfassen"><span class="toc-section-number">2.3</span> Zusammenfassen</a>
+<ul>
+<li><a href="#problem-2"><span class="toc-section-number">2.3.1</span> Problem</a></li>
+</ul></li>
 <li><a href="#sortieren"><span class="toc-section-number">2.4</span> Sortieren</a></li>
 <li><a href="#mutieren"><span class="toc-section-number">2.5</span> Mutieren</a></li>
 <li><a href="#log-transformation"><span class="toc-section-number">2.6</span> Log-Transformation</a></li>
@@ -230,9 +237,147 @@ schorsch &lt;- &quot;42&quot;  # c</code></pre>
 </div>
 <div id="filtern" class="section level2" number="2.2">
 <h2 number="2.2"><span class="header-section-number">2.2</span> Filtern</h2>
+<div id="problem-1" class="section level3" number="2.2.1">
+<h3 number="2.2.1"><span class="header-section-number">2.2.1</span> Problem</h3>
+<p>Laden Sie zunächst die Tabelle “diamonds”.</p>
+<p>Filtern Sie …</p>
+<ol style="list-style-type: lower-alpha">
+<li>alle Diamanten besten Schliffs.</li>
+<li>alle Diamanten mit einem Preis zwischen 1000 und 10000 Dollar.</li>
+<li>alle Diamanten mit bester Farbe und bestem Schliff</li>
+<li>die 10% teuersten Diamanten.</li>
+</ol>
+</div>
+<div id="lösung-1" class="section level3" number="2.2.2">
+<h3 number="2.2.2"><span class="header-section-number">2.2.2</span> Lösung</h3>
+<pre class="r"><code>data(&quot;diamonds&quot;)  # ggplot2, das ist Teil des Tidyverse</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<pre class="r"><code>diamonds %&gt;% 
+  filter(cut == &quot;Ideal&quot;)</code></pre>
+<pre><code>## # A tibble: 21,551 x 10
+##    carat cut   color clarity depth table price     x     y     z
+##    &lt;dbl&gt; &lt;ord&gt; &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  0.23 Ideal E     SI2      61.5    55   326  3.95  3.98  2.43
+##  2  0.23 Ideal J     VS1      62.8    56   340  3.93  3.9   2.46
+##  3  0.31 Ideal J     SI2      62.2    54   344  4.35  4.37  2.71
+##  4  0.3  Ideal I     SI2      62      54   348  4.31  4.34  2.68
+##  5  0.33 Ideal I     SI2      61.8    55   403  4.49  4.51  2.78
+##  6  0.33 Ideal I     SI2      61.2    56   403  4.49  4.5   2.75
+##  7  0.33 Ideal J     SI1      61.1    56   403  4.49  4.55  2.76
+##  8  0.23 Ideal G     VS1      61.9    54   404  3.93  3.95  2.44
+##  9  0.32 Ideal I     SI1      60.9    55   404  4.45  4.48  2.72
+## 10  0.3  Ideal I     SI2      61      59   405  4.3   4.33  2.63
+## # … with 21,541 more rows</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p>alle Diamanten mit einem Preis zwischen 1000 und 10000 Dollar.</p>
+<pre class="r"><code>diamonds %&gt;% 
+  filter(price &gt;= 1e3 &amp; price &lt;= 1e4)</code></pre>
+<pre><code>## # A tibble: 34,219 x 10
+##    carat cut       color clarity depth table price     x     y     z
+##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  0.7  Ideal     E     SI1      62.5    57  2757  5.7   5.72  3.57
+##  2  0.86 Fair      E     SI2      55.1    69  2757  6.45  6.33  3.52
+##  3  0.7  Ideal     G     VS2      61.6    56  2757  5.7   5.67  3.5 
+##  4  0.71 Very Good E     VS2      62.4    57  2759  5.68  5.73  3.56
+##  5  0.78 Very Good G     SI2      63.8    56  2759  5.81  5.85  3.72
+##  6  0.7  Good      E     VS2      57.5    58  2759  5.85  5.9   3.38
+##  7  0.7  Good      F     VS1      59.4    62  2759  5.71  5.76  3.4 
+##  8  0.96 Fair      F     SI2      66.3    62  2759  6.27  5.95  4.07
+##  9  0.73 Very Good E     SI1      61.6    59  2760  5.77  5.78  3.56
+## 10  0.8  Premium   H     SI1      61.5    58  2760  5.97  5.93  3.66
+## # … with 34,209 more rows</code></pre>
+<pre class="r"><code>diamonds %&gt;% 
+  filter(between(price, 1e03, 1e04))</code></pre>
+<pre><code>## # A tibble: 34,219 x 10
+##    carat cut       color clarity depth table price     x     y     z
+##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  0.7  Ideal     E     SI1      62.5    57  2757  5.7   5.72  3.57
+##  2  0.86 Fair      E     SI2      55.1    69  2757  6.45  6.33  3.52
+##  3  0.7  Ideal     G     VS2      61.6    56  2757  5.7   5.67  3.5 
+##  4  0.71 Very Good E     VS2      62.4    57  2759  5.68  5.73  3.56
+##  5  0.78 Very Good G     SI2      63.8    56  2759  5.81  5.85  3.72
+##  6  0.7  Good      E     VS2      57.5    58  2759  5.85  5.9   3.38
+##  7  0.7  Good      F     VS1      59.4    62  2759  5.71  5.76  3.4 
+##  8  0.96 Fair      F     SI2      66.3    62  2759  6.27  5.95  4.07
+##  9  0.73 Very Good E     SI1      61.6    59  2760  5.77  5.78  3.56
+## 10  0.8  Premium   H     SI1      61.5    58  2760  5.97  5.93  3.66
+## # … with 34,209 more rows</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>alle Diamanten mit bester Farbe und bestem Schliff</li>
+</ol>
+<pre class="r"><code>diamonds %&gt;% 
+  filter(cut == &quot;Ideal&quot;, color == &quot;D&quot;)</code></pre>
+<pre><code>## # A tibble: 2,834 x 10
+##    carat cut   color clarity depth table price     x     y     z
+##    &lt;dbl&gt; &lt;ord&gt; &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  0.3  Ideal D     SI1      62.5    57   552  4.29  4.32  2.69
+##  2  0.3  Ideal D     SI1      62.1    56   552  4.3   4.33  2.68
+##  3  0.71 Ideal D     SI2      62.3    56  2762  5.73  5.69  3.56
+##  4  0.71 Ideal D     SI1      61.9    59  2764  5.69  5.72  3.53
+##  5  0.71 Ideal D     SI2      61.6    55  2767  5.74  5.76  3.54
+##  6  0.76 Ideal D     SI2      62.4    57  2770  5.78  5.83  3.62
+##  7  0.73 Ideal D     SI2      59.9    57  2770  5.92  5.89  3.54
+##  8  0.75 Ideal D     SI2      61.3    56  2773  5.85  5.89  3.6 
+##  9  0.72 Ideal D     SI1      60.8    57  2782  5.76  5.75  3.5 
+## 10  0.64 Ideal D     VS1      61.5    56  2787  5.54  5.55  3.41
+## # … with 2,824 more rows</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>die 10% teuersten Diamanten.</li>
+</ol>
+<pre class="r"><code>diamonds %&gt;% 
+  arrange(-price) %&gt;% 
+  slice(1:5400)</code></pre>
+<pre><code>## # A tibble: 5,400 x 10
+##    carat cut       color clarity depth table price     x     y     z
+##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  2.29 Premium   I     VS2      60.8    60 18823  8.5   8.47  5.16
+##  2  2    Very Good G     SI1      63.5    56 18818  7.9   7.97  5.04
+##  3  1.51 Ideal     G     IF       61.7    55 18806  7.37  7.41  4.56
+##  4  2.07 Ideal     G     SI2      62.5    55 18804  8.2   8.13  5.11
+##  5  2    Very Good H     SI1      62.8    57 18803  7.95  8     5.01
+##  6  2.29 Premium   I     SI1      61.8    59 18797  8.52  8.45  5.24
+##  7  2.04 Premium   H     SI1      58.1    60 18795  8.37  8.28  4.84
+##  8  2    Premium   I     VS1      60.8    59 18795  8.13  8.02  4.91
+##  9  1.71 Premium   F     VS2      62.3    59 18791  7.57  7.53  4.7 
+## 10  2.15 Ideal     G     SI2      62.6    54 18791  8.29  8.35  5.21
+## # … with 5,390 more rows</code></pre>
+<pre class="r"><code>diamonds %&gt;% 
+  mutate(price_percent = percent_rank(price)) %&gt;% 
+  filter(price_percent &gt; .9)</code></pre>
+<pre><code>## # A tibble: 5,393 x 11
+##    carat cut     color clarity depth table price     x     y     z price_percent
+##    &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;
+##  1  1.53 Very G… I     VS1      59.3    58  9823  7.5   7.54  4.46         0.900
+##  2  3.11 Fair    J     I1       65.9    57  9823  9.15  9.02  5.98         0.900
+##  3  1.5  Ideal   I     VS2      60      61  9827  7.39  7.42  4.44         0.900
+##  4  1.5  Very G… I     VVS2     63.3    58  9828  7.24  7.21  4.57         0.900
+##  5  1.5  Good    I     VS1      57.9    60  9828  7.48  7.44  4.32         0.900
+##  6  1.5  Ideal   E     SI1      61.9    57  9828  7.37  7.31  4.54         0.900
+##  7  1.5  Premium I     VS1      61.6    59  9828  7.32  7.26  4.49         0.900
+##  8  1.52 Premium E     SI2      58.1    60  9831  7.59  7.53  4.39         0.900
+##  9  1.08 Ideal   G     IF       62.3    56  9831  6.55  6.59  4.09         0.900
+## 10  1.51 Ideal   H     SI1      61.3    56  9833  7.4   7.44  4.55         0.900
+## # … with 5,383 more rows</code></pre>
+</div>
 </div>
 <div id="zusammenfassen" class="section level2" number="2.3">
 <h2 number="2.3"><span class="header-section-number">2.3</span> Zusammenfassen</h2>
+<div id="problem-2" class="section level3" number="2.3.1">
+<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Problem</h3>
+<ol style="list-style-type: lower-alpha">
+<li>Was ist der mittlere Preis der Diamanten?</li>
+<li>Der mediane?</li>
+<li>die SD?</li>
+<li>der IQR?</li>
+<li>Was lernen wir daraus, wenn es zwischen Median und MW einen Unterschied gibt?</li>
+<li>Kennen Sie einen Weg, viele Statistiken auf einmal zu bekommen? Welchen?</li>
+<li>Was ist der mittlere Preis pro Stufe von <code>cut</code>?</li>
+</ol>
+</div>
 </div>
 <div id="sortieren" class="section level2" number="2.4">
 <h2 number="2.4"><span class="header-section-number">2.4</span> Sortieren</h2>

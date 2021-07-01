@@ -64,9 +64,90 @@ name <- schorsch
 ## Filtern
 
 
-Laden Sie zunähst die Tabelle "diamonds".
+### Problem
+
+Laden Sie zunächst die Tabelle "diamonds".
+
+
+
+Filtern Sie ...
+
+a) alle Diamanten besten Schliffs.
+b) alle Diamanten mit einem Preis zwischen 1000 und 10000 Dollar.
+c) alle Diamanten mit bester Farbe und bestem Schliff
+d) die 10% teuersten Diamanten.
+
+
+### Lösung
+
+```{r}
+data("diamonds")  # ggplot2, das ist Teil des Tidyverse
+```
+
+
+a)
+
+```{r}
+diamonds %>% 
+  filter(cut == "Ideal")
+```
+
+b)
+
+
+ alle Diamanten mit einem Preis zwischen 1000 und 10000 Dollar.
+ 
+```{r}
+diamonds %>% 
+  filter(price >= 1e3 & price <= 1e4)
+```
+
+
+```{r}
+diamonds %>% 
+  filter(between(price, 1e03, 1e04))
+```
+
+ 
+c) alle Diamanten mit bester Farbe und bestem Schliff
+
+
+```{r}
+diamonds %>% 
+  filter(cut == "Ideal", color == "D")
+```
+
+
+
+d) die 10% teuersten Diamanten.
+
+```{r}
+diamonds %>% 
+  arrange(-price) %>% 
+  slice(1:5400)
+```
+
+```{r}
+diamonds %>% 
+  mutate(price_percent = percent_rank(price)) %>% 
+  filter(price_percent > .9)
+```
+
+
 
 ## Zusammenfassen
+
+
+
+### Problem
+
+a) Was ist der mittlere Preis der Diamanten?
+b) Der mediane?
+c) die SD?
+d) der IQR?
+e) Was lernen wir daraus, wenn es zwischen Median und MW einen Unterschied gibt?
+f) Kennen Sie einen Weg, viele Statistiken auf einmal zu bekommen? Welchen?
+g) Was ist der mittlere Preis pro Stufe von `cut`?
 
 
 ## Sortieren
