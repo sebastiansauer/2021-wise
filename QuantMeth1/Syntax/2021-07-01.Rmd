@@ -36,15 +36,35 @@ data("diamonds")
 ## Werte zuweisen
 
 
+### Problem
+
 a) Definieren Sie eine Variable "alter" mit dem Wert 42
 b) Definieren Sie eine Variable "name" mit dem Wert "Schorsch"
 c) Definieren Sie eine Variable "schorsch" mit dem Wert "42"
 
 
+### Lösung
+
+
+
+
+```{r}
+alter <- 42  # a
+name <- "Schorsch"  # b
+schorsch <- "42"  # c
+```
+
+
+```{r}
+name <- schorsch
+```
+
 
 
 ## Filtern
 
+
+Laden Sie zunähst die Tabelle "diamonds".
 
 ## Zusammenfassen
 
