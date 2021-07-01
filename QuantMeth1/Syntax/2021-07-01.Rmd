@@ -223,19 +223,59 @@ diamonds %>%
 ## Sortieren
 
 
-Sortieren Sie den Datensatz nach Preis und zeigen Sie die Top-3-Diamanten (hinsichtlich der Höhe des Preises)!
+### Problem 
+
+Sortieren Sie den Datensatz nach Preis und zeigen Sie die Top-3-Diamanten (hinsichtlich der max. Höhe des Preises)!
+
+
+
+### Lösung
+
+
+
+```{r}
+diamonds %>% 
+  arrange(-price) %>%   # alternativ: desc(price)
+  slice(1:3)
+```
+
+
+
+
+```{r}
+diamonds %>% 
+  slice_max(price, n = 3)
+```
+
+
+
+
+
+
+
 
 
 ## Mutieren
 
 a) Erstellen Sie eine Variable, die die Größenordnung des Preises angibt: 
-  - dreistelliger Preis (100-999) -> Wert ist 3
-  - vierstelliger Preis (1000-9999) -> Wert ist 4 
+  - dreistelliger Preis (100-999) -> Wert ist 2
+  - vierstelliger Preis (1000-9999) -> Wert ist 3
   - etc.
 b) Berechnen Sie eine Art "Volumen" des Diamanten, in dem Sie `x`, `y` und `z` multiplizieren
+c) Erstellen Sie eine Variable, die angibt, ob der Preis des Diamanten größer als der Mittelwert ist.
+d) Berechnen Sie die Korrelation von Volumen und Gewicht (`carat`).
+
 
 
 ## Log-Transformation
+
+
+a) Betrachten Sie den Zusammenhang von Preis und Gewicht und prüfen Sie, 
+ob Sie den Zusammenhang durch eine Log-Transformation *linearisieren* können. 
+
+b) Vielleicht hilft auch eine andere Art von Transformation? Probieren Sie es aus!
+
+
 
 
 ## Deskriptive Statistiken zu Preis
