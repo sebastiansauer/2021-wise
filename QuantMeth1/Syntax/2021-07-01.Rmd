@@ -1,0 +1,64 @@
+---
+title: "Wiederholung"
+author: "ses"
+date: "7/1/2021"
+output: html_document
+---
+
+
+
+
+
+# Vorbereitung
+
+## Pakete laden
+
+```{r}
+library(tidyverse)
+```
+
+
+
+## Daten laden
+
+```{r}
+data("diamonds")
+```
+
+
+
+# Aufgaben
+
+
+## Werte zuweisen
+
+
+## Filtern
+
+
+## Zusammenfassen
+
+
+## Sortieren
+
+
+## Mutieren
+
+
+
+## Log-Transformation
+
+
+## Deskriptive Statistiken zu Preis
+
+
+## Fehlende Werte zählen
+
+
+## Korrelationen mit Preis visualisieren
+
+
+## 
+
+
+
