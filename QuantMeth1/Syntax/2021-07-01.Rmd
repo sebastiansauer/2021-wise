@@ -32,6 +32,7 @@ knitr::opts_chunk$set(fig.pos = 'H',
 
 ```{r message=FALSE}
 library(tidyverse)
+library(modelr)
 ```
 
 
@@ -527,7 +528,7 @@ lm1 <- lm(price ~ carat, data = diamonds %>% filter(carat < 2.5))
 ```
 
 ```{r}
-plot(lm1, which = 1)
+plot(lm1, which = 1)  # ggfortify::autoplot(lm1)
 ```
 
 
@@ -535,7 +536,7 @@ plot(lm1, which = 1)
 summary(lm1)$r.squared
 ```
 
-Modell mit exponenziellem Zusammenhang
+Modell mit *exponenziellem* Zusammenhang
 
 ```{r}
 lm2 <- lm(log(price) ~ carat, data = diamonds %>% filter(carat != 0))
@@ -570,7 +571,7 @@ summary(lm3)$r.squared
 ```
 
 
-## Rücktransformation
+## Rücktransformation y-Werte
 
 ### Problem
 
@@ -579,16 +580,13 @@ Sagen Sie die Preise laut Ihrem besten Modell vorher; führen Sie ggf. eine Rüc
 
 ### Lösung
 
-```{r}
-library(modelr)
-```
 
 
 Ohne Rücktransformation:
 
 ```{r}
 diamonds %>% 
-  add_predictions(lm3) %>%
+  add_predictions(lm3) %>%  # kommt aus dem Paket `modelr`
   select(price, pred) %>% 
   slice(1:6)
 ```
@@ -596,19 +594,49 @@ diamonds %>%
 
 Mit Rücktransformation:
 
+vorwärts: x -> log 
+
+rückwärts: exp(x) -> x
+
+
+Basis $e$:
+
+```{r}
+e <- 2.7182
+x <- 1
+exp(log(x)) == 1  # synonym:
+e^log(x) == 1
+
+```
+
+
+Basis 10:
+
+```{r}
+x <- 3
+log10(x)
+10^log10(x) == x
+```
+
+Das geht mit jeder beliebigen Basis. Wichtige Basen sind e, 10 und 2.
 
 ```{r}
 diamonds %>% 
-  add_predictions(lm3) %>%
-  mutate(pred = exp(pred)) %>%
-  select(price, pred) %>% 
+  add_predictions(lm3, var = "pred_lm3") %>%  # mit "var" kann man den Namen der neuen Spalte anpassen
+  mutate(pred_raw = exp(pred_lm3)) %>%  # Rücktransformation
+  select(price, pred_lm3, pred_raw) %>% 
   slice(1:6)
 ```
+
+wir sind jetzt wieder in der richtigen Größenordnung mit unseren Vorhersagen. Die Rück-Transformation hat also geklappt! Diese Werte würden Sie nun einreichen.
+
 
 
 
 ## Fehlende Werte zählen
 
+
+### Problem 
 
 a) Wie viele fehlenden Werte gibt es in der Tabelle?
 b) ... in der Spalte `price`?
@@ -617,7 +645,9 @@ c) ... in jeder einzelnen Spalte?
 
 ## Korrelationen mit Preis visualisieren
 
+### Problem
 
+Visualisieren Sie den Zusammenhang von Preis mit den wichtigen Prädiktoren.
 
 
 
