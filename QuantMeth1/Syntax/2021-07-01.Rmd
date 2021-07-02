@@ -31,8 +31,12 @@ knitr::opts_chunk$set(fig.pos = 'H',
 ## Pakete laden
 
 ```{r message=FALSE}
-library(tidyverse)
-library(modelr)
+library(tidyverse)  # Datenjudo
+library(modelr)  # add_predictions
+library(skimr)  # viele Statistiken auf einen Happs
+library(GGally)  # viele Streudiagramme auf einmal
+library(corrr)  # correlate, shave, rplot
+library(fastDummies)  # dummyisieren
 ```
 
 
@@ -643,11 +647,100 @@ b) ... in der Spalte `price`?
 c) ... in jeder einzelnen Spalte? 
 
 
+
+### Lösung
+
+
+#### a), b), c)
+
+```{r}
+skim(diamonds)  # package "skimr"
+```
+
+
+
 ## Korrelationen mit Preis visualisieren
 
 ### Problem
 
 Visualisieren Sie den Zusammenhang von Preis mit den wichtigen Prädiktoren.
+
+
+
+### Lösung
+
+Es gibt viele Pakete, die hier coole Visualisierungen ermöglichen. Hier eine Auswahl; googeln Sie ggf. nach mehr.
+
+```{r}
+diamonds %>% 
+  # select(where(is.numeric)) %>%   # oder so
+  select(price, carat, x, y, z, table, depth) %>% 
+  correlate() %>% 
+  shave() %>% 
+  focus(price)
+```
+
+```{r}
+diamonds %>% 
+  # select(where(is.numeric)) %>%   # oder so
+  select(price, carat, x, y, z, table, depth) %>% 
+  correlate() %>% 
+  rplot(print_cor = TRUE)
+```
+
+
+
+
+```{r}
+diamonds %>% 
+  select(where(is.numeric)) %>% 
+  ggpairs()
+```
+
+
+#### Vertiefung
+
+Eine Korrelation kann man nur zwischen *numerischen* Variablen berechnen, nicht zwischen nicht-numerischen. Aber man kann *kategoriale* Variablen "*dummysieren*", dann ist es wieder möglich, eine Korrelation zu berechnen.
+
+cut: A, B, C
+-->dummysierung
+
+cut_A: 1,0,0
+cut_B: 0,1,0
+cut_C: 0,0,1  --> ist redundant, aber die Regression macht dann dicke Backen
+
+Das Paket `fastDummies` ermöglicht eine Dummysierung auf recht komfortable Weise.
+
+
+
+
+```{r}
+d2 <-
+diamonds %>% 
+  fastDummies::dummy_cols(select_columns = c("cut", "color", "clarity"),
+             remove_selected_columns = TRUE,
+             remove_first_dummy = FALSE)
+```
+
+
+```{r}
+d2 %>% 
+  slice(1:5)
+```
+
+
+
+
+```{r}
+d2 %>% 
+  correlate() %>% 
+  focus(price) %>% 
+  arrange(-abs(price))
+```
+
+
+
+
 
 
 
