@@ -11,6 +11,18 @@ editor_options:
 ---
 
 
+```{r global-knitr-options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H',
+  fig.asp = 0.618,
+  fig.width = 5,
+  fig.cap = "", 
+  fig.path = "",
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  cache = FALSE,
+  fig.show = "hold")
+```
 
 
 
@@ -365,9 +377,9 @@ diamonds %>%
 
 a) Welche Hypothese finden Sie am plausibelsten? Begründen Sie!
 
-    - Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ Dollar?
-    - Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ *Prozent*?
-     - Steigt das Gewicht des Diamanten um 1 *Prozent*, so steigt der Preis (im Schnitt) um $b$ *Prozent*?
+    - H1: Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ Dollar?
+    - H2: Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ *Prozent*? (exponenzielles Wachstum)
+     - H3: Steigt das Gewicht des Diamanten um 1 *Prozent*, so steigt der Preis (im Schnitt) um $b$ *Prozent*? (Wachstum nach einer Potenzfunktion)
      
 b) Betrachten Sie den Zusammenhang von Preis und Gewicht und prüfen Sie, 
 ob Sie den Zusammenhang durch eine Log-Transformation *linearisieren* können. 
@@ -396,12 +408,23 @@ Aber bleiben wir für Erste bei einer theoretischen Erörterung.
 
 **Hyp 2**: "Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ *Prozent*?"
 
-Dieses Wachstumsmuster nennt man auch exponenzielles Wachstum und ist sehr häufig bei allen Wachstumsprozessen, macht aber hier nicht unbedingt viel Sinn (könnte aber trotzdem die Daten passabel beschreiben, sollten wir gleich mal ausprobieren).
+Dieses Wachstumsmuster nennt man auch *exponenzielles* Wachstum und ist sehr häufig bei allen (biologisch) *Wachstumsprozessen*, macht aber hier nicht unbedingt viel Sinn (könnte aber trotzdem die Daten passabel beschreiben, sollten wir gleich mal ausprobieren).
 
 
 **Hyp3**: "Steigt das Gewicht des Diamanten um 1 *Prozent*, so steigt der Preis (im Schnitt) um $b$ *Prozent*?"
 
-Überlegen wir mal, wie Karat mit dem Preis zusammenhängt. Sachwissen (und eine EDA) zeigt, dass Karat der zentrale Treiber (und Ursache?) des Preises ist. Karat ist ein Form, das Gewicht zu messen: Ein Karat sind 0.2 Gramm. Das Gewicht (Karat; $c$) ist eine Funktion des Volumen und Volument ist eine Funktion von Länge, Breite und Höhe (x,y,z): $c =f(x,y,z$). Einige Momente ruhiges Nachdenken zeigen, dass solche Zusammenhänge eine Potenzfunktion darstellen. Potenzfunktionien haben stets das Wachstumsmuster wie in Hypothese 3 aufgeführt. Diese "Theorie" spricht sich also für die Stichhaltigkeit von Hypothese 3 aus. Das sollten wir gleich mal an den Daten überprüfen!
+Überlegen wir mal, wie Karat mit dem Preis zusammenhängt. Sachwissen (und eine EDA) zeigt, dass Karat der zentrale Treiber (und Ursache?) des Preises ist. Karat ist ein Form, das Gewicht zu messen: Ein Karat sind 0.2 Gramm. Das Gewicht (Karat; $c$) ist eine Funktion des Volumen und Volumen ist eine Funktion von Länge, Breite und Höhe (x,y,z): $c =f(x,y,z$): $y=x^3$. Potenzfunktion! Einige Momente ruhiges Nachdenken zeigen, dass solche Zusammenhänge eine Potenzfunktion darstellen. Potenzfunktionen haben stets das Wachstumsmuster wie in Hypothese 3 aufgeführt. Diese "Theorie" spricht sich also für die Stichhaltigkeit von Hypothese 3 aus. Das sollten wir gleich mal an den Daten überprüfen!
+
+$y=x^3$
+
+x=1 -> y=1
+x=2 -> 2*2*2=8
+x=3 -> 3*3*3=27
+x=4 -> 4*4*4=64
+x=6 -> 6*6*6=216
+
+Verdoppeln wir x, so verachtfachen wir y.
+
 
 
 #### b) 
@@ -421,6 +444,7 @@ diamonds %>%
 
 Mit Log-Transformation:
 
+exponenzielles Wachstum
 
 ```{r}
 diamonds %>% 
@@ -434,7 +458,7 @@ diamonds %>%
 
 
 
-
+Potenzfunktion:
 
 ```{r}
 diamonds %>% 
@@ -446,6 +470,7 @@ diamonds %>%
   geom_smooth(method = "lm", color = "red")
 ```
 
+Das sieht super aus! So sollte eine Regression gut funktionieren!
 
 #### c)
 
@@ -502,7 +527,7 @@ lm1 <- lm(price ~ carat, data = diamonds %>% filter(carat < 2.5))
 ```
 
 ```{r}
-plot(lm1)
+plot(lm1, which = 1)
 ```
 
 
@@ -510,13 +535,16 @@ plot(lm1)
 summary(lm1)$r.squared
 ```
 
+Modell mit exponenziellem Zusammenhang
 
 ```{r}
 lm2 <- lm(log(price) ~ carat, data = diamonds %>% filter(carat != 0))
 ```
 
+Die Passung der Modellannahmen lässt sich gut grafisch überprüfen:
+
 ```{r}
-plot(lm2)
+plot(lm2, which = 1)
 ```
 
 
@@ -531,7 +559,7 @@ lm3 <- lm(log(price) ~ log(carat), data = diamonds)
 ```
 
 ```{r}
-plot(lm3)
+plot(lm3, which = 1)
 ```
 
 
@@ -540,6 +568,43 @@ plot(lm3)
 ```{r}
 summary(lm3)$r.squared
 ```
+
+
+## Rücktransformation
+
+### Problem
+
+Sagen Sie die Preise laut Ihrem besten Modell vorher; führen Sie ggf. eine Rücktransformation vorab durch!
+
+
+### Lösung
+
+```{r}
+library(modelr)
+```
+
+
+Ohne Rücktransformation:
+
+```{r}
+diamonds %>% 
+  add_predictions(lm3) %>%
+  select(price, pred) %>% 
+  slice(1:6)
+```
+
+
+Mit Rücktransformation:
+
+
+```{r}
+diamonds %>% 
+  add_predictions(lm3) %>%
+  mutate(pred = exp(pred)) %>%
+  select(price, pred) %>% 
+  slice(1:6)
+```
+
 
 
 ## Fehlende Werte zählen
