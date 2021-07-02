@@ -6,6 +6,8 @@ output:
   html_document:
     toc: TRUE
     number_sections: TRUE
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -361,13 +363,48 @@ diamonds %>%
 
 ### Problem
 
-a) Betrachten Sie den Zusammenhang von Preis und Gewicht und prüfen Sie, 
+a) Welche Hypothese finden Sie am plausibelsten? Begründen Sie!
+
+    - Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ Dollar?
+    - Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ *Prozent*?
+     - Steigt das Gewicht des Diamanten um 1 *Prozent*, so steigt der Preis (im Schnitt) um $b$ *Prozent*?
+     
+b) Betrachten Sie den Zusammenhang von Preis und Gewicht und prüfen Sie, 
 ob Sie den Zusammenhang durch eine Log-Transformation *linearisieren* können. 
 
-b) Vielleicht hilft auch eine andere Art von Transformation? Probieren Sie es aus!
+c) Vielleicht hilft auch eine andere Art von Transformation (um den Zusammenhang zu linearisieren)? Probieren Sie es aus!
 
 
 ### Lösung
+
+#### a)
+
+
+**Hyp.1** : Die Hypothese impliziert, dass der Preiszuwachs von 1 auf 2 Karat zum gleichen Preiszuwachs führt wie die Erhöhung von 2 auf 3 Karat (unter sonst gleichen Umständen). 
+
+Die Daten unterstützen das nicht:
+
+```{r}
+diamonds %>% 
+  mutate(carat_rounded = round(carat)) %>% 
+  group_by(carat_rounded) %>% 
+  summarise(mean(price))
+```
+
+Aber bleiben wir für Erste bei einer theoretischen Erörterung.
+
+
+**Hyp 2**: "Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ *Prozent*?"
+
+Dieses Wachstumsmuster nennt man auch exponenzielles Wachstum und ist sehr häufig bei allen Wachstumsprozessen, macht aber hier nicht unbedingt viel Sinn (könnte aber trotzdem die Daten passabel beschreiben, sollten wir gleich mal ausprobieren).
+
+
+**Hyp3**: "Steigt das Gewicht des Diamanten um 1 *Prozent*, so steigt der Preis (im Schnitt) um $b$ *Prozent*?"
+
+Überlegen wir mal, wie Karat mit dem Preis zusammenhängt. Sachwissen (und eine EDA) zeigt, dass Karat der zentrale Treiber (und Ursache?) des Preises ist. Karat ist ein Form, das Gewicht zu messen: Ein Karat sind 0.2 Gramm. Das Gewicht (Karat; $c$) ist eine Funktion des Volumen und Volument ist eine Funktion von Länge, Breite und Höhe (x,y,z): $c =f(x,y,z$). Einige Momente ruhiges Nachdenken zeigen, dass solche Zusammenhänge eine Potenzfunktion darstellen. Potenzfunktionien haben stets das Wachstumsmuster wie in Hypothese 3 aufgeführt. Diese "Theorie" spricht sich also für die Stichhaltigkeit von Hypothese 3 aus. Das sollten wir gleich mal an den Daten überprüfen!
+
+
+#### b) 
 
 Ohne Transformation:
 
@@ -382,6 +419,7 @@ diamonds %>%
 ```
 
 
+Mit Log-Transformation:
 
 
 ```{r}
@@ -409,7 +447,7 @@ diamonds %>%
 ```
 
 
-
+#### c)
 
 
 ```{r}
@@ -424,12 +462,39 @@ diamonds %>%
 
 
 
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>% 
+  ggplot() +
+  aes(x = log(carat), y = price^(1/3)) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+
+
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>% 
+  ggplot() +
+  aes(x = carat, y = price^(1/3)) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+
+
 ## Regressionsgüte nach Transformationen
 
-a) Welche Hypothese finden Sie am plausibelsten?
-b) Vergleichen Sie die Vorhersagegüte von Modellen, die den Preis anhand des Gewichts vorhersagen.
+
+     
+Vergleichen Sie die Vorhersagegüte von Modellen, die den Preis anhand des Gewichts vorhersagen.
 
 ### Lösung
+
 
 
 ```{r}
