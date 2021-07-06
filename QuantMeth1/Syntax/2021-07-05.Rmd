@@ -27,3 +27,14 @@ train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/ma
 test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/diamonds/diamonds_test.csv")
 ```
 
+
+
+# Einzelne Werte in einer Tabelle (Dataframe) ändern
+
+
+```{r}
+train$carat[1] <- NA
+```
+
+
+
