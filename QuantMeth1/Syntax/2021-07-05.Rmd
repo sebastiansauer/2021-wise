@@ -1,0 +1,29 @@
+---
+title: "Vorhersage-Modellierung des Diamantenpreises"
+author: "ses"
+date: "7/6/2021"
+output: 
+  html_document:
+    toc: TRUE
+    number_sections: TRUE
+---
+
+
+
+# Vorbereitung
+
+## Pakete laden
+
+```{r message = FALSE}
+library(tidyverse)
+```
+
+
+## Daten laden
+
+```{r}
+train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/diamonds/diamonds_train.csv")
+
+test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/diamonds/diamonds_test.csv")
+```
+
