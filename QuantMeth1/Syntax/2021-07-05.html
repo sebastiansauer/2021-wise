@@ -174,17 +174,63 @@ pre code {
 <ul>
 <li><a href="#vorbereitung"><span class="toc-section-number">1</span> Vorbereitung</a>
 <ul>
-<li><a href="#pakete-laden"><span class="toc-section-number">1.1</span> Pakete laden</a></li>
+<li><a href="#forschungsfrage"><span class="toc-section-number">1.1</span> Forschungsfrage</a></li>
+<li><a href="#pakete-laden"><span class="toc-section-number">1.2</span> Pakete laden</a></li>
+<li><a href="#daten-laden"><span class="toc-section-number">1.3</span> Daten laden</a></li>
 </ul></li>
+<li><a href="#einzelne-werte-in-einer-tabelle-dataframe-ändern"><span class="toc-section-number">2</span> Einzelne Werte in einer Tabelle (Dataframe) ändern</a></li>
 </ul>
 </div>
 
 <div id="vorbereitung" class="section level1" number="1">
 <h1 number="1"><span class="header-section-number">1</span> Vorbereitung</h1>
-<div id="pakete-laden" class="section level2" number="1.1">
-<h2 number="1.1"><span class="header-section-number">1.1</span> Pakete laden</h2>
+<div id="forschungsfrage" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> Forschungsfrage</h2>
+<p><em>Welche Prädiktoren lassen den Preis einen Diamanten vorhersagen?</em></p>
+<p>Wir möchten also den Preis von Diamanten - basierend auf einer Reihe von Prädiktoren - möglichst exakt vorhersagen (<span class="math inline">\(R^2\)</span>).</p>
+</div>
+<div id="pakete-laden" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Pakete laden</h2>
 <pre class="r"><code>library(tidyverse)</code></pre>
 </div>
+<div id="daten-laden" class="section level2" number="1.3">
+<h2 number="1.3"><span class="header-section-number">1.3</span> Daten laden</h2>
+<pre class="r"><code>train &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/diamonds/diamonds_train.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   carat = col_double(),
+##   cut = col_character(),
+##   color = col_character(),
+##   clarity = col_character(),
+##   depth = col_double(),
+##   table = col_double(),
+##   price = col_double(),
+##   x = col_double(),
+##   y = col_double(),
+##   z = col_double()
+## )</code></pre>
+<pre class="r"><code>test &lt;- read_csv(&quot;https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/diamonds/diamonds_test.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   carat = col_double(),
+##   cut = col_character(),
+##   color = col_character(),
+##   clarity = col_character(),
+##   depth = col_double(),
+##   table = col_double(),
+##   price = col_logical(),
+##   x = col_double(),
+##   y = col_double(),
+##   z = col_double()
+## )</code></pre>
+</div>
+</div>
+<div id="einzelne-werte-in-einer-tabelle-dataframe-ändern" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Einzelne Werte in einer Tabelle (Dataframe) ändern</h1>
+<p>(Nur zur Anschauung, nicht Teil der Fallstudie)</p>
+<pre class="r"><code>train$carat[1] &lt;- NA</code></pre>
 </div>
 
 

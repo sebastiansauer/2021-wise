@@ -12,6 +12,23 @@ output:
 
 # Vorbereitung
 
+## Forschungsfrage
+
+
+*Welche Prädiktoren lassen den Preis einen Diamanten vorhersagen?*
+
+Wir möchten also den Preis von Diamanten - basierend auf einer Reihe von Prädiktoren - möglichst exakt vorhersagen ($R^2$).
+
+
+## Aufgabe für Gruppenarbeit
+
+Berechnen Sie die Vorhersagen und auch das R-Quadrat im Test-Datensatz!
+
+Zeit bis 16.00h. Wir treffen uns um 16h im Plenum.
+
+
+
+
 ## Pakete laden
 
 ```{r message = FALSE}
@@ -25,16 +42,20 @@ library(tidyverse)
 train <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/diamonds/diamonds_train.csv")
 
 test <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/diamonds/diamonds_test.csv")
+
+solution <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/diamonds/diamonds_solution.csv")
 ```
 
 
 
 # Einzelne Werte in einer Tabelle (Dataframe) ändern
 
+(Nur zur Anschauung, nicht Teil der Fallstudie)
 
 ```{r}
 train$carat[1] <- NA
 ```
+
 
 
 
