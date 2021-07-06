@@ -6,6 +6,8 @@ output:
   html_document:
     toc: TRUE
     number_sections: TRUE
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -33,6 +35,12 @@ Zeit bis 16.00h. Wir treffen uns um 16h im Plenum.
 
 ```{r message = FALSE}
 library(tidyverse)
+library(fastDummies)
+library(janitor)
+library(corrr)
+library(ggfortify)
+library(modelr)
+library(tidymodels)
 ```
 
 
@@ -47,6 +55,22 @@ solution <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-sose
 ```
 
 
+## ID-Spalte ergänzen
+
+```{r}
+test <-
+  test %>% 
+  mutate(id = 1:nrow(.))
+```
+
+
+```{r}
+solution <-
+  solution %>% 
+  mutate(id = 1:nrow(.))
+```
+
+
 
 # Einzelne Werte in einer Tabelle (Dataframe) ändern
 
@@ -57,5 +81,362 @@ train$carat[1] <- NA
 ```
 
 
+
+# Wichtige Prädiktoren
+
+
+## train2
+
+```{r}
+train2 <- train %>% 
+  dummy_cols(remove_selected_columns = TRUE,
+             select_columns = c("cut", "color", "clarity")) %>% 
+  clean_names()
+```
+
+
+```{r}
+train2 %>% glimpse()
+```
+
+
+## test2
+
+```{r}
+test2 <- test %>% 
+  dummy_cols(remove_selected_columns = TRUE,
+             select_columns = c("cut", "color", "clarity")) %>% 
+  clean_names()
+```
+
+
+
+```{r}
+train2 %>% 
+  correlate() %>% 
+  focus(price) %>% 
+  arrange(-abs(price)) %>% 
+  filter(abs(price) > 0.1)
+```
+
+
+# Feature Engineering
+
+
+```{r}
+train2 %>% 
+  mutate(volume = x*y*z) %>% 
+  correlate() %>% 
+  focus(volume)
+```
+
+
+```{r}
+train3 <- 
+  train2 %>% 
+  mutate(volume = x*y*z)
+```
+
+
+```{r}
+test3 <- 
+  test2 %>% 
+  mutate(volume = x*y*z) 
+```
+
+
+## Korrelation
+
+
+```{r}
+train3 %>% 
+  correlate() %>% 
+  focus(price) %>% 
+  arrange(-abs(price)) %>% 
+  filter(abs(price) > 0.1)
+```
+
+
+## `preds_important`
+
+```{r}
+preds_important <- 
+  train3 %>% 
+  correlate() %>% 
+  focus(price) %>% 
+  arrange(-abs(price)) %>% 
+  filter(abs(price) > 0.1) %>% 
+  filter(!(term %in% c("x", "y", "z"))) %>% 
+  pull(term)
+```
+
+
+```{r}
+preds_important
+```
+
+
+# Funktionale Form der Zusammenhänge
+
+
+```{r}
+train3 %>% 
+  select(carat, depth, table, price, volume) %>%
+  pivot_longer(cols = -price) %>% 
+  ggplot() +
+  aes(x = value, y = price) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~ name, scales = "free")
+```
+
+# Filtern
+
+
+
+```{r}
+train3 %>% 
+  select(carat, depth, table, price, volume) %>%
+  pivot_longer(cols = everything()) %>% 
+  ggplot() +
+  aes(x = value) +
+  geom_histogram() +
+  facet_wrap(~ name, scales = "free")
+```
+
+## train4
+
+```{r}
+train4 <-
+  train3 %>% 
+  filter(carat < 2.5)
+```
+
+
+# z-Transformation
+
+```{r}
+train5 <- 
+  train4 %>% 
+  mutate(across(
+    .cols = c(carat:z, volume),
+    .fns = ~ (.x - mean(.x)) / sd(.x)
+  ))
+```
+
+
+# Vorhersage-Modellierung
+
+## lm1
+
+
+```{r}
+lm1 <-
+  train5 %>% 
+  select(any_of(preds_important), price) %>% 
+  filter(price > 0) %>% 
+  lm(log(price) ~ . , data = .)
+```
+
+
+```{r}
+summary(lm1)$adj.r.squared
+```
+
+```{r}
+coef(lm1)
+```
+
+
+
+
+## lm2
+
+
+
+```{r}
+lm2 <- 
+  train4 %>% 
+  select(any_of(preds_important), price) %>% 
+  lm(log(price) ~ log(carat) + clarity_si2 + table + color_e, data = .)
+```
+
+
+```{r}
+summary(lm2)$adj.r.sq
+```
+
+
+```{r}
+coef(lm2)
+```
+
+
+
+```{r}
+autoplot(lm2, which = 1)  # ggfortify
+```
+
+
+## lm3
+
+
+
+```{r}
+lm3 <- 
+  train4 %>% 
+  select(any_of(preds_important), price) %>% 
+  lm(log(price) ~ log(carat) + clarity_si2 + color_e + log(carat)*clarity_si2 + clarity_si2*color_e, data = .)
+```
+
+
+```{r}
+summary(lm3)$adj.r.sq
+```
+
+
+
+```{r}
+autoplot(lm3, which = 1) + # ggfortify
+  labs(subtitle = "lm3")
+```
+
+
+## lm4
+
+
+
+
+
+```{r}
+lm4 <- 
+  train4 %>% 
+  select(any_of(preds_important), price) %>% 
+  lm(log(price) ~ log(carat) + clarity_si2 + color_e, 
+     data = .)
+```
+
+
+```{r}
+summary(lm4)$adj.r.sq
+```
+
+
+
+```{r}
+autoplot(lm4, which = 1) + # ggfortify
+  labs(subtitle = "lm4")
+```
+
+
+
+## lm5
+
+
+
+```{r}
+lm5 <- 
+  train4 %>% 
+  select(any_of(preds_important), price) %>% 
+  lm(price ~ ., 
+     data = .)
+```
+
+
+```{r}
+summary(lm5)$adj.r.sq
+```
+
+
+
+```{r}
+autoplot(lm5, which = 1) + # ggfortify
+  labs(subtitle = "lm5")
+```
+
+
+
+## lm6
+
+
+
+```{r}
+lm6 <- 
+  train4 %>% 
+  lm(price ~ ., 
+     data = .)
+```
+
+
+```{r}
+summary(lm6)$adj.r.sq
+```
+
+
+
+```{r}
+autoplot(lm6, which = 1) + # ggfortify
+  labs(subtitle = "lm6")
+```
+
+
+# Predict
+
+
+```{r}
+test3 <- 
+  test3 %>% 
+  add_predictions(lm1, var = "pred_lm1") %>% 
+  add_predictions(lm2, var = "pred_log_lm2") %>% 
+  add_predictions(lm3, var = "pred_log_lm3") %>% 
+  add_predictions(lm4, var = "pred_log_lm4") %>% 
+  add_predictions(lm5, var = "pred_lm5")  %>% 
+  add_predictions(lm6, var = "pred_lm6")
+```
+
+
+
+```{r}
+test3 %>% 
+  select(contains("pred")) %>% 
+  slice(1:5)
+```
+
+
+## Zurücktransformieren
+
+
+```{r}
+test3 <-
+  test3 %>% 
+  mutate(pred_lm2 = exp(pred_log_lm2),
+         pred_lm3 = exp(pred_log_lm3),
+         pred_lm4 = exp(pred_log_lm4))
+```
+
+
+```{r}
+test3 %>% 
+  select(contains("pred")) %>% 
+  slice(1:5)
+```
+
+
+# Test-R2
+
+
+
+```{r}
+test3 %>% 
+  select(contains("pred"), id) %>% 
+  left_join(solution %>% select(id, price)) %>% 
+  summarise(r2_lm1 = rsq_vec(price, pred_lm1),
+            r2_lm2 = rsq_vec(price, pred_lm2),
+            r2_lm3 = rsq_vec(price, pred_lm3),
+            r2_lm4 = rsq_vec(price, pred_lm4),
+            r2_lm5 = rsq_vec(price, pred_lm5),
+            r2_lm6 = rsq_vec(price, pred_lm6)) %>% 
+  pivot_longer(everything())
+```
 
 
