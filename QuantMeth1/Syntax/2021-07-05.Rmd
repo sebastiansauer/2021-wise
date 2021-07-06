@@ -41,6 +41,7 @@ library(corrr)
 library(ggfortify)
 library(modelr)
 library(tidymodels)
+library(leaps)
 ```
 
 
@@ -81,6 +82,23 @@ train$carat[1] <- NA
 ```
 
 
+# Vorwissen
+
+Etwas Recherche oder Vorwissen zeigt, dass beim Diamantenpreis die "4C" entscheidend sind: Color, Clarity, **Carat**, Cut.
+
+Entsprechend sind diese 4 Prädiktoren gute Kandidaten für ein Modell.
+
+Tipp: Haben zwei Prädiktoren jeweils einen starken *Haupteffekt* (der Effekt einer einzelnen Variablen im Gegensatz zu einem Interaktionseffekt), macht es *häufig* Sinn, ihre Interaktion mitaufzunehmen (s. Gelman und Hill, 2007, Kap. 3 oder 4). Der Umkehrschluss gilt nicht.
+
+
+# Woran erkennt man einen "starken Haupteffekt"?
+
+1. Am Zuwachs von $R^2$, wenn man den Prädiktor mitaufnimmt
+2. Am Regressiongewicht -- aber nur, wenn die Prädiktoren (z-)standardisiert sind.
+
+
+
+
 
 # Wichtige Prädiktoren
 
@@ -90,7 +108,8 @@ train$carat[1] <- NA
 ```{r}
 train2 <- train %>% 
   dummy_cols(remove_selected_columns = TRUE,
-             select_columns = c("cut", "color", "clarity")) %>% 
+             select_columns = c("cut", "color", "clarity"),
+             remove_first_dummy = TRUE) %>% 
   clean_names()
 ```
 
@@ -130,6 +149,7 @@ train2 %>%
   focus(volume)
 ```
 
+## train3/test3
 
 ```{r}
 train3 <- 
@@ -380,6 +400,51 @@ autoplot(lm6, which = 1) + # ggfortify
 ```
 
 
+
+## lm7: regsubsets
+
+
+
+
+```{r}
+lm7 <- regsubsets(price ~ .,
+                  nvmax = 20,
+                  data = train3)
+```
+
+
+```{r}
+lm7_sum <- summary(lm7)
+
+tibble(adjr2 = lm7_sum$adjr2,
+       id = 1:20) %>% 
+  ggplot() +
+  aes(x = id, y = adjr2) +
+  geom_point() +
+  geom_line()
+```
+
+
+
+```{r}
+coef(lm7, 12) %>% names()
+```
+
+
+Dieses Modell könnte sinnvoll sein: hohes R-Quadrat, aber noch vor der "Abflachung".
+
+
+## lm8: Schrittweise Regression
+
+
+```{r}
+lm8 <- regsubsets(price ~ .,
+                  method = "forward",
+                  data = train3)
+```
+
+
+
 # Predict
 
 
@@ -405,6 +470,7 @@ test3 %>%
 
 ## Zurücktransformieren
 
+Delogarithmieren, d.h. die Exp.funktion anwenden:
 
 ```{r}
 test3 <-
@@ -427,15 +493,18 @@ test3 %>%
 
 
 ```{r}
+solutions2 <-
+  solution %>% select(id, price)
+
 test3 %>% 
-  select(contains("pred"), id) %>% 
-  left_join(solution %>% select(id, price)) %>% 
+  select(id, contains("pred")) %>% 
+  left_join(solutions2) %>% 
   summarise(r2_lm1 = rsq_vec(price, pred_lm1),
             r2_lm2 = rsq_vec(price, pred_lm2),
             r2_lm3 = rsq_vec(price, pred_lm3),
             r2_lm4 = rsq_vec(price, pred_lm4),
             r2_lm5 = rsq_vec(price, pred_lm5),
-            r2_lm6 = rsq_vec(price, pred_lm6)) %>% 
+            r2_lm6 = rsq_vec(price, pred_lm6)) %>%  
   pivot_longer(everything())
 ```
 
