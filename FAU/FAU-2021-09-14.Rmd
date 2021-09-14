@@ -297,3 +297,38 @@ lm(score ~ rank, data = evals)
 
 Model the evaluation score as a function of `rank` of the teacher. Use `evals` as the data. Note that `rank` has 3 nominal values. Then, compute the mean values for each of the 3 groups. 
 
+
+
+# Interaction
+
+
+## Preparing for interaction
+
+
+###  Ex.
+
+Model `score` by two input variables: `age` and `gender`. But as first step, just *visualize.* Be sure to take the right data frame :-)
+
+Hint: Map `gender` to color :-)
+
+### Solution
+
+Pseudo code:
+
+```{r eval = FALSE}
+take the right table THEN
+initialize ggplot THEN 
+define the 3 aesthetic mappings THEN 
+draw geom point THEN 
+draw geom smooth (of method "lm")
+```
+
+
+
+
+
+
+
+
+
+
