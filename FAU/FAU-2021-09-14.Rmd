@@ -20,5 +20,11 @@ You'll find the data set (including description) [here](https://vincentarelbundo
 ## Solution
 
 
-In pseudo code
+### In pseudo code
 
+take data "flights" THEN
+select month jan to march THEN
+select delay THEN
+summarise mean delay
+arrange mean delay from biggest to smallest THEN
+filter delay the three largest mean delays
