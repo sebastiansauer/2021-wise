@@ -57,7 +57,42 @@ flights %>% # "and then do command, called the pipe, Contrl-Shift-M"
 
 
 
+# Data viz
 
+
+## Research question 1
+
+Is there a correlation between delay and flight distance?
+
+
+```{r}
+flights %>% 
+  select(dep_delay, distance) %>% 
+  sample_n(size = 1000) %>%  # for speed
+  ggplot() + 
+  aes(x = distance, y = dep_delay) +
+  geom_point() +
+  geom_smooth()
+```
+
+
+
+
+
+## Research question 2
+
+Is there a correlation between delay and flight distance? What is if we split the analysis (correlation) for each airport? (sub group analysis)
+
+
+```{r}
+flights %>% 
+  select(dep_delay, distance, origin) %>% 
+  sample_n(size = 1000) %>%  # for speed
+  ggplot() + 
+  aes(x = distance, y = dep_delay, color = origin) +
+  geom_point()+
+  geom_smooth()
+```
 
 
 
