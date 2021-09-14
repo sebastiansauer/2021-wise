@@ -2,7 +2,10 @@
 title: "Modeling your research data: A crash course using R"
 author: "ses"
 date: "9/14/2021"
-output: html_document
+output: 
+  html_document:
+    toc: TRUE
+    number_sections: TRUE
 ---
 
 
@@ -35,7 +38,7 @@ filter delay the three largest mean delays
 Some preparation:
 
 
-```{r}
+```{r message=FALSE}
 # make sure to install the packages (one time only!) 
 library(nycflights13)  # unless the package is on your machine
 data(flights)
@@ -150,14 +153,14 @@ There seems to be a bit less delay in winter times.
 ## Simple regression
 
 
-```{r}
+```{r message=FALSE}
 library(moderndive)
 data(evals)
 ```
 
 
 
-```{r}
+```{r message=FALSE}
 library(tidyverse)
 library(moderndive)
 library(skimr)
@@ -189,7 +192,7 @@ evals_ch5 %>%
 ```
 
 
-## Pseudo code
+### Pseudo code
 
 ```{r eval = FALSE}
 linear_model(output_var ~ input_var,
@@ -197,7 +200,7 @@ linear_model(output_var ~ input_var,
 ```
 
 
-## Actual code
+### Actual code
 ```{r}
 model1 <- lm(score ~ bty_avg,  # y = f(x)
    data = evals_ch5) 
@@ -211,13 +214,42 @@ get_regression_summaries(model1)
 ```
 
 
-## Exercise
+## Exercise Regression 1
+
+```{r}
+library(moderndive)
+data("evals")
+```
 
 
-(LC5.2) Fit a new simple linear regression using `lm(score ~ age, data = evals_ch5)` where age is the new explanatory variable $x$. Get information about the “best-fitting” line from the regression table by applying the `get_regression_table()` function. How do the regression results match up with the results from your earlier exploratory data analysis?
+
+### Exercise
+
+From [Chapter 5.1.2 ModernDive](https://moderndive.com/5-regression.html#model1table):
+
+**(LC5.2)** Fit a new simple linear regression using `lm(score ~ age, data = evals_ch5)` where age is the new explanatory variable $x$. Get information about the “best-fitting” line from the regression table by applying the `get_regression_table()` function. How do the regression results match up with the results from your earlier exploratory data analysis?
 
 
 
+### Solution
+
+```{r}
+model2 <- lm(score ~ age, data = evals_ch5)
+get_regression_table(model2)
+```
+
+
+
+
+
+
+## Exercise Regression 2
+
+
+Model `score` (DV/output) as explained by `gender` (IV/input); also visualize the model. Add an explorative data analysis (summary statistics plus visualization). Interpret your results.
+
+
+*approx. 10 Min.*
 
 
 
