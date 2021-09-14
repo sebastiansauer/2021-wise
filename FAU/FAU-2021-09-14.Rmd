@@ -95,6 +95,13 @@ flights %>%
 ```
 
 
+## RQ 3
+
+What is the distribution for delay in each month for each airport? Be sure to add a measure of centrality (e.g. median) and for spead (e.g., sd or IQR).
+
+
+Tipp: Boxplots are depicted using the command `geom_boxplot()`!
+
 
 
 
