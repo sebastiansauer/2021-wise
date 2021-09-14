@@ -381,11 +381,87 @@ m5
 
 
 
-## Interaction model 2
+## Ex. Interaction model 2
+
+
+### Ex.
 
 Model `score` by beauty and gender and their joint interaction effect. Visualize the model. Interpret the results.
 
 *approx. 10 max. 15 minutes.*
 
 
+### Solution
+
+```{r}
+evals %>% 
+  ggplot(aes(x = bty_avg, y = score, color = gender)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+
+```{r}
+m6 <- lm(score ~ bty_avg + gender + bty_avg:gender,
+         data = evals)
+m6
+```
+
+
+
+
+
+## Interaction model in R -- recasted as "centered"
+
+Centering is a useful activity for any model (at least numeric input variables).
+
+```{r}
+evals %>% 
+  summarise(mean(age))
+```
+
+
+```{r}
+evals <- 
+evals %>% 
+  mutate(age_c = age - mean(age)) %>% 
+  relocate(age_c, .after = age)
+```
+
+
+
+
+```{r}
+ggplot(evals) +
+  aes(y = score, x = age_c, color = gender) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+```{r}
+m4_c <- lm(score ~ age_c + gender + age_c:gender,
+         data = evals)
+m4_c
+```
+
+
+# Model comparison
+
+Which model should I prefer?
+
+Listen to adjusted R squared!
+
+Model with interaction:
+
+```{r}
+get_regression_summaries(m4)
+```
+
+Model without interaction:
+
+```{r}
+get_regression_summaries(m3)
+```
+
+So this comparison tells us to prefer Model 4 (model with interaction effect).
 
