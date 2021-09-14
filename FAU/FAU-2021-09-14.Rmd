@@ -1,0 +1,22 @@
+---
+title: "Modeling your research data: A crash course using R"
+author: "ses"
+date: "9/14/2021"
+output: html_document
+---
+
+
+# Data wrangling
+
+## Exercise
+
+
+Which three airlines do show the greatest average delay in the first quarter?
+
+(Use the tidyverse approach.)
+
+## Solution
+
+
+In pseudo code
+
