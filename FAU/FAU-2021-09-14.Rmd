@@ -23,8 +23,43 @@ You'll find the data set (including description) [here](https://vincentarelbundo
 ### In pseudo code
 
 take data "flights" THEN
-select month jan to march THEN
+filter month jan to march THEN
 select delay THEN
+group by airline (carrier) THEN
 summarise mean delay
 arrange mean delay from biggest to smallest THEN
 filter delay the three largest mean delays
+
+
+
+### In R code
+
+Some preparation:
+
+
+```{r}
+library(nycflights13)
+data(flights)
+library(tidyverse)
+```
+
+And now the R code:
+
+```{r}
+flights %>% # "and then do command, called the pipe, Contrl-Shift-M"
+  filter(month <= 3) %>% 
+  select(month, dep_delay, carrier) %>% 
+  drop_na() %>%  # drop all rows with missing data, for simplicity
+  group_by(carrier) %>% 
+  summarise(dep_delay_avg = mean(dep_delay))  # y = f(x)
+  
+```
+
+
+
+
+
+
+
+
+
