@@ -36,9 +36,10 @@ Some preparation:
 
 
 ```{r}
-library(nycflights13)
+# make sure to install the packages (one time only!) 
+library(nycflights13)  # unless the package is on your machine
 data(flights)
-library(tidyverse)
+library(tidyverse)  # including ggplot, dplyr, ....
 ```
 
 And now the R code:
@@ -100,9 +101,44 @@ flights %>%
 What is the distribution for delay in each month for each airport? Be sure to add a measure of centrality (e.g. median) and for spead (e.g., sd or IQR).
 
 
-Tipp: Boxplots are depicted using the command `geom_boxplot()`!
+Tipp 1: Boxplots are depicted using the command `geom_boxplot()`!
+Tipp 2: Scribble before you code.
+
+*11.40am back here*
 
 
-11.40am back here
+```{r}
+flights %>% 
+  select(dep_delay) %>% 
+  drop_na() %>% 
+  summarise(mean(dep_delay),
+            sd(dep_delay))
+```
+
+A rough rule of thumb is:
+
+outlier is greater than mean + 2*sd.
+
+```{r}
+uprlimit <- 12.6 + 2*40.2
+uprlimit
+```
+
+
+```{r}
+flights %>% 
+  sample_n(1000) %>% 
+  mutate(is_outlier = ifelse(dep_delay > 93, 1, 0)) %>% 
+  filter(is_outlier == 0) %>% 
+  select(dep_delay, month, origin) %>% 
+  mutate(month_nominal = factor(month)) %>% 
+  ggplot() +
+  aes(x = month_nominal, y = dep_delay, color = origin) +
+  geom_boxplot()
+```
+
+There seems to be a bit less delay in winter times.
+
+
 
 
