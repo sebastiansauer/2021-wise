@@ -324,11 +324,35 @@ draw geom smooth (of method "lm")
 ```
 
 
+```{r}
+ggplot(evals) +
+  aes(y = score, x = age, color = gender) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+
+This is an *interaction* model.
 
 
 
+```{r}
+ggplot(evals) +
+  aes(y = score, x = age, color = gender) +
+  geom_point() +
+  geom_parallel_slopes()
+```
 
 
+This is a non-interaction model ("main effects" only).
 
+
+## Interaction model in R
+
+```{r}
+m4 <- lm(score ~ age + gender + age:gender,
+         data = evals)
+m4
+```
 
 
