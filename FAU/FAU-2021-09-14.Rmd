@@ -30,8 +30,6 @@ summarise mean delay
 arrange mean delay from biggest to smallest THEN
 filter delay the three largest mean delays
 
-
-
 ### In R code
 
 Some preparation:
@@ -51,8 +49,10 @@ flights %>% # "and then do command, called the pipe, Contrl-Shift-M"
   select(month, dep_delay, carrier) %>% 
   drop_na() %>%  # drop all rows with missing data, for simplicity
   group_by(carrier) %>% 
-  summarise(dep_delay_avg = mean(dep_delay))  # y = f(x)
-  
+  summarise(dep_delay_avg = mean(dep_delay))  %>%   # y = f(x)
+  arrange(-dep_delay_avg) %>% 
+  mutate(position = 1:16) %>% 
+  filter(position <= 3)
 ```
 
 
