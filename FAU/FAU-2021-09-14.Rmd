@@ -214,7 +214,7 @@ get_regression_summaries(model1)
 ```
 
 
-## Exercise Regression 1
+## Exercise Regression 1: numeric predictor
 
 ```{r}
 library(moderndive)
@@ -239,17 +239,61 @@ get_regression_table(model2)
 ```
 
 
+```{r}
+model2_preds <- get_regression_points(model2)
+```
 
 
 
 
-## Exercise Regression 2
+## Exercise Regression 2: Binary predictor
 
 
-Model `score` (DV/output) as explained by `gender` (IV/input); also visualize the model. Add an explorative data analysis (summary statistics plus visualization). Interpret your results.
+Model `score` (DV/output) as explained by `gender` (IV/input); also visualize the model. Add an explorative data analysis (summary statistics plus visualization). Interpret your results. 
+Note that `gender` is a binary (factor) variable.
+Using the data `evals` is probably the easiest way to get started (instead of `evals_ch5`).
 
 
 *approx. 10 Min.*
 
 
+```{r}
+m3 <- lm(score ~ gender, data = evals)
+m3
+```
+
+
+```{r}
+evals %>% 
+  mutate(gender_01 = ifelse(gender == "female", 0, 1)) %>% 
+  ggplot() +
+  aes(x = gender_01, y = score) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+
+```{r}
+evals %>% 
+  group_by(gender) %>% 
+  summarise(mean_per_group = mean(score))
+```
+
+
+
+
+
+
+## Ex. Regression 3: multinomial predictor
+
+Referring to [ModernDive, 5.2](https://moderndive.com/5-regression.html#model2EDA).
+
+
+### Ex
+```{r}
+lm(score ~ rank, data = evals)
+```
+
+
+Model the evaluation score as a function of `rank` of the teacher. Use `evals` as the data. Note that `rank` has 3 nominal values. Then, compute the mean values for each of the 3 groups. 
 
