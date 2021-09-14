@@ -356,3 +356,36 @@ m4
 ```
 
 
+We can let R predict values:
+
+Say, we want to know the score of a male teacher of age 70.
+
+
+```{r}
+predict(m4, newdata = data.frame(age = 70,
+                                 gender = "male"))
+```
+
+
+
+## (Only) Main effects models
+
+That's the parralel slopes model.
+
+```{r}
+m5 <- lm(score ~ age + gender,
+         data = evals)
+m5
+```
+
+
+
+
+## Interaction model 2
+
+Model `score` by beauty and gender and their joint interaction effect. Visualize the model. Interpret the results.
+
+*approx. 10 max. 15 minutes.*
+
+
+
