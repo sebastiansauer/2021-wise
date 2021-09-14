@@ -124,6 +124,9 @@ uprlimit <- 12.6 + 2*40.2
 uprlimit
 ```
 
+that's ifelse:
+
+ifelse(test, if_yes_do, if_no_do)
 
 ```{r}
 flights %>% 
@@ -138,6 +141,76 @@ flights %>%
 ```
 
 There seems to be a bit less delay in winter times.
+
+
+
+# Modelling
+
+
+## Simple regression
+
+
+```{r}
+library(moderndive)
+data(evals)
+```
+
+
+
+```{r}
+library(tidyverse)
+library(moderndive)
+library(skimr)
+library(gapminder)
+```
+
+
+
+## Preparation
+
+```{r}
+evals_ch5 <- evals %>%
+  select(ID, score, bty_avg, age)
+```
+
+
+## RQ
+
+Is the teaching evaluation *depending* on the beauty of the teacher?
+
+
+```{r}
+evals_ch5 %>% 
+  ggplot(aes(x = bty_avg, y = score)) +
+  geom_point() +
+  labs(x = "Beauty Score", y = "Teaching Score",
+       title = "Relationship between teaching and beauty scores") +  
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+
+## Pseudo code
+
+```{r eval = FALSE}
+linear_model(output_var ~ input_var,
+             data = my_spreadsheet)
+```
+
+
+## Actual code
+```{r}
+model1 <- lm(score ~ bty_avg,  # y = f(x)
+   data = evals_ch5) 
+
+model1
+```
+
+
+```{r}
+get_regression_summaries(model1)
+```
+
+
 
 
 
