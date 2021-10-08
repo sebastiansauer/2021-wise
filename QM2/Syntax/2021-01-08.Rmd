@@ -1,0 +1,28 @@
+---
+title: "QM2-2021-10-08"
+author: "ses"
+date: "10/8/2021"
+output: html_document
+---
+
+
+
+# Vorbereitung
+
+```{r message = FALSE}
+library(tidyverse)
+library(rstatix)
+data("diamonds")
+```
+
+
+
+# Korrelationen berechnen
+
+
+```{r}
+diamonds %>% 
+  select(price, carat, depth) %>% 
+  cor_mat()
+```
+
