@@ -1,0 +1,68 @@
+---
+title: '2021-10-11: Wahrscheinlichkeitsrechnung'
+author: "ses"
+date: "10/10/2021"
+output: html_document
+---
+
+
+# Vorbereitung
+
+
+```{r}
+library(tidyverse)
+data(mtcars)
+```
+
+
+
+
+# Bedingte Wahrscheinlichkeit
+
+Pr(am = 0 | vs = 1)= 1/2
+
+Wskt eines Automatikgetriebes (am=0, "a"), *gegeben* "|" eines V-förmigen Motors ("v")?
+
+Bedingen ist wie Filtern!
+
+```{r}
+mtcars %>% 
+  filter(vs == 1) %>%  # nur die v-förmigen Motoren
+  count(am) %>% 
+  mutate(sum = sum(n),
+         prop = n / sum)
+```
+
+
+
+# Gemeinsame Wahrscheinlichkeit
+
+Pr(am = 0 UND vs = 1) = 7/32 (ca. 22%)
+
+
+Wskt für "a" und gleichzeitig "v"?
+
+
+```{r}
+mtcars %>% 
+  filter(vs == 1, am == 0) %>% 
+  summarise(zeilenzahl = n())
+```
+
+
+
+
+# Randwahrscheinlichkeit
+
+
+Pr(vs = 1) = 14/32 (ca. 44%) = 7/32 + 7/32 = 14/32
+
+Wskt "v"?
+
+
+```{r}
+mtcars %>% 
+  filter(vs == 1)
+```
+
+

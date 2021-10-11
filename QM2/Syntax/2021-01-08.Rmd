@@ -41,13 +41,11 @@ mtcars %>%
 ```{r}
 mtcars <-
   mtcars %>% 
-  mutate(hp_z = hp - mean(hp))
+  mutate(hp_z = hp - mean(hp))  # zentrieren
 
-#library(rstanarm)
 lm2 <- lm(mpg ~ hp_z, data = mtcars)
 
 summary(lm2)
-
 ```
 
 
@@ -55,10 +53,21 @@ summary(lm2)
 
 
 ```{r}
-lm2 <- lm(mpg ~ hp_z, data = mtcars)
+lm3 <- lm(mpg ~ hp_z + am, data = mtcars)
 
-summary(lm2)
+summary(lm3)
 ```
+
+
+
+```{r}
+mtcars %>% 
+  ggplot() +
+  aes(x = hp, y = mpg, color = factor(am)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
 
 
 
