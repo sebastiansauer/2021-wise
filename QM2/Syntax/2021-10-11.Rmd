@@ -17,27 +17,36 @@ data(mtcars)
 
 
 
-# Bedingte Wahrscheinlichkeit
 
-Pr(am = 0 | vs = 1)= 1/2
+# Randwahrscheinlichkeit
 
-Wskt eines Automatikgetriebes (am=0, "a"), *gegeben* "|" eines V-förmigen Motors ("v")?
 
-Bedingen ist wie Filtern!
+Pr(vs = 1) = Pr(v)   14/32 = 7/32 + 7/32 = 14/32
+
+```{r}
+Pr_vs1 <- 14/32  # ca. 44%
+Pr_vs1
+```
+
+
+Wskt "v"?
+
 
 ```{r}
 mtcars %>% 
-  filter(vs == 1) %>%  # nur die v-förmigen Motoren
-  count(am) %>% 
-  mutate(sum = sum(n),
-         prop = n / sum)
+  filter(vs == 1)
 ```
+
+
+
+
 
 
 
 # Gemeinsame Wahrscheinlichkeit
 
 Pr(am = 0 UND vs = 1) = 7/32 (ca. 22%)
+
 
 
 Wskt für "a" und gleichzeitig "v"?
@@ -50,19 +59,44 @@ mtcars %>%
 ```
 
 
+Mit Formel:
 
-
-# Randwahrscheinlichkeit
-
-
-Pr(vs = 1) = 14/32 (ca. 44%) = 7/32 + 7/32 = 14/32
-
-Wskt "v"?
-
+Pr(a UND s) = Pr(a|s) * Pr(s)
 
 ```{r}
-mtcars %>% 
-  filter(vs == 1)
+Pr_a_und_s = 0.5 * 0.44
+Pr_a_und_s
 ```
 
 
+
+
+
+
+
+
+# Bedingte Wahrscheinlichkeit
+
+Pr(am = 0 | vs = 1)= 1/2
+
+Wskt eines Automatikgetriebes (am=0, "a"), *gegeben* "|" eines V-förmigen Motors (vs=1, "v")?
+
+*Bedingen ist wie Filtern!*
+
+```{r}
+mtcars %>% 
+  filter(vs == 1) %>%  # nur die v-förmigen Motoren
+  count(am) %>% 
+  mutate(sum = sum(n),
+         prop = n / sum)
+```
+
+
+Mit Formel:
+
+Pr(a|s) = Pr(a UND s) / Pr(s) = (7/32) / (14/32)
+
+```{r}
+Pr_a_geg_s = (7/32) / (14/32)
+Pr_a_geg_s
+```

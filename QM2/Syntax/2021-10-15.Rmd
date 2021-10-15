@@ -1,0 +1,80 @@
+---
+title: '2021-10-15'
+author: "ses"
+date: "10/15/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Vorbereitung
+
+
+```{r}
+library(tidyverse)
+data("mtcars")
+```
+
+
+
+# Übungsaufgaben
+
+## Aufgabe 1
+
+### Angabe
+
+Ob wohl die *PS-Zahl* (A) und der *Spritverbrauch* (B) voneinander *abhängig* sind? Was meinen Sie? Was ist Ihre Einschätzung dazu? Vermutlich haben Sie ein (wenn vielleicht auch implizites) *Vorab-Wissen* zu dieser Frage. Lassen wir dieses Vorab-Wissen aber einmal außen vor und schauen uns rein Daten dazu an.
+
+
+
+```{r}
+mtcars <-
+  mtcars %>% 
+  mutate(
+    hp_high = case_when(
+      hp > 123 ~ TRUE,
+      hp <= 123 ~ FALSE ))
+```
+
+
+```{r}
+mtcars <-
+mtcars %>% 
+  mutate(mpg_high = 
+           case_when(
+             mpg > median(mpg) ~ TRUE,
+             mpg <= median(mpg) ~ FALSE ))
+```
+
+
+
+
+### Lösung
+
+```{r}
+mtcars %>%
+  #select(hp_high, mpg_high) %>% 
+  ggplot() + 
+  aes(x = hp_high, fill = mpg_high) + 
+  geom_bar(position = "fill")
+```
+
+c)
+
+Linker Balken:
+
+$Pr(mpg_h|ps_l)$
+
+Rechte Balken:
+
+$Pr(mpg_h|ps_h)$
+
+
+Zwei Ereignisse sind abhängig, genau dann wenn:
+
+$Pr(mpg_h|ps_l) \ne Pr(mpg_h|ps_h)$
+
+mpg und hp sind abhängig!
+
+
