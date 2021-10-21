@@ -1,0 +1,42 @@
+---
+title: "Untitled"
+author: "ses"
+date: "10/21/2021"
+output: html_document
+---
+
+Aufgabe 1
+a) Wie groß ist die Wahrscheinlichkeit für genau k = 0, 1, ..., 10 Treffer? Gegeben dass p=0.01%
+
+
+L gibt die Wskt für x Treffer bei 10 Versuchen GEGEBEN dass = 1%
+```{r}
+L_0v10 <- dbinom(x = 0, size = 10, prob = .01)
+L_1v10 <- dbinom(x = 1, size = 10, prob = .01)
+L_2v10 <- dbinom(x = 2, size = 10, prob = .01)
+L_3v10 <- dbinom(x = 3, size = 10, prob = .01)
+
+L <- dbinom(x = 0:10, size = 10, prob = .01) 
+```
+
+
+```{r}
+d <-
+  tibble(
+    Treffer = 0:10,
+    L = dbinom(x = Treffer, size = 10, prob = .01) )
+```
+
+
+
+```{r}
+d2 <-
+  tibble(
+    p_grid = seq(0,1, by = .01),
+    prior = 1,
+    L = dbinom(x = 3, size = 10, prob = p_grid),
+    post_unstand = prior * L,
+    post_stand = post_unstand / sum(post_unstand)
+  )
+```
+
