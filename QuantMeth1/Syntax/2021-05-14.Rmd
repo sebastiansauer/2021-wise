@@ -1,0 +1,55 @@
+---
+title: "Log-Regression"
+author: "ses"
+date: "5/15/2021"
+---
+
+
+# Wann benutzen wir die Logarithmus-Transformation?
+
+Die Logarithmus-Transformation der y-Variable ist nützlich, wenn der Zusammennhang zwischen y und den Prädiktoren nicht additiv, sondern multiplikativ ist. In dem Fall wird eine Regression mit `log(y)` zu einem genaueren Modell führen als ein "normales" Regressionsmodell.
+
+```{r}
+library(tidyverse)
+library(mosaic)
+```
+
+
+
+
+```{r}
+e <- 2.71828
+end_value <- 100
+
+
+d <- 
+  tibble(
+    x = rep(0:end_value, 100),
+    y_hat = e^(0.1*x),
+    e = rnorm(n = (end_value+1)*100),
+    y = y_hat + e
+  )
+
+d
+```
+
+
+
+```{r}
+d %>% 
+  filter(y > 0) %>% 
+  ggplot() +
+  aes(x = x, y = log(y)) +
+  geom_point() +
+  geom_smooth()
+```
+
+
+```{r}
+lm1 <- lm(log(y) ~ x, data = filter(d, y > 0))
+lm1
+
+
+exp(.1)
+```
+

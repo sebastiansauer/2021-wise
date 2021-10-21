@@ -1,0 +1,129 @@
+---
+title: "Train- vs. Test-Stichprobe"
+author: "ses"
+date: "5/10/2021"
+output: html_document
+---
+
+# Vorbereitung
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+```
+
+
+# Daten laden
+
+```{r}
+data(mtcars)
+```
+
+
+# Train- und Test-Sample erzeugen
+
+```{r}
+mtcars_train <- 
+  mtcars %>% 
+  slice(1:20)
+```
+
+
+```{r}
+mtcars_test <-
+  mtcars %>% 
+  slice(21:32)
+```
+
+
+
+# Modell1
+
+
+```{r}
+lm1 <- lm(mpg ~ hp, data = mtcars_train)
+```
+
+```{r}
+mtcars_train <-
+  mtcars_train %>% 
+  mutate(pred_lm1 = predict(lm1))
+```
+
+
+```{r}
+summary(lm1)$r.squared
+```
+
+```{r}
+mtcars_train %>% 
+  ggplot() +
+  aes(x = hp, y = mpg) +
+  geom_point() +
+  geom_line(aes(y = pred_lm1), color = "blue") +
+  labs(caption = "R-Quadrat: 0.75")
+```
+
+
+## Vorhersage für Test-Sample
+
+```{r}
+mtcars_test <-
+  mtcars_test %>% 
+  mutate(pred_lm1  = predict(lm1, newdata = mtcars_test))
+```
+
+
+```{r}
+rsq(mtcars_test,
+    truth = mpg,
+    estimate = pred_lm1)
+```
+
+
+
+# Krasses Modell: Polynom 10. Grades
+
+
+
+```{r}
+lm_krass <- lm(mpg ~ poly(hp,
+                          degree = 10), 
+               data = mtcars_train)
+```
+
+```{r}
+mtcars_train <-
+  mtcars_train %>% 
+  mutate(pred_lm_krass = predict(lm_krass))
+```
+
+
+```{r}
+summary(lm_krass)$r.squared
+```
+
+```{r}
+mtcars_train %>% 
+  ggplot() +
+  aes(x = hp, y = mpg) +
+  geom_point() +
+  geom_line(aes(y = pred_lm_krass), color = "blue") +
+  labs(caption = "R-Quadrat: 0.97!!!")
+```
+## Vorhersage für Test-Sample
+
+```{r}
+mtcars_test <-
+  mtcars_test %>% 
+  mutate(pred_lm_krass  = predict(lm_krass, newdata = mtcars_test))
+```
+
+
+```{r}
+rsq(mtcars_test,
+    truth = mpg,
+    estimate = pred_lm_krass)
+```
+
+**Overfitting**

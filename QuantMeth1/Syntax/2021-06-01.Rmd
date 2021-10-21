@@ -1,0 +1,140 @@
+---
+title: "2021-06-01-Syntax"
+author: "ses"
+date: "6/1/2021"
+output: 
+  html_document:
+    toc: TRUE
+---
+
+
+# Inhaltsverzeichnis mit Markdown
+
+`toc: TRUE` in YAML-Header einfügen, s. oben.
+
+# Werte einer Variablen umbenennen
+
+# Pakete laden
+
+```{r}
+library(tidyverse)
+library(modelr)
+```
+
+# Daten laden
+
+
+
+```{r}
+d <- read_csv("https://raw.githubusercontent.com/sebastiansauer/willingness-vaccination-covid19/main/data/d3.csv")
+```
+
+
+
+```{r}
+glimpse(d)
+```
+
+
+```{r}
+d2 <-
+  d %>% 
+  rename(Geschlecht = sex) %>% 
+  select(Geschlecht, everything())
+```
+
+
+```{r}
+d2 %>% 
+  count(Geschlecht)
+```
+
+
+```{r}
+d3 <- 
+  d2 %>% 
+  mutate(sex = case_when(
+    Geschlecht == "Frau" ~ "female",
+    Geschlecht == "Mann" ~ "male",
+    TRUE ~ NA_character_
+  ))
+```
+
+
+In eine *Indikatorvariable* umwandeln: 0,1
+
+```{r}
+d3 <- 
+  d2 %>% 
+  mutate(female = case_when(
+    Geschlecht == "Frau" ~ 1,
+    Geschlecht == "Mann" ~ 0,
+    TRUE ~ NA_real_
+  ))
+```
+
+
+```{r}
+d3 %>% 
+  count(female)
+```
+
+# Buchkapitel R4DS 24
+
+<https://r4ds.had.co.nz/model-building.html#diamond-prices> 
+
+
+
+
+
+```{r}
+data(diamonds)
+```
+
+
+```{r}
+diamonds2 <- diamonds %>% 
+  filter(carat <= 2.5) %>% 
+  mutate(lprice = log2(price), lcarat = log2(carat))
+```
+
+
+# Verschiedene Werte einer Variablen bestimmen
+
+Wie kann man die verschiedenen ("uniquen", "distinkten") Wert einer Variablen bestimmen?
+
+
+```{r}
+diamonds2 %>% 
+  distinct(carat)
+```
+
+
+
+```{r}
+diamonds2 %>% 
+  summarise(n_distinct(carat))
+```
+
+
+# `data_grid()`
+
+
+```{r}
+diamonds2 %>% 
+  data_grid(carat = seq_range(carat, 20))
+```
+
+
+
+```{r}
+diamonds$price
+```
+
+
+```{r}
+diamonds %>% 
+  pull(price)
+```
+
+

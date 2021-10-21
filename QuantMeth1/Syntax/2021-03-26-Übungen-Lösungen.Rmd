@@ -1,0 +1,60 @@
+---
+title: "Ein RMD-Dokument"
+author: "Sebastian Sauer"
+date: '2021-03-26'
+output:
+  html_document:
+    toc: yes
+    number_sections: yes
+    
+    
+  word_document:
+    toc: no
+    number_sections: yes
+---
+
+
+
+
+
+
+# Hintergrund
+
+## Theorie A
+
+*asdklj* [dsfjlk] (dsfkjl)
+
+**FETT**
+
+*kursiv*
+
+
+## Theorie B
+
+jkljöljöl
+
+Liste:
+
+- Kochen
+- Spülen
+- Wischen nicht vergesen
+
+
+
+```{r}
+1+1
+```
+
+
+# Methode
+
+dfkjl
+
+# Ergebnisse
+
+
+jkljkö jlk
+
+# Diskussion
+
+jklkj

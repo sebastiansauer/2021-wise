@@ -1,0 +1,145 @@
+---
+title: 'Beispiel Prognose-Wettbewerb: Diamantenpreis'
+author: "ses"
+date: "5/28/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Ziel
+
+Vorhersage des Preises von Diamanten
+
+
+[Quelle](https://data-se.netlify.app/2021/05/19/vohrersgage-modellierung-des-preises-von-diamanten/)
+
+
+# Pakete laden
+
+```{r}
+library(tidyverse)
+library(modelr)  # Modellierungshilfen
+```
+
+
+
+# Daten laden
+
+```{r}
+data(diamonds)
+glimpse(diamonds)
+```
+
+
+# Datensatz aufteilen in Train- und Test-Sample
+
+
+Train: Wert der Zielvariable bekannt
+Test: Wert der Zielvariable *nicht* bekannt
+
+```{r}
+diamonds <- 
+  diamonds %>% 
+  mutate(id = row_number())
+```
+
+
+
+```{r}
+train <- 
+  diamonds %>% 
+  slice_sample(prop = .75)
+```
+
+
+
+```{r}
+test <- 
+  diamonds %>% 
+  anti_join(train, by = "id")
+```
+
+
+# EDA
+
+(hier nicht ausgeführt.)
+
+
+# Modellierung
+
+## lm1 
+```{r}
+lm1 <- lm(price ~ carat + depth + table + cut + color,
+          data = train)
+```
+
+
+
+```{r}
+summary(lm1)$r.squared
+```
+
+
+## lm2
+
+```{r}
+lm2 <- lm(price ~ carat^2 + depth + table + cut + color,
+          data = train)
+```
+
+```{r}
+summary(lm2)$r.squared
+```
+
+
+## lm3
+
+
+```{r}
+lm3 <- lm(price ~ carat + depth + table + cut + color + carat:color,
+          data = train)
+```
+
+```{r}
+summary(lm3)
+```
+
+
+
+# Entscheidung
+
+lm3 ist unser bestes Modell! Wir nutzen es zur  Vorhersage!
+
+
+# Vorhersage
+
+```{r}
+test2 <- 
+test %>% 
+  mutate(pred = predict(lm3, newdata = test)) %>% 
+  select(price, pred, everything())
+```
+
+
+# Einreichen
+
+Als Tabelle abspeichern
+
+Standard: CSV-Format
+
+```{r}
+Einreichen <- 
+  test2 %>% 
+  select(pred, id)
+```
+
+
+
+```{r}
+write_csv(Einreichen, file = "Sauer_Sebastian_0123456_prognose.csv")
+```
+

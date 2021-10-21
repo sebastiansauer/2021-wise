@@ -1,0 +1,389 @@
+---
+title: '2021-04-29'
+author: "ses"
+date: "4/29/2021"
+output: 
+  html_document:
+    toc: TRUE
+    number_sections: TRUE
+---
+
+
+
+
+
+# Eckige Klammern in R
+
+(Nicht so wichtig für uns.)
+
+```{r}
+noten <- c(1, 2, 2, 3, 4, 1)
+```
+
+
+```{r}
+noten[-c(5,6)]
+```
+
+
+```{r}
+noten[c(TRUE, TRUE, FALSE, FALSE, FALSE, TRUE)]
+```
+
+
+
+
+
+# Grobgliederung für Ihre Projektarbeit
+
+## Forschungsfrage
+
+- Spritverbrauch von Autos vorhersagen
+- Welche Prädiktoren sind dazu nützlich?
+
+
+## Pakete starten
+
+```{r}
+library(tidyverse)
+```
+
+## Daten laden
+
+```{r}
+data(mtcars)
+```
+
+
+```{r}
+help(mtcars)
+```
+
+
+## Daten aufbereiten
+
+
+### Fehlende Werte
+
+```{r}
+mtcars %>% 
+  filter(is.na(mpg))
+```
+
+
+```{r}
+mtcars %>% 
+  drop_na()
+```
+
+
+### Verteilung der Zielvariable
+
+```{r}
+ggplot(mtcars, aes(x = mpg)) +
+  geom_histogram()
+```
+
+```{r}
+ggplot(mtcars, aes(x = mpg)) +
+  geom_density()
+```
+
+
+
+## EDA
+
+### Korrelate der Zielvariablen
+
+
+#### Metrischen Korrelate
+
+```{r}
+mtcars %>% 
+  summarise(cor_mpg_hp = cor(mpg, hp),
+            cor_mpg_disp = cor(mpg, disp))
+```
+
+
+
+#### Nominalen Korrelate von `mpg`
+
+
+```{r}
+ggplot(mtcars) +
+  geom_boxplot(aes(y = mpg, x = factor(am)))
+```
+
+Oder so:
+
+```{r}
+ggplot(mtcars) +
+  geom_boxplot(aes(y = mpg, x = am, group = am))
+```
+
+
+
+### 3 Variablen in der Analyse
+
+
+```{r}
+ggplot(mtcars, aes(x = hp, 
+                   y = mpg,
+                   color = factor(am))) +
+  geom_point()
+```
+
+
+
+## Modellieren
+
+```{r}
+lm(AV ~ UV, data = mtcars)
+```
+
+
+
+
+# Aufgaben zur Datenvisualisierung
+
+
+```{r}
+library(tidyverse)
+library(nycflights13)
+data(flights)
+help(flights)
+```
+
+
+
+## Visualisieren Sie die Verteilung der Verspätungen der Flüge.
+
+```{r}
+ggplot(flights, aes(x = dep_delay)) +
+  geom_histogram()
+```
+
+
+```{r}
+ggplot(flights, aes(x = dep_delay)) +
+  geom_density()
+```
+
+
+
+```{r}
+ggplot(flights, aes(y = dep_delay)) +
+  geom_boxplot()
+```
+
+
+```{r}
+flights %>% 
+  select(dep_delay) %>% 
+  drop_na(dep_delay) %>% 
+  summarise(dep_delay_avg = mean(dep_delay),
+            dep_delay_md = median(dep_delay),
+            dep_delay_sd = sd(dep_delay))
+```
+
+
+```{r}
+flights %>% 
+  drop_na(dep_delay) %>% 
+  filter(dep_delay < mean(dep_delay) + 3*sd(dep_delay)) %>% 
+  ggplot() +
+  aes(y = dep_delay) +
+  geom_boxplot()
+```
+
+## Visualisieren Sie die Verteilung der Verspätung der Flüge *pro Abflugsort*.
+
+
+```{r}
+ggplot(flights, aes(x = dep_delay)) +
+  geom_density() +
+  facet_wrap( ~ origin)
+  
+```
+
+
+```{r}
+flights_summary <- 
+  flights %>% 
+  group_by(origin) %>% 
+  summarise(dep_delay_avg = mean(dep_delay, na.rm = T))
+```
+
+
+
+```{r}
+flights %>% 
+  drop_na(dep_delay) %>% 
+  filter(dep_delay < mean(dep_delay) + 3*sd(dep_delay)) %>% 
+  ggplot() +
+  aes(y = dep_delay) +
+  geom_boxplot() +
+  facet_wrap( ~ origin) +
+  geom_point(data = flights_summary,
+             aes(y = dep_delay_avg),
+             x = 0,
+             color = "red",
+             size = 4,
+             alpha = .7) +
+  labs(caption = "Die roten Punkte zeigen die Mittelwerte.",
+       title = "Verspätung (Abflug) pro Flughafen")
+  
+```
+
+
+
+
+
+## Visualisieren Sie den Zusammenhang von Verspätung und Tageszeit. Reduzieren Sie dabei Overplotting. 
+
+
+Tipp: Anstelle von `geom_point()` mal `geom_bin2d()` ausprobieren.
+
+
+```{r}
+flights %>% 
+  slice(1:1000) %>% 
+  ggplot(aes(x = dep_time, y = dep_delay)) +
+  geom_point(alpha = .7,
+             position = "jitter")
+```
+
+
+
+```{r}
+flights %>% 
+  #slice(1:1000) %>% 
+  ggplot(aes(x = dep_time, y = dep_delay)) +
+  geom_bin2d() +
+  scale_fill_viridis_c()
+```
+
+
+
+```{r}
+flights %>% 
+  #slice(1:1000) %>% 
+  ggplot(aes(x = dep_time, y = dep_delay)) +
+  geom_density2d() 
+```
+
+
+## Visualisieren Sie den Zusammenhang von Verspätung und Flugstrecke (`distance`) – aufgeteilt nach Abflugsort und nach Monat!
+
+a) Mit einem Diagramm, das Werte gruppiert
+
+b) Mit einem Diagramm, das nur den Zusammenhang aber keine einzelnen Werte zeigt
+
+### a)
+
+```{r}
+ggplot(flights) +
+  aes(x = distance, y = dep_delay) +
+  facet_grid(origin ~ month) +
+  geom_bin2d() +
+  scale_fill_viridis_c()
+```
+
+### b)
+
+
+```{r}
+ggplot(flights, 
+       mapping = aes(y = dep_delay, 
+                     x = distance, 
+                     color = origin)) +
+  geom_smooth() +
+  facet_wrap(~month, nrow = 3)
+```
+
+
+
+## Visualisieren Sie den Zusammenhang von Verspätung und Tageszeit – für die drei Airlines mit der höchsten Durchschnittsverspätung. Reduzieren Sie dabei Overplotting.
+
+
+```{r}
+flights_delay_avg <- 
+  flights %>% 
+  drop_na(dep_delay, carrier) %>% 
+  group_by(carrier) %>% 
+  summarise(dep_delay_carrier = mean(dep_delay)) %>% 
+  arrange(desc(dep_delay_carrier))
+
+flights_delay_avg
+```
+
+F9, EV, YV sind die Airlines mit den größten Verspätungen.
+
+
+
+```{r}
+flights %>% 
+  #filter(carrier == "F9" | carrier == "EV" | carrier == "YV") %>%
+  filter(carrier %in% c("F9", "EV", "YV")) %>% 
+  ggplot() +
+  aes(x = hour, y = dep_delay) +
+  geom_point() +
+  geom_smooth()
+```
+
+
+```{r}
+flights %>% 
+  #filter(carrier == "F9" | carrier == "EV" | carrier == "YV") %>%
+  filter(carrier %in% c("F9", "EV", "YV")) %>% 
+  filter(dep_delay < 90) %>% 
+  ggplot() +
+  aes(x = factor(hour), y = dep_delay) +
+  geom_boxplot() +
+  geom_smooth(aes(group = 1)) +
+  geom_smooth(aes(group = 1), 
+              method = "lm", 
+              se = FALSE,
+              color = "red")
+```
+
+
+
+## Visualisieren Sie den Anteil der verspäteten Flüge nach Abflugsort.
+
+
+```{r}
+flights2 <- 
+  flights %>% 
+  mutate(is_delayed = dep_delay > 0) 
+```
+
+```{r}
+flights2 %>% 
+  group_by(origin) %>% 
+  summarise(flights_per_origin = n())
+```
+
+Kurzform:
+
+```{r}
+flights2 %>% 
+  count(origin) %>% 
+  ggplot(aes(x = origin, y = n)) +
+  geom_col() +
+  labs(title = "Anzahl der verspäteten Flüge nach Flughafen",
+       caption = "NYC, 2013") +
+  theme_minimal()
+```
+
+## Weitere Aufgaben
+
+
+S. Lösungen [hier](https://data-se.netlify.app/2020/11/12/fallstudie-zur-datenvisualisierung-datensatz-flights/#aufgaben-zur-datenvisualisierung)
+
+Visualisieren Sie den Anteil der verspäteten Flüge nach Uhrzeit.
+
+Visualisieren Sie den Anteil der verspäteten Flüge nach Wochentag
+
+
+

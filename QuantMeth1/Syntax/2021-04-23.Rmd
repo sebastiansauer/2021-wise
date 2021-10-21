@@ -1,0 +1,260 @@
+---
+title: "Syntax 2021-04-23"
+author: "ses"
+date: "4/23/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+library(tidyverse)   # dplyr, ggplot2
+```
+
+
+disambiguiert
+
+```{r}
+dplyr::filter(...)
+```
+
+
+```{r}
+ggplot()  # Funktion
+```
+
+
+
+
+```{r}
+noten <- c(1, 2, 3, NA)
+
+mean(x = noten, na.rm = TRUE) # mittelwert
+```
+
+
+
+
+# Globale Mappings und lokale Mappings bei ggplot
+
+
+```{r}
+data(mpg)
+```
+
+
+```{r}
+ggplot(data = mpg) +
+  aes(x = displ,
+      
+      y = hwy) +  # global definiert
+  geom_point(mapping = aes(color = drv)) + # lokales Mapping
+  geom_smooth() +
+  scale_color_manual(values = c("pink", "lightblue", "purple")) +
+  theme_minimal()
+```
+
+
+
+
+
+```{r}
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy),
+           alpha = 1,
+           position = "jitter",
+           color = "blue")
+```
+
+
+
+```{r}
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy, 
+                         color = class,
+                         shape = class)) 
+```
+
+
+
+```{r}
+mpg %>%  # UND-DAnn-Befehl "Pipe", Str-Shift-M
+  filter(class == "suv")  %>%  # doppeltes Istgleichzeichen!!! 
+  ggplot() +
+  aes(x = displ, y = hwy) +
+  geom_point() +
+  geom_smooth() +
+  labs(x = "Motorgröße",
+       title = "Zusammenhang von Motorgröße und Spritverbrauch",
+       subtitle ="NUR SUVs!")
+```
+
+
+
+
+# `facet_wrap` vs. `facet_grid`?
+
+
+```{r}
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy, 
+                         color = class)) +
+  facet_wrap(~ class, nrow = 1)
+```
+
+
+
+
+
+```{r}
+demo <- tribble(
+  ~cut,         ~freq,
+  "Fair",       1610,
+  "Good",       4906,
+  "Very Good",  12082,
+  "Premium",    13791,
+  "Ideal",      21551
+)
+
+ggplot(data = demo) +
+  geom_bar(mapping = aes(x = cut, y = freq), 
+           stat = "identity")
+
+# synonym:
+ggplot(data = demo) +
+  geom_col(mapping = aes(x = cut, y = freq))
+
+
+ggplot(data = diamonds) +
+  geom_bar(aes(x = cut)) +
+  coord_flip()
+
+```
+
+
+
+
+# Aufgaben
+
+Datensatz `mpg`!
+
+## Aufgabe 1
+
+
+Erstellen Sie ein Streudiagramm mit Motorgröße `displ` und Spritverbrauch `hwy`; Farbe soll der Antriebsart `drv` entsprechen. Reduzieren Sie Overplotting.
+
+```{r}
+ggplot(mpg) +
+  aes(x = displ, 
+      y = hwy,
+      color = drv) +
+  geom_point(alpha = .5,
+             position = "jitter")
+```
+
+
+
+
+## Aufgabe 2
+
+Gliedern Sie das Diagramm der letzten Aufgabe in mehrere Facetten und zwar anhand der Werte der Variablen "Antriebsart".
+
+
+```{r}
+ggplot(data = mpg) +
+  geom_jitter(aes(x = displ, 
+                  y = hwy, 
+                  color = drv), 
+              alpha = .5) +
+  facet_wrap(~drv)
+  
+```
+
+
+
+## Aufgabe 3 
+
+Ergänzen Sie eine Regressionsgerade in rosa, ohne Standardfehler.
+
+
+```{r}
+ggplot(data = mpg) +
+  aes(x = displ, 
+      y = hwy) +
+  geom_jitter(aes(color = drv),
+              alpha = .5) +
+  facet_wrap(~drv) +
+  geom_smooth(method = "lm",
+              se = FALSE,
+              color = "pink")
+```
+
+
+## Aufgabe 4
+
+Visualisieren Sie die Verteilung des Spritverbrauchs; gruppieren Sie (mit Farben) nach Antriebsart und facettieren nach Klasse des Fahrzeugs.
+
+
+```{r}
+ggplot(mpg) +
+  aes(x = hwy, fill = drv)+
+  geom_density() +
+  facet_wrap(~ class)
+```
+
+
+
+## Aufgabe 5
+
+Fügen Sie einen Titel hinzu und verändern Sie das Farbschema.
+
+```{r}
+ggplot(mpg) +
+  aes(x = hwy, fill = drv)+
+  geom_density() +
+  facet_wrap(~ class) +
+  labs(title = "Verteilung des Spritverbrauchs (Highway)",
+       fill = "Antriebsart") +
+  scale_fill_brewer(type = "qual", palette = 2)
+```
+
+
+## Aufgabe 6
+
+Erstellen Sie ein Balkendiagramm, das zeigt, wie viele Autos es für jede Antriebsart gibt.
+
+```{r}
+ggplot(mpg) +
+  geom_bar(aes(x = drv))
+```
+
+
+## Aufgabe 7
+
+Unterteilen Sie die Balken, um die Häufigkeit der Zylinderzahl anzuzeigen. Welche anderes Argument für "position" ist hier möglich (bzw. sinnvoll)?
+
+
+
+```{r}
+ggplot(mpg) +
+  geom_bar(aes(x = drv, fill = factor(cyl)))
+```
+
+
+```{r}
+ggplot(mpg) +
+  geom_bar(aes(x = drv, fill = factor(cyl)), 
+           position = "dodge") +
+  scale_fill_viridis_d()
+```
+
+
+```{r}
+ggplot(mpg) +
+  geom_bar(aes(x = drv, fill = factor(cyl)), 
+           position = "fill") +
+  scale_fill_brewer(type = "qual", palette = 1)
+```
+
+

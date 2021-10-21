@@ -1,0 +1,103 @@
+---
+title: "R4DS 12.2.1.2"
+author: "ses"
+date: "5/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Setup
+
+```{r message = FALSE}
+library(tidyverse)
+```
+
+
+# Aufgabe
+
+[Quelle](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)
+
+>   Compute the rate for table2, and table4a + table4b. You will need to perform four operations:
+
+a. Extract the number of TB cases per country per year.
+b. Extract the matching population per country per year.
+c. Divide cases by population, and multiply by 10000.
+d. Store back in the appropriate place.
+
+
+>    Which representation is easiest to work with? Which is hardest? Why?
+
+
+## table2
+
+```{r}
+data(table2)
+```
+
+
+```{r}
+head(table2)
+```
+
+### a. TB cases per country per year
+
+```{r}
+table2 %>% 
+  filter(type == "cases") %>% 
+  arrange(country, year)
+```
+
+
+### b.  Extract the matching population per country per year.
+
+```{r}
+table2 %>% 
+  filter(type == "population") %>% 
+  arrange(country, year)
+```
+### c./d. Divide cases by population, and multiply by 10000.
+
+```{r}
+table2a <- 
+  table2 %>% 
+  pivot_wider(names_from = type, values_from = count) %>% 
+  mutate(rate = cases / population * 1000)
+
+table2a
+```
+
+
+## table4a und table4b
+
+```{r}
+table4a %>% 
+  head()
+```
+
+
+```{r}
+table4b %>% 
+  head()
+```
+
+
+```{r}
+table4a %>% 
+  full_join(table4b, by = "country") %>% 
+  pivot_longer(cols = -country,
+               names_to = "year",
+               values_to = "values") %>% 
+  separate(col = year, into = c("year", "variable")) %>% 
+  mutate(variable = case_when(
+    variable == "x" ~ "cases",
+    variable == "y" ~ "population"
+  ))  %>% 
+  pivot_wider(names_from = variable,
+              values_from = values) %>% 
+  mutate(rate = cases/population * 1000)
+```
+

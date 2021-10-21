@@ -1,0 +1,142 @@
+---
+title: "Übung 3.2.7"
+author: "ses"
+date: "4/9/2021"
+output: 
+  html_document:
+    number_sections: TRUE
+    toc: TRUE
+---
+
+
+# Hintergrund
+
+Hier besprechen wir [diese Aufgabe](https://openintro-ims.netlify.app/intro-linear-models.html#least-squares-regression-exercises).
+
+
+# Aufgabe "The Coast Starlight, regression"
+
+
+![](https://openintro-ims.netlify.app/03-intro-linear-models_files/figure-html/unnamed-chunk-29-1.png){ width=50% }
+
+
+## a)
+
+>   Write the equation of the regression line for predicting travel time.
+
+
+$y = \beta_0 + \beta_1*x$
+
+
+### beta1
+
+Wir berechnen zuerst beta1:
+
+$\beta_1 = (s_y / s_x) * r$
+
+```{r}
+beta1 <- (113/99) * .64
+beta1
+```
+
+
+$\beta_1$ beträgt `r round(beta1, 2)`.
+
+
+### beta0
+
+Danach berechnen wir beta0:
+
+
+$\bar{x}, \bar{y}$ liegt auf der Regressionsgeraden.
+
+y = beta0 + beta1x
+
+Also: 
+
+129 = beta0 + 0.73 * 108
+
+```{r}
+beta0 = 129 - 0.73 * 108
+beta0
+```
+
+$\beta_0$ liegt bei `r beta0`.
+
+
+### Antwort
+
+Die Regressionsformel sieht also so aus.
+
+**y = 50 + 0.73x**
+
+
+## b)
+
+>   Interpret the slope and the intercept in this context.
+
+
+## c)
+
+
+>    Calculate R^2^ of the regression line for predicting travel time from distance traveled for the Coast Starlight, and interpret R^2^ in the context of the application.
+
+
+
+```{r}
+r <- 0.636
+R2 <- r^2
+R2
+```
+
+
+Das ist der Anteil der vom Modell erklärten Varianz.
+
+
+## d)
+
+
+>   The distance between Santa Barbara and Los Angeles is 103 miles. Use the model to estimate the time it takes for the Starlight to travel between these two cities.
+
+**y = 50 + 0.73x**
+
+```{r}
+y1_erwartet <- 50 + 0.73 * 103
+y1_erwartet
+```
+
+erwartet: y-dach: $\hat{y}$
+
+## e)
+
+>    It actually takes the Coast Starlight about 168 mins to travel from Santa Barbara to Los Angeles. Calculate the residual and explain the meaning of this residual value.
+
+
+```{r}
+y1 <- 168
+e1 <- y1 - y1_erwartet
+e1
+```
+
+Prognosefehler von ca. 43 Min.
+
+UNTERschätzt den wahren Wert (positives Residuum).
+
+## f)
+
+
+>    Suppose Amtrak is considering adding a stop to the Coast Starlight 500 miles away from Los Angeles. Would it be appropriate to use this linear model to predict the travel time from Los Angeles to this point?
+
+
+Macht keinen Sinn bzw. ist mit viel Unsicherheit behaftet.
+
+
+
+# Aufgabe "Tourism spending."
+
+## d)
+
+>  Do the data meet the conditions required for fitting a least squares line? In addition to the scatterplot, use the residual plot and histogram to answer this question.
+
+
+

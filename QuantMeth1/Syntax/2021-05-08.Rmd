@@ -1,0 +1,50 @@
+---
+title: '2021-05-08'
+author: "ses"
+date: "5/7/2021"
+output: html_document
+---
+
+
+# Setup
+
+```{r}
+library(tidyverse)
+```
+
+<https://r4ds.had.co.nz/data-import.html#data-import>
+
+
+# Daten importieren
+
+
+```{r}
+data("diamonds")
+```
+
+
+
+## `read_csv()`
+
+```{r}
+impf <- read_csv("../../d3.csv")
+```
+
+
+```{r}
+data_url <- "https://raw.githubusercontent.com/sebastiansauer/2021-sose/master/data/Impfbereitschaft/d3.csv"
+
+impf2 <- read_csv(data_url)
+```
+
+
+# CSV-Datei
+
+
+```{r}
+daten <- read_csv2("name.csv")
+```
+
+
+
+  

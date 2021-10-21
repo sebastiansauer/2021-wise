@@ -1,0 +1,136 @@
+---
+title: "Syntax"
+author: "ses"
+date: "4/20/2021"
+output: html_document
+---
+
+
+
+# Datenvisualisierung Einstieg
+
+## 3.2.4
+
+```{r}
+library(tidyverse) # muss geladen sein!
+library(mosaic)
+#library(conflicted)
+```
+
+
+
+```{r}
+?mpg
+```
+
+
+```{r}
+ggplot(data = mpg) +
+  aes(x = class,
+      y = drv) +
+  geom_jitter()  # overplotting vermeiden
+```
+
+Mit "jitter" werden die Punkte verwackelt.
+
+## 3.3.1
+
+```{r}
+ggplot(data = mpg) + 
+  aes(x = displ, y = hwy) + # gelten global, d.h. für den ganzen Plot
+  geom_jitter( aes(size = cyl),
+             color = "blue",
+             alpha = .5) +
+  geom_smooth(color = "pink")
+```
+
+
+
+## 3.3.6
+
+### Aufgabe 6
+
+```{r}
+?mpg
+help("mpg")
+```
+
+
+Immer Pakete starten:
+
+```{r}
+library(tidyverse)
+data(mpg)
+```
+
+
+
+```{r}
+ggplot(data = mpg) +
+  aes(x = displ, y = hwy, color = drv)  +  # global: für alle Geome dieser Zeichnung
+  geom_point() +
+  geom_smooth(aes(linetype = drv), se = FALSE)
+  
+```
+
+
+### Exkurs
+
+```{r}
+?mean
+noten <- c(1, 2, 3, NA)
+
+mean(noten, na.rm = TRUE)
+```
+
+
+
+## Beispiel für ein einfaches Diagramm mit ggplot2
+
+
+Das ist normaler Text, kein R-Code!
+
+
+```{r}
+ggplot(mpg) +
+  aes(x = displ, y = hwy) +
+  geom_point(color = "white", size = 3) +
+  geom_point(aes(color = drv,
+                 shape = drv))  # 3.3.6. Aufgabe 6d) R4DS
+```
+
+
+
+
+## Debugging
+
+Typischer Fehler: Man vergisst, die nötigen Pakete vorab zu starten:
+
+```{r}
+library(tidyverse)
+```
+
+
+
+
+```{r}
+ggplot(mpg) +
+  aes(x = displ, y = hwy) +
+  geom_point(color = "white", size = 3) +
+  geom_point(aes(color = drv))  # 3.3.6
+```
+
+
+### Debugging 2
+
+
+```{r}
+ggplot(mpg)+
+
+aes(x=displ, y=hwy)+
+geom_point(color = "white", size = 3)+
+geom_point(aes(color = drv))
+```
+
+
+

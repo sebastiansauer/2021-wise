@@ -1,0 +1,56 @@
+---
+title: "2021-04-13-Syntax"
+author: "ses"
+date: "4/13/2021"
+output: html_document
+---
+
+
+
+# Aufgabe 4.1.4.1: Absenteeism
+
+
+<https://openintro-ims.netlify.app/multi-logistic-models.html#multiple-regression-exercises>
+
+
+
+a)
+
+$y = 18.93 - \beta_1 9.11 + \beta_2 3.1 + \beta_3 2.15 + \epsilon$
+
+
+b) 
+
+>   Interpret each one of the slopes in this context.
+
+
+c) 
+
+>   Calculate the residual for the first observation in the data set: a student who is aboriginal, male, a slow learner, and missed 2 days of school.
+
+$e_1 = y_1 - \hat{y}_1$
+
+```{r}
+y1 <- 2
+y1_hut <- 18.93 - 9.11*0 + 3.1*1 + 2.15*1
+
+e_1 <- y1 - y1_hut
+e_1
+```
+
+
+d) 
+
+```{r}
+r2 <- 1 - (240.57/264.17)
+r2
+```
+
+
+```{r}
+n <- 146
+k <- 3
+r2_adj <- 1 - ( (240.57/264.17) * ((n-1)/(n-k-1))   )
+r2_adj
+```
+

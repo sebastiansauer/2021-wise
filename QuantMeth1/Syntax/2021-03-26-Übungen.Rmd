@@ -1,0 +1,34 @@
+
+
+# Übung 1
+
+Legen Sie eine neue RMarkdown-Datei an und fügen Sie folgende Elemente ein:
+
+- Fettdruck
+- Überschrift Ebene 1 und 2
+- Aufzählung (Liste) unnummeriert
+- R-Chunk
+
+(ohne YAML-Header)
+
+Lassen Sie sich die Datei als HTML-Datei ausgeben.
+
+
+
+# Übung 2
+
+Fügen Sie einen Kopfbereich (Header) hinzu, um Metadaten anzugeben:
+
+- Titel (beliebig)
+- Autor (Ihr Name)
+- Datum (heute)
+
+
+
+# Übung 3
+
+Ergänzen Sie im Header:
+
+- dass Sie eine Gliederung möchten
+- dass Sie nummerierte Überschriften wünschen
+- dass Sie eine Word-Datei als Ausgabe wünschen

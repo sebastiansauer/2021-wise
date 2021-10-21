@@ -1,0 +1,747 @@
+---
+title: "Wiederholung"
+author: "ses"
+date: "7/1/2021"
+output: 
+  html_document:
+    toc: TRUE
+    number_sections: TRUE
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r global-knitr-options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H',
+  fig.asp = 0.618,
+  fig.width = 5,
+  fig.cap = "", 
+  fig.path = "",
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  cache = FALSE,
+  fig.show = "hold")
+```
+
+
+
+# Vorbereitung
+
+## Pakete laden
+
+```{r message=FALSE}
+library(tidyverse)  # Datenjudo
+library(modelr)  # add_predictions
+library(skimr)  # viele Statistiken auf einen Happs
+library(GGally)  # viele Streudiagramme auf einmal
+library(corrr)  # correlate, shave, rplot
+library(fastDummies)  # dummyisieren
+```
+
+
+
+## Daten laden
+
+```{r}
+data("diamonds")
+```
+
+
+
+# Aufgaben
+
+
+## Werte zuweisen
+
+
+### Problem
+
+a) Definieren Sie eine Variable "alter" mit dem Wert 42
+b) Definieren Sie eine Variable "name" mit dem Wert "Schorsch"
+c) Definieren Sie eine Variable "schorsch" mit dem Wert "42"
+
+
+### Lösung
+
+
+
+
+```{r}
+alter <- 42  # a
+name <- "Schorsch"  # b
+schorsch <- "42"  # c
+```
+
+
+```{r}
+name <- schorsch
+```
+
+
+
+## Filtern
+
+
+### Problem
+
+Laden Sie zunächst die Tabelle "diamonds".
+
+
+
+Filtern Sie ...
+
+a) alle Diamanten besten Schliffs.
+b) alle Diamanten mit einem Preis zwischen 1000 und 10000 Dollar.
+c) alle Diamanten mit bester Farbe und bestem Schliff
+d) die 10% teuersten Diamanten.
+
+
+### Lösung
+
+```{r}
+data("diamonds")  # ggplot2, das ist Teil des Tidyverse
+```
+
+
+a)
+
+```{r}
+diamonds %>% 
+  filter(cut == "Ideal")
+```
+
+b)
+
+
+ alle Diamanten mit einem Preis zwischen 1000 und 10000 Dollar.
+ 
+```{r}
+diamonds %>% 
+  filter(price >= 1e3 & price <= 1e4)
+```
+
+
+```{r}
+diamonds %>% 
+  filter(between(price, 1e03, 1e04))
+```
+
+ 
+c) alle Diamanten mit bester Farbe und bestem Schliff
+
+
+```{r}
+diamonds %>% 
+  filter(cut == "Ideal", color == "D")
+```
+
+
+
+d) die 10% teuersten Diamanten
+
+```{r}
+diamonds %>% 
+  slice_max(order_by = price, prop = .1)
+```
+
+```{r}
+d2 <- diamonds %>% 
+  mutate(price_percent = percent_rank(price)) %>% 
+  filter(price_percent > .9)
+
+d2
+```
+
+
+
+## Zusammenfassen
+
+
+
+### Problem
+
+a) Was ist der mittlere Preis der Diamanten?
+b) Der mediane?
+c) die SD?
+d) der IQR?
+e) Was lernen wir daraus, wenn es zwischen Median und MW einen Unterschied gibt?
+f) Kennen Sie einen Weg, viele Statistiken auf einmal zu bekommen? Welchen?
+g) Was ist der mittlere Preis pro Stufe von `cut`?
+
+
+
+### Lösung
+
+a) Was ist der mittlere Preis der Diamanten?
+
+
+```{r}
+diamonds %>% 
+  drop_na(price) %>% 
+  summarise(price_m = mean(price))
+```
+
+b) Der mediane?
+
+
+
+
+```{r}
+diamonds %>% 
+  drop_na(price) %>% 
+  summarise(price_md = median(price))
+```
+
+
+c) und d)
+
+
+
+
+```{r}
+diamonds %>% 
+  drop_na(price) %>% 
+  summarise(price_sd = sd(price),
+            price_iqr = IQR(price))
+```
+
+
+e) Was lernen wir daraus, wenn es zwischen Median und MW einen Unterschied gibt?
+
+MW - Md ist prop. zur Schiefe (es gibt Extremwerte)
+
+
+
+f) Kennen Sie einen Weg, viele Statistiken auf einmal zu bekommen? Welchen?
+
+
+```{r}
+library(skimr)
+
+skim(diamonds)
+```
+
+
+
+g) Was ist der mittlere Preis pro Stufe von `cut`?
+
+
+
+```{r}
+diamonds %>% 
+  group_by(cut) %>% 
+  summarise(price_avg = mean(price))
+```
+
+
+
+
+
+
+## Sortieren
+
+
+### Problem 
+
+Sortieren Sie den Datensatz nach Preis und zeigen Sie die Top-3-Diamanten (hinsichtlich der max. Höhe des Preises)!
+
+
+
+### Lösung
+
+
+
+```{r}
+diamonds %>% 
+  arrange(-price) %>%   # alternativ: desc(price)
+  slice(1:3)
+```
+
+
+
+
+```{r}
+diamonds %>% 
+  slice_max(price, n = 3)
+```
+
+
+
+
+
+
+
+
+
+## Mutieren
+
+### Problem
+
+a) Erstellen Sie eine Variable, die die *Größenordnung* des Preises angibt: 
+  - dreistelliger Preis (100-999) -> Wert ist *2*  -> log10(100) = 2
+  - vierstelliger Preis (1000-9999) -> Wert ist *3*
+  - etc.
+b) Berechnen Sie eine Art "Volumen" des Diamanten, in dem Sie `x`, `y` und `z` multiplizieren.
+c) Erstellen Sie eine Variable, die angibt, ob der Preis des Diamanten größer als der Mittelwert ist.
+d) Berechnen Sie die Korrelation von Volumen und Gewicht (`carat`).
+
+
+### Lösung
+
+
+a)
+
+```{r}
+log10(100) == 2
+log10(1000) == 3
+log10(1e4) == 4  # 10000 = 10^4 
+```
+
+
+:-)
+
+```{r}
+diamonds <-
+  diamonds %>% 
+  mutate(preis_log10 = log10(price))
+```
+
+In diesem Fall wäre es nicht so gut mit `case_when` zu arbeiten:
+
+```{r}
+diamonds %>% 
+  mutate(price_oom = case_when(
+    price > 100 & price < 1000 ~ 2,
+    price < 10000 ~ 3,
+    TRUE ~ NA_real_
+  ))
+```
+
+
+
+
+
+b)
+
+```{r}
+diamonds <-
+  diamonds %>% 
+  mutate(volume = x * y * z)
+```
+
+
+
+c)
+
+```{r}
+diamonds <- 
+  diamonds %>% 
+  mutate(price_high = case_when(  # ifelse würde auch gehen
+    price > mean(price) ~ TRUE,
+    TRUE ~ FALSE
+  ))
+```
+
+
+```{r}
+diamonds %>% 
+  count(price_high)
+```
+
+
+
+
+d)
+
+```{r}
+diamonds %>% 
+  select(carat, volume) %>% 
+  cor()  #Input: Eine Tabelle mit nur numerischen Spalten
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Log-Transformation
+
+
+### Problem
+
+a) Welche Hypothese finden Sie am plausibelsten? Begründen Sie!
+
+    - H1: Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ Dollar?
+    - H2: Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ *Prozent*? (exponenzielles Wachstum)
+     - H3: Steigt das Gewicht des Diamanten um 1 *Prozent*, so steigt der Preis (im Schnitt) um $b$ *Prozent*? (Wachstum nach einer Potenzfunktion)
+     
+b) Betrachten Sie den Zusammenhang von Preis und Gewicht und prüfen Sie, 
+ob Sie den Zusammenhang durch eine Log-Transformation *linearisieren* können. 
+
+c) Vielleicht hilft auch eine andere Art von Transformation (um den Zusammenhang zu linearisieren)? Probieren Sie es aus!
+
+
+### Lösung
+
+#### a)
+
+
+**Hyp.1** : Die Hypothese impliziert, dass der Preiszuwachs von 1 auf 2 Karat zum gleichen Preiszuwachs führt wie die Erhöhung von 2 auf 3 Karat (unter sonst gleichen Umständen). 
+
+Die Daten unterstützen das nicht:
+
+```{r}
+diamonds %>% 
+  mutate(carat_rounded = round(carat)) %>% 
+  group_by(carat_rounded) %>% 
+  summarise(mean(price))
+```
+
+Aber bleiben wir für Erste bei einer theoretischen Erörterung.
+
+
+**Hyp 2**: "Steigt das Gewicht des Diamanten um 1 Gramm, so steigt der Preis (im Schnitt) um $b$ *Prozent*?"
+
+Dieses Wachstumsmuster nennt man auch *exponenzielles* Wachstum und ist sehr häufig bei allen (biologisch) *Wachstumsprozessen*, macht aber hier nicht unbedingt viel Sinn (könnte aber trotzdem die Daten passabel beschreiben, sollten wir gleich mal ausprobieren).
+
+
+**Hyp3**: "Steigt das Gewicht des Diamanten um 1 *Prozent*, so steigt der Preis (im Schnitt) um $b$ *Prozent*?"
+
+Überlegen wir mal, wie Karat mit dem Preis zusammenhängt. Sachwissen (und eine EDA) zeigt, dass Karat der zentrale Treiber (und Ursache?) des Preises ist. Karat ist ein Form, das Gewicht zu messen: Ein Karat sind 0.2 Gramm. Das Gewicht (Karat; $c$) ist eine Funktion des Volumen und Volumen ist eine Funktion von Länge, Breite und Höhe (x,y,z): $c =f(x,y,z$): $y=x^3$. Potenzfunktion! Einige Momente ruhiges Nachdenken zeigen, dass solche Zusammenhänge eine Potenzfunktion darstellen. Potenzfunktionen haben stets das Wachstumsmuster wie in Hypothese 3 aufgeführt. Diese "Theorie" spricht sich also für die Stichhaltigkeit von Hypothese 3 aus. Das sollten wir gleich mal an den Daten überprüfen!
+
+$y=x^3$
+
+x=1 -> y=1
+x=2 -> 2*2*2=8
+x=3 -> 3*3*3=27
+x=4 -> 4*4*4=64
+x=6 -> 6*6*6=216
+
+Verdoppeln wir x, so verachtfachen wir y.
+
+
+
+#### b) 
+
+Ohne Transformation:
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>%  # bleiben >50000 übrig
+  ggplot() +
+  aes(x = carat, y = price) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+
+Mit Log-Transformation:
+
+exponenzielles Wachstum
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>% 
+  ggplot() +
+  aes(x = carat, y = log(price)) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+
+
+Potenzfunktion:
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>% 
+  ggplot() +
+  aes(x = log(carat), y = log(price)) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+Das sieht super aus! So sollte eine Regression gut funktionieren!
+
+#### c)
+
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>% 
+  ggplot() +
+  aes(x = carat, y = sqrt(price)) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>% 
+  ggplot() +
+  aes(x = log(carat), y = price^(1/3)) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+
+
+
+```{r}
+diamonds %>% 
+  filter(carat < 2.5) %>% 
+  ggplot() +
+  aes(x = carat, y = price^(1/3)) +
+  geom_hex() +
+  geom_smooth() +
+  geom_smooth(method = "lm", color = "red")
+```
+
+
+
+## Regressionsgüte nach Transformationen
+
+
+     
+Vergleichen Sie die Vorhersagegüte von Modellen, die den Preis anhand des Gewichts vorhersagen.
+
+### Lösung
+
+
+
+```{r}
+lm1 <- lm(price ~ carat, data = diamonds %>% filter(carat < 2.5))
+```
+
+```{r}
+plot(lm1, which = 1)  # ggfortify::autoplot(lm1)
+```
+
+
+```{r}
+summary(lm1)$r.squared
+```
+
+Modell mit *exponenziellem* Zusammenhang
+
+```{r}
+lm2 <- lm(log(price) ~ carat, data = diamonds %>% filter(carat != 0))
+```
+
+Die Passung der Modellannahmen lässt sich gut grafisch überprüfen:
+
+```{r}
+plot(lm2, which = 1)
+```
+
+
+
+
+```{r}
+summary(lm2)$r.squared
+```
+
+```{r}
+lm3 <- lm(log(price) ~ log(carat), data = diamonds)
+```
+
+```{r}
+plot(lm3, which = 1)
+```
+
+
+
+
+```{r}
+summary(lm3)$r.squared
+```
+
+
+## Rücktransformation y-Werte
+
+### Problem
+
+Sagen Sie die Preise laut Ihrem besten Modell vorher; führen Sie ggf. eine Rücktransformation vorab durch!
+
+
+### Lösung
+
+
+
+Ohne Rücktransformation:
+
+```{r}
+diamonds %>% 
+  add_predictions(lm3) %>%  # kommt aus dem Paket `modelr`
+  select(price, pred) %>% 
+  slice(1:6)
+```
+
+
+Mit Rücktransformation:
+
+vorwärts: x -> log 
+
+rückwärts: exp(x) -> x
+
+
+Basis $e$:
+
+```{r}
+e <- 2.7182
+x <- 1
+exp(log(x)) == 1  # synonym:
+e^log(x) == 1
+
+```
+
+
+Basis 10:
+
+```{r}
+x <- 3
+log10(x)
+10^log10(x) == x
+```
+
+Das geht mit jeder beliebigen Basis. Wichtige Basen sind e, 10 und 2.
+
+```{r}
+diamonds %>% 
+  add_predictions(lm3, var = "pred_lm3") %>%  # mit "var" kann man den Namen der neuen Spalte anpassen
+  mutate(pred_raw = exp(pred_lm3)) %>%  # Rücktransformation
+  select(price, pred_lm3, pred_raw) %>% 
+  slice(1:6)
+```
+
+wir sind jetzt wieder in der richtigen Größenordnung mit unseren Vorhersagen. Die Rück-Transformation hat also geklappt! Diese Werte würden Sie nun einreichen.
+
+
+
+
+## Fehlende Werte zählen
+
+
+### Problem 
+
+a) Wie viele fehlenden Werte gibt es in der Tabelle?
+b) ... in der Spalte `price`?
+c) ... in jeder einzelnen Spalte? 
+
+
+
+### Lösung
+
+
+#### a), b), c)
+
+```{r}
+skim(diamonds)  # package "skimr"
+```
+
+
+
+## Korrelationen mit Preis visualisieren
+
+### Problem
+
+Visualisieren Sie den Zusammenhang von Preis mit den wichtigen Prädiktoren.
+
+
+
+### Lösung
+
+Es gibt viele Pakete, die hier coole Visualisierungen ermöglichen. Hier eine Auswahl; googeln Sie ggf. nach mehr.
+
+```{r}
+diamonds %>% 
+  # select(where(is.numeric)) %>%   # oder so
+  select(price, carat, x, y, z, table, depth) %>% 
+  correlate() %>% 
+  shave() %>% 
+  focus(price)
+```
+
+```{r}
+diamonds %>% 
+  # select(where(is.numeric)) %>%   # oder so
+  select(price, carat, x, y, z, table, depth) %>% 
+  correlate() %>% 
+  rplot(print_cor = TRUE)
+```
+
+
+
+
+```{r}
+diamonds %>% 
+  select(where(is.numeric)) %>% 
+  ggpairs()
+```
+
+
+#### Vertiefung
+
+Eine Korrelation kann man nur zwischen *numerischen* Variablen berechnen, nicht zwischen nicht-numerischen. Aber man kann *kategoriale* Variablen "*dummysieren*", dann ist es wieder möglich, eine Korrelation zu berechnen.
+
+cut: A, B, C
+-->dummysierung
+
+cut_A: 1,0,0
+cut_B: 0,1,0
+cut_C: 0,0,1  --> ist redundant, aber die Regression macht dann dicke Backen
+
+Das Paket `fastDummies` ermöglicht eine Dummysierung auf recht komfortable Weise.
+
+
+
+
+```{r}
+d2 <-
+diamonds %>% 
+  fastDummies::dummy_cols(select_columns = c("cut", "color", "clarity"),
+             remove_selected_columns = TRUE,
+             remove_first_dummy = FALSE)
+```
+
+
+```{r}
+d2 %>% 
+  slice(1:5)
+```
+
+
+
+
+```{r}
+d2 %>% 
+  correlate() %>% 
+  focus(price) %>% 
+  arrange(-abs(price))
+```
+
+
+
+
+
+
+
+

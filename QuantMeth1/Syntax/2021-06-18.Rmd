@@ -1,0 +1,84 @@
+---
+title: "Syntax 2021-06-17"
+author: "ses"
+date: "6/17/2021"
+output: html_document
+---
+
+# Vorbereitung
+
+```{r}
+library(tidyverse)
+library(corrr)
+```
+
+
+
+
+# Korrelationen sortieren nach Absolutwert
+
+```{r}
+data(mtcars)
+```
+
+
+```{r}
+mtcars %>% 
+  select(cyl, disp, hp, mpg) %>% 
+  correlate() %>% 
+  select(term, mpg) %>% 
+  mutate(cor_mpg_abs = abs(mpg)) %>% 
+  arrange(-cor_mpg_abs)
+```
+
+
+
+
+# Aufgabe
+
+Erarbeiten Sie sich den Artikel (das Beispiel) zum Nutzen der z-Transformation (in den Kleingruppen).
+
+Zeit: Bis ca. 9.30h
+
+
+
+# Rücktransformieren/Interpretation von Log-Koeffizienten
+
+
+Koeffizient sei 0.1:
+
+-> Steigt X um ein, so steigt Y um den Faktor 1.1, d.i. 10%.
+
+## Rücktransformieren
+
+```{r}
+exp(0.1)
+```
+
+Koeffizient sei 1:
+
+```{r}
+exp(1)
+```
+
+
+
+
+
+# Fallstudie `house_prices`
+
+## Vorbereitung
+
+```{r}
+library(moderndive)
+data("house_prices")
+```
+
+
+Alternativ können die Daten unter [dieser URL](https://www.kaggle.com/harlfoxem/housesalesprediction) heruntergeladen werden.
+
+
+```{r}
+boston <- read_csv("https://www.kaggle.com/harlfoxem/housesalesprediction/download")
+```
+

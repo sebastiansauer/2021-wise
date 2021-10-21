@@ -1,0 +1,215 @@
+---
+title: '2021-05-06'
+author: "ses"
+date: "5/6/2021"
+output: html_document
+---
+
+
+# Setup 
+
+```{r}
+library(tidyverse)
+```
+
+
+
+# Datensatz `flights`
+
+```{r}
+library(nycflights13)
+data(flights)
+```
+
+Use what you’ve learned to improve the visualisation of the *scheduled departure times* of *cancelled vs. non-cancelled flights*.
+
+
+
+# Aufgabe
+
+Ergänzen Sie eine Visualisierung des Medians!
+
+```{r}
+p1 <- flights %>% 
+  mutate(is_cancelled = is.na(dep_time)) %>% 
+  ggplot() +
+  aes(y = sched_dep_time, x = is_cancelled) +
+  geom_violin()
+
+p1
+```
+
+
+Zusammenfassungen berechnen:
+
+```{r}
+flights_summary <- 
+  flights %>% 
+  mutate(is_cancelled = is.na(dep_time)) %>% 
+  group_by(is_cancelled) %>% 
+  summarise(sched_dep_time_median = median(sched_dep_time),
+            sched_dep_time_iqr = IQR(sched_dep_time))
+```
+
+
+```{r}
+ggplot(flights_summary) +
+  aes(x = is_cancelled, y = sched_dep_time_median) +
+  geom_point(size = 4, color = "red")
+```
+
+
+
+```{r}
+p2 <- p1 +
+  geom_point(data = flights_summary,
+             aes(y = sched_dep_time_median),
+             size = 5,
+             color = "red") 
+
+p2
+```
+
+
+
+```{r}
+flights %>% 
+  mutate(is_cancelled = is.na(dep_time)) %>% 
+  ggplot() +
+  aes(
+      x = is_cancelled) +
+  geom_violin(aes(y = sched_dep_time)) + 
+  geom_errorbar(data = flights_summary,
+                aes(
+                  ymax = sched_dep_time_median + 
+                      sched_dep_time_iqr/2,
+                    ymin = sched_dep_time_median - 
+                      sched_dep_time_iqr/2 ),
+                width = .1,
+                color = "grey60"
+                ) +
+  geom_point(data = flights_summary,
+             aes(y = sched_dep_time_median),
+             size = 5,
+             color = "red") 
+```
+
+
+
+
+# Daten laden
+
+```{r}
+data_url <- "https://raw.githubusercontent.com/sebastiansauer/willingness-vaccination-covid19/main/data/d3.csv"
+
+d3 <- read_csv(data_url)  # wohnt im tidyverse
+```
+
+
+
+
+# Schnörkel
+
+Wie verschönert man ein Diagramm mit ggplot2 (Titel ergänzen, Farbschema ändern, ...)?
+
+```{r}
+library(hrbrthemes)
+
+ggplot(d3) +
+  aes(y = willingness, x = fear) +
+  geom_point(position = "jitter",
+             alpha = .7,
+             aes(color = sex)) +
+  geom_smooth(method = "lm") +
+  labs(title = "Impfbereitschaft",
+       subtitle = "abhängig von der Angst vor Corona",
+       x = "Angst vor Corona",
+       y = "Impfbereitschaft",
+       caption = "Umfrage unter n=165 Studierenden im April 2021",
+       color = "Geschlecht"
+       ) +
+  scale_y_continuous(breaks = c(1, 2.5, 5, 7.5, 10)) +
+  #theme_ipsum_rc() +
+  theme(legend.position = "bottom",
+        plot.title.position = "plot", 
+        plot.title = element_text(hjust = 0.5))
+
+ggsave(filename = "plot1.pdf")
+```
+
+
+
+
+
+# Residuen, Vorhergesagte Werte in der Regression
+
+```{r}
+data(mtcars)
+```
+
+Einfuss des Gewichts auf den Spritverbrauch?
+
+
+```{r}
+mtcars %>% 
+  ggplot() +
+  aes(x = wt, y = mpg) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+
+
+```{r}
+lm1 <- lm(mpg ~ wt, data = mtcars)
+lm1
+```
+
+
+
+
+
+```{r}
+mtcars %>% 
+  ggplot() +
+  aes(x = wt, y = mpg) +
+  geom_point() +
+  geom_abline(slope = -5, intercept = 37) +
+  xlim(0, 7) +
+  ylim(0, 50)
+```
+
+
+```{r}
+library(modelr)
+```
+
+
+```{r}
+mtcars2 <-
+  mtcars %>% 
+  add_residuals(lm1) %>% 
+  add_predictions(lm1)
+```
+
+
+
+
+```{r}
+mtcars2 %>% 
+  ggplot() +
+  aes(x = wt, y = mpg) +
+  geom_point() +
+  geom_abline(slope = -5.3, intercept = 37.3) +
+  xlim(0, 7) +
+  ylim(0, 50) +
+  geom_segment(aes(x = wt, xend = wt,
+                   y = mpg, yend = pred),
+               color = "red") +
+  geom_point(aes(y = pred),
+             color = "blue",
+             alpha = .5)
+```
+
+
+

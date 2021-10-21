@@ -1,0 +1,42 @@
+---
+title: "Balken- und Punktediagramme sortieren"
+author: "ses"
+date: "5/17/2021"
+output: html_document
+---
+
+
+```{r}
+library(tidyverse)
+library(nycflights13)
+```
+
+
+```{r}
+data(flights)
+```
+
+# Mittlere Verspätung pro Airline
+
+```{r}
+flights %>% 
+  group_by(carrier) %>% 
+  summarise(delay_carrier = mean(dep_delay, na.rm = TRUE)) %>% 
+  arrange(-delay_carrier) %>% 
+  ggplot() +
+  aes(y = reorder(carrier, -delay_carrier), x = delay_carrier) +
+  geom_point()
+```
+
+
+
+# Anzahl Flüge pro Airline
+
+```{r}
+flights %>% 
+  count(carrier, sort = TRUE) %>% 
+  ggplot() +
+  aes(y = reorder(carrier, -n), x = n) +
+  geom_col()
+```
+
