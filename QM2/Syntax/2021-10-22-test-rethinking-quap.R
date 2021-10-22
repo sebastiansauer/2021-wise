@@ -6,6 +6,7 @@ library(rethinking)
 
 
 
+
 globus_qa <- 
   quap(
     alist(
