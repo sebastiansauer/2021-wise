@@ -1,5 +1,9 @@
 library(rethinking)
 # wenn sich das Paket ohne Fehlermeldung starten lässt, ist es korrekt installiert.
+# sie können das Paket so installieren:
+
+# devtools::install_github("rmcelreath/rethinking")
+
 
 globus_qa <- 
   quap(
