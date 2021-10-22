@@ -1,0 +1,90 @@
+---
+title: "2021-10-22"
+author: "ses"
+date: "10/22/2021"
+output: html_document
+---
+
+# Aufgabe 4
+
+## Aufgabe
+
+2M1. Recall the globe tossing model from the chapter. Compute and plot the grid approximate *posterior distribution* for each of the following sets of observations. In each case, assume a uniform prior for p.
+
+1. WWW 
+2. WWWL 
+3. LWWLWWW
+
+
+## Lösung
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+post <-
+  tibble(
+    p_grid = seq(0, 1, by = .01),
+    prior = 1,
+    L1 = dbinom(x = 3, size = 3, prob = p_grid),
+    L3 = dbinom(x = 5, size = 7, prob = p_grid),
+    post_raw1 = prior * L1,
+    post_raw3 = prior * L3,
+    post1 = post_raw1 / sum(post_raw1),
+    post3 = post_raw3 / sum(post_raw3)    
+  )
+```
+
+
+```{r}
+post %>% 
+  ggplot() +
+  aes(x = p_grid, y = post3) +
+  geom_point()
+```
+
+# Aufgabe 5
+
+
+## Angabe 
+
+Recall the *globe* tossing model from the chapter. Compute and plot the grid approximate posterior distribution for each of the following sets of observations. In each case, assume a uniform prior for p.
+
+Data:
+
+1. WWW 
+2. WWWL 
+3. LWWLWWW (5/7)
+
+Now assume a *prior* for p that is equal to *zero* when *p < 0.5* and is a positive constant when p ≥ 0.5. Again compute and plot the grid approximate posterior distribution for each of the sets of observations in the problem just above.
+
+
+## Lösung
+
+```{r}
+post <-
+  tibble(
+    p_grid = seq(0, 1, by = .01),
+    prior = case_when(
+      p_grid < 0.5 ~ 0,
+      p_grid >= 0.5 ~ 1),
+    L1 = dbinom(x = 3, size = 3, prob = p_grid),
+    L3 = dbinom(x = 5, size = 7, prob = p_grid),
+    post_raw1 = prior * L1,
+    post_raw3 = prior * L3,
+    post1 = post_raw1 / sum(post_raw1),
+    post3 = post_raw3 / sum(post_raw3)    
+  )
+```
+
+
+
+
+```{r}
+post %>% 
+  ggplot() +
+  aes(x = p_grid, y = post3) +
+  geom_point()
+```
