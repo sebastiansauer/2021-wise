@@ -1,5 +1,5 @@
 library(rethinking)
-
+# wenn sich das Paket ohne Fehlermeldung starten lässt, ist es korrekt installiert.
 
 globus_qa <- 
   quap(
