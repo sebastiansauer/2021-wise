@@ -1,0 +1,62 @@
+---
+title: "Visualisierung der ANOVA"
+author: "ses"
+date: "10/28/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      cache = TRUE,
+                      message = FALSE)
+```
+
+
+```{r echo = FALSE}
+options(mc.cores = parallel::detectCores())
+```
+
+
+Die *Varianzanalyse* (Analysis of Variance; Anova) ist ein statistisches Verfahren, um die Gleichheit zweier oder mehr Populationsmittelwerte zu testen: $\mu_1 = \mu_2 = \ldots =\mu_n$.
+
+Wie viele andere Verfahren kann die Anova als ein Spezialfall der Regression bzw. des linearen Modells $y = \beta_0 + \beta_1 + \ldots \beta_n + \epsilon$ betrachtet werden.
+
+Als ein spezielles Beispiel betrachten wir die Frage, ob Diamanten (Datensatz `diamonds`) verschiedener Schliffart (`cut`) sich nicht in ihrem mittleren Preis (`price`) unterscheiden.
+
+Den Datensatz können Sie so laden:
+
+```{r}
+library(tidyverse)
+data(diamonds)
+```
+
+
+Wir berechnen das Modell:
+
+
+```{r}
+library(rstanarm)
+stanlm1 <- stan_glm(price ~ cut, 
+                    data = diamonds,
+                    refresh = FALSE)  # für weniger R-Output
+summary(stanlm1)
+```
+
+
+
+Betrachten Sie die Schätzintervalle für die Parameter der Gruppen (die einzelnen Werte für "cut"): Die Schätzintervalle beinhalten jeweils nicht die Null. Die Intervalle überlappen nicht. Folglich ist die Hypothese, dass alle Intervalle die Null enthalten, unwahrscheinlich, also abzulehnen.
+
+Das Bild soll Ihnen die Sache noch einmal vor Augen führen.
+
+
+
+```{r}
+library(bayesplot)
+
+plot(stanlm1,
+     pars = c("cut.L", "cut.Q", "cut.L", "cut^4")) +
+  scale_x_continuous(limits = c(-500, 100)) +
+  geom_vline(xintercept = 0, linetype = "dashed")
+```
+
+

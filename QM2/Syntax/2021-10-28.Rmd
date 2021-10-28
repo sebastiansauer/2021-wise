@@ -1,0 +1,79 @@
+---
+title: "2021-10-28"
+author: "ses"
+date: "10/28/2021"
+output: html_document
+---
+
+# Vorbereitung
+
+```{r}
+library(tidyverse)
+library(rethinking)
+```
+
+
+
+
+# Posteriori-Verteilung erstellen und visualisieren
+
+
+Post-Verteilung erstellen:
+```{r}
+p_grid <- seq( from=0 , to=1 , length.out=1000 )  # Gitterwerte
+prior <- rep( 1 , 1000 )  # Priori-Gewichte
+
+likelihood <- dbinom( 6 , size=9 , prob=p_grid ) 
+
+unstandardisierte_posterior <- likelihood * prior 
+
+posterior <- unstandardisierte_posterior / sum(unstandardisierte_posterior)
+
+# um die Zufallszahlen festzulegen, damit alle die gleichen Zufallswerte bekommen: 
+set.seed(100) 
+
+# Stichproben ziehen aus der Posteriori-Verteilung
+
+```
+
+Daraus Stichproben ziehen:
+
+```{r}
+n_draws <- 1e3  # Tausend Stichproben
+samples <- 
+  tibble(
+    wasseranteil_p = sample( p_grid , prob=posterior, size = n_draws, replace=TRUE)) %>% 
+  mutate(
+    id = row_number())
+```
+
+
+
+Visualisieren:
+
+```{r}
+samples %>% 
+  ggplot() +
+  aes(x = wasseranteil_p) +
+  geom_histogram()
+```
+
+
+Wie viele Stichproben liegen über 80%? Dh. wie hoch ist die Wahrscheinlichkeit, dass der Wasseranteil über 80% liegt?
+
+```{r}
+samples %>% 
+  filter(wasseranteil_p > .8) %>% 
+  nrow()
+```
+
+
+```{r}
+samples %>% 
+  filter(wasseranteil_p > .8) %>% 
+  ggplot() +
+  aes(x = wasseranteil_p) +
+  geom_histogram()
+```
+
+
