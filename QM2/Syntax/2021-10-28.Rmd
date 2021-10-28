@@ -40,7 +40,7 @@ set.seed(100)
 Daraus Stichproben ziehen:
 
 ```{r}
-n_draws <- 1e2  # Tausend Stichproben
+n_draws <- 1e2  # viele Stichproben
 
 samples <- 
   tibble(
@@ -59,7 +59,8 @@ Visualisieren:
 samples %>% 
   ggplot() +
   aes(x = wasseranteil_p) +
-  geom_histogram()
+  geom_histogram() +
+  scale_x_continuous(limits = c(0, 1))
 ```
 
 
@@ -67,17 +68,59 @@ Wie viele Stichproben liegen über 80%? Dh. wie hoch ist die Wahrscheinlichkeit,
 
 ```{r}
 samples %>% 
-  filter(wasseranteil_p > .8) %>% 
-  nrow()
+  filter(wasseranteil_p < 0.2) 
 ```
 
 
 ```{r}
 samples %>% 
-  filter(wasseranteil_p > .8) %>% 
-  ggplot() +
-  aes(x = wasseranteil_p) +
-  geom_histogram()
+  filter(wasseranteil_p > .9) 
 ```
 
+```{r}
+library(rstatix)
+```
+
+
+```{r}
+get_summary_stats(samples)
+```
+## 90%-PI
+
+
+```{r}
+samples %>% 
+  summarise(q_05 = quantile(wasseranteil_p, .05),
+            q_95 = quantile(wasseranteil_p, .95))
+```
+
+
+# Aufgabe 7
+
+Post-Verteilung:
+
+```{r}
+p_grid <- seq( from=0 , to=1 , length.out=1000 )  # Gitterwerte
+
+prior <- rep(1, 1000)  # Priori-Gewichte
+
+set.seed(42)  # Zufallszahlen festlegen
+likelihood <- dbinom(23, size = 42, prob=p_grid ) 
+
+unstandardisierte_posterior <- likelihood * prior 
+
+posterior <- unstandardisierte_posterior / sum(unstandardisierte_posterior)
+
+```
+
+
+Stipros aus der Post-Vert:
+
+```{r}
+samples <- 
+  tibble(
+    p = sample(p_grid , prob=posterior, size=1e2, replace=TRUE)) %>% 
+  mutate(
+    id = row_number())
+```
 
