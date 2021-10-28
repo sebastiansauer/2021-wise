@@ -14,9 +14,10 @@ library(rethinking)
 
 
 
+# Aufgabe 1
 
-# Posteriori-Verteilung erstellen und visualisieren
 
+## Posteriori-Verteilung erstellen und visualisieren
 
 Post-Verteilung erstellen:
 ```{r}
@@ -39,12 +40,15 @@ set.seed(100)
 Daraus Stichproben ziehen:
 
 ```{r}
-n_draws <- 1e3  # Tausend Stichproben
+n_draws <- 1e2  # Tausend Stichproben
+
 samples <- 
   tibble(
-    wasseranteil_p = sample( p_grid , prob=posterior, size = n_draws, replace=TRUE)) %>% 
-  mutate(
-    id = row_number())
+    wasseranteil_p = 
+      sample( p_grid , 
+              prob=posterior, 
+              size = n_draws, 
+              replace=TRUE)) 
 ```
 
 
