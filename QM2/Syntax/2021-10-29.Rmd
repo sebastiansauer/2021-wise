@@ -22,13 +22,21 @@ library(rethinking)
 Post-Verteilung erstellen:
 ```{r}
 p_grid <- seq( from=0 , to=1 , length.out=1e4)  # Gitterwerte
+# die Gitterwerte sind unsere Hypothesen für die Wasseranteilswerte
+
 prior <- rep( 1 , 1000 )  # Priori-Gewichte
 
 likelihood <- dbinom( 6 , size=9 , prob=p_grid ) 
+# d: density, Wahrscheinlichkeitsdichte: 70%, prob = 65%
+# r: random number, Zahl: prob = 65% -> 6
 
 unstandardisierte_posterior <- likelihood * prior 
 
 posterior <- unstandardisierte_posterior / sum(unstandardisierte_posterior)
+
+
+
+
 
 # um die Zufallszahlen festzulegen, damit alle die gleichen Zufallswerte bekommen: 
 set.seed(100) 
@@ -63,6 +71,7 @@ samples %>%
   scale_x_continuous(limits = c(0, 1))
 ```
 
+Das Histogramm zeigt die Post-Wskt für jeden Wasseranteilswert (d.h. für jeden Parameterwert).
 
 ## a/b/c. Wie viel Wahrscheinlichkeitsmasse liegt unter dem Wasseranteil $p=.20$?
 
@@ -83,5 +92,7 @@ gesucht: Parameterwert (Wasseranteil, Quantil) <-- GOLEM <-- Wsktsmasse (gegeben
 samples %>% 
   summarise(q20 = quantile(wasseranteil_p, prob = .2))
 ```
+
+## Bonusfrage
 
 
