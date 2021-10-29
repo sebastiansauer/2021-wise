@@ -40,7 +40,7 @@ set.seed(100)
 Daraus Stichproben ziehen:
 
 ```{r}
-n_draws <- 1e4  # viele Stichproben
+n_draws <- 1e2  # viele Stichproben
 
 samples <- 
   tibble(
@@ -73,4 +73,15 @@ samples %>%
   filter(wasseranteil_p > 0.8) %>% 
   summarise(wsktsmasse =  n() / nrow(samples))
 ```
+
+d) Unter welchem Wasseranteil $p$ liegen 20% der Posteriori-Verteilung?
+
+gesucht: Parameterwert (Wasseranteil, Quantil) <-- GOLEM <-- Wsktsmasse (gegeben)
+
+
+```{r}
+samples %>% 
+  summarise(q20 = quantile(wasseranteil_p, prob = .2))
+```
+
 
