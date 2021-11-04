@@ -1,0 +1,204 @@
+---
+title: '2021-11-04'
+author: "ses"
+date: "11/4/2021"
+output: html_document
+---
+
+# Vorbereitung
+
+```{r}
+library(tidyverse)
+```
+
+
+# Aufgabe 4
+
+## Angabe
+
+```{r}
+p_grid <- seq( from=0 , to=1 , length.out=1000 ) # Gitterwerte
+prior <- rep( 1 , 1000 ) # Priori-Gewichte
+likelihood <- dbinom( 6 , size=9 , prob=p_grid )
+unstandardisierte_posterior <- likelihood * prior
+posterior <- unstandardisierte_posterior / sum(unstandardisierte_posterior)
+```
+
+Stichproben aus der Post-Verteilung:
+
+```{r}
+# um die Zufallszahlen festzulegen, damit alle die gleichen Zufallswerte bekommen:
+set.seed(100)
+# Stichproben ziehen aus der Posteriori-Verteilung
+samples <-
+ tibble(
+ p = sample( p_grid , prob=posterior, size=1e4, replace=TRUE)) %>%
+ mutate(
+ id = row_number())
+
+```
+
+## Lösung
+
+PPV berechnen:
+
+```{r}
+PPV <-
+ samples %>%
+ mutate(anzahl_wasser2 = rbinom(1e4, size = 9, prob = p))
+
+```
+
+
+
+PPV befragen:
+
+
+```{r}
+PPV %>%
+ filter(anzahl_wasser2 == 6) %>%
+ summarise(wie_oft_6_wasser = n(),
+ anteil_6_wasser = wie_oft_6_wasser / nrow(samples))
+```
+## Bonusfrage
+
+
+Berechnen Sie MW und SD der PPV!
+
+
+```{r}
+
+mean(PPV$anzahl_wasser2)
+
+PPV %>% 
+  summarise(ppv_avg = mean(anzahl_wasser2),
+            ppv_sd = sd(anzahl_wasser2))
+  
+```
+
+## Aufgabe 5
+
+## a)
+
+Berechnen Sie die Posteriori-Verteilung und visualisieren Sie sie. Nutzen Sie die
+Gittermethode.
+
+## Lösung
+
+
+```{r}
+p_grid <- seq(from = 0, to = 1, length.out = 1000)
+prior <- case_when(
+ p_grid < 0.5 ~ 0,
+ p_grid >= 0.5 ~ 1)
+likelihood <- dbinom(8, size = 15, prob = p_grid)
+unstand_posterior <- likelihood * prior
+posterior <- unstand_posterior / sum(unstand_posterior)
+```
+
+
+
+Stichproben aus der Post-Vert:
+
+```{r}
+samples <- sample(p_grid, prob = posterior, size = 1e4, replace = TRUE)
+
+post_samples <-
+  tibble(
+    post_stipro = samples)
+```
+
+```{r}
+post_samples %>% 
+  ggplot(aes(x = samples)) +
+  geom_histogram() +
+  scale_x_continuous(limits = c(0, 1))
+```
+
+Mittelwert der Post-Vert. berechnen:
+
+```{r}
+mean(samples)
+sd(samples)
+```
+
+
+```{r}
+post_samples %>% 
+  summarise(wasseranteil_mw = mean(post_stipro),
+            wasseranteil_sd = sd(post_stipro))
+```
+
+
+# Aufgabe 3
+
+
+## Angabe
+
+
+```{r}
+p_grid <- seq( from=0 , to=1 , length.out=100) # Gitterwerte
+prior <- rep(1, 100 ) # Priori-Gewichte
+likelihood <- dbinom(8 , size= 15, prob=p_grid)
+unstandardisierte_posterior <- likelihood * prior
+posterior <- unstandardisierte_posterior / sum(unstandardisierte_posterior)
+```
+
+
+
+## Lösung
+
+```{r}
+samples <-
+ tibble(
+ p = sample(p_grid , prob=posterior, size=1e4, replace=TRUE)) %>%
+ mutate(
+ id = row_number())
+PPV <-
+ samples %>%
+ mutate( anzahl_wasser = rbinom(1e4, size = 15, prob = p))
+```
+
+
+```{r}
+samples %>% 
+  ggplot(aes(x = p)) +
+  geom_histogram(bins = 30) +
+  geom_vline(xintercept = c(.25, .75), color = "skyblue3")
+```
+
+
+
+Median, Mittelwert der PPV -- d.i. unsere "mittlere Vorhersage":
+
+Md = 50. Perzentil
+
+```{r}
+PPV %>% 
+  summarise(q_50 = quantile(anzahl_wasser, .5))
+```
+
+
+```{r}
+PPV %>% 
+  summarise(ppv_avg = mean(anzahl_wasser))
+```
+
+Wskt für genau 8 Treffer?
+
+
+```{r}
+PPV %>% 
+  filter(anzahl_wasser == 8)
+```
+
+
+```{r}
+PPV %>% 
+  ggplot() +
+  aes(x = anzahl_wasser) +
+  geom_bar()
+```
+
+
+
