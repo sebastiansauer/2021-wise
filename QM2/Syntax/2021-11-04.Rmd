@@ -164,9 +164,38 @@ PPV <-
 samples %>% 
   ggplot(aes(x = p)) +
   geom_histogram(bins = 30) +
-  geom_vline(xintercept = c(.25, .75), color = "skyblue3")
+  geom_vline(xintercept = c(quantile(samples$p, .05),
+                            quantile(samples$p, .95)), 
+             color = "skyblue3")
 ```
 
+
+Posteriori-Verteilung einfärben:
+
+```{r}
+samples <-
+samples %>% 
+   mutate(
+    q_05 = case_when(
+    p > quantile(p, .05) ~TRUE,
+    TRUE ~ FALSE),
+    q_95 = case_when(
+    p < quantile(p, .95) ~TRUE,
+    TRUE ~ FALSE),
+    pi_90 = case_when(
+      q_05 & q_95 ~ TRUE,
+      TRUE ~ FALSE
+    )
+    )
+```
+
+
+```{r}
+samples %>% 
+  ggplot(aes(x = p)) +
+  geom_histogram(aes(fill = pi_90)) +
+  lims(x = c(0,1))
+```
 
 
 Median, Mittelwert der PPV -- d.i. unsere "mittlere Vorhersage":
@@ -200,5 +229,56 @@ PPV %>%
   geom_bar()
 ```
 
+## PPV einfärben: inneren 90%
 
+
+```{r}
+PPV <- 
+PPV %>% 
+  mutate(
+    q_05 = case_when(
+    anzahl_wasser > quantile(anzahl_wasser, .05) ~TRUE,
+    TRUE ~ FALSE),
+    q_95 = case_when(
+    anzahl_wasser < quantile(anzahl_wasser, .95) ~TRUE,
+    TRUE ~ FALSE),
+    pi_90 = case_when(
+      q_05 & q_95 ~ TRUE,
+      TRUE ~ FALSE
+    )
+    )
+```
+
+
+
+
+```{r}
+PPV %>% 
+  ggplot() +
+  aes(x = anzahl_wasser, fill = pi_90) +
+  geom_bar()
+```
+
+
+```{r}
+PPV %>% 
+  filter(anzahl_wasser <= 4)
+```
+
+
+
+# Skript S. 25
+
+
+```{r}
+draws <- 
+  tibble( draws = rbinom(1e6, size = 2, prob = .7))
+```
+
+
+```{r}
+draws %>% 
+  count(draws) %>% 
+  mutate(prop = round(n / sum(n),2))
+```
 
