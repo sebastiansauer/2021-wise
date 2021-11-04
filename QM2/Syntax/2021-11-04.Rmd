@@ -282,3 +282,68 @@ draws %>%
   mutate(prop = round(n / sum(n),2))
 ```
 
+
+
+
+## Aufgabe 3, Variante
+
+
+```{r}
+p_grid <- seq(0, 1, length.out = 1e1)
+p_grid
+
+```
+
+
+```{r}
+prior <- 1
+```
+
+
+L:
+
+```{r}
+likelihood <- dbinom(x = 8, size = 15, prob = p_grid)
+likelihood %>% round(2)
+```
+
+
+Post, unstand.:
+
+```{r}
+post_raw <- prior * likelihood
+post_raw %>% round(2)
+```
+
+
+Post, stand.:
+
+```{r}
+post <- post_raw / sum(post_raw)
+post %>% round(2)
+```
+
+
+
+```{r}
+samples <-
+  tibble(
+    p = sample(x = p_grid , 
+               prob = post, 
+               size=1e4, 
+               replace=TRUE))
+```
+
+
+```{r}
+samples %>% 
+  summarise(wasseranteil_mw = mean(p),
+            wasseranteil_sd = sd(p))
+```
+Passt gut zu den Daten (8 Treffer von 15 Versuchen).
+
+
+```{r}
+likelihood <- dbinom(x = 8, size = 15, prob = p_grid)
+```
+
