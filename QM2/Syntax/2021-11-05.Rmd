@@ -61,3 +61,27 @@ d %>%
   labs(x = "Wasseranteil p")
 ```
 
+## Samples aus der Posteriori-Verteilung ziehen
+
+S. 7 im Skript 3
+
+```{r}
+samples <- 
+  d %>% 
+  slice_sample(
+    n = 1e3,
+    weight_by = post,
+    replace = TRUE
+  )
+```
+
+```{r}
+samples %>% 
+  ggplot() +
+  aes(x = p_grid) +
+  geom_bar() +
+  scale_x_continuous(breaks = seq(0,1,.1))
+```
+
+
+
