@@ -84,4 +84,139 @@ samples %>%
 ```
 
 
+## Post-Verteilung befragen
+
+Was ist unsere mittlere Schätzung zum Wasseranteil?
+Was ist unsere Schätzung zur Ungenauigkeit in der Schätzugn des MW (anhand der SD)?
+
+Geben Sie robuste Kennwerte an zur Lage und Streuung der Post-Verteilung!
+
+```{r}
+samples %>% 
+  summarise(wasseranteil_avg = mean(p_grid),
+            p_sd = sd(p_grid),
+            p_md = median(p_grid),
+            p_iqr = IQR(p_grid))
+```
+
+Welcher Wasseranteil wird mit einer Wahrscheinlichkeit von 90% nicht übertroffen? Mit einer W. von 90% - was ist der höchste Wasseranteilswert, den wir erwarten können?
+
+--> Quantil
+
+```{r}
+samples %>% 
+  summarise(q90 = quantile(x = p_grid, prob = .9))
+```
+
+
+# Aufgabe 3
+Skript3
+
+## Angabe
+
+
+Nehmen wir an, wir haben 8 (Wasser-)“Treffer” ( ) bei 15 Würfen ( ) erhalten
+(wieder im Globusversuch).
+
+a. Führen Sie einen *Posteriori-Prädiktiv-Check* durch: Erstellen Sie also eine PosterioriPrädiktiv-Verteilung (*PPV*). Mit anderen Worten: Erstellen Sie die Stichprobenverteilung,
+gemittelt über die Posteriori-Wahrscheinlichkeiten des Wasseranteils !
+
+b. *Visualisieren* Sie die PPV!
+
+c. Was ist die *Wahrscheinlichkeit laut PPV 8 von 15 Treffer* zu erzielen (also 8 Wasser in 15 Würfen)?
+
+
+## Lösung
+
+### a)
+
+```{r}
+8/15
+```
+
+
+
+
+1. Post-Verteilung:
+
+```{r}
+p_grid <- seq(from = 0, to = 1, length.out = 100)
+
+prior <- 1
+
+likelihood <- dbinom(x = 8, size = 15, prob = p_grid)
+
+
+post_raw <- prior * likelihood  # unstand. post-wskt.
+post <- post_raw / sum(post_raw)
+
+
+post_df2 <-
+  tibble(
+    p_grid = p_grid,
+    prior = prior,
+    likelihood = likelihood,
+    post = post)
+  
+```
+
+
+Post-Stichproben:
+
+
+```{r}
+post_samples_a3 <- 
+  post_df2%>% 
+  slice_sample(
+    n = 1e4,
+    weight_by = post,
+    replace = TRUE
+  )
+```
+
+
+Visualisierung Post-Samples:
+
+```{r}
+post_samples_a3 %>% 
+  ggplot() +
+  aes(x = p_grid) +
+  geom_histogram() +
+  scale_x_continuous(breaks = seq(0,1,.1))
+```
+
+```{r}
+PPV <-
+ post_samples_a3 %>%
+ mutate(anzahl_wasser_pred = rbinom(1e4, size = 15, prob = p_grid))
+```
+
+
+### b)
+
+```{r}
+PPV %>% 
+  ggplot() +
+  aes(x = anzahl_wasser_pred) +
+  geom_bar()
+```
+
+
+### c)
+
+```{r}
+PPV %>% 
+  filter(anzahl_wasser_pred == 8) %>% 
+  summarise(anteil_wasser8 = n() / 1e4)
+```
+
+
+# set.seed()???
+
+
+```{r}
+set.seed(42)
+rbinom(1e3, size = 9, prob = .7) %>% 
+  mean()
+```
 
