@@ -1,0 +1,63 @@
+---
+title: '2021-11-05'
+author: "ses"
+date: "11/5/2021"
+output: html_document
+---
+
+
+# Vorbereitung
+
+```{r}
+library(tidyverse)
+```
+
+
+# Post-Verteilung anhand der Gittermethode berechnen und visualisieren
+
+vgl. Skript 2, S. 41ff
+
+binomialen Variablen, z.B. Globuswürfe
+
+Daten: 6/9
+
+## Post-Vert. berechnen
+
+```{r}
+p_grid <- seq(from = 0, to = 1, length.out = 11)
+p_grid
+
+prior <- 1
+
+likelihood <- dbinom(x = 6, size = 9, prob = p_grid)
+likelihood
+
+post_raw <- prior * likelihood  # unstand. post-wskt.
+post <- post_raw / sum(post_raw)
+post
+```
+
+```{r}
+d <-
+  tibble(
+    p_grid = p_grid,
+    prior = prior,
+    likelihood = likelihood,
+    post = post)
+  )
+```
+
+
+## Post-Vert. visualisieren
+
+```{r}
+d %>% 
+  ggplot() +
+  aes(x = p_grid, y = post) +
+  geom_line() +
+  geom_point(alpha = .7,
+             color = "skyblue",
+             size = 4) +
+  labs(x = "Wasseranteil p")
+```
+
