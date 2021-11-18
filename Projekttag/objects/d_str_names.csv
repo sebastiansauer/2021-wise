@@ -1,0 +1,53 @@
+var_name,id
+Land,1
+Wahlkreis-Nr.,2
+Wahlkreis-Name,3
+Gemeinden am 31.12.2019 (Anzahl),4
+Fläche am 31.12.2019 (km²),5
+Bevölkerung am 31.12.2019 - Insgesamt (in 1000),6
+Bevölkerung am 31.12.2019 - Deutsche (in 1000),7
+Bevölkerung am 31.12.2019 - Ausländer/-innen (%),8
+Bevölkerungsdichte am 31.12.2019 (EW je km²),9
+Zu- (+) bzw. Abnahme (-) der Bevölkerung 2019 - Geburtensaldo (je 1000 EW),10
+Zu- (+) bzw. Abnahme (-) der Bevölkerung 2019 - Wanderungssaldo (je 1000 EW),11
+Alter von ... bis ... Jahren am 31.12.2019 - unter 18 (%),12
+Alter von ... bis ... Jahren am 31.12.2019 - 18-24 (%),13
+Alter von ... bis ... Jahren am 31.12.2019 - 25-34 (%),14
+Alter von ... bis ... Jahren am 31.12.2019 - 35-59 (%),15
+Alter von ... bis ... Jahren am 31.12.2019 - 60-74 (%),16
+Alter von ... bis ... Jahren am 31.12.2019 - 75 und mehr (%),17
+Bodenfläche nach Art der tatsächlichen Nutzung am 31.12.2019 - Siedlung und Verkehr (%),18
+Bodenfläche nach Art der tatsächlichen Nutzung am 31.12.2019 - Vegetation und Gewässer (%),19
+Fertiggestellte Wohnungen 2019 (je 1000 EW),20
+Bestand an Wohnungen am 31.12.2019 - insgesamt (je 1000 EW),21
+Wohnfläche am 31.12.2019 (je Wohnung),22
+Wohnfläche am 31.12.2019 (je EW),23
+PKW-Bestand am 01.01.2020 - PKW insgesamt (je 1000 EW),24
+PKW-Bestand am 01.01.2020 - PKW mit Elektro- oder Hybrid-Antrieb (%),25
+Unternehmensregister 2018 - Unternehmen insgesamt (je 1000 EW),26
+Unternehmensregister 2018 - Handwerksunternehmen (je 1000 EW),27
+Schulabgänger/-innen beruflicher Schulen 2019,28
+Schulabgänger/-innen allgemeinbildender Schulen 2019 - insgesamt ohne Externe (je 1000 EW),29
+Schulabgänger/-innen allgemeinbildender Schulen 2019 - ohne Hauptschulabschluss (%),30
+Schulabgänger/-innen allgemeinbildender Schulen 2019 - mit Hauptschulabschluss (%),31
+Schulabgänger/-innen allgemeinbildender Schulen 2019 - mit mittlerem Schulabschluss (%),32
+Schulabgänger/-innen allgemeinblldender Schulen 2019 - mit allgemeiner und Fachhochschulreife (%),33
+Kindertagesbetreuung am 01.03.2020 - Betreute Kinder unter 3 Jahre (Betreuungsquote),34
+Kindertagesbetreuung am 01.03.2020 - Betreute Kinder 3 bis unter 6 Jahre (Betreuungsquote),35
+Verfügbares Einkommen der privaten Haushalte 2018 (EUR je EW),36
+Bruttoinlandsprodukt 2018 (EUR je EW),37
+Sozialversicherungspflichtig Beschäftigte am 30.06.2020 - insgesamt (je 1000 EW),38
+"Sozialversicherungspflichtig Beschäftigte am 30.06.2020 - Land- und Forstwirtschaft, Fischerei (%)",39
+Sozialversicherungspflichtig Beschäftigte am 30.06.2020 - Produzierendes Gewerbe (%),40
+"Sozialversicherungspflichtig Beschäftigte am 30.06.2020 - Handel, Gastgewerbe, Verkehr (%)",41
+Sozialversicherungspflichtig Beschäftigte am 30.06.2020 - Öffentliche und private Dienstleister (%),42
+"Sozialversicherungspflichtig Beschäftigte am 30.06.2020 - Übrige Dienstleister und """"ohne Angabe"""" (%)",43
+Empfänger/-innen von Leistungen nach SGB II  Oktober 2020 -  insgesamt (je 1000 EW),44
+Empfänger/-innen von Leistungen nach SGB II  Oktober 2020 -  nicht erwerbsfähige Hilfebedürftige (%),45
+Empfänger/-innen von Leistungen nach SGB II  Oktober 2020 -  Ausländer/-innen (%),46
+Arbeitslosenquote Februar 2021 - insgesamt,47
+Arbeitslosenquote Februar 2021 - Männer,48
+Arbeitslosenquote Februar 2021 - Frauen,49
+Arbeitslosenquote Februar 2021 - 15 bis 24 Jahre,50
+Arbeitslosenquote Februar 2021 - 55 bis 64 Jahre,51
+Fußnoten,52

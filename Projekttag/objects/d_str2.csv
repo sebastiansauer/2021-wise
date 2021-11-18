@@ -1,0 +1,317 @@
+state,area_nr,area_name,for_prop,pop_density,pop_move,income,unemp
+Schleswig-Holstein,001,Flensburg – Schleswig,8.4,137.1,9.5,21358,7
+Schleswig-Holstein,002,Nordfriesland – Dithmarschen Nord,7.1,84.6,8.3,24354,6.5
+Schleswig-Holstein,003,Steinburg – Dithmarschen Süd,6.5,110.5,4.6,22292,6.4
+Schleswig-Holstein,004,Rendsburg-Eckernförde,5.5,116.4,8.6,23410,4.8
+Schleswig-Holstein,005,Kiel,11.4,1879.2,-1.8,19718,8.4
+Schleswig-Holstein,006,Plön – Neumünster,8.7,171.2,5.1,22081,6.7
+Schleswig-Holstein,007,Pinneberg,11.1,475.9,8.1,24708,5.9
+Schleswig-Holstein,008,Segeberg – Stormarn-Mitte,8,240.5,5.7,23952,5
+Schleswig-Holstein,009,Ostholstein – Stormarn-Nord,5.7,143.9,6.8,23411,6.1
+Schleswig-Holstein,010,Herzogtum Lauenburg – Stormarn-Süd,8.6,236.8,8.8,24571,5.1
+Schleswig-Holstein,011,Lübeck,10,580,1.3,20404,8.5
+Schleswig-Holstein,901,Land insgesamt,8.4,183.8,6,22833,6.3
+Mecklenburg-Vorpommern,012,Schwerin – Ludwigslust-Parchim I – Nordwestmecklenburg I,6.7,73.9,2.6,19927,8
+Mecklenburg-Vorpommern,013,Ludwigslust-Parchim II – Nordwestmecklenburg II – Landkreis Rostock I,4,63.3,7.5,20014,6.8
+Mecklenburg-Vorpommern,014,Rostock – Landkreis Rostock II,5.5,278,6,19274,7.9
+Mecklenburg-Vorpommern,015,Vorpommern-Rügen – Vorpommern-Greifswald I,4.7,84.7,6.7,19231,11
+Mecklenburg-Vorpommern,016,Mecklenburgische Seenplatte I – Vorpommern-Greifswald II,3.8,53.8,2.8,18774,9.9
+Mecklenburg-Vorpommern,017,Mecklenburgische Seenplatte II – Landkreis Rostock III,3,40,4.2,19679,8.5
+Mecklenburg-Vorpommern,913,Land insgesamt,4.7,69,5,19470,8.7
+Hamburg,018,Hamburg-Mitte,21.8,3043.7,2.7,25029,8.1
+Hamburg,019,Hamburg-Altona,15.5,3438.8,2.7,25029,8.1
+Hamburg,020,Hamburg-Eimsbüttel,13.2,5225.5,2.7,25029,8.1
+Hamburg,021,Hamburg-Nord,10.9,2514.4,2.7,25029,8.1
+Hamburg,022,Hamburg-Wandsbek,14.8,4149.9,2.7,25029,8.1
+Hamburg,023,Hamburg-Bergedorf – Harburg,20.8,1087.1,2.7,25029,8.1
+Hamburg,902,Land insgesamt,16.5,2446.4,2.7,25029,8.1
+Niedersachsen,024,Aurich – Emden,6.5,171.2,2,20327,8
+Niedersachsen,025,Unterems,11.3,123.7,6.5,20559,5
+Niedersachsen,026,Friesland – Wilhelmshaven – Wittmund,6.1,168.7,6.4,20268,8
+Niedersachsen,027,Oldenburg – Ammerland,8.6,352.6,6.7,21093,6.2
+Niedersachsen,028,Delmenhorst – Wesermarsch – Oldenburg-Land,10.3,152.2,4.7,21890,6.5
+Niedersachsen,029,Cuxhaven – Stade II,6,91.2,5.4,22260,6.4
+Niedersachsen,030,Stade I – Rotenburg II,8.8,129.9,7.2,22911,5.7
+Niedersachsen,031,Mittelems,11.3,133.2,5.2,21058,3.2
+Niedersachsen,032,Cloppenburg – Vechta,11.9,140.3,5.4,21634,4.6
+Niedersachsen,033,Diepholz – Nienburg I,8.1,99.5,4.7,23149,5
+Niedersachsen,034,Osterholz – Verden,6.7,174.1,6.2,23482,3.9
+Niedersachsen,035,Rotenburg I – Heidekreis,8.1,78.9,8.8,21800,5.7
+Niedersachsen,036,Harburg,7.8,203.8,8.4,25687,4.8
+Niedersachsen,037,Lüchow-Dannenberg – Lüneburg,6.6,91,6.4,21227,6.8
+Niedersachsen,038,Osnabrück-Land,9.2,138.3,3.6,23030,3.7
+Niedersachsen,039,Stadt Osnabrück,10.8,794.2,2.5,22006,6.2
+Niedersachsen,040,Nienburg II – Schaumburg,8.7,157.5,4.9,21717,5.9
+Niedersachsen,041,Stadt Hannover I,18.2,2303.8,0.1,21859,8.2
+Niedersachsen,042,Stadt Hannover II,17.9,3028.6,0.1,21859,8.2
+Niedersachsen,043,Hannover-Land I,10.7,269.8,4.5,21859,8.2
+Niedersachsen,044,Celle – Uelzen,7.2,90.1,4.5,21170,6.4
+Niedersachsen,045,Gifhorn – Peine,7.3,156.5,6.1,23087,5.1
+Niedersachsen,046,Hameln-Pyrmont – Holzminden,9.3,131,4.3,21942,7
+Niedersachsen,047,Hannover-Land II,10.4,327.8,3.8,21859,8.2
+Niedersachsen,048,Hildesheim,8.4,228.3,2.3,21685,6.8
+Niedersachsen,049,Salzgitter – Wolfenbüttel,11,215,-0.4,21407,7.5
+Niedersachsen,050,Braunschweig,10.9,1294.3,6,22612,5.7
+Niedersachsen,051,Helmstedt – Wolfsburg,11.3,207.8,4.9,24150,5.9
+Niedersachsen,052,Goslar – Northeim – Osterode,8.3,117.8,3,21735,6.6
+Niedersachsen,053,Göttingen,9.1,225.1,-1.6,21130,6.3
+Niedersachsen,903,Land insgesamt,9.7,167.5,4.4,21988,6.1
+Bremen,054,Bremen I,16.9,2312,-1.8,21481,11.2
+Bremen,055,Bremen II – Bremerhaven,20.3,1223.8,-0.4,21481,12.1
+Bremen,904,Land insgesamt,18.5,1624.3,-1.1,21481,11.6
+Brandenburg,056,Prignitz – Ostprignitz-Ruppin – Havelland I,4.3,36.8,5.4,19353,7.3
+Brandenburg,057,Uckermark – Barnim I,4.5,51.9,7.2,19531,8.8
+Brandenburg,058,Oberhavel – Havelland II,4,138.3,12.3,21079,5.8
+Brandenburg,059,Märkisch-Oderland – Barnim II,3.7,113.4,15.7,20712,6.3
+Brandenburg,060,Brandenburg an der Havel – Potsdam-Mittelmark I – Havelland III – Teltow-Fläming I,4.7,76.1,8.5,21151,5.8
+Brandenburg,061,Potsdam – Potsdam-Mittelmark II – Teltow-Fläming II,7.6,544.2,14.9,21720,5.7
+Brandenburg,062,Dahme-Spreewald – Teltow-Fläming III – Oberspreewald-Lausitz I,5.2,77.3,12.5,20780,5.1
+Brandenburg,063,Frankfurt (Oder) – Oder-Spree,5.9,98.4,6.4,20091,7.3
+Brandenburg,064,Cottbus – Spree-Neiße,5.9,117.1,1,19853,7.7
+Brandenburg,065,Elbe-Elster – Oberspreewald-Lausitz II,3,65.4,-1,19412,7.7
+Brandenburg,912,Land insgesamt,5,85,9.1,20475,6.6
+Sachsen-Anhalt,066,Altmark,3.6,41.2,-0.4,19433,8.7
+Sachsen-Anhalt,067,Börde – Jerichower Land,3.4,66.1,2.4,20634,6.5
+Sachsen-Anhalt,068,Harz,3.4,106.1,4.1,19792,7.1
+Sachsen-Anhalt,069,Magdeburg,8.6,496.5,-0.4,18940,9.2
+Sachsen-Anhalt,070,Dessau – Wittenberg,4.4,94.3,-0.1,20089,8.1
+Sachsen-Anhalt,071,Anhalt,3.5,114.2,1.1,19396,8.4
+Sachsen-Anhalt,072,Halle,8.8,657.2,0.7,18170,9.5
+Sachsen-Anhalt,073,Burgenland – Saalekreis,5,131.8,1,19845,7.4
+Sachsen-Anhalt,074,Mansfeld,3.7,103.4,1.3,19744,9.1
+Sachsen-Anhalt,915,Land insgesamt,5.1,107.3,1.1,19528,8.3
+Berlin,075,Berlin-Mitte,32.3,9579.8,6.3,20972,10.6
+Berlin,076,Berlin-Pankow,12.5,3409.9,6.3,20972,10.6
+Berlin,077,Berlin-Reinickendorf,17.6,2913.5,6.3,20972,10.6
+Berlin,078,Berlin-Spandau – Charlottenburg Nord,20.1,2734.2,6.3,20972,10.6
+Berlin,079,Berlin-Steglitz-Zehlendorf,14,2865.8,6.3,20972,10.6
+Berlin,080,Berlin-Charlottenburg-Wilmersdorf,24,5011.3,6.3,20972,10.6
+Berlin,081,Berlin-Tempelhof-Schöneberg,19.2,6476.2,6.3,20972,10.6
+Berlin,082,Berlin-Neukölln,24.2,7146.3,6.3,20972,10.6
+Berlin,083,Berlin-Friedrichshain-Kreuzberg – Prenzlauer Berg Ost,24.4,13153.3,6.3,20972,10.6
+Berlin,084,Berlin-Treptow-Köpenick,9.5,1616.1,6.3,20972,10.6
+Berlin,085,Berlin-Marzahn-Hellersdorf,10.7,4371.3,6.3,20972,10.6
+Berlin,086,Berlin-Lichtenberg,16.5,5566.2,6.3,20972,10.6
+Berlin,911,Land insgesamt,19.2,4117.8,6.3,20972,10.6
+Nordrhein-Westfalen,087,Aachen I,18.9,1547.8,6.8,20504,8.2
+Nordrhein-Westfalen,088,Aachen II,12.2,564.2,1.9,20504,8.2
+Nordrhein-Westfalen,089,Heinsberg,11.9,407,7.1,20631,6
+Nordrhein-Westfalen,090,Düren,11.2,281.1,5.3,21194,7.3
+Nordrhein-Westfalen,091,Rhein-Erft-Kreis I,12.9,647.5,2,22675,7.4
+Nordrhein-Westfalen,092,Euskirchen – Rhein-Erft-Kreis II,9.7,227,5.7,22190,6.7
+Nordrhein-Westfalen,093,Köln I,22.8,2318.6,0.4,22402,9.8
+Nordrhein-Westfalen,094,Köln II,14.6,3258.2,0.4,22402,9.8
+Nordrhein-Westfalen,095,Köln III,19.9,2519.6,0.4,22402,9.8
+Nordrhein-Westfalen,096,Bonn,17.2,2337.1,5.9,23471,8.1
+Nordrhein-Westfalen,097,Rhein-Sieg-Kreis I,10.5,476.6,3.5,24038,5.9
+Nordrhein-Westfalen,098,Rhein-Sieg-Kreis II,10.2,580.4,3,24038,5.9
+Nordrhein-Westfalen,099,Oberbergischer Kreis,9.8,296.1,1.6,23194,6.1
+Nordrhein-Westfalen,100,Rheinisch-Bergischer Kreis,9.5,647.7,2.6,26493,6.5
+Nordrhein-Westfalen,101,Leverkusen – Köln IV,19.2,2391.6,0.8,22064,9.2
+Nordrhein-Westfalen,102,Wuppertal I,21.7,2392.9,4.3,21480,10.3
+Nordrhein-Westfalen,103,Solingen – Remscheid – Wuppertal II,16.4,1550.7,3.5,22701,8.4
+Nordrhein-Westfalen,104,Mettmann I,11.7,1463.2,2.3,25684,7.2
+Nordrhein-Westfalen,105,Mettmann II,13.6,969.7,4.1,25684,7.2
+Nordrhein-Westfalen,106,Düsseldorf I,20.5,2559.6,3.1,26087,8.4
+Nordrhein-Westfalen,107,Düsseldorf II,20.9,3304.5,3.1,26087,8.4
+Nordrhein-Westfalen,108,Neuss I,13.5,849.7,2.4,25324,6.2
+Nordrhein-Westfalen,109,Mönchengladbach,16.6,1531.3,1.2,20841,10.9
+Nordrhein-Westfalen,110,Krefeld I – Neuss II,12.7,900.6,5.1,23742,8.5
+Nordrhein-Westfalen,111,Viersen,10.2,530.6,3.1,23204,6.3
+Nordrhein-Westfalen,112,Kleve,15.3,253.4,7.7,20716,5.8
+Nordrhein-Westfalen,113,Wesel I,7.9,295.8,3.7,22230,6.9
+Nordrhein-Westfalen,114,Krefeld II – Wesel II,14.3,1380.1,5.3,21935,9.1
+Nordrhein-Westfalen,115,Duisburg I,19.4,2062.4,2.2,17126,12.8
+Nordrhein-Westfalen,116,Duisburg II,23.3,2225.6,2.2,17126,12.8
+Nordrhein-Westfalen,117,Oberhausen – Wesel III,14.1,2229.6,3.1,19569,10
+Nordrhein-Westfalen,118,Mülheim – Essen I,14.5,2186.4,2.2,22330,9.8
+Nordrhein-Westfalen,119,Essen II,21.8,3642.6,0.4,20626,11.5
+Nordrhein-Westfalen,120,Essen III,12.4,2147.1,0.4,20626,11.5
+Nordrhein-Westfalen,121,Recklinghausen I,11.2,1295.3,-0.2,20426,9.2
+Nordrhein-Westfalen,122,Recklinghausen II,11.7,642.2,4.3,20426,9.2
+Nordrhein-Westfalen,123,Gelsenkirchen,20.6,2474.2,-0.9,16450,15.8
+Nordrhein-Westfalen,124,Steinfurt I – Borken I,11.9,282,3,22414,4.3
+Nordrhein-Westfalen,125,Bottrop – Recklinghausen III,11.4,870.4,3.4,20349,9
+Nordrhein-Westfalen,126,Borken II,7.5,261.7,1.3,22433,4
+Nordrhein-Westfalen,127,Coesfeld – Steinfurt II,6.7,196,4.1,23719,3.4
+Nordrhein-Westfalen,128,Steinfurt III,9,234.6,1.6,22402,4.5
+Nordrhein-Westfalen,129,Münster,10.8,1039.6,1.2,22954,5.3
+Nordrhein-Westfalen,130,Warendorf,10.6,210.6,2.2,23839,5.1
+Nordrhein-Westfalen,131,Gütersloh I,14,377.4,2.7,25242,4.6
+Nordrhein-Westfalen,132,Bielefeld – Gütersloh II,14.9,1173.6,2,23108,8.9
+Nordrhein-Westfalen,133,Herford – Minden-Lübbecke II,9.8,580.7,1.9,22784,6.1
+Nordrhein-Westfalen,134,Minden-Lübbecke I,7.7,240.7,1.5,23052,5.9
+Nordrhein-Westfalen,135,Lippe I,8.7,329.8,0.3,22592,6.4
+Nordrhein-Westfalen,136,Höxter – Gütersloh III – Lippe II,6.8,136.2,1.6,22548,4.9
+Nordrhein-Westfalen,137,Paderborn,9.4,246.9,2.9,21601,5.9
+Nordrhein-Westfalen,138,Hagen – Ennepe-Ruhr-Kreis I,16.9,885.4,3,21541,10.5
+Nordrhein-Westfalen,139,Ennepe-Ruhr-Kreis II,9.9,918,3.3,24441,7.1
+Nordrhein-Westfalen,140,Bochum I,13.9,2687.7,5.4,20048,9.8
+Nordrhein-Westfalen,141,Herne – Bochum II,15.6,2606.1,5.1,18665,11.3
+Nordrhein-Westfalen,142,Dortmund I,14.7,2243.7,2.5,19318,12.1
+Nordrhein-Westfalen,143,Dortmund II,21.3,1974.4,2.5,19318,12.1
+Nordrhein-Westfalen,144,Unna I,10.3,728.3,3.8,21494,8
+Nordrhein-Westfalen,145,Hamm – Unna II,13.9,762.1,5.4,19796,8.8
+Nordrhein-Westfalen,146,Soest,9.7,227.1,1.9,22746,6
+Nordrhein-Westfalen,147,Hochsauerlandkreis,9.1,132.5,1.1,24345,4.8
+Nordrhein-Westfalen,148,Siegen-Wittgenstein,10.9,244.5,-2.5,23302,6
+Nordrhein-Westfalen,149,Olpe – Märkischer Kreis I,12,237.7,-2.3,26336,6
+Nordrhein-Westfalen,150,Märkischer Kreis II,13.1,438.2,-1.2,24762,7.5
+Nordrhein-Westfalen,905,Land insgesamt,13.6,526.1,2.6,22294,7.9
+Sachsen,151,Nordsachsen,4.1,97.5,6.5,20340,7.4
+Sachsen,152,Leipzig I,10.2,1726.1,8.8,18825,8.3
+Sachsen,153,Leipzig II,9.1,2344.1,8.8,18825,8.3
+Sachsen,154,Leipzig-Land,2.5,156.3,7.6,21768,6.1
+Sachsen,155,Meißen,3.2,166.2,4.6,21310,6.3
+Sachsen,156,Bautzen I,2.3,113.5,1.6,20632,5.7
+Sachsen,157,Görlitz,4.6,119.7,1,19486,8.9
+Sachsen,158,Sächsische Schweiz-Osterzgebirge,2.9,148.5,5.7,20914,5.6
+Sachsen,159,Dresden I,9.8,3707.1,3.8,20112,6.7
+Sachsen,160,Dresden II – Bautzen II,5.2,723,4.7,20194,6.6
+Sachsen,161,Mittelsachsen,4,143.4,0.1,20571,5.5
+Sachsen,162,Chemnitz,8.5,1114.4,1.9,20366,7.9
+Sachsen,163,Chemnitzer Umland – Erzgebirgskreis II,1.9,237.2,2.5,20705,5.3
+Sachsen,164,Erzgebirgskreis I,2.3,164.4,-0.4,20492,5.3
+Sachsen,165,Zwickau,3.9,321.8,0.1,21056,5.3
+Sachsen,166,Vogtlandkreis,3.8,160,2,20424,6.1
+Sachsen,914,Land insgesamt,5.1,220.7,3.8,20335,6.6
+Hessen,167,Waldeck,8.2,108.1,3.2,22818,4.4
+Hessen,168,Kassel,15.2,852.4,4,20899,7.3
+Hessen,169,Werra-Meißner – Hersfeld-Rotenburg,9,104.3,3,21564,5
+Hessen,170,Schwalm-Eder,7.4,104.3,2.1,22413,4.4
+Hessen,171,Marburg,12,195.7,3.9,21581,4.6
+Hessen,172,Lahn-Dill,10.7,239.3,1.9,23504,5.7
+Hessen,173,Gießen,12.2,218.6,7.5,21486,5.8
+Hessen,174,Fulda,9.1,128.2,3.3,22678,3.8
+Hessen,175,Main-Kinzig – Wetterau II – Schotten,10.7,151.9,5.6,24511,5.2
+Hessen,176,Hochtaunus,14.6,310.6,3.3,32099,5.1
+Hessen,177,Wetterau I,13.6,325.9,7.6,24647,4.8
+Hessen,178,Rheingau-Taunus – Limburg,12.8,254.5,3.7,24946,5.1
+Hessen,179,Wiesbaden,19.8,1365.9,-1.6,25338,8.1
+Hessen,180,Hanau,19.2,756.8,6.6,24607,5.5
+Hessen,181,Main-Taunus,17.1,1050.4,3.4,29595,4.8
+Hessen,182,Frankfurt am Main I,33,4467,8.8,23436,7.3
+Hessen,183,Frankfurt am Main II,26.1,2348.1,8.8,23436,7.3
+Hessen,184,Groß-Gerau,22.7,608.6,3.6,22014,6.1
+Hessen,185,Offenbach,27.3,1520.8,5.7,22717,7.7
+Hessen,186,Darmstadt,17.5,778.7,2.1,24169,5.7
+Hessen,187,Odenwald,14.2,290.1,4.7,24193,5.4
+Hessen,188,Bergstraße,13.8,375.7,4.8,24752,4.3
+Hessen,906,Land insgesamt,16.6,297.8,4.5,23943,5.7
+Thüringen,189,Eichsfeld – Nordhausen – Kyffhäuserkreis,3.7,95.6,0.1,19239,7.2
+Thüringen,190,Eisenach – Wartburgkreis – Unstrut-Hainich-Kreis,4.3,112.1,0.1,19964,6.9
+Thüringen,191,Jena – Sömmerda – Weimarer Land I,6.4,156.6,2.9,19332,6.1
+Thüringen,192,Gotha – Ilm-Kreis,6.4,138.5,2,19466,6.1
+Thüringen,193,Erfurt – Weimar – Weimarer Land II,8.5,645.5,4.1,19288,6.9
+Thüringen,194,Gera – Greiz – Altenburger Land,4.3,178.6,-0.2,19952,7.2
+Thüringen,195,Saalfeld-Rudolstadt – Saale-Holzland-Kreis – Saale-Orla-Kreis,3.3,89.6,1.7,19948,5.8
+Thüringen,196,Suhl – Schmalkalden-Meiningen – Hildburghausen – Sonneberg,4.7,101.2,2.1,21062,5.4
+Thüringen,916,Land insgesamt,5.2,131.7,1.6,19793,6.4
+Rheinland-Pfalz,197,Neuwied,9.1,245.5,6.3,22885,5.7
+Rheinland-Pfalz,198,Ahrweiler,8.5,187.1,6.1,23360,4.3
+Rheinland-Pfalz,199,Koblenz,11.9,408.6,2.6,22354,5.3
+Rheinland-Pfalz,200,Mosel/Rhein-Hunsrück,8.5,95.7,5.2,23413,4.6
+Rheinland-Pfalz,201,Kreuznach,10.3,145.8,5.9,22375,6.7
+Rheinland-Pfalz,202,Bitburg,11.3,70.2,6.4,22568,3.7
+Rheinland-Pfalz,203,Trier,12.6,214,6.8,22735,4.7
+Rheinland-Pfalz,204,Montabaur,8.6,180.9,4.6,25189,3.7
+Rheinland-Pfalz,205,Mainz,15.5,756.6,5.7,24026,5.6
+Rheinland-Pfalz,206,Worms,11.9,310.6,3.9,23554,6.1
+Rheinland-Pfalz,207,Ludwigshafen/Frankenthal,20.3,1030.3,6,22368,8.1
+Rheinland-Pfalz,208,Neustadt – Speyer,10.6,332.4,6.3,26394,5.4
+Rheinland-Pfalz,209,Kaiserslautern,10.6,175.8,2.8,20843,7
+Rheinland-Pfalz,210,Pirmasens,8.4,160.4,2.3,21942,6.5
+Rheinland-Pfalz,211,Südpfalz,10.3,241.5,3.3,23448,5
+Rheinland-Pfalz,907,Land insgesamt,11.5,206.2,5,23197,5.6
+Bayern,212,Altötting,12.2,165.4,5.7,23613,4.1
+Bayern,213,Erding – Ebersberg,13.1,198.5,6.7,26354,2.9
+Bayern,214,Freising,14.9,187.4,5.3,25049,3.2
+Bayern,215,Fürstenfeldbruck,15.2,336.4,1.9,26114,3.5
+Bayern,216,Ingolstadt,13.7,183.2,2,24514,3.2
+Bayern,217,München-Nord,28.7,4247,5.8,32766,5.3
+Bayern,218,München-Ost,25.9,4909,5.8,32766,5.3
+Bayern,219,München-Süd,25.8,6478,5.8,32766,5.3
+Bayern,220,München-West/Mitte,24.7,4189.1,5.8,32766,5.3
+Bayern,221,München-Land,18,527.6,4.5,31122,3.5
+Bayern,222,Rosenheim,12.5,220,3.6,25321,3.7
+Bayern,223,Bad Tölz-Wolfratshausen – Miesbach,12.9,115.3,6,27813,3.6
+Bayern,224,Starnberg – Landsberg am Lech,13,226.4,3.7,30346,3.7
+Bayern,225,Traunstein,12.6,119.3,4.1,23729,4.6
+Bayern,226,Weilheim,11.1,113.2,3,25229,4
+Bayern,227,Deggendorf,7.6,109,3.6,22603,4.6
+Bayern,228,Landshut,13.4,149,8.5,24351,4.2
+Bayern,229,Passau,10.5,154.1,7,21866,4.9
+Bayern,230,Rottal-Inn,11.2,99.1,7.9,24283,4.3
+Bayern,231,Straubing,9.3,100.9,3.2,22553,5.3
+Bayern,232,Amberg,8.5,105.6,5.7,23575,3.5
+Bayern,233,Regensburg,12.5,244.8,1.7,23694,4
+Bayern,234,Schwandorf,7.6,92.2,5.6,22562,4.3
+Bayern,235,Weiden,6.5,81,2.7,22271,4.4
+Bayern,236,Bamberg,9.4,240.4,0.3,23361,3.9
+Bayern,237,Bayreuth,7.3,125.4,4.4,22384,4.3
+Bayern,238,Coburg,6.5,151.1,0.8,24869,4.6
+Bayern,239,Hof,9.6,136.6,0.9,21897,5.3
+Bayern,240,Kulmbach,5.1,121,2,23067,3.9
+Bayern,241,Ansbach,9.8,105.6,4.7,23188,3.7
+Bayern,242,Erlangen,13.2,356.8,7.2,25526,3.6
+Bayern,243,Fürth,12.4,218.1,6.3,24207,4.4
+Bayern,244,Nürnberg-Nord,24,3385.6,0.6,22748,6.7
+Bayern,245,Nürnberg-Süd,21,1901.3,1.5,23272,6.4
+Bayern,246,Roth,8.4,175.6,2.7,25307,3.1
+Bayern,247,Aschaffenburg,11.8,322.1,3.1,24564,4.6
+Bayern,248,Bad Kissingen,5.3,85.8,2.5,22733,3.6
+Bayern,249,Main-Spessart,9.4,125.1,1.5,23464,3.4
+Bayern,250,Schweinfurt,10.1,166.6,1.8,22848,3.7
+Bayern,251,Würzburg,9,274.9,2.5,23974,3.4
+Bayern,252,Augsburg-Stadt,21.6,1964.4,4.1,20487,6.4
+Bayern,253,Augsburg-Land,9.6,217.1,8.5,25308,3.3
+Bayern,254,Donau-Ries,9.6,109.2,5.1,24897,2.8
+Bayern,255,Neu-Ulm,14,200.4,7.5,24545,3.2
+Bayern,256,Oberallgäu,11.9,160.4,5.5,24629,3.8
+Bayern,257,Ostallgäu,11.8,145.9,9.1,24550,3.5
+Bayern,909,Land insgesamt,13.6,186.1,4.5,25309,4.2
+Baden-Württemberg,258,Stuttgart I,22.1,2732.3,-0.2,25788,5.6
+Baden-Württemberg,259,Stuttgart II,27.7,3474.2,-0.2,25788,5.6
+Baden-Württemberg,260,Böblingen,18.7,657,1.8,25597,4.1
+Baden-Württemberg,261,Esslingen,19.2,1205.7,2.1,25582,4.4
+Baden-Württemberg,262,Nürtingen,16.4,642.2,2.6,25583,4.4
+Baden-Württemberg,263,Göppingen,17,401.9,5.1,24173,4.9
+Baden-Württemberg,264,Waiblingen,16.5,628.1,2.1,25631,4.6
+Baden-Württemberg,265,Ludwigsburg,19.1,914.1,0,26189,3.7
+Baden-Württemberg,266,Neckar-Zaber,15.7,516.3,4.6,25798,3.8
+Baden-Württemberg,267,Heilbronn,19,400.1,3.3,29132,4.8
+Baden-Württemberg,268,Schwäbisch Hall – Hohenlohe,11.7,136.9,5.6,24003,3.6
+Baden-Württemberg,269,Backnang – Schwäbisch Gmünd,13.5,293.5,4.4,25038,4.2
+Baden-Württemberg,270,Aalen – Heidenheim,12.7,185.7,3.2,23924,4.4
+Baden-Württemberg,271,Karlsruhe-Stadt,18.8,1799.4,-1,22814,5.2
+Baden-Württemberg,272,Karlsruhe-Land,13.3,399.6,5.2,24295,3.8
+Baden-Württemberg,273,Rastatt,15.5,326.2,5.1,25333,4.5
+Baden-Württemberg,274,Heidelberg,16.6,1062.7,3.1,24496,5
+Baden-Württemberg,275,Mannheim,23.9,2142.9,4.9,22054,7.7
+Baden-Württemberg,276,Odenwald – Tauber,10,113.6,3.7,23078,4
+Baden-Württemberg,277,Rhein-Neckar,12.7,374,1.7,25278,4.7
+Baden-Württemberg,278,Bruchsal – Schwetzingen,13.8,537.2,3.7,24708,4.2
+Baden-Württemberg,279,Pforzheim,18.7,484.7,4.1,24661,5.2
+Baden-Württemberg,280,Calw,14.1,166.4,5.7,24611,4.1
+Baden-Württemberg,281,Freiburg,15.5,708.4,1.9,22899,5.3
+Baden-Württemberg,282,Lörrach – Müllheim,14.8,280.7,3.6,26699,4.7
+Baden-Württemberg,283,Emmendingen – Lahr,11.6,247.6,6.1,23747,3.8
+Baden-Württemberg,284,Offenburg,12,254.4,5.1,23948,4
+Baden-Württemberg,285,Rottweil – Tuttlingen,14.6,186.6,4.5,25665,3.7
+Baden-Württemberg,286,Schwarzwald-Baar,15.5,184.2,1.7,24906,4.6
+Baden-Württemberg,287,Konstanz,15.4,350,4.8,25486,4.7
+Baden-Württemberg,288,Waldshut,14.7,134.1,2.8,25384,4.2
+Baden-Württemberg,289,Reutlingen,15.9,262.7,2.8,24763,4.6
+Baden-Württemberg,290,Tübingen,13.7,353,4.2,23995,3.6
+Baden-Württemberg,291,Ulm,16.2,219.2,4.1,24607,3.7
+Baden-Württemberg,292,Biberach,10.9,131.9,5.4,24084,2.9
+Baden-Württemberg,293,Bodensee,13.6,277.9,6.9,26222,3.6
+Baden-Württemberg,294,Ravensburg,11.6,198.1,4.2,24132,3.4
+Baden-Württemberg,295,Zollernalb – Sigmaringen,12.3,150.2,3.4,24495,4.1
+Baden-Württemberg,908,Land insgesamt,15.9,310.5,3.4,24892,4.4
+Saarland,296,Saarbrücken,16.4,833.3,2,19205,10.3
+Saarland,297,Saarlouis,10.9,293.8,2.1,20022,5.7
+Saarland,298,St. Wendel,6.5,265.1,2.7,20799,6.3
+Saarland,299,Homburg,10.9,437.1,2,21301,7
+Saarland,910,Land insgesamt,11.4,383.8,2.2,20277,7.4
+Deutschland,999,Insgesamt,12.5,232.6,3.9,22899,6.3
