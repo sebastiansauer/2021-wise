@@ -1,0 +1,317 @@
+Gebietsart,Gebietsnummer,Gebietsname,UegGebietsart,UegGebietsnummer,Gruppenart,Gruppenname,Stimme,Prozent,DiffProzentPkt
+Bund,99,Deutschland,NA,NA,Partei,AfD,2,10.343869,-2.293028
+Land,01,Schleswig-Holstein,BUND,99,Partei,AfD,2,6.782909,-1.398406
+Land,13,Mecklenburg-Vorpommern,BUND,99,Partei,AfD,2,17.994273,-0.594098
+Land,02,Hamburg,BUND,99,Partei,AfD,2,5.025837,-2.79643
+Land,03,Niedersachsen,BUND,99,Partei,AfD,2,7.43793,-1.651035
+Land,04,Bremen,BUND,99,Partei,AfD,2,6.881783,-3.121738
+Land,12,Brandenburg,BUND,99,Partei,AfD,2,18.135735,-2.061256
+Land,15,Sachsen-Anhalt,BUND,99,Partei,AfD,2,19.592659,-0.038259
+Land,11,Berlin,BUND,99,Partei,AfD,2,8.4143,-3.633049
+Land,05,Nordrhein-Westfalen,BUND,99,Partei,AfD,2,7.256349,-2.166055
+Land,14,Sachsen,BUND,99,Partei,AfD,2,24.647559,-2.372644
+Land,06,Hessen,BUND,99,Partei,AfD,2,8.815351,-3.090409
+Land,16,Thüringen,BUND,99,Partei,AfD,2,23.972675,1.25496
+Land,07,Rheinland-Pfalz,BUND,99,Partei,AfD,2,9.219837,-2.026188
+Land,09,Bayern,BUND,99,Partei,AfD,2,8.980147,-3.413658
+Land,08,Baden-Württemberg,BUND,99,Partei,AfD,2,9.602834,-2.586435
+Land,10,Saarland,BUND,99,Partei,AfD,2,10.045706,-0.021649
+Wahlkreis,001,Flensburg – Schleswig,LAND,01,Partei,AfD,2,5.775787,-1.06022
+Wahlkreis,002,Nordfriesland – Dithmarschen Nord,LAND,01,Partei,AfD,2,6.103576,-0.436537
+Wahlkreis,003,Steinburg – Dithmarschen Süd,LAND,01,Partei,AfD,2,8.365838,-0.176469
+Wahlkreis,004,Rendsburg-Eckernförde,LAND,01,Partei,AfD,2,6.563325,-0.845789
+Wahlkreis,005,Kiel,LAND,01,Partei,AfD,2,4.935899,-1.971492
+Wahlkreis,006,Plön – Neumünster,LAND,01,Partei,AfD,2,7.3502,-1.201373
+Wahlkreis,007,Pinneberg,LAND,01,Partei,AfD,2,6.874442,-1.698198
+Wahlkreis,008,Segeberg – Stormarn-Mitte,LAND,01,Partei,AfD,2,7.327062,-1.616125
+Wahlkreis,009,Ostholstein – Stormarn-Nord,LAND,01,Partei,AfD,2,7.095361,-1.486161
+Wahlkreis,010,Herzogtum Lauenburg – Stormarn-Süd,LAND,01,Partei,AfD,2,7.506634,-2.282345
+Wahlkreis,011,Lübeck,LAND,01,Partei,AfD,2,6.777644,-2.112598
+Wahlkreis,012,Schwerin – Ludwigslust-Parchim I – Nordwestmecklenburg I,LAND,13,Partei,AfD,2,15.687941,-0.843708
+Wahlkreis,013,Ludwigslust-Parchim II – Nordwestmecklenburg II – Landkreis Rostock I,LAND,13,Partei,AfD,2,17.121662,-0.580649
+Wahlkreis,014,Rostock – Landkreis Rostock II,LAND,13,Partei,AfD,2,12.675408,-2.831424
+Wahlkreis,015,Vorpommern-Rügen – Vorpommern-Greifswald I,LAND,13,Partei,AfD,2,18.882367,-0.758399
+Wahlkreis,016,Mecklenburgische Seenplatte I – Vorpommern-Greifswald II,LAND,13,Partei,AfD,2,23.240509,0.248254
+Wahlkreis,017,Mecklenburgische Seenplatte II – Landkreis Rostock III,LAND,13,Partei,AfD,2,20.895893,1.672496
+Wahlkreis,018,Hamburg-Mitte,LAND,02,Partei,AfD,2,5.096469,-2.901557
+Wahlkreis,019,Hamburg-Altona,LAND,02,Partei,AfD,2,3.311088,-2.216847
+Wahlkreis,020,Hamburg-Eimsbüttel,LAND,02,Partei,AfD,2,3.530696,-2.357077
+Wahlkreis,021,Hamburg-Nord,LAND,02,Partei,AfD,2,3.687781,-2.47557
+Wahlkreis,022,Hamburg-Wandsbek,LAND,02,Partei,AfD,2,6.532771,-3.234831
+Wahlkreis,023,Hamburg-Bergedorf – Harburg,LAND,02,Partei,AfD,2,8.04881,-3.43471
+Wahlkreis,024,Aurich – Emden,LAND,03,Partei,AfD,2,8.203739,-0.924289
+Wahlkreis,025,Unterems,LAND,03,Partei,AfD,2,8.175538,-0.18104
+Wahlkreis,026,Friesland – Wilhelmshaven – Wittmund,LAND,03,Partei,AfD,2,8.23817,-0.839128
+Wahlkreis,027,Oldenburg – Ammerland,LAND,03,Partei,AfD,2,5.159664,-2.067796
+Wahlkreis,028,Delmenhorst – Wesermarsch – Oldenburg-Land,LAND,03,Partei,AfD,2,8.008856,-1.700952
+Wahlkreis,029,Cuxhaven – Stade II,LAND,03,Partei,AfD,2,7.873114,-1.116433
+Wahlkreis,030,Stade I – Rotenburg II,LAND,03,Partei,AfD,2,7.291598,-1.587143
+Wahlkreis,031,Mittelems,LAND,03,Partei,AfD,2,5.146596,-0.277442
+Wahlkreis,032,Cloppenburg – Vechta,LAND,03,Partei,AfD,2,7.818698,-0.269736
+Wahlkreis,033,Diepholz – Nienburg I,LAND,03,Partei,AfD,2,7.105472,-1.337065
+Wahlkreis,034,Osterholz – Verden,LAND,03,Partei,AfD,2,7.541656,-2.125797
+Wahlkreis,035,Rotenburg I – Heidekreis,LAND,03,Partei,AfD,2,8.006989,-1.248071
+Wahlkreis,036,Harburg,LAND,03,Partei,AfD,2,7.260703,-2.715362
+Wahlkreis,037,Lüchow-Dannenberg – Lüneburg,LAND,03,Partei,AfD,2,6.621725,-2.296563
+Wahlkreis,038,Osnabrück-Land,LAND,03,Partei,AfD,2,6.692233,-0.591631
+Wahlkreis,039,Stadt Osnabrück,LAND,03,Partei,AfD,2,4.648172,-1.635524
+Wahlkreis,040,Nienburg II – Schaumburg,LAND,03,Partei,AfD,2,8.769183,-1.491435
+Wahlkreis,041,Stadt Hannover I,LAND,03,Partei,AfD,2,6.017118,-3.117056
+Wahlkreis,042,Stadt Hannover II,LAND,03,Partei,AfD,2,4.740611,-2.849992
+Wahlkreis,043,Hannover-Land I,LAND,03,Partei,AfD,2,7.698232,-2.483832
+Wahlkreis,044,Celle – Uelzen,LAND,03,Partei,AfD,2,9.196582,-1.706117
+Wahlkreis,045,Gifhorn – Peine,LAND,03,Partei,AfD,2,9.736092,-1.177958
+Wahlkreis,046,Hameln-Pyrmont – Holzminden,LAND,03,Partei,AfD,2,8.806389,-1.328245
+Wahlkreis,047,Hannover-Land II,LAND,03,Partei,AfD,2,7.733455,-2.635711
+Wahlkreis,048,Hildesheim,LAND,03,Partei,AfD,2,7.611186,-1.71459
+Wahlkreis,049,Salzgitter – Wolfenbüttel,LAND,03,Partei,AfD,2,9.892123,-2.383193
+Wahlkreis,050,Braunschweig,LAND,03,Partei,AfD,2,5.91411,-2.450987
+Wahlkreis,051,Helmstedt – Wolfsburg,LAND,03,Partei,AfD,2,9.474165,-1.452812
+Wahlkreis,052,Goslar – Northeim – Osterode,LAND,03,Partei,AfD,2,8.304817,-1.797326
+Wahlkreis,053,Göttingen,LAND,03,Partei,AfD,2,6.103989,-1.837
+Wahlkreis,054,Bremen I,LAND,04,Partei,AfD,2,5.309414,-3.028032
+Wahlkreis,055,Bremen II – Bremerhaven,LAND,04,Partei,AfD,2,8.921381,-3.209735
+Wahlkreis,056,Prignitz – Ostprignitz-Ruppin – Havelland I,LAND,12,Partei,AfD,2,19.18964,0.455264
+Wahlkreis,057,Uckermark – Barnim I,LAND,12,Partei,AfD,2,19.9217,-0.861346
+Wahlkreis,058,Oberhavel – Havelland II,LAND,12,Partei,AfD,2,15.947651,-2.664145
+Wahlkreis,059,Märkisch-Oderland – Barnim II,LAND,12,Partei,AfD,2,18.235166,-2.457635
+Wahlkreis,060,Brandenburg an der Havel – Potsdam-Mittelmark I – Havelland III – Teltow-Fläming I,LAND,12,Partei,AfD,2,16.379423,-1.304932
+Wahlkreis,061,Potsdam – Potsdam-Mittelmark II – Teltow-Fläming II,LAND,12,Partei,AfD,2,9.877968,-3.415004
+Wahlkreis,062,Dahme-Spreewald – Teltow-Fläming III – Oberspreewald-Lausitz I,LAND,12,Partei,AfD,2,17.947635,-3.097739
+Wahlkreis,063,Frankfurt (Oder) – Oder-Spree,LAND,12,Partei,AfD,2,20.156483,-1.928619
+Wahlkreis,064,Cottbus – Spree-Neiße,LAND,12,Partei,AfD,2,24.281143,-2.563076
+Wahlkreis,065,Elbe-Elster – Oberspreewald-Lausitz II,LAND,12,Partei,AfD,2,25.196684,-0.030712
+Wahlkreis,066,Altmark,LAND,15,Partei,AfD,2,19.14631,2.380884
+Wahlkreis,067,Börde – Jerichower Land,LAND,15,Partei,AfD,2,20.143846,1.30032
+Wahlkreis,068,Harz,LAND,15,Partei,AfD,2,18.088289,1.229792
+Wahlkreis,069,Magdeburg,LAND,15,Partei,AfD,2,15.08907,-1.114119
+Wahlkreis,070,Dessau – Wittenberg,LAND,15,Partei,AfD,2,18.978845,-1.003248
+Wahlkreis,071,Anhalt,LAND,15,Partei,AfD,2,22.556495,0.329463
+Wahlkreis,072,Halle,LAND,15,Partei,AfD,2,14.884801,-2.898344
+Wahlkreis,073,Burgenland – Saalekreis,LAND,15,Partei,AfD,2,24.883809,0.287796
+Wahlkreis,074,Mansfeld,LAND,15,Partei,AfD,2,23.921387,0.009604
+Wahlkreis,075,Berlin-Mitte,LAND,11,Partei,AfD,2,5.141638,-3.081564
+Wahlkreis,076,Berlin-Pankow,LAND,11,Partei,AfD,2,8.751864,-3.739296
+Wahlkreis,077,Berlin-Reinickendorf,LAND,11,Partei,AfD,2,9.766559,-3.936117
+Wahlkreis,078,Berlin-Spandau – Charlottenburg Nord,LAND,11,Partei,AfD,2,10.348177,-3.786755
+Wahlkreis,079,Berlin-Steglitz-Zehlendorf,LAND,11,Partei,AfD,2,5.669959,-3.172389
+Wahlkreis,080,Berlin-Charlottenburg-Wilmersdorf,LAND,11,Partei,AfD,2,4.793118,-3.106172
+Wahlkreis,081,Berlin-Tempelhof-Schöneberg,LAND,11,Partei,AfD,2,6.227696,-3.325523
+Wahlkreis,082,Berlin-Neukölln,LAND,11,Partei,AfD,2,7.425681,-3.82081
+Wahlkreis,083,Berlin-Friedrichshain-Kreuzberg – Prenzlauer Berg Ost,LAND,11,Partei,AfD,2,4.095147,-2.229965
+Wahlkreis,084,Berlin-Treptow-Köpenick,LAND,11,Partei,AfD,2,12.267043,-4.665967
+Wahlkreis,085,Berlin-Marzahn-Hellersdorf,LAND,11,Partei,AfD,2,16.848102,-4.780507
+Wahlkreis,086,Berlin-Lichtenberg,LAND,11,Partei,AfD,2,12.487488,-4.234913
+Wahlkreis,087,Aachen I,LAND,05,Partei,AfD,2,3.896104,-2.020163
+Wahlkreis,088,Aachen II,LAND,05,Partei,AfD,2,7.338826,-1.316416
+Wahlkreis,089,Heinsberg,LAND,05,Partei,AfD,2,7.889783,-0.849659
+Wahlkreis,090,Düren,LAND,05,Partei,AfD,2,8.657784,-0.954962
+Wahlkreis,091,Rhein-Erft-Kreis I,LAND,05,Partei,AfD,2,6.937399,-2.590799
+Wahlkreis,092,Euskirchen – Rhein-Erft-Kreis II,LAND,05,Partei,AfD,2,7.786735,-2.055044
+Wahlkreis,093,Köln I,LAND,05,Partei,AfD,2,5.97016,-2.895101
+Wahlkreis,094,Köln II,LAND,05,Partei,AfD,2,2.883039,-2.172827
+Wahlkreis,095,Köln III,LAND,05,Partei,AfD,2,5.10097,-2.744541
+Wahlkreis,096,Bonn,LAND,05,Partei,AfD,2,4.201817,-3.128213
+Wahlkreis,097,Rhein-Sieg-Kreis I,LAND,05,Partei,AfD,2,7.28172,-2.697105
+Wahlkreis,098,Rhein-Sieg-Kreis II,LAND,05,Partei,AfD,2,6.014673,-2.778198
+Wahlkreis,099,Oberbergischer Kreis,LAND,05,Partei,AfD,2,9.586322,-1.000388
+Wahlkreis,100,Rheinisch-Bergischer Kreis,LAND,05,Partei,AfD,2,5.714172,-2.271152
+Wahlkreis,101,Leverkusen – Köln IV,LAND,05,Partei,AfD,2,7.16732,-2.571735
+Wahlkreis,102,Wuppertal I,LAND,05,Partei,AfD,2,8.31505,-2.744606
+Wahlkreis,103,Solingen – Remscheid – Wuppertal II,LAND,05,Partei,AfD,2,7.709379,-2.27468
+Wahlkreis,104,Mettmann I,LAND,05,Partei,AfD,2,6.732446,-2.725036
+Wahlkreis,105,Mettmann II,LAND,05,Partei,AfD,2,7.408131,-2.175604
+Wahlkreis,106,Düsseldorf I,LAND,05,Partei,AfD,2,4.299983,-2.697283
+Wahlkreis,107,Düsseldorf II,LAND,05,Partei,AfD,2,6.012076,-3.085338
+Wahlkreis,108,Neuss I,LAND,05,Partei,AfD,2,7.018874,-2.357288
+Wahlkreis,109,Mönchengladbach,LAND,05,Partei,AfD,2,7.508275,-1.948603
+Wahlkreis,110,Krefeld I – Neuss II,LAND,05,Partei,AfD,2,6.042925,-1.80713
+Wahlkreis,111,Viersen,LAND,05,Partei,AfD,2,5.960795,-1.504122
+Wahlkreis,112,Kleve,LAND,05,Partei,AfD,2,5.673659,-1.257714
+Wahlkreis,113,Wesel I,LAND,05,Partei,AfD,2,6.89292,-2.110965
+Wahlkreis,114,Krefeld II – Wesel II,LAND,05,Partei,AfD,2,7.035126,-2.159773
+Wahlkreis,115,Duisburg I,LAND,05,Partei,AfD,2,8.335459,-2.991621
+Wahlkreis,116,Duisburg II,LAND,05,Partei,AfD,2,12.179157,-3.336797
+Wahlkreis,117,Oberhausen – Wesel III,LAND,05,Partei,AfD,2,9.095517,-3.37249
+Wahlkreis,118,Mülheim – Essen I,LAND,05,Partei,AfD,2,8.034548,-3.402011
+Wahlkreis,119,Essen II,LAND,05,Partei,AfD,2,11.034489,-3.92591
+Wahlkreis,120,Essen III,LAND,05,Partei,AfD,2,5.522711,-2.833095
+Wahlkreis,121,Recklinghausen I,LAND,05,Partei,AfD,2,9.05025,-2.974912
+Wahlkreis,122,Recklinghausen II,LAND,05,Partei,AfD,2,9.157659,-3.305247
+Wahlkreis,123,Gelsenkirchen,LAND,05,Partei,AfD,2,12.76374,-4.271647
+Wahlkreis,124,Steinfurt I – Borken I,LAND,05,Partei,AfD,2,5.377792,-0.950588
+Wahlkreis,125,Bottrop – Recklinghausen III,LAND,05,Partei,AfD,2,9.4152,-3.015538
+Wahlkreis,126,Borken II,LAND,05,Partei,AfD,2,4.789305,-1.199005
+Wahlkreis,127,Coesfeld – Steinfurt II,LAND,05,Partei,AfD,2,4.581663,-1.512313
+Wahlkreis,128,Steinfurt III,LAND,05,Partei,AfD,2,5.987757,-0.843922
+Wahlkreis,129,Münster,LAND,05,Partei,AfD,2,2.86663,-2.073778
+Wahlkreis,130,Warendorf,LAND,05,Partei,AfD,2,6.398294,-1.017953
+Wahlkreis,131,Gütersloh I,LAND,05,Partei,AfD,2,7.45677,-1.159615
+Wahlkreis,132,Bielefeld – Gütersloh II,LAND,05,Partei,AfD,2,6.75923,-2.185824
+Wahlkreis,133,Herford – Minden-Lübbecke II,LAND,05,Partei,AfD,2,9.549498,-1.284578
+Wahlkreis,134,Minden-Lübbecke I,LAND,05,Partei,AfD,2,9.165281,-1.410441
+Wahlkreis,135,Lippe I,LAND,05,Partei,AfD,2,9.825541,-0.966335
+Wahlkreis,136,Höxter – Lippe II,LAND,05,Partei,AfD,2,8.665695,-0.932087
+Wahlkreis,137,Paderborn – Gütersloh III,LAND,05,Partei,AfD,2,8.113819,-1.799447
+Wahlkreis,138,Hagen – Ennepe-Ruhr-Kreis I,LAND,05,Partei,AfD,2,9.581572,-2.261647
+Wahlkreis,139,Ennepe-Ruhr-Kreis II,LAND,05,Partei,AfD,2,7.114223,-2.554164
+Wahlkreis,140,Bochum I,LAND,05,Partei,AfD,2,6.661979,-3.093711
+Wahlkreis,141,Herne – Bochum II,LAND,05,Partei,AfD,2,9.752054,-3.688534
+Wahlkreis,142,Dortmund I,LAND,05,Partei,AfD,2,6.938544,-2.870846
+Wahlkreis,143,Dortmund II,LAND,05,Partei,AfD,2,7.906716,-2.983914
+Wahlkreis,144,Unna I,LAND,05,Partei,AfD,2,7.777536,-2.042627
+Wahlkreis,145,Hamm – Unna II,LAND,05,Partei,AfD,2,9.255919,-1.978063
+Wahlkreis,146,Soest,LAND,05,Partei,AfD,2,7.988573,-1.351362
+Wahlkreis,147,Hochsauerlandkreis,LAND,05,Partei,AfD,2,7.416363,-0.577669
+Wahlkreis,148,Siegen-Wittgenstein,LAND,05,Partei,AfD,2,9.136138,-1.521234
+Wahlkreis,149,Olpe – Märkischer Kreis I,LAND,05,Partei,AfD,2,8.524705,-0.627976
+Wahlkreis,150,Märkischer Kreis II,LAND,05,Partei,AfD,2,9.173398,-2.397652
+Wahlkreis,151,Nordsachsen,LAND,14,Partei,AfD,2,27.230653,0.377363
+Wahlkreis,152,Leipzig I,LAND,14,Partei,AfD,2,15.557719,-5.258263
+Wahlkreis,153,Leipzig II,LAND,14,Partei,AfD,2,11.239623,-4.742286
+Wahlkreis,154,Leipzig-Land,LAND,14,Partei,AfD,2,23.969286,-2.89735
+Wahlkreis,155,Meißen,LAND,14,Partei,AfD,2,29.770858,-3.1057
+Wahlkreis,156,Bautzen I,LAND,14,Partei,AfD,2,31.861122,-0.901623
+Wahlkreis,157,Görlitz,LAND,14,Partei,AfD,2,32.533296,-0.35182
+Wahlkreis,158,Sächsische Schweiz-Osterzgebirge,LAND,14,Partei,AfD,2,31.928178,-3.536761
+Wahlkreis,159,Dresden I,LAND,14,Partei,AfD,2,17.872762,-5.21274
+Wahlkreis,160,Dresden II – Bautzen II,LAND,14,Partei,AfD,2,19.150023,-4.140682
+Wahlkreis,161,Mittelsachsen,LAND,14,Partei,AfD,2,30.016028,-1.230068
+Wahlkreis,162,Chemnitz,LAND,14,Partei,AfD,2,21.556968,-2.74944
+Wahlkreis,163,Chemnitzer Umland – Erzgebirgskreis II,LAND,14,Partei,AfD,2,27.342589,0.556472
+Wahlkreis,164,Erzgebirgskreis I,LAND,14,Partei,AfD,2,30.565979,1.321783
+Wahlkreis,165,Zwickau,LAND,14,Partei,AfD,2,25.147376,-1.033005
+Wahlkreis,166,Vogtlandkreis,LAND,14,Partei,AfD,2,25.056007,-1.365074
+Wahlkreis,167,Waldeck,LAND,06,Partei,AfD,2,9.481561,-2.179528
+Wahlkreis,168,Kassel,LAND,06,Partei,AfD,2,7.549012,-2.903036
+Wahlkreis,169,Werra-Meißner – Hersfeld-Rotenburg,LAND,06,Partei,AfD,2,11.547285,-1.555174
+Wahlkreis,170,Schwalm-Eder,LAND,06,Partei,AfD,2,10.811879,-2.123278
+Wahlkreis,171,Marburg,LAND,06,Partei,AfD,2,8.952798,-2.500756
+Wahlkreis,172,Lahn-Dill,LAND,06,Partei,AfD,2,11.567371,-2.130838
+Wahlkreis,173,Gießen,LAND,06,Partei,AfD,2,9.289802,-3.0999660000000002
+Wahlkreis,174,Fulda,LAND,06,Partei,AfD,2,13.260649,-2.585509
+Wahlkreis,175,Main-Kinzig – Wetterau II – Schotten,LAND,06,Partei,AfD,2,12.647645,-2.736914
+Wahlkreis,176,Hochtaunus,LAND,06,Partei,AfD,2,7.818786,-3.336813
+Wahlkreis,177,Wetterau I,LAND,06,Partei,AfD,2,8.509584,-3.074004
+Wahlkreis,178,Rheingau-Taunus – Limburg,LAND,06,Partei,AfD,2,8.518788,-3.36701
+Wahlkreis,179,Wiesbaden,LAND,06,Partei,AfD,2,7.109279,-4.101104
+Wahlkreis,180,Hanau,LAND,06,Partei,AfD,2,10.225064,-3.851098
+Wahlkreis,181,Main-Taunus,LAND,06,Partei,AfD,2,6.671956,-3.648517
+Wahlkreis,182,Frankfurt am Main I,LAND,06,Partei,AfD,2,5.457593,-3.857689
+Wahlkreis,183,Frankfurt am Main II,LAND,06,Partei,AfD,2,4.715205,-3.328807
+Wahlkreis,184,Groß-Gerau,LAND,06,Partei,AfD,2,8.814585,-3.338945
+Wahlkreis,185,Offenbach,LAND,06,Partei,AfD,2,7.764386,-4.046345
+Wahlkreis,186,Darmstadt,LAND,06,Partei,AfD,2,6.519879,-3.278676
+Wahlkreis,187,Odenwald,LAND,06,Partei,AfD,2,9.02352,-3.190782
+Wahlkreis,188,Bergstraße,LAND,06,Partei,AfD,2,9.493341,-3.43578
+Wahlkreis,189,Eichsfeld – Nordhausen – Kyffhäuserkreis,LAND,16,Partei,AfD,2,22.462961,1.393115
+Wahlkreis,190,Eisenach – Wartburgkreis – Unstrut-Hainich-Kreis,LAND,16,Partei,AfD,2,24.46943,2.193794
+Wahlkreis,191,Jena – Sömmerda – Weimarer Land I,LAND,16,Partei,AfD,2,19.834835000000002,-0.005275
+Wahlkreis,192,Gotha – Ilm-Kreis,LAND,16,Partei,AfD,2,25.966953,1.878286
+Wahlkreis,193,Erfurt – Weimar – Weimarer Land II,LAND,16,Partei,AfD,2,16.244439,-1.91057
+Wahlkreis,194,Gera – Greiz – Altenburger Land,LAND,16,Partei,AfD,2,28.100552,0.992084
+Wahlkreis,195,Saalfeld-Rudolstadt – Saale-Holzland-Kreis – Saale-Orla-Kreis,LAND,16,Partei,AfD,2,28.17407,2.448501
+Wahlkreis,196,Suhl – Schmalkalden-Meiningen – Hildburghausen – Sonneberg,LAND,16,Partei,AfD,2,26.354472,3.310943
+Wahlkreis,197,Neuwied,LAND,07,Partei,AfD,2,9.708641,-1.05479
+Wahlkreis,198,Ahrweiler,LAND,07,Partei,AfD,2,7.697485,-1.927887
+Wahlkreis,199,Koblenz,LAND,07,Partei,AfD,2,7.145843,-2.010804
+Wahlkreis,200,Mosel/Rhein-Hunsrück,LAND,07,Partei,AfD,2,8.300191,-0.671867
+Wahlkreis,201,Kreuznach,LAND,07,Partei,AfD,2,9.885993,-1.833769
+Wahlkreis,202,Bitburg,LAND,07,Partei,AfD,2,7.146456,-0.896855
+Wahlkreis,203,Trier,LAND,07,Partei,AfD,2,6.18069,-1.77629
+Wahlkreis,204,Montabaur,LAND,07,Partei,AfD,2,8.951454,-2.068644
+Wahlkreis,205,Mainz,LAND,07,Partei,AfD,2,5.381841,-2.849482
+Wahlkreis,206,Worms,LAND,07,Partei,AfD,2,10.334179,-2.774103
+Wahlkreis,207,Ludwigshafen/Frankenthal,LAND,07,Partei,AfD,2,11.793838,-3.659231
+Wahlkreis,208,Neustadt – Speyer,LAND,07,Partei,AfD,2,10.154826,-2.504563
+Wahlkreis,209,Kaiserslautern,LAND,07,Partei,AfD,2,12.36206,-1.307505
+Wahlkreis,210,Pirmasens,LAND,07,Partei,AfD,2,13.140763,-0.913307
+Wahlkreis,211,Südpfalz,LAND,07,Partei,AfD,2,10.432825,-3.176358
+Wahlkreis,212,Altötting,LAND,09,Partei,AfD,2,10.826344,-3.731674
+Wahlkreis,213,Erding – Ebersberg,LAND,09,Partei,AfD,2,7.295812,-4.61425
+Wahlkreis,214,Freising,LAND,09,Partei,AfD,2,9.069537,-4.493857
+Wahlkreis,215,Fürstenfeldbruck,LAND,09,Partei,AfD,2,6.884995,-4.668519
+Wahlkreis,216,Ingolstadt,LAND,09,Partei,AfD,2,10.021497,-5.11318
+Wahlkreis,217,München-Nord,LAND,09,Partei,AfD,2,4.716927,-3.916838
+Wahlkreis,218,München-Ost,LAND,09,Partei,AfD,2,4.645291,-3.927074
+Wahlkreis,219,München-Süd,LAND,09,Partei,AfD,2,4.588939,-3.995242
+Wahlkreis,220,München-West/Mitte,LAND,09,Partei,AfD,2,4.251992,-3.480809
+Wahlkreis,221,München-Land,LAND,09,Partei,AfD,2,5.281204,-4.1247490000000004
+Wahlkreis,222,Rosenheim,LAND,09,Partei,AfD,2,8.695378,-5.160664
+Wahlkreis,223,Bad Tölz-Wolfratshausen – Miesbach,LAND,09,Partei,AfD,2,8.004817,-3.671219
+Wahlkreis,224,Starnberg – Landsberg am Lech,LAND,09,Partei,AfD,2,6.138774,-3.76671
+Wahlkreis,225,Traunstein,LAND,09,Partei,AfD,2,8.602408,-3.424364
+Wahlkreis,226,Weilheim,LAND,09,Partei,AfD,2,7.927238,-4.160328
+Wahlkreis,227,Deggendorf,LAND,09,Partei,AfD,2,14.142794,-5.027087
+Wahlkreis,228,Landshut,LAND,09,Partei,AfD,2,10.25487,-4.325076
+Wahlkreis,229,Passau,LAND,09,Partei,AfD,2,11.777115,-4.280816
+Wahlkreis,230,Rottal-Inn,LAND,09,Partei,AfD,2,12.296054,-4.256322
+Wahlkreis,231,Straubing,LAND,09,Partei,AfD,2,13.159109,-5.229616
+Wahlkreis,232,Amberg,LAND,09,Partei,AfD,2,10.419012,-2.392736
+Wahlkreis,233,Regensburg,LAND,09,Partei,AfD,2,8.751356,-4.115771
+Wahlkreis,234,Schwandorf,LAND,09,Partei,AfD,2,13.499096,-3.87476
+Wahlkreis,235,Weiden,LAND,09,Partei,AfD,2,11.341697,-2.119514
+Wahlkreis,236,Bamberg,LAND,09,Partei,AfD,2,9.646919,-3.088071
+Wahlkreis,237,Bayreuth,LAND,09,Partei,AfD,2,9.053139,-1.668513
+Wahlkreis,238,Coburg,LAND,09,Partei,AfD,2,10.422215,-1.206625
+Wahlkreis,239,Hof,LAND,09,Partei,AfD,2,11.68924,-1.511123
+Wahlkreis,240,Kulmbach,LAND,09,Partei,AfD,2,11.555451,-1.883972
+Wahlkreis,241,Ansbach,LAND,09,Partei,AfD,2,9.996553,-1.78863
+Wahlkreis,242,Erlangen,LAND,09,Partei,AfD,2,7.027432,-2.53175
+Wahlkreis,243,Fürth,LAND,09,Partei,AfD,2,8.98331,-2.667508
+Wahlkreis,244,Nürnberg-Nord,LAND,09,Partei,AfD,2,6.150769,-3.830443
+Wahlkreis,245,Nürnberg-Süd,LAND,09,Partei,AfD,2,10.023075,-4.238099
+Wahlkreis,246,Roth,LAND,09,Partei,AfD,2,8.500503,-3.050046
+Wahlkreis,247,Aschaffenburg,LAND,09,Partei,AfD,2,9.412572,-2.1903
+Wahlkreis,248,Bad Kissingen,LAND,09,Partei,AfD,2,10.649028,-0.916463
+Wahlkreis,249,Main-Spessart,LAND,09,Partei,AfD,2,8.861187,-1.946158
+Wahlkreis,250,Schweinfurt,LAND,09,Partei,AfD,2,10.03313,-2.168288
+Wahlkreis,251,Würzburg,LAND,09,Partei,AfD,2,6.616063,-2.049904
+Wahlkreis,252,Augsburg-Stadt,LAND,09,Partei,AfD,2,9.109275,-4.711473
+Wahlkreis,253,Augsburg-Land,LAND,09,Partei,AfD,2,9.565123,-4.124271
+Wahlkreis,254,Donau-Ries,LAND,09,Partei,AfD,2,10.968857,-3.689283
+Wahlkreis,255,Neu-Ulm,LAND,09,Partei,AfD,2,11.876045,-3.240536
+Wahlkreis,256,Oberallgäu,LAND,09,Partei,AfD,2,7.939538,-2.62763
+Wahlkreis,257,Ostallgäu,LAND,09,Partei,AfD,2,10.007438,-3.34069
+Wahlkreis,258,Stuttgart I,LAND,08,Partei,AfD,2,4.202425,-2.957621
+Wahlkreis,259,Stuttgart II,LAND,08,Partei,AfD,2,7.190119,-3.604146
+Wahlkreis,260,Böblingen,LAND,08,Partei,AfD,2,8.65986,-3.076415
+Wahlkreis,261,Esslingen,LAND,08,Partei,AfD,2,7.422915,-3.509853
+Wahlkreis,262,Nürtingen,LAND,08,Partei,AfD,2,8.705718,-3.624948
+Wahlkreis,263,Göppingen,LAND,08,Partei,AfD,2,11.4653,-3.213842
+Wahlkreis,264,Waiblingen,LAND,08,Partei,AfD,2,8.854986,-4.073733
+Wahlkreis,265,Ludwigsburg,LAND,08,Partei,AfD,2,8.377916,-2.990749
+Wahlkreis,266,Neckar-Zaber,LAND,08,Partei,AfD,2,10.08542,-3.013689
+Wahlkreis,267,Heilbronn,LAND,08,Partei,AfD,2,13.160642,-3.255778
+Wahlkreis,268,Schwäbisch Hall – Hohenlohe,LAND,08,Partei,AfD,2,12.723822,-1.897928
+Wahlkreis,269,Backnang – Schwäbisch Gmünd,LAND,08,Partei,AfD,2,11.799238,-2.566187
+Wahlkreis,270,Aalen – Heidenheim,LAND,08,Partei,AfD,2,10.724984,-1.530687
+Wahlkreis,271,Karlsruhe-Stadt,LAND,08,Partei,AfD,2,6.798849,-3.605039
+Wahlkreis,272,Karlsruhe-Land,LAND,08,Partei,AfD,2,9.523324,-2.974432
+Wahlkreis,273,Rastatt,LAND,08,Partei,AfD,2,10.619636,-2.070383
+Wahlkreis,274,Heidelberg,LAND,08,Partei,AfD,2,6.120337,-3.354898
+Wahlkreis,275,Mannheim,LAND,08,Partei,AfD,2,9.112771,-3.715575
+Wahlkreis,276,Odenwald – Tauber,LAND,08,Partei,AfD,2,11.968049,-1.85673
+Wahlkreis,277,Rhein-Neckar,LAND,08,Partei,AfD,2,10.283465,-3.25773
+Wahlkreis,278,Bruchsal – Schwetzingen,LAND,08,Partei,AfD,2,11.581419,-3.346867
+Wahlkreis,279,Pforzheim,LAND,08,Partei,AfD,2,13.545939,-2.775713
+Wahlkreis,280,Calw,LAND,08,Partei,AfD,2,12.846004,-2.137011
+Wahlkreis,281,Freiburg,LAND,08,Partei,AfD,2,4.922362,-2.932931
+Wahlkreis,282,Lörrach – Müllheim,LAND,08,Partei,AfD,2,8.225695,-2.280042
+Wahlkreis,283,Emmendingen – Lahr,LAND,08,Partei,AfD,2,8.987705,-2.511057
+Wahlkreis,284,Offenburg,LAND,08,Partei,AfD,2,9.871134,-1.713712
+Wahlkreis,285,Rottweil – Tuttlingen,LAND,08,Partei,AfD,2,13.359447,-0.597234
+Wahlkreis,286,Schwarzwald-Baar,LAND,08,Partei,AfD,2,10.777472,-1.628673
+Wahlkreis,287,Konstanz,LAND,08,Partei,AfD,2,8.530051,-1.772841
+Wahlkreis,288,Waldshut,LAND,08,Partei,AfD,2,8.343085,-1.498622
+Wahlkreis,289,Reutlingen,LAND,08,Partei,AfD,2,10.258561,-2.666678
+Wahlkreis,290,Tübingen,LAND,08,Partei,AfD,2,7.853249,-2.175789
+Wahlkreis,291,Ulm,LAND,08,Partei,AfD,2,9.108506,-2.509628
+Wahlkreis,292,Biberach,LAND,08,Partei,AfD,2,10.82054,-1.642327
+Wahlkreis,293,Bodensee,LAND,08,Partei,AfD,2,8.707471,-1.710989
+Wahlkreis,294,Ravensburg,LAND,08,Partei,AfD,2,8.665689,-1.62598
+Wahlkreis,295,Zollernalb – Sigmaringen,LAND,08,Partei,AfD,2,12.067526,-1.592831
+Wahlkreis,296,Saarbrücken,LAND,10,Partei,AfD,2,9.258653,-0.396852
+Wahlkreis,297,Saarlouis,LAND,10,Partei,AfD,2,10.014781,0.176261
+Wahlkreis,298,St. Wendel,LAND,10,Partei,AfD,2,9.416779,0.312826
+Wahlkreis,299,Homburg,LAND,10,Partei,AfD,2,11.486742,-0.180214
