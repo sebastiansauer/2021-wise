@@ -20,6 +20,16 @@ d <- read_csv("/Users/sebastiansaueruser/Downloads/COVIDiSTRESS_May_30_cleaned_f
 ```
 
 
+oder so:
+
+```{r}
+d_kurz <-
+  read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-wise/main/Data/COVIDiStress_20211202.csv")
+```
+
+Den Link finden Sie in Moodle.
+
+
 ```{r}
 get_summary_stats(d)
 ```
