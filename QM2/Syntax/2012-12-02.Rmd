@@ -17,13 +17,20 @@ library(bayestestR)
 
 # Daten laden
 
+## Weg 1
+
+Erst von osf.io herunterladen und dann importieren:
+
 ```{r}
 d <- read_csv("/Users/sebastiansaueruser/Downloads/COVIDiSTRESS_May_30_cleaned_final.csv")
 ```
 
 
 
-oder so:
+## Weg 2:
+
+Eine bereinigte (kleine) Version aus unserem Github-Repo importieren:
+
 
 ```{r}
 d_kurz <-
@@ -32,6 +39,19 @@ d_kurz <-
 
 Den Link finden Sie in Moodle unter dem heutigen Datum.
 
+
+## Weg 3
+
+Daten direkt von OSF herunterladen aus R:
+
+```{r}
+osf_d_path <- "https://osf.io/cjxua/?action=download"
+
+d <- read_csv(osf_d_path)
+```
+
+
+# Überblick über zentrale Kennwerte aller Variablen
 
 ```{r}
 get_summary_stats(d)
