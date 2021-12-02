@@ -29,10 +29,10 @@ Am einfachsten ist es dann, wenn die Datendatei im Arbeitsverzeichnis liegt.
 
 
 
+
 ## Weg 2:
 
 Eine bereinigte (kleine) Version aus unserem Github-Repo importieren:
-
 
 ```{r}
 d_kurz <-
@@ -156,7 +156,7 @@ plot(rope(m1))
 
 ### Aufgaben
 
-1. Berechnen Sie ein 89%-Intervall zum Zusammenhang von Neurotizismus und Stress!
+1. Berechnen Sie ein 89%-Intervall zum Zusammenhang von *Neurotizismus* und *Stress*!
 2. Prüfen Sie, ob der Zusammenhang vernachlässigbar ist!
 
 
