@@ -10,6 +10,8 @@ output: html_document
 ```{r}
 library(tidyverse)
 library(rstatix)
+library(rstanarm)
+library(bayestestR)
 ```
 
 
@@ -20,6 +22,7 @@ d <- read_csv("/Users/sebastiansaueruser/Downloads/COVIDiSTRESS_May_30_cleaned_f
 ```
 
 
+
 oder so:
 
 ```{r}
@@ -27,7 +30,7 @@ d_kurz <-
   read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-wise/main/Data/COVIDiStress_20211202.csv")
 ```
 
-Den Link finden Sie in Moodle.
+Den Link finden Sie in Moodle unter dem heutigen Datum.
 
 
 ```{r}
@@ -43,6 +46,8 @@ get_summary_stats(d)
 d %>% 
   names()
 ```
+
+Je nach Forschungsfrage, kann man die Datenmenge reduzieren durch Auswahl der relevanten Variablen:
 
 ```{r}
 d2 <- 
@@ -75,4 +80,65 @@ Beziehen Sie sich auf diese Variablen:
 1. Berechnen Sie die entsprechende Post-Verteilung
 2. Berechnen Sie das Rope und bestimmen Sie eine Entscheidung zum Rope (also ob der Effekt vernachlässigbar klein ist).
 
+
+
+
+# Lösungen
+
+## Zusammenhang Stress und Alter
+
+Datensatz aufbereiten:
+
+```{r}
+d3 <- 
+  d2 %>% 
+  drop_na()
+```
+
+
+
+Modell berechnen:
+
+```{r}
+m1 <- 
+  stan_glm(PSS10_avg ~ Dem_age, data = d3,
+           refresh = 0)
+```
+
+
+```{r}
+m1
+```
+
+
+```{r}
+plot(m1)
+```
+
+
+Rope berechnen:
+
+```{r}
+rope(m1)
+```
+
+
+```{r}
+plot(rope(m1))
+```
+
+
+
+## Zusammenhang von Neurotizismus und Stress
+
+
+### Aufgaben
+
+1. Berechnen Sie ein 89%-Intervall zum Zusammenhang von Neurotizismus und Stress!
+2. Prüfen Sie, ob der Zusammenhang vernachlässigbar ist!
+
+
+Verwenden Sie diese Variablen/Spalten:-
+- `neu` 
+- `PSS10_avg`
 
