@@ -66,4 +66,3 @@ Beziehen Sie sich auf diese Variablen:
 2. Berechnen Sie das Rope und bestimmen Sie eine Entscheidung zum Rope (also ob der Effekt vernachlässigbar klein ist).
 
 
-
