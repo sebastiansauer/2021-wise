@@ -1,0 +1,69 @@
+---
+title: '2021-12-02'
+author: "ses"
+date: "11/12/2021"
+output: html_document
+---   
+
+# Setup
+
+```{r}
+library(tidyverse)
+library(rstatix)
+```
+
+
+# Daten laden
+
+```{r}
+d <- read_csv("/Users/sebastiansaueruser/Downloads/COVIDiSTRESS_May_30_cleaned_final.csv")
+```
+
+
+```{r}
+get_summary_stats(d)
+```
+
+
+
+# Relevante Variablen
+
+
+```{r}
+d %>% 
+  names()
+```
+
+```{r}
+d2 <- 
+d %>% 
+  select(PSS10_avg, Dem_age)
+```
+
+
+
+```{r}
+write_csv(d2,
+          file = "COVIDiStress_20211202.csv")
+```
+
+
+
+# Forschungsfragen
+
+## Zusammenhang von Stress und Alter
+
+Ist der Zusammenhang von Stress (im Zuge bzw. während der Corona-Epidemie) und Alter vernachlässigbar klein?
+
+Beziehen Sie sich auf diese Variablen:
+
+- PSS10_avg
+- Dem_age
+
+### Aufgaben
+
+1. Berechnen Sie die entsprechende Post-Verteilung
+2. Berechnen Sie das Rope und bestimmen Sie eine Entscheidung zum Rope (also ob der Effekt vernachlässigbar klein ist).
+
+
+
