@@ -1,0 +1,46 @@
+```{r global-knitr-options, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE)
+```
+
+
+
+
+```{r}
+zahlen <- (1:10)^2
+
+meine_zahl <- sample(zahlen, 1)
+```
+
+
+
+
+Question
+========
+
+Was ist das Ergebnis dieser Rechnung:
+
+$\sqrt{`r meine_zahl`}$
+
+Runden Sie auf zwei Dezimalstellen.
+
+Solution
+========
+
+```{r}
+sol <- sqrt(meine_zahl)
+```
+
+Die Antwort lautet: `r sol`.
+
+
+Meta-information
+================
+extype: num
+exsolution: `r sol`
+extol: 0.01
+exname: numerisch2
+expoints: 1
+
+
+

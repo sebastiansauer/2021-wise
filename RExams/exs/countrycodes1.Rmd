@@ -1,0 +1,46 @@
+```{r data generation, echo = FALSE, results = "hide"}
+dat <- matrix(
+  c(
+  "AGO", "Angola",
+  "ALB", "Albania",
+  "ARG", "Argentina",
+  "ARM", "Armenia",
+  "ATG", "Antigua and Barbuda",
+  "AUS", "Australia",
+  "AUT", "Austria",
+  "AZE", "Azerbaijan",
+  "BDI", "Burundi",
+  "BEL", "Belgium",
+  "BEN", "Benin",
+  "BFA", "Burkina Faso",
+  "BGD", "Bangladesh",
+  "BGR", "Bulgaria",
+  "BHR", "Bahrain",
+  "BHS", "Bahamas",
+  "BIH", "Bosnia and Herzegovina",
+  "BLR", "Belarus"),
+  nrow = 2
+)
+
+i <- sample(1:ncol(dat), 1)
+iso <- dat[1, i]
+ctr <- dat[2, i]
+```
+
+Question
+========
+What is the three-letter country code (ISO 3166-1 alpha-3) for
+`r ctr`?
+
+Solution
+========
+The ISO 3166-1 alpha-3 code for `r ctr` is `r iso`.
+
+Meta-information
+================
+extype: string
+exsolution: `r iso`
+exname: countrycodes1
+expoints: 1
+
+

@@ -1,0 +1,87 @@
+```{r global-knitr-options, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE)
+```
+
+
+
+
+```{r}
+# Zufallszahlen ziehen: 
+zahlen <- (1:10)^2
+
+gezogene_zahl <- sample(zahlen, 1)
+
+
+# Eine davon auswählen, wiederum zufällig:
+richtige_antwort <- sqrt(gezogene_zahl)
+
+# Falsche Antworten zufällig bestimmen:
+falsche_antworten <- 
+  zahlen[-richtige_antwort] %>% 
+  sample(4) %>% 
+  sqrt()
+```
+
+
+```{r}
+# Antwortoptionen erstellen:
+
+# entweder so:
+items <-
+  num_to_schoice(
+    correct = richtige_antwort,
+    digits = 0,
+    range = c(0, 200)
+  )
+
+
+# oder so:
+items <-
+  tibble(
+    questions = c(richtige_antwort, falsche_antworten),
+    solutions = c(TRUE, FALSE, FALSE, FALSE, FALSE)
+  ) %>% 
+  sample_n( size = nrow(.))
+```
+
+
+
+
+Question
+========
+
+Was ist das Ergebnis dieser Rechnung:
+
+$\sqrt{`r gezogene_zahl`}$
+
+```{r questionlist, results = "asis", echo = FALSE}
+answerlist(items$questions, markup = "markdown")
+```
+
+
+Solution
+========
+
+Die Wurzel von `r gezogene_zahl` ist `r `richtige_antwort`.
+
+
+
+```{r solutionlist,  results = "asis", echo = FALSE}
+answerlist(ifelse(items$solutions, "Richtig", "Falsch"), markup = "markdown")
+```
+
+
+
+
+
+
+Meta-information
+================
+extype: schoice 
+exsolution: `r mchoice2string(items$solutions)`
+exname: numerisch3
+expoints: 1
+
+
+
