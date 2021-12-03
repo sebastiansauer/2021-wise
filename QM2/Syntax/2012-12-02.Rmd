@@ -160,7 +160,15 @@ plot(rope(m1))
 2. Prüfen Sie, ob der Zusammenhang vernachlässigbar ist!
 
 
+### Hinweise
+
 Verwenden Sie diese Variablen/Spalten:-
-- `neu` 
-- `PSS10_avg`
+- `neu` (Mittelwert Neurotizismus)
+- `PSS10_avg` (Mittelwert Stress)
+
+Sie können die Default-Werte von `stan_glm()` verwenden.
+
+
+### Lösung
+
 
