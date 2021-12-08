@@ -1,0 +1,75 @@
+
+
+Hallo, ich bin eine Markdown-Datei.
+
+
+# Pakete laden
+
+```{r}
+library(tidyverse)  # auch für CSV-Import
+library(tidytext)
+library(janeaustenr)
+library(dplyr)
+library(stringr)
+library(readxl)  # für XLS(X)-Import
+```
+
+
+
+```{r}
+text <- c("Because I could not stop for Death -",
+          "He kindly stopped for me -",
+          "The Carriage held but just Ourselves -",
+          "and Immortality")
+
+
+
+v <- 1:100
+v
+text
+
+```
+
+
+
+# Abschnitt 1.3 in "Tidy Text"
+
+
+<https://www.tidytextmining.com/tidytext.html#the-unnest_tokens-function>
+
+
+```{r}
+
+original_books <-
+  austen_books() %>% 
+  group_by(book) %>%
+  mutate(linenumber = row_number()) %>% 
+  ungroup()
+```
+
+
+
+# Wichtige Berechnung
+
+
+```{r}
+1+1
+```
+
+
+Bla blaa bla
+
+
+
+# Interviewdaten aus XLSX importieren
+
+
+```{r}
+text_ex_df <-
+  read_xlsx("text-example.xlsx")
+```
+
+
+
+
+
