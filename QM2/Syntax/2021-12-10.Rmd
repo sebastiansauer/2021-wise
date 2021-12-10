@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(tidyverse)
-library(readxl)  # readxl
+library(readxl)  # readxl um Excel-Dateien zu importieren
 ```
 
 
@@ -27,7 +27,7 @@ Der folgende Pfad stimmt nicht (ganz)!
 Man kann die Datei zwar herunterladen, aber nicht online die Datei per URL auslesen.
 
 ```{r eval = FALSE}
-mort_path <- "https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Fallzahlen_Gesamtuebersicht.xlsx"
+mort_path <- "https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Fallzahlen_Gesamtuebersicht.xlsx?__blob=publicationFile"
 
 mort_df <- read_xlsx(mort_path)  # Import eine XLSX-Datei
 ```
@@ -41,9 +41,17 @@ Danach importieren Sie die Datei in R, z.B. so:
 
 ```{r}
 mort_path <- "/Users/sebastiansaueruser/github-repos/2021-wise/Data/Fallzahlen_Gesamtuebersicht.xlsx"
+mort_path <- "../Data/Fallzahlen_Gesamtuebersicht.xlsx"
+
 mort_df <- read_xlsx(path = mort_path,
                      skip = 2)  
 ```
+
+
+Tipp: Legen Sie die Datendatei immer in den (aktuellen) *RStudio-Projektordner*.
+Und die Rmd-Datei (oder R-Datei) auch!
+Dann brauchen Sie keinen Pfad angeben.
+
 
 `skip = 2` heißt: "überspringe die ersten zwei Zeilen, die Tab. beginnt erst in Zeile 3".
 
@@ -59,12 +67,19 @@ Scheint geklappt zu haben.
 Alternativ können Sie die Daten jetzt auch vom Server herunterladen, den wir für den Unterricht nutzen, dort habe ich die Daten gerade gespeichert:
 
 ```{r}
-mort_path <- "https://raw.github.com/sebastiansauer/2021-wise/Data/Fallzahlen_Gesamtuebersicht.xlsx"
+mort_path <- ""
 
 mort_df <- read_xlsx(path = mort_path,
                      skip = 2)  
 ```
 
+
+```{r}
+mort_df %>% 
+  ggplot() +
+  aes(x = Berichtsdatum, y = Todesfälle) +
+  geom_line()
+```
 
 
 
