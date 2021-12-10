@@ -1,0 +1,32 @@
+---
+title: "QM2"
+author: "ses"
+date: "12/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Todesfälle im Zusammenhang mit Corona
+
+```{r}
+library(tidyverse)
+library(readxl)  # readxl
+```
+
+
+
+## Daten
+
+Der folgende Pfad stimmt nicht (ganz)!
+
+```{r}
+mort_path <- "https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Fallzahlen_Gesamtuebersicht.xlsx"
+
+mort_df <- read_xlsx(mort_path)  # Import eine XLSX-Datei
+```
+
