@@ -63,11 +63,18 @@ head(mort_df)
 
 Scheint geklappt zu haben.
 
+Als CSV abspeichern:
+
+```{r eval = FALSE}
+write_csv(mort_df,
+          "mort_df.csv")
+```
+
 
 Alternativ können Sie die Daten jetzt auch vom Server herunterladen, den wir für den Unterricht nutzen, dort habe ich die Daten gerade gespeichert:
 
 ```{r}
-mort_path <- ""
+mort_path <- "https://raw.githubusercontent.com/sebastiansauer/2021-wise/main/Data/Fallzahlen_Gesamtuebersicht.xlsx"
 
 mort_df <- read_xlsx(path = mort_path,
                      skip = 2)  
