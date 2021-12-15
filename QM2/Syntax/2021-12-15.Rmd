@@ -17,3 +17,26 @@ library(tidyverse)
 library(tidytext)
 ```
 
+
+
+```{r}
+bing_df <- get_sentiments("bing")
+```
+
+
+```{r}
+emo_de_df <-
+  tibble(
+    word = c("Hochzeit", "Geburtstag", "Jubiläum", "Weihnachten"),
+    sentiment = c("positive","positive","positive","positive")
+    )
+```
+
+
+
+```{r}
+test_df <- 
+emo_de_df %>% 
+  bind_rows(bing_df)
+```
+
