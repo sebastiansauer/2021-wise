@@ -10,6 +10,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+# Aufgabe
+
+Recherchieren Sie Daten zu der Anzahl von Todesfällen in Zusammenhang mit Corona.
+Visualisieren Sie sie!
 
 # Todesfälle im Zusammenhang mit Corona
 
@@ -74,10 +78,9 @@ write_csv(mort_df,
 Alternativ können Sie die Daten jetzt auch vom Server herunterladen, den wir für den Unterricht nutzen, dort habe ich die Daten gerade gespeichert:
 
 ```{r}
-mort_path <- "https://raw.githubusercontent.com/sebastiansauer/2021-wise/main/Data/Fallzahlen_Gesamtuebersicht.xlsx"
+mort_path <- "https://raw.githubusercontent.com/sebastiansauer/2021-wise/main/Data/mort_df.csv"
 
-mort_df <- read_xlsx(path = mort_path,
-                     skip = 2)  
+mort_df <- read_csv(mort_path)
 ```
 
 

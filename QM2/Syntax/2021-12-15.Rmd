@@ -1,0 +1,19 @@
+---
+title: "Text Mining, QLM WiSe 21"
+author: "ses"
+date: "12/15/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Setup
+
+```{r}
+library(tidyverse)
+library(tidytext)
+```
+
