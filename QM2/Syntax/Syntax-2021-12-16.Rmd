@@ -1,0 +1,49 @@
+---
+title: "Syntasx"
+author: "ses"
+date: "12/16/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Setup
+
+```{r}
+library(tidyverse)
+```
+
+
+# Aufgaben
+
+## Aufgabe 2
+
+
+```{r}
+N <- rnorm(100, mean = 0, sd = 1)  # 100 normalverteilte z-Werte
+e1 <- rnorm(100)  # das gleiche wie oben: normalverteilte z-Werte
+e2 <- rnorm(100)  # das gleiche wie oben: normalverteilte z-Werte
+S <- N + e1  # S wird determiniert durch N und e
+B <- N + e2  # B wird determiniert druch N und e
+```
+
+
+Sind Störche und Babies korreliert?
+
+```{r}
+lm(S ~ B)
+```
+
+
+Laut den Daten bzw. dem obigten Modell ja!
+
+Das ist aber eine Scheinkorrelation
+
+
+```{r}
+cor(S,B)
+```
+
