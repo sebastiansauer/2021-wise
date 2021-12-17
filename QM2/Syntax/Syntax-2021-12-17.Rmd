@@ -1,0 +1,104 @@
+---
+title: "Syntax"
+author: "ses"
+date: "12/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Vom DAG zur Regressionsformel
+
+
+UV: x
+
+AV: y
+
+## Confounder (Konfundierung)
+
+
+z -> x
+z -> y
+
+
+
+```{r}
+library(dagitty)
+```
+
+```{r}
+dag1 <-
+  dagitty("
+      dag{
+      z -> x
+      z -> y
+      }
+      ")
+```
+
+Ein Confounder wird auch als "Gabel" bezeichnet.
+
+```{r}
+plot(dag1)
+```
+
+
+Regressionsformeln:
+
+
+FALSCH:
+
+`y ~ x`
+
+
+RICHTIG:
+
+`y ~ x + z`
+
+
+
+## Collider (Kollision)
+
+
+x -> z
+y -> z
+
+```{r}
+dag_collider <-
+  dagitty("
+          dag
+          {
+          x -> z
+          y -> z
+          }
+          ")
+```
+
+
+```{r}
+plot(dag_collider)
+```
+
+Regressionsformeln:
+
+RICHTIG:
+
+`y ~ x`
+
+FALSCH:
+ 
+`y ~ x + z`
+
+
+In dieser Situation ist es falsch, 
+eine zusätzliche Variable (den Collider) ins Regressionsmodell aufzunehmen 
+(d.h zu kontrollieren).
+
+
+
+
+

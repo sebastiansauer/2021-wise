@@ -23,11 +23,24 @@ library(tidyverse)
 
 
 ```{r}
-N <- rnorm(100, mean = 0, sd = 1)  # 100 normalverteilte z-Werte
-e1 <- rnorm(100)  # das gleiche wie oben: normalverteilte z-Werte
-e2 <- rnorm(100)  # das gleiche wie oben: normalverteilte z-Werte
+n <- 1e04
+N <- rnorm(n, mean = 0, sd = 1)  # 100 normalverteilte z-Werte
+e1 <- rnorm(n)  # das gleiche wie oben: normalverteilte z-Werte
+e2 <- rnorm(n)  # das gleiche wie oben: normalverteilte z-Werte
 S <- N + e1  # S wird determiniert durch N und e
 B <- N + e2  # B wird determiniert druch N und e
+```
+
+
+```{r}
+d <-
+  tibble(N, S, B, e1, e2)
+```
+
+
+```{r}
+ggplot(tibble(N), aes(x = N)) +
+  geom_density()
 ```
 
 
@@ -38,7 +51,7 @@ lm(S ~ B)
 ```
 
 
-Laut den Daten bzw. dem obigten Modell ja!
+Ja, sind sie - laut den Daten bzw. dem obigen Modell sind sie korreliert!
 
 Das ist aber eine Scheinkorrelation
 
@@ -47,3 +60,13 @@ Das ist aber eine Scheinkorrelation
 cor(S,B)
 ```
 
+
+
+Was wir tun müssen ist das:
+
+```{r}
+lm2 <- lm(B ~ S + N)
+lm2
+```
+
+Durch dieses Modell, `lm2`, haben wir den Kausaleffekt identifiziert.
