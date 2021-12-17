@@ -100,5 +100,40 @@ eine zusätzliche Variable (den Collider) ins Regressionsmodell aufzunehmen
 
 
 
+## Mediation
+
+
+x -> m -> y
+
+
+```{r}
+dag_mediation <-
+  "
+dag{
+x -> m -> y
+}
+"
+```
+
+
+
+```{r}
+library(ggdag)
+ggdag(dag_mediation) + theme_dag()
+```
+
+
+Regressionsformeln:
+
+
+FALSCH:
+
+`y ~ x + m`
+
+
+RICHTIG:
+
+`y ~ x`
+
 
 
