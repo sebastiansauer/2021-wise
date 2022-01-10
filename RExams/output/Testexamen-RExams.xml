@@ -1,0 +1,4237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+
+<question type="category">
+<category>
+<text>$course$/Testexamen-RExams_994302771/Exercise 1</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R01 Q1 : switzerland </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Which of the following statements about Switzerland is/are correct?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<ol type = "a">
+<li> False. Switzerland is part of the Schengen Area but not the EU. </li>
+<li> True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291. </li>
+<li> False. The currency is the Swiss Franc (CHF). </li>
+<li> False. There is no de jure capital but the de facto capital of Switzerland is Bern. </li>
+<li> True. The official languages are: German, French, Italian, Romansh. </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>false</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Switzerland is part of the European Union (EU).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. Switzerland is part of the Schengen Area but not the EU.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+The Swiss national holiday is August 1.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+The currency in Switzerland is the Euro.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. The currency is the Swiss Franc (CHF).
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich is the capital of Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. There is no de jure capital but the de facto capital of Switzerland is Bern.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+Italian is an official language in Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The official languages are: German, French, Italian, Romansh.
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R02 Q1 : switzerland </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Which of the following statements about Switzerland is/are correct?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<ol type = "a">
+<li> False. There is no de jure capital but the de facto capital of Switzerland is Bern. </li>
+<li> False. Switzerland is part of the Schengen Area but not the EU. </li>
+<li> False. The currency is the Swiss Franc (CHF). </li>
+<li> True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291. </li>
+<li> True. The official languages are: German, French, Italian, Romansh. </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>false</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich is the capital of Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. There is no de jure capital but the de facto capital of Switzerland is Bern.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Switzerland is part of the European Union (EU).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. Switzerland is part of the Schengen Area but not the EU.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+The currency in Switzerland is the Euro.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. The currency is the Swiss Franc (CHF).
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+The Swiss national holiday is August 1.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+Italian is an official language in Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The official languages are: German, French, Italian, Romansh.
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R03 Q1 : switzerland </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Which of the following statements about Switzerland is/are correct?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<ol type = "a">
+<li> True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291. </li>
+<li> False. There is no de jure capital but the de facto capital of Switzerland is Bern. </li>
+<li> True. The official languages are: German, French, Italian, Romansh. </li>
+<li> False. The currency is the Swiss Franc (CHF). </li>
+<li> False. Switzerland is part of the Schengen Area but not the EU. </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>false</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+The Swiss national holiday is August 1.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich is the capital of Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. There is no de jure capital but the de facto capital of Switzerland is Bern.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+Italian is an official language in Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The official languages are: German, French, Italian, Romansh.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+The currency in Switzerland is the Euro.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. The currency is the Swiss Franc (CHF).
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Switzerland is part of the European Union (EU).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. Switzerland is part of the Schengen Area but not the EU.
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R04 Q1 : switzerland </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Which of the following statements about Switzerland is/are correct?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<ol type = "a">
+<li> False. Switzerland is part of the Schengen Area but not the EU. </li>
+<li> False. The currency is the Swiss Franc (CHF). </li>
+<li> False. There is no de jure capital but the de facto capital of Switzerland is Bern. </li>
+<li> True. The official languages are: German, French, Italian, Romansh. </li>
+<li> True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291. </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>false</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Switzerland is part of the European Union (EU).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. Switzerland is part of the Schengen Area but not the EU.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+The currency in Switzerland is the Euro.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. The currency is the Swiss Franc (CHF).
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich is the capital of Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. There is no de jure capital but the de facto capital of Switzerland is Bern.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+Italian is an official language in Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The official languages are: German, French, Italian, Romansh.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+The Swiss national holiday is August 1.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291.
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R05 Q1 : switzerland </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Which of the following statements about Switzerland is/are correct?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<ol type = "a">
+<li> False. Switzerland is part of the Schengen Area but not the EU. </li>
+<li> False. The currency is the Swiss Franc (CHF). </li>
+<li> False. There is no de jure capital but the de facto capital of Switzerland is Bern. </li>
+<li> True. The official languages are: German, French, Italian, Romansh. </li>
+<li> True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291. </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>false</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Switzerland is part of the European Union (EU).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. Switzerland is part of the Schengen Area but not the EU.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+The currency in Switzerland is the Euro.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. The currency is the Swiss Franc (CHF).
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich is the capital of Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. There is no de jure capital but the de facto capital of Switzerland is Bern.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+Italian is an official language in Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The official languages are: German, French, Italian, Romansh.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+The Swiss national holiday is August 1.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291.
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R06 Q1 : switzerland </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Which of the following statements about Switzerland is/are correct?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<ol type = "a">
+<li> False. The currency is the Swiss Franc (CHF). </li>
+<li> True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291. </li>
+<li> False. There is no de jure capital but the de facto capital of Switzerland is Bern. </li>
+<li> False. Switzerland is part of the Schengen Area but not the EU. </li>
+<li> True. The official languages are: German, French, Italian, Romansh. </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>false</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+The currency in Switzerland is the Euro.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. The currency is the Swiss Franc (CHF).
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+The Swiss national holiday is August 1.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich is the capital of Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. There is no de jure capital but the de facto capital of Switzerland is Bern.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Switzerland is part of the European Union (EU).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. Switzerland is part of the Schengen Area but not the EU.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+Italian is an official language in Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The official languages are: German, French, Italian, Romansh.
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R07 Q1 : switzerland </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Which of the following statements about Switzerland is/are correct?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<ol type = "a">
+<li> False. The currency is the Swiss Franc (CHF). </li>
+<li> True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291. </li>
+<li> False. There is no de jure capital but the de facto capital of Switzerland is Bern. </li>
+<li> True. The official languages are: German, French, Italian, Romansh. </li>
+<li> False. Switzerland is part of the Schengen Area but not the EU. </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>false</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+The currency in Switzerland is the Euro.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. The currency is the Swiss Franc (CHF).
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+The Swiss national holiday is August 1.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich is the capital of Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. There is no de jure capital but the de facto capital of Switzerland is Bern.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+Italian is an official language in Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The official languages are: German, French, Italian, Romansh.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Switzerland is part of the European Union (EU).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. Switzerland is part of the Schengen Area but not the EU.
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R08 Q1 : switzerland </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Which of the following statements about Switzerland is/are correct?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<ol type = "a">
+<li> True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291. </li>
+<li> False. The currency is the Swiss Franc (CHF). </li>
+<li> True. The official languages are: German, French, Italian, Romansh. </li>
+<li> False. Switzerland is part of the Schengen Area but not the EU. </li>
+<li> False. There is no de jure capital but the de facto capital of Switzerland is Bern. </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>false</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+The Swiss national holiday is August 1.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+The currency in Switzerland is the Euro.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. The currency is the Swiss Franc (CHF).
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+Italian is an official language in Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The official languages are: German, French, Italian, Romansh.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Switzerland is part of the European Union (EU).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. Switzerland is part of the Schengen Area but not the EU.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich is the capital of Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. There is no de jure capital but the de facto capital of Switzerland is Bern.
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R09 Q1 : switzerland </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Which of the following statements about Switzerland is/are correct?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<ol type = "a">
+<li> False. The currency is the Swiss Franc (CHF). </li>
+<li> False. There is no de jure capital but the de facto capital of Switzerland is Bern. </li>
+<li> False. Switzerland is part of the Schengen Area but not the EU. </li>
+<li> True. The official languages are: German, French, Italian, Romansh. </li>
+<li> True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291. </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>false</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+The currency in Switzerland is the Euro.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. The currency is the Swiss Franc (CHF).
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich is the capital of Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. There is no de jure capital but the de facto capital of Switzerland is Bern.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Switzerland is part of the European Union (EU).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. Switzerland is part of the Schengen Area but not the EU.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+Italian is an official language in Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The official languages are: German, French, Italian, Romansh.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+The Swiss national holiday is August 1.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291.
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R10 Q1 : switzerland </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Which of the following statements about Switzerland is/are correct?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<ol type = "a">
+<li> False. There is no de jure capital but the de facto capital of Switzerland is Bern. </li>
+<li> False. Switzerland is part of the Schengen Area but not the EU. </li>
+<li> True. The official languages are: German, French, Italian, Romansh. </li>
+<li> True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291. </li>
+<li> False. The currency is the Swiss Franc (CHF). </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>false</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich is the capital of Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. There is no de jure capital but the de facto capital of Switzerland is Bern.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Switzerland is part of the European Union (EU).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. Switzerland is part of the Schengen Area but not the EU.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+Italian is an official language in Switzerland.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The official languages are: German, French, Italian, Romansh.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="50" format="html">
+<text><![CDATA[<p>
+The Swiss national holiday is August 1.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True. The establishment of the Swiss Confederation is traditionally dated to August 1, 1291.
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+The currency in Switzerland is the Euro.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False. The currency is the Swiss Franc (CHF).
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Testexamen-RExams_994302771/Exercise 2</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R01 Q2 : swisscapital </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the seat of the federal authorities in Switzerland (i.e., the de facto capital)?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>There is no de jure capital but the de facto capital and seat of the federal authorities is Bern.</p>
+<ol type = "a">
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> True </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Geneva
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Lausanne
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Basel
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Vaduz
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Bern
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R02 Q2 : swisscapital </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the seat of the federal authorities in Switzerland (i.e., the de facto capital)?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>There is no de jure capital but the de facto capital and seat of the federal authorities is Bern.</p>
+<ol type = "a">
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> True </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Geneva
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+St. Gallen
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Basel
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Bern
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R03 Q2 : swisscapital </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the seat of the federal authorities in Switzerland (i.e., the de facto capital)?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>There is no de jure capital but the de facto capital and seat of the federal authorities is Bern.</p>
+<ol type = "a">
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> True </li>
+<li> False </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+St. Gallen
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Vaduz
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Bern
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Basel
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R04 Q2 : swisscapital </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the seat of the federal authorities in Switzerland (i.e., the de facto capital)?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>There is no de jure capital but the de facto capital and seat of the federal authorities is Bern.</p>
+<ol type = "a">
+<li> True </li>
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> False </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Bern
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Vaduz
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+St. Gallen
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Geneva
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R05 Q2 : swisscapital </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the seat of the federal authorities in Switzerland (i.e., the de facto capital)?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>There is no de jure capital but the de facto capital and seat of the federal authorities is Bern.</p>
+<ol type = "a">
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> True </li>
+<li> False </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Lausanne
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Geneva
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Basel
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Bern
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R06 Q2 : swisscapital </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the seat of the federal authorities in Switzerland (i.e., the de facto capital)?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>There is no de jure capital but the de facto capital and seat of the federal authorities is Bern.</p>
+<ol type = "a">
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> False </li>
+<li> True </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Geneva
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Vaduz
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+St. Gallen
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Zurich
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Bern
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R07 Q2 : swisscapital </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the seat of the federal authorities in Switzerland (i.e., the de facto capital)?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>There is no de jure capital but the de facto capital and seat of the federal authorities is Bern.</p>
+<ol type = "a">
+<li> False </li>
+<li> True </li>
+<li> False </li>
+<li> False </li>
+<li> False </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Lausanne
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Bern
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Vaduz
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+St. Gallen
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Geneva
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R08 Q2 : swisscapital </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the seat of the federal authorities in Switzerland (i.e., the de facto capital)?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>There is no de jure capital but the de facto capital and seat of the federal authorities is Bern.</p>
+<ol type = "a">
+<li> False </li>
+<li> False </li>
+<li> True </li>
+<li> False </li>
+<li> False </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Vaduz
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Basel
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Bern
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+St. Gallen
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Geneva
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R09 Q2 : swisscapital </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the seat of the federal authorities in Switzerland (i.e., the de facto capital)?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>There is no de jure capital but the de facto capital and seat of the federal authorities is Bern.</p>
+<ol type = "a">
+<li> False </li>
+<li> False </li>
+<li> True </li>
+<li> False </li>
+<li> False </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Vaduz
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+St. Gallen
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Bern
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Geneva
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Basel
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R10 Q2 : swisscapital </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the seat of the federal authorities in Switzerland (i.e., the de facto capital)?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>There is no de jure capital but the de facto capital and seat of the federal authorities is Bern.</p>
+<ol type = "a">
+<li> False </li>
+<li> False </li>
+<li> True </li>
+<li> False </li>
+<li> False </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+St. Gallen
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Vaduz
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Bern
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+True
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Basel
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Lausanne
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+False
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Testexamen-RExams_994302771/Exercise 3</text>
+</category>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R01 Q3 : countrycodes1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the three-letter country code (ISO 3166-1 alpha-3) for Austria?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>The ISO 3166-1 alpha-3 code for Austria is AUT.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+AUT
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R02 Q3 : countrycodes1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the three-letter country code (ISO 3166-1 alpha-3) for Belarus?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>The ISO 3166-1 alpha-3 code for Belarus is BLR.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+BLR
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R03 Q3 : countrycodes1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the three-letter country code (ISO 3166-1 alpha-3) for Azerbaijan?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>The ISO 3166-1 alpha-3 code for Azerbaijan is AZE.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+AZE
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R04 Q3 : countrycodes1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the three-letter country code (ISO 3166-1 alpha-3) for Azerbaijan?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>The ISO 3166-1 alpha-3 code for Azerbaijan is AZE.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+AZE
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R05 Q3 : countrycodes1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the three-letter country code (ISO 3166-1 alpha-3) for Bahamas?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>The ISO 3166-1 alpha-3 code for Bahamas is BHS.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+BHS
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R06 Q3 : countrycodes1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the three-letter country code (ISO 3166-1 alpha-3) for Australia?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>The ISO 3166-1 alpha-3 code for Australia is AUS.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+AUS
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R07 Q3 : countrycodes1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the three-letter country code (ISO 3166-1 alpha-3) for Argentina?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>The ISO 3166-1 alpha-3 code for Argentina is ARG.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+ARG
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R08 Q3 : countrycodes1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the three-letter country code (ISO 3166-1 alpha-3) for Albania?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>The ISO 3166-1 alpha-3 code for Albania is ALB.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+ALB
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R09 Q3 : countrycodes1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the three-letter country code (ISO 3166-1 alpha-3) for Burundi?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>The ISO 3166-1 alpha-3 code for Burundi is BDI.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+BDI
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R10 Q3 : countrycodes1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>What is the three-letter country code (ISO 3166-1 alpha-3) for Belarus?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>The ISO 3166-1 alpha-3 code for Belarus is BLR.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+BLR
+</text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Testexamen-RExams_994302771/Exercise 4</text>
+</category>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R01 Q4 : Laender1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist die Hauptstadt von Malediven?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Antwort lautet: Malé.</p>
+<p><a href="https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm">Datenquelle</a>, 3.12.21</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+Malé
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R02 Q4 : Laender1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist die Hauptstadt von Niger?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Antwort lautet: Niamey.</p>
+<p><a href="https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm">Datenquelle</a>, 3.12.21</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+Niamey
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R03 Q4 : Laender1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist die Hauptstadt von Zentralafrikanische Republik?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Antwort lautet: Bangui.</p>
+<p><a href="https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm">Datenquelle</a>, 3.12.21</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+Bangui
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R04 Q4 : Laender1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist die Hauptstadt von Sierra Leone?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Antwort lautet: Freetown.</p>
+<p><a href="https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm">Datenquelle</a>, 3.12.21</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+Freetown
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R05 Q4 : Laender1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist die Hauptstadt von Sudan?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Antwort lautet: Khartum.</p>
+<p><a href="https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm">Datenquelle</a>, 3.12.21</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+Khartum
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R06 Q4 : Laender1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist die Hauptstadt von Burkina Faso?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Antwort lautet: Ouagadougou.</p>
+<p><a href="https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm">Datenquelle</a>, 3.12.21</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+Ouagadougou
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R07 Q4 : Laender1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist die Hauptstadt von Serbien?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Antwort lautet: Belgrad.</p>
+<p><a href="https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm">Datenquelle</a>, 3.12.21</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+Belgrad
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R08 Q4 : Laender1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist die Hauptstadt von Monaco?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Antwort lautet: Monaco.</p>
+<p><a href="https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm">Datenquelle</a>, 3.12.21</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+Monaco
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R09 Q4 : Laender1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist die Hauptstadt von Tuvalu?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Antwort lautet: Funafuti.</p>
+<p><a href="https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm">Datenquelle</a>, 3.12.21</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+Funafuti
+</text>
+</answer>
+</question>
+
+
+<question type="shortanswer">
+<name>
+<text> R10 Q4 : Laender1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist die Hauptstadt von Kap Verde?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Antwort lautet: Praia.</p>
+<p><a href="https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm">Datenquelle</a>, 3.12.21</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<usecase>0</usecase>
+<answer fraction="100" format="moodle_auto_format">
+<text>
+Praia
+</text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Testexamen-RExams_994302771/Exercise 5</text>
+</category>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R01 Q5 : Numerisch1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{2}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1.414214</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R02 Q5 : Numerisch1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{2}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1.414214</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R03 Q5 : Numerisch1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{2}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1.414214</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R04 Q5 : Numerisch1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{2}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1.414214</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R05 Q5 : Numerisch1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{2}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1.414214</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R06 Q5 : Numerisch1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{2}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1.414214</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R07 Q5 : Numerisch1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{2}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1.414214</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R08 Q5 : Numerisch1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{2}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1.414214</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R09 Q5 : Numerisch1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{2}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1.414214</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R10 Q5 : Numerisch1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{2}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>1.414214</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Testexamen-RExams_994302771/Exercise 6</text>
+</category>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R01 Q6 : Numerisch2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{64}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 8.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>8</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R02 Q6 : Numerisch2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{49}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 7.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>7</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R03 Q6 : Numerisch2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{49}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 7.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>7</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R04 Q6 : Numerisch2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{100}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 10.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>10</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R05 Q6 : Numerisch2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{100}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 10.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>10</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R06 Q6 : Numerisch2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{100}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 10.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>10</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R07 Q6 : Numerisch2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{16}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 4.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>4</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R08 Q6 : Numerisch2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{100}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 10.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>10</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R09 Q6 : Numerisch2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{4}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 2.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>2</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="numerical">
+<name>
+<text> R10 Q6 : Numerisch2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{16}\)</span></p>
+<p>Runden Sie auf zwei Dezimalstellen.</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Antwort lautet: 4.</p>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<answer fraction="100" format="moodle_auto_format">
+<text>4</text>
+<tolerance>0.01</tolerance>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Testexamen-RExams_994302771/Exercise 7</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R01 Q7 : Numerisch3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{16}\)</span></p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Wurzel von 16 ist <code>r</code>richtige_antwort`.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Richtig </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+10
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+2
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+9
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+4
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+8
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R02 Q7 : Numerisch3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{25}\)</span></p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Wurzel von 25 ist <code>r</code>richtige_antwort`.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Richtig </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+7
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+3
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+5
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+6
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+2
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R03 Q7 : Numerisch3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{1}\)</span></p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Wurzel von 1 ist <code>r</code>richtige_antwort`.</p>
+<ol type = "a">
+<li> Richtig </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+1
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+2
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+6
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+9
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+5
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R04 Q7 : Numerisch3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{81}\)</span></p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Wurzel von 81 ist <code>r</code>richtige_antwort`.</p>
+<ol type = "a">
+<li> Richtig </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+9
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+6
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+7
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+8
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+4
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R05 Q7 : Numerisch3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{81}\)</span></p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Wurzel von 81 ist <code>r</code>richtige_antwort`.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Richtig </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+7
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+9
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+5
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+1
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+8
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R06 Q7 : Numerisch3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{49}\)</span></p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Wurzel von 49 ist <code>r</code>richtige_antwort`.</p>
+<ol type = "a">
+<li> Richtig </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+7
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+2
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+9
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+10
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+6
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R07 Q7 : Numerisch3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{25}\)</span></p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Wurzel von 25 ist <code>r</code>richtige_antwort`.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Richtig </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+8
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+6
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+2
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+5
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+1
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R08 Q7 : Numerisch3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{4}\)</span></p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Wurzel von 4 ist <code>r</code>richtige_antwort`.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Richtig </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+7
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+2
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+5
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+6
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+3
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R09 Q7 : Numerisch3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{4}\)</span></p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Wurzel von 4 ist <code>r</code>richtige_antwort`.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Richtig </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+4
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+2
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+1
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+3
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+6
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R10 Q7 : Numerisch3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Was ist das Ergebnis dieser Rechnung:</p>
+<p><span class="math inline">\(\sqrt{64}\)</span></p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Wurzel von 64 ist <code>r</code>richtige_antwort`.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Richtig </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+2
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+3
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+4
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+8
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+10
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Testexamen-RExams_994302771/Exercise 8</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R01 Q8 : Logik3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Gegeben seien die Mengen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> mit jeweils folgenden <span class="math inline">\(n=5\)</span> Elementen:</p>
+<p><code>X={0.9, -1, -0.7, -0.3, -1.3}</code></p>
+<p><code>Y={-1.8, -2.2, 2, -1.9, -0.8}</code></p>
+<p><em>Hinweis</em>: <span class="math inline">\(\neg A\)</span> steht für Negation der Aussage <span class="math inline">\(A\)</span>, also das (logische) Gegenteil von <span class="math inline">\(A\)</span>.</p>
+<p>Wählen Sie die korrekte Aussage aus!</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Aussage lautet “<span class="math inline">\(\exists x[x &lt; y])\)</span>”.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Wahr </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Wahr
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R02 Q8 : Logik3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Gegeben seien die Mengen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> mit jeweils folgenden <span class="math inline">\(n=5\)</span> Elementen:</p>
+<p><code>X={-0.6, -0.1, 0.1, -0.2, 0.8}</code></p>
+<p><code>Y={0.5, -1.8, -1, -2.6, -1.3}</code></p>
+<p><em>Hinweis</em>: <span class="math inline">\(\neg A\)</span> steht für Negation der Aussage <span class="math inline">\(A\)</span>, also das (logische) Gegenteil von <span class="math inline">\(A\)</span>.</p>
+<p>Wählen Sie die korrekte Aussage aus!</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Aussage lautet “<span class="math inline">\(\exists x[x &lt; y])\)</span>”.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Wahr </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Wahr
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R03 Q8 : Logik3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Gegeben seien die Mengen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> mit jeweils folgenden <span class="math inline">\(n=5\)</span> Elementen:</p>
+<p><code>X={-1.1, -1.7, -0.1, 0.3, -0.6}</code></p>
+<p><code>Y={-1.8, -2.2, -2.3, -1.5, -1.2}</code></p>
+<p><em>Hinweis</em>: <span class="math inline">\(\neg A\)</span> steht für Negation der Aussage <span class="math inline">\(A\)</span>, also das (logische) Gegenteil von <span class="math inline">\(A\)</span>.</p>
+<p>Wählen Sie die korrekte Aussage aus!</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Aussage lautet “<span class="math inline">\(\exists x[x \ge y])\)</span>”.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Wahr </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Wahr
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R04 Q8 : Logik3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Gegeben seien die Mengen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> mit jeweils folgenden <span class="math inline">\(n=5\)</span> Elementen:</p>
+<p><code>X={0.5, -0.2, -0.3, 0, 0.6}</code></p>
+<p><code>Y={-1.1, -2.1, -1.6, -2.5, -0.6}</code></p>
+<p><em>Hinweis</em>: <span class="math inline">\(\neg A\)</span> steht für Negation der Aussage <span class="math inline">\(A\)</span>, also das (logische) Gegenteil von <span class="math inline">\(A\)</span>.</p>
+<p>Wählen Sie die korrekte Aussage aus!</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Aussage lautet “<span class="math inline">\(\forall x[x \ge y])\)</span>”.</p>
+<ol type = "a">
+<li> Wahr </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Wahr
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R05 Q8 : Logik3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Gegeben seien die Mengen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> mit jeweils folgenden <span class="math inline">\(n=5\)</span> Elementen:</p>
+<p><code>X={0.5, -1.3, 0.1, 0.3, -0.7}</code></p>
+<p><code>Y={-3.1, -2.9, -2, -0.4, -1.8}</code></p>
+<p><em>Hinweis</em>: <span class="math inline">\(\neg A\)</span> steht für Negation der Aussage <span class="math inline">\(A\)</span>, also das (logische) Gegenteil von <span class="math inline">\(A\)</span>.</p>
+<p>Wählen Sie die korrekte Aussage aus!</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Aussage lautet “<span class="math inline">\(\exists x[x &lt; y])\)</span>”.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Wahr </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Wahr
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R06 Q8 : Logik3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Gegeben seien die Mengen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> mit jeweils folgenden <span class="math inline">\(n=5\)</span> Elementen:</p>
+<p><code>X={-0.3, 1.6, -1.4, 2.5, 2.3}</code></p>
+<p><code>Y={-2.8, -1.7, -1.7, -1.7, -1.3}</code></p>
+<p><em>Hinweis</em>: <span class="math inline">\(\neg A\)</span> steht für Negation der Aussage <span class="math inline">\(A\)</span>, also das (logische) Gegenteil von <span class="math inline">\(A\)</span>.</p>
+<p>Wählen Sie die korrekte Aussage aus!</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Aussage lautet “<span class="math inline">\(\exists x[x \ge y])\)</span>”.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Wahr </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Wahr
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R07 Q8 : Logik3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Gegeben seien die Mengen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> mit jeweils folgenden <span class="math inline">\(n=5\)</span> Elementen:</p>
+<p><code>X={0.4, 0.2, 0.9, 0, 0.8}</code></p>
+<p><code>Y={-3.7, -2.4, -2.4, -1.8, -0.6}</code></p>
+<p><em>Hinweis</em>: <span class="math inline">\(\neg A\)</span> steht für Negation der Aussage <span class="math inline">\(A\)</span>, also das (logische) Gegenteil von <span class="math inline">\(A\)</span>.</p>
+<p>Wählen Sie die korrekte Aussage aus!</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Aussage lautet “<span class="math inline">\(\exists x[x \ge y])\)</span>”.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Wahr </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Wahr
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R08 Q8 : Logik3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Gegeben seien die Mengen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> mit jeweils folgenden <span class="math inline">\(n=5\)</span> Elementen:</p>
+<p><code>X={-0.6, 1.7, -1.2, -0.3, -0.1}</code></p>
+<p><code>Y={-1, -3.8, -1.1, -2.3, -3.2}</code></p>
+<p><em>Hinweis</em>: <span class="math inline">\(\neg A\)</span> steht für Negation der Aussage <span class="math inline">\(A\)</span>, also das (logische) Gegenteil von <span class="math inline">\(A\)</span>.</p>
+<p>Wählen Sie die korrekte Aussage aus!</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Aussage lautet “<span class="math inline">\(\exists x[x &lt; y])\)</span>”.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Wahr </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Wahr
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R09 Q8 : Logik3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Gegeben seien die Mengen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> mit jeweils folgenden <span class="math inline">\(n=5\)</span> Elementen:</p>
+<p><code>X={0.8, 0.4, 1.4, 0.5, 0.6}</code></p>
+<p><code>Y={-1.1, -1.4, -2.5, -0.7, -1.5}</code></p>
+<p><em>Hinweis</em>: <span class="math inline">\(\neg A\)</span> steht für Negation der Aussage <span class="math inline">\(A\)</span>, also das (logische) Gegenteil von <span class="math inline">\(A\)</span>.</p>
+<p>Wählen Sie die korrekte Aussage aus!</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Aussage lautet “<span class="math inline">\(\forall x[x \ge y])\)</span>”.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Wahr </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Wahr
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> R10 Q8 : Logik3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[<p>
+<p>Gegeben seien die Mengen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> mit jeweils folgenden <span class="math inline">\(n=5\)</span> Elementen:</p>
+<p><code>X={0.6, 0.3, 2, 0, -1.6}</code></p>
+<p><code>Y={-1.3, -1.3, -0.4, -0.1, -1.8}</code></p>
+<p><em>Hinweis</em>: <span class="math inline">\(\neg A\)</span> steht für Negation der Aussage <span class="math inline">\(A\)</span>, also das (logische) Gegenteil von <span class="math inline">\(A\)</span>.</p>
+<p>Wählen Sie die korrekte Aussage aus!</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die richtige Aussage lautet “<span class="math inline">\(\exists x[x \ge y])\)</span>”.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Wahr </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>true</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\neg \exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\exists x[x \ge y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Wahr
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\forall x[x &lt; y])\)</span>
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+</quiz>

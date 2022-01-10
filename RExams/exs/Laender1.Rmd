@@ -1,0 +1,55 @@
+
+
+```{r message=FALSE, include=FALSE}
+library(readxl)
+library(dplyr)
+```
+
+
+```{r}
+d_path <- "exs/supplements/Laender-Hauptstaedte.xlsx"
+d <- read_xlsx(d_path)
+```
+
+
+```{r eval = FALSE}
+include_supplement(file = "3.png",
+                   recursive = TRUE)
+```
+
+
+```{r}
+item <- 
+  d %>%  # Nimm den Datensatz "d"
+  sample_n(1)  # und ziehe zufällig eine Zeile
+```
+
+
+
+Question
+========
+
+Was ist die Hauptstadt von `r item$Land`?
+
+
+
+
+Solution
+========
+
+```{r echo = FALSE}
+sol <- item$Hauptstadt
+```
+
+Die richtige Antwort lautet: `r sol`.
+
+
+[Datenquelle](https://www.umrechnung.org/alle-laender-und-hauptstaedte/hauptstadt-land-welt.htm), 3.12.21
+
+
+Meta-information
+================
+extype: string
+exsolution: `r sol`
+exname: Laender1
+expoints: 1

@@ -1,0 +1,174 @@
+---
+title: '2021-12-02'
+author: "ses"
+date: "11/12/2021"
+output: html_document
+---   
+
+# Setup
+
+```{r}
+library(tidyverse)
+library(rstatix)
+library(rstanarm)
+library(bayestestR)
+```
+
+
+# Daten laden
+
+## Weg 1
+
+Erst von osf.io herunterladen und dann importieren:
+
+```{r}
+d <- read_csv("/Users/sebastiansaueruser/Downloads/COVIDiSTRESS_May_30_cleaned_final.csv")
+```
+
+Am einfachsten ist es dann, wenn die Datendatei im Arbeitsverzeichnis liegt.
+
+
+
+
+## Weg 2:
+
+Eine bereinigte (kleine) Version aus unserem Github-Repo importieren:
+
+```{r}
+d_kurz <-
+  read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-wise/main/Data/COVIDiStress_20211202.csv")
+```
+
+Den Link finden Sie in Moodle unter dem heutigen Datum.
+
+
+## Weg 3
+
+Daten direkt von OSF herunterladen aus R:
+
+```{r}
+osf_d_path <- "https://osf.io/cjxua/?action=download"
+
+d <- read_csv(osf_d_path)
+```
+
+
+# Überblick über zentrale Kennwerte aller Variablen
+
+```{r}
+get_summary_stats(d)
+```
+
+
+
+# Relevante Variablen
+
+
+```{r}
+d %>% 
+  names()
+```
+
+Je nach Forschungsfrage, kann man die Datenmenge reduzieren durch Auswahl der relevanten Variablen:
+
+```{r}
+d2 <- 
+d %>% 
+  select(PSS10_avg, Dem_age)
+```
+
+
+
+```{r}
+write_csv(d2,
+          file = "COVIDiStress_20211202.csv")
+```
+
+
+
+# Forschungsfragen
+
+## Zusammenhang von Stress und Alter
+
+Ist der Zusammenhang von Stress (im Zuge bzw. während der Corona-Epidemie) und Alter vernachlässigbar klein?
+
+Beziehen Sie sich auf diese Variablen:
+
+- PSS10_avg
+- Dem_age
+
+### Aufgaben
+
+1. Berechnen Sie die entsprechende Post-Verteilung
+2. Berechnen Sie das Rope und bestimmen Sie eine Entscheidung zum Rope (also ob der Effekt vernachlässigbar klein ist).
+
+
+
+
+# Lösungen
+
+## Zusammenhang Stress und Alter
+
+Datensatz aufbereiten:
+
+```{r}
+d3 <- 
+  d2 %>% 
+  drop_na()
+```
+
+
+
+Modell berechnen:
+
+```{r}
+m1 <- 
+  stan_glm(PSS10_avg ~ Dem_age, data = d3,
+           refresh = 0)
+```
+
+
+```{r}
+m1
+```
+
+
+```{r}
+plot(m1)
+```
+
+
+Rope berechnen:
+
+```{r}
+rope(m1)
+```
+
+
+```{r}
+plot(rope(m1))
+```
+
+
+
+## Zusammenhang von Neurotizismus und Stress
+
+
+### Aufgaben
+
+1. Berechnen Sie ein 89%-Intervall zum Zusammenhang von *Neurotizismus* und *Stress*!
+2. Prüfen Sie, ob der Zusammenhang vernachlässigbar ist!
+
+
+### Hinweise
+
+Verwenden Sie diese Variablen/Spalten:-
+- `neu` (Mittelwert Neurotizismus)
+- `PSS10_avg` (Mittelwert Stress)
+
+Sie können die Default-Werte von `stan_glm()` verwenden.
+
+
+### Lösung
+
+

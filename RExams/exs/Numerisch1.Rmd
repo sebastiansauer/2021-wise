@@ -1,0 +1,33 @@
+```{r global-knitr-options, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE)
+```
+
+
+
+Question
+========
+
+Was ist das Ergebnis dieser Rechnung:
+
+$\sqrt{2}$
+
+Runden Sie auf zwei Dezimalstellen.
+
+Solution
+========
+
+```{r}
+sol <- 2
+```
+
+
+Die Antwort lautet: `r sol`.
+
+
+Meta-information
+================
+extype: num
+exsolution: 1.414214
+extol: 0.01
+exname: wurzel2

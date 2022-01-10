@@ -1,0 +1,117 @@
+---
+title: "Text Mining, QLM WiSe 21"
+author: "ses"
+date: "12/15/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Setup
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(janeaustenr)
+library(wordcloud)
+```
+
+
+# Eigenes Lexikon erstellen
+
+```{r}
+bing_df <- get_sentiments("bing")
+```
+
+
+```{r}
+emo_de_df <-
+  tibble(
+    word = c("Hochzeit", "Geburtstag", "Jubiläum", "Weihnachten"),
+    sentiment = c("positive","positive","positive","positive")
+    )
+```
+
+
+
+```{r}
+test_df <- 
+emo_de_df %>% 
+  bind_rows(bing_df)
+```
+
+
+
+
+# Wordcloud
+
+
+```{r}
+tidy_books <- austen_books() %>%
+  group_by(book) %>%
+  mutate(
+    linenumber = row_number(),
+    chapter = cumsum(str_detect(text, 
+                                regex("^chapter [\\divxlc]", 
+                                      ignore_case = TRUE)))) %>%
+  ungroup() %>%
+  unnest_tokens(word, text)
+```
+
+
+```{r}
+tidy_books %>%
+  anti_join(stop_words) %>%
+  count(word) %>% 
+  with(wordcloud(word, n, max.words = 100))
+```
+
+
+Alternativ zu `with()` kann man "klassisch" (base R) vorgehen:
+
+```{r}
+tidy_books_no_stopwords <- 
+  tidy_books %>%
+  anti_join(stop_words) %>%
+  count(word) 
+
+
+wordcloud(tidy_books_no_stopwords$word, tidy_books_no_stopwords$n, max.words = 100)
+```
+
+
+# Term frequencey und tf-idf
+
+
+```{r}
+library(dplyr)
+library(janeaustenr)
+library(tidytext)
+
+book_words <- austen_books() %>%
+  unnest_tokens(word, text) %>%
+  count(book, word, sort = TRUE)
+
+total_words <- book_words %>% 
+  group_by(book) %>% 
+  summarize(total = sum(n))
+
+book_words <- left_join(book_words, total_words)
+
+book_words
+```
+
+
+
+```{r}
+book_tf_idf <- book_words %>%
+  bind_tf_idf(word, book, n)
+
+book_tf_idf
+```
+
+
+
