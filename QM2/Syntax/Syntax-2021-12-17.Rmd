@@ -93,6 +93,11 @@ FALSCH:
  
 `y ~ x + z`
 
+Hier würde eine Scheinkorrelation entstehen, 
+was falsch ist bzw. den kausalen Effekt verzerrt.
+
+Laut unserem DAG gibt es keinen kausalen Effekt zwischen X und Y.
+
 
 In dieser Situation ist es falsch, 
 eine zusätzliche Variable (den Collider) ins Regressionsmodell aufzunehmen 
