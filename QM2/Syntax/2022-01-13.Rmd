@@ -135,7 +135,7 @@ Wir verwerfen also die H0-Rope.
 ### Aufgabenstellung
 
 
-Einer der (bisher) größten Studien der Untersuchung psychologischer Konsequenzen (oder Korrelate) der Covid-Zeit ist die Studie COVIDiStress.
+Einer der (bisher) größten Studien der Untersuchung psychologischer Konsequenzen (oder Korrelate) der Covid-Zeit ist die Studie *COVIDiStress.*
 
 Im Folgenden sollen Sie folgende Forschungsfrage untersuchen:
 
@@ -195,14 +195,38 @@ d %>%
   count(Country)
 ```
 
+Ja, 
 Puh! Frankreich ist stark vertreten, Deutschland kaum.
+
+Verringern wir den Datensatz auf diese beiden Länder:
 
 ```{r}
 d2 <-
+  d %>% 
   filter(Country == "Germany" |
-           Country == "France") %>% 
-  count(Country)
+           Country == "France") 
 ```
+
+
+Speichern wir den kleineren Datensatz mal ab,
+damit wir nicht immer alles runterladen müssen,
+ist ja doch recht groß.
+
+
+```{r}
+write_csv(d2, file = "COVIDiSTRESS-de-fr.csv")
+```
+
+
+Sie können die Daten jetzt unter diesem Pfad herunterladen:
+
+
+
+
+
+
+
+
 
 
 ## A3
