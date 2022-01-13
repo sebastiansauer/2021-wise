@@ -2,7 +2,10 @@
 title: "Syntax"
 author: "ses"
 date: "1/13/2022"
-output: html_document
+output: 
+  html_document:
+    number_sections: TRUE
+    toc: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -20,7 +23,7 @@ Im Datensatz `mtcars`: Ist der (mittlere) Unterschied im Spritverbrauch zwischen
 
 Definieren Sie “vernachlässigbar klein” mit “höchstens eine Meile”.
 
-a) Geben Sie das 95% PI an (im Bezug zur gesuchten Größe).
+a) Geben Sie die Breite des 95% PI an (im Bezug zur gesuchten Größe).
 b) Geben Sie das 95% HDI an (im Bezug zur gesuchten Größe).
 c) Im Hinblick auf die Rope-Methode: Ist der Unterschied vernachlässigbar klein? (ja/nein/unentschieden)
 
@@ -32,6 +35,77 @@ Hinweise:
 - Verwenden Sie Methoden der Bayes-Statistik.
 
 ### Lösung
+
+
+Setup:
+
+```{r message = FALSE}
+data(mtcars)
+library(tidyverse)
+library(rstanarm)
+library(bayesplot)  # Histogramm-Plots für Post-Vert.
+library(bayestestR)  # rope
+```
+
+
+
+
+Modell berechnen:
+
+```{r}
+m1 <- stan_glm(mpg ~ vs, data = mtcars,
+               refresh = 0)
+```
+
+zu a) 
+
+95%-PI:
+
+```{r}
+posterior_interval(m1, prob = .95)
+```
+
+
+Breite des Intervalls:
+
+```{r}
+breite <- 11.1199 - 4.4867
+breite <- breite %>% round(2)
+```
+
+Die Antwort für a) lautet also `r breite`.
+
+
+```{r}
+mcmc_areas(m1)
+```
+
+
+zu b)
+
+Wir nutzen den Befehl `hdi()` aus `{bayestestR}`.
+
+```{r}
+hdi(m1)
+```
+
+
+"hdi" und "hdpi" und "hpdi" sind synonym.
+
+
+zu c)
+
+
+```{r}
+rope(m1)
+```
+
+```{r}
+plot(rope(m1))
+```
+
+Wir verwerfen also die H0-Rope.
+
 
 
 
