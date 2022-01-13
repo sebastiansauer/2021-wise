@@ -143,9 +143,9 @@ Ist der Unterschied im Stresserleben (*PSS10_avg*, AV) zwischen Deutschland und 
 Vergleichen Sie dazu die Mittelwerte der gesuchten Größe.
 
 Transformieren Sie die AV auf eine 0-1-Skala ("Einheitsskala").
-Das heißt, der kleinst mögliche Skalenwert soll auf 0 transformiert werden und der größt mögliche 1 auf 1.
+Das heißt, der kleinst mögliche Skalenwert soll auf 0 transformiert werden und der größtmögliche 1 auf 1.
 
-"Vernachlässigbar klein" sei definiert als höchstens 10% Unterschied (in der Einheitsskala).
+"Vernachlässigbar klein" sei definiert als höchstens 10% Unterschied (in der *Einheitsskala*).
 
 Den Datensatz können Sie unter folgender URL herunterladen (Achtung, groß) als CSV-Datei:
 
@@ -242,6 +242,13 @@ d3 <-
 #### "Einheitstransformation"
 
 
+
+```{r}
+d3 %>% 
+  drop_na() %>% 
+  summarise(min(PSS10_avg),
+            max(PSS10_avg))
+```
 
 
 
