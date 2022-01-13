@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Aufgabe 1
 
+### Aufgabenstellung
 
 Im Datensatz mtcars: Ist der (mittlere) Unterschied im Spritverbrauch zwischen den beiden Stufen von `vs` vernachlässigbar klein?
 
@@ -22,4 +23,52 @@ Definieren Sie “vernachlässigbar klein” mit “höchstens eine Meile”.
 a) Geben Sie das 95% PI an (im Bezug zur gesuchten Größe).
 b) Geben Sie das 95% HDI an (im Bezug zur gesuchten Größe).
 c) Im Hinblick auf die Rope-Methode: Ist der Unterschied vernachlässigbar klein? (ja/nein/unentschieden)
+
+
+
+### Lösung
+
+
+
+
+## Aufgabe 2
+
+
+### Aufgabenstellung
+
+
+Einer der (bisher) größten Studien der Untersuchung psychologischer Konsequenzen (oder Korrelate) der Covid-Zeit ist die Studie COVIDiStress.
+
+Im Folgenden sollen Sie folgende Forschungsfrage untersuchen:
+
+Ist der Unterschied im Stresserleben (PSS10_avg, AV) zwischen Deutschland und Frankfrei vernachlässigbar klein? 
+Vergleichen Sie dazu die Mittelwerte der gesuchten Größe.
+
+Transformieren Sie die AV auf eine 0-1-Skala ("Einheitsskala").
+Das heißt, der kleinst mögliche Skalenwert soll auf 0 transformiert werden und der größt mögliche 1 auf 1.
+
+"Vernachlässigbar klein" sei definiert als höchstens 10% Unterschied (in der Einheitsskala).
+
+Den Datensatz können Sie unter folgender URL herunterladen (Achtung, groß) als CSV-Datei:
+
+<https://osf.io/cjxua/?action=download>
+
+
+a) Geben Sie den Anteil der Post-Verteilung an, die außerhalb des Rope liegt. 
+
+b) Nennen Sie die Breite des 89%-Post-PI zum gesuchten Effekt.
+
+c) Berechnen Sie den medianen Wert des Bayes-R-Quadrat.
+
+
+Hinweise:
+
+- Runden Sie auf 2 Dezimalstellen.
+- Greifen Sie auf Standardwerte der typischen R-Funktionen zurück.
+- Verwenden Sie Methoden der Bayes-Statistik.
+
+
+
+### Lösung
+
 
