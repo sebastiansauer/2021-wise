@@ -169,7 +169,7 @@ Hinweise:
 
 ### Lösung
 
-Datensatz laden:
+#### Datensatz laden
 
 ```{r}
 d <- read_csv("https://osf.io/cjxua/?action=download")
@@ -198,6 +198,8 @@ d %>%
 Ja, 
 Puh! Frankreich ist stark vertreten, Deutschland kaum.
 
+#### Datensatz reduzieren
+
 Verringern wir den Datensatz auf diese beiden Länder:
 
 ```{r}
@@ -213,14 +215,31 @@ damit wir nicht immer alles runterladen müssen,
 ist ja doch recht groß.
 
 
+
+
 ```{r}
 write_csv(d2, file = "COVIDiSTRESS-de-fr.csv")
 ```
 
 
-Sie können die Daten jetzt unter diesem Pfad herunterladen:
 
 
+Sie können die Daten (reduzierter Datensatz, nur De und Fr) jetzt unter diesem Pfad herunterladen:
+
+<https://raw.githubusercontent.com/sebastiansauer/2021-wise/main/Data/COVIDiSTRESS-de-fr.csv>
+
+
+
+Wählen wir noch die relevanten Spalten aus:
+
+```{r}
+d3 <- 
+  d2 %>% 
+  select(Country, PSS10_avg)
+```
+
+
+#### "Einheitstransformation"
 
 
 
