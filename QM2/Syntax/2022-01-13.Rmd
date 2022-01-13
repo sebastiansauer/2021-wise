@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Aufgabenstellung
 
-Im Datensatz mtcars: Ist der (mittlere) Unterschied im Spritverbrauch zwischen den beiden Stufen von `vs` vernachlässigbar klein?
+Im Datensatz `mtcars`: Ist der (mittlere) Unterschied im Spritverbrauch zwischen den beiden Stufen von `vs` vernachlässigbar klein?
 
 Definieren Sie “vernachlässigbar klein” mit “höchstens eine Meile”.
 
@@ -25,6 +25,11 @@ b) Geben Sie das 95% HDI an (im Bezug zur gesuchten Größe).
 c) Im Hinblick auf die Rope-Methode: Ist der Unterschied vernachlässigbar klein? (ja/nein/unentschieden)
 
 
+Hinweise:
+
+- Verwenden Sie Standardwerte (Defaults) der typischen (im Unterricht verwendeten) R-Funktionen.
+- Runden Sie auf 2 Dezimalstellen.
+- Verwenden Sie Methoden der Bayes-Statistik.
 
 ### Lösung
 
