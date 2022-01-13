@@ -241,7 +241,7 @@ d3 <-
 
 #### "Einheitstransformation"
 
-
+Was sind der minimale bzw. der maximale Wert für den Stress-Score?
 
 ```{r}
 d3 %>% 
@@ -250,6 +250,17 @@ d3 %>%
             max(PSS10_avg))
 ```
 
+Ah - 1 (Min.) und 5 (Max).
+
+
+Rechnen wir also um:
+
+```{r}
+d4 <-
+  d3 %>% 
+  drop_na() %>% 
+  mutate(stress = (PSS10_avg - 1) / (max(PSS10_avg) - 1))
+```
 
 
 
