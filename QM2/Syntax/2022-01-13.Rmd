@@ -1,0 +1,25 @@
+---
+title: "Syntax"
+author: "ses"
+date: "1/13/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Aufgaben
+
+## Aufgabe 1
+
+
+Im Datensatz mtcars: Ist der (mittlere) Unterschied im Spritverbrauch zwischen den beiden Stufen von `vs` vernachlässigbar klein?
+
+Definieren Sie “vernachlässigbar klein” mit “höchstens eine Meile”.
+
+a) Geben Sie das 95% PI an (im Bezug zur gesuchten Größe).
+b) Geben Sie das 95% HDI an (im Bezug zur gesuchten Größe).
+c) Im Hinblick auf die Rope-Methode: Ist der Unterschied vernachlässigbar klein? (ja/nein/unentschieden)
+
