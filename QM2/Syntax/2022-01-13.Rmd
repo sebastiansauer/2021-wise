@@ -79,6 +79,7 @@ Breite des Intervalls:
 ```{r}
 breite <- post_m1_vs[2] - post_m1_vs[1]
 breite <- breite %>% round(2)
+breite
 ```
 
 Die Antwort für a) lautet also `r breite`.
@@ -138,7 +139,7 @@ Einer der (bisher) größten Studien der Untersuchung psychologischer Konsequenz
 
 Im Folgenden sollen Sie folgende Forschungsfrage untersuchen:
 
-Ist der Unterschied im Stresserleben (PSS10_avg, AV) zwischen Deutschland und Frankfrei vernachlässigbar klein? 
+Ist der Unterschied im Stresserleben (*PSS10_avg*, AV) zwischen Deutschland und Frankreich vernachlässigbar klein? 
 Vergleichen Sie dazu die Mittelwerte der gesuchten Größe.
 
 Transformieren Sie die AV auf eine 0-1-Skala ("Einheitsskala").
@@ -168,7 +169,40 @@ Hinweise:
 
 ### Lösung
 
+Datensatz laden:
 
+```{r}
+d <- read_csv("https://osf.io/cjxua/?action=download")
+```
+
+(Achtung, groß, ca. 150 Mb)
+
+Welche Länder gibt es?
+
+```{r}
+d %>%
+  distinct(Country)
+```
+
+Viele!
+
+Gibt es Deutschland und Frankreich?
+
+```{r}
+d %>% 
+  filter(Country == "Germany" |
+           Country == "France") %>% 
+  count(Country)
+```
+
+Puh! Frankreich ist stark vertreten, Deutschland kaum.
+
+```{r}
+d2 <-
+  filter(Country == "Germany" |
+           Country == "France") %>% 
+  count(Country)
+```
 
 
 ## A3
@@ -189,9 +223,10 @@ pnorm(2)
 
 ### Aufgabenstellung
 
-Wie groß ist die Wskt. für manuelles Getriebe, bei einem Auto mit 100 PS 4 Zylindern? 
+Wie groß ist die Wahrscheinlichkeit für ein manuelles Getriebe, 
+bei einem Auto mit 100 PS 4 Zylindern? (Datensatz `mtcars`)
 
-Berechnen Sie das einfachst mögliche logistische Modell!
+Berechnen Sie das einfachste logistische Modell!
 
 Geben Sie einen Punktschätzer an!
 
@@ -199,7 +234,57 @@ Geben Sie einen Punktschätzer an!
 ### Lösung
 
 
+Setup:
+
+```{r}
+data(mtcars)
+library(tidyverse)
+library(rstanarm)
+```
+
+
+Modell berechnen ("fitten"):
+
+```{r}
+m2 <- 
+  stan_glm(am ~ hp + cyl,
+           data = mtcars,
+           refresh = 0,
+           chains = 1,
+           family = binomial("logit"))
+```
 
 
 
+Schauen wir uns mal den Output an:
+
+```{r}
+coef(m2)
+```
+
+
+```{r}
+m2
+```
+
+Sagen wir mal den Logit vorher für `cyl = 4` und `hp = 100`:
+
+
+```{r}
+pred1 <- predict(m2,
+                 newdata = tibble(cyl = 4,
+                                  hp = 100))
+pred1
+```
+
+Und jetzt den Logit umrechnen in Wskt:
+
+
+```{r}
+pred1_wskt <- pred1 %>% invlogit()
+pred1_wskt
+```
+
+
+Die Antwort lautet also: `r pred1_wskt`.
 
