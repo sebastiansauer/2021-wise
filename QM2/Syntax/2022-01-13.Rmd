@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Aufgaben
 
-## Aufgabe 1
+## Aufgabe 1: Rope et al.
 
 ### Aufgabenstellung
 
@@ -30,7 +30,7 @@ c) Im Hinblick auf die Rope-Methode: Ist der Unterschied vernachlässigbar klein
 
 Hinweise:
 
-- Verwenden Sie Standardwerte (Defaults) der typischen (im Unterricht verwendeten) R-Funktionen.
+- Verwenden Sie ansonsten die Standardwerte (Defaults) der typischen (im Unterricht verwendeten) R-Funktionen.
 - Runden Sie auf 2 Dezimalstellen.
 - Verwenden Sie Methoden der Bayes-Statistik.
 
@@ -57,19 +57,27 @@ m1 <- stan_glm(mpg ~ vs, data = mtcars,
                refresh = 0)
 ```
 
+```{r}
+coef(m1)
+```
+
+
 zu a) 
 
 95%-PI:
 
 ```{r}
-posterior_interval(m1, prob = .95)
+post_m1_vs <- posterior_interval(m1, prob = .95,
+                   pars = "vs")
+post_m1_vs[1]
+post_m1_vs[2]
 ```
 
 
 Breite des Intervalls:
 
 ```{r}
-breite <- 11.1199 - 4.4867
+breite <- post_m1_vs[2] - post_m1_vs[1]
 breite <- breite %>% round(2)
 ```
 
@@ -89,19 +97,29 @@ Wir nutzen den Befehl `hdi()` aus `{bayestestR}`.
 hdi(m1)
 ```
 
+Mit dem Schalter `ci = .89` bekäme man bspw. ein 89%-Intervall (s. Hilfe für den Befehl).
 
 "hdi" und "hdpi" und "hpdi" sind synonym.
+
+
+```{r}
+ggplot(mtcars) +
+  aes(x = vs, y = mpg) +
+  geom_point()+
+  geom_smooth(method = "lm")
+
+```
 
 
 zu c)
 
 
 ```{r}
-rope(m1)
+rope(m1,range = c(-1,1))
 ```
 
 ```{r}
-plot(rope(m1))
+plot(rope(m1, range = c(-1,1)))
 ```
 
 Wir verwerfen also die H0-Rope.
@@ -110,7 +128,7 @@ Wir verwerfen also die H0-Rope.
 
 
 
-## Aufgabe 2
+## Aufgabe 2: Covid-Stress
 
 
 ### Aufgabenstellung
@@ -149,5 +167,39 @@ Hinweise:
 
 
 ### Lösung
+
+
+
+
+## A3
+
+
+Quantile und F.werte der Norm.vert.
+
+
+```{r}
+pnorm(1)
+pnorm(2)
+```
+
+
+
+
+## Aufgabe zur logistischen Regression
+
+### Aufgabenstellung
+
+Wie groß ist die Wskt. für manuelles Getriebe, bei einem Auto mit 100 PS 4 Zylindern? 
+
+Berechnen Sie das einfachst mögliche logistische Modell!
+
+Geben Sie einen Punktschätzer an!
+
+
+### Lösung
+
+
+
+
 
 
