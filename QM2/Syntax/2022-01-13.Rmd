@@ -6,6 +6,8 @@ output:
   html_document:
     number_sections: TRUE
     toc: TRUE
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -169,6 +171,16 @@ Hinweise:
 
 ### Lösung
 
+Setup:
+
+```{r}
+library(tidyverse)
+library(rstanarm)
+library(bayesplot)
+library(bayestestR)
+```
+
+
 #### Datensatz laden
 
 ```{r}
@@ -229,6 +241,11 @@ Sie können die Daten (reduzierter Datensatz, nur De und Fr) jetzt unter diesem 
 <https://raw.githubusercontent.com/sebastiansauer/2021-wise/main/Data/COVIDiSTRESS-de-fr.csv>
 
 
+```{r}
+d2 <- read_csv("https://raw.githubusercontent.com/sebastiansauer/2021-wise/main/Data/COVIDiSTRESS-de-fr.csv")
+```
+
+
 
 Wählen wir noch die relevanten Spalten aus:
 
@@ -250,7 +267,7 @@ d3 %>%
             max(PSS10_avg))
 ```
 
-Ah - 1 (Min.) und 5 (Max).
+Ah -- 1 (Min.) und 5 (Max).
 
 
 Rechnen wir also um:
@@ -259,8 +276,121 @@ Rechnen wir also um:
 d4 <-
   d3 %>% 
   drop_na() %>% 
-  mutate(stress = (PSS10_avg - 1) / (max(PSS10_avg) - 1))
+  mutate(stress = (PSS10_avg - 1) / (max(PSS10_avg) - 1)) %>% 
+  select(-PSS10_avg)
 ```
+
+Man könnte das auch mit `case_when()` lösen.
+
+Oder man googelt...[Hier](https://stackoverflow.com/questions/5468280/scale-a-series-between-two-points/5468527#5468527) findet sich eine Lösung.
+
+
+#### Modell berechnen
+
+
+```{r}
+m3 <- stan_glm(stress ~ Country, 
+               data = d4,
+               refresh = 0,
+               chains = 1)  # spart Zeit
+```
+
+
+Punktschätzer zu dem Regressionskoeffizienten:
+
+```{r}
+coef(m3)
+```
+
+
+Plotten wir das Modell:
+
+```{r}
+plot(m3)
+```
+
+
+
+Plotten wir mal nur den Parameter,
+der uns interessiert:
+
+```{r}
+plot(m3, pars = "CountryGermany")
+```
+
+
+Setzen wir das in Bezug zu den Mittelwerten:
+
+```{r}
+d4 %>% 
+  group_by(Country) %>% 
+  summarise(stress_avg = mean(stress))
+```
+
+Frankreich ist bei 40% Stress; Deutschland bei 39%.
+Das scheint (mir) kein großer Unterschied zu sein.
+
+
+#### a) Rope berechnen
+
+```{r}
+rope(m3)
+```
+
+Also lautet die Antwort zu A) "Geben Sie den Anteil der Post-Verteilung an, die außerhalb des Rope liegt":
+
+*Ca. 95%*.
+
+Gerundet auf 2 Dezimalstellen: `0.95`.
+
+
+#### b) Breite der Post-Vert.
+
+
+*b) Nennen Sie die Breite des 89%-Post-PI zum gesuchten Effekt.*
+
+
+```{r}
+post2 <- posterior_interval(m3, prob = .89, pars = "CountryGermany")
+post2
+```
+
+
+
+Breite ist also:
+
+```{r}
+breite <- post2[2] - post2[1]
+breite %>% round(2)
+```
+
+
+
+#### c) R-Quadrat
+
+
+*Berechnen Sie den medianen Wert des Bayes-R-Quadrat.*
+
+
+```{r}
+r2 <- bayes_R2(m3)
+median(r2)
+```
+
+Gerundet auf zwei Dezimalstellen: `0.00`.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
